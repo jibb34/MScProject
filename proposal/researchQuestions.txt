@@ -1,0 +1,57 @@
+Research Questions for project:
+
+What languages are best to use?
+Possibly python for data manipulation, and go for general concurrent actions
+
+If we use multiple languages, how best to communicate?
+can pass messages through via redis or rabbitmq
+can send instructions via gRPC?
+
+What standard would we use to store and handle files?
+can prototype with json, but should use something like messagepack or protocol buffers
+SQLite files for database storage
+
+How do we aggregate multiple gpx files into a database, an entry for each point is not useful.
+We dont store whole files, we store only the segments, and any datapoints that are considered to be "on" the segment
+
+How to clean up data files to make them more useful?
+Kalman filters for smoothing tracks
+removing points that don't affect the line, and also don't have significant metric differentials, or elevation change
+
+
+How to optimise map performance?
+remove points in the front end that don't redefine the map shape 
+caching: showing parts of a map that are necessary only
+WebGL/GPU accelerated libraries like webgl leaflet plugin?
+
+*** How to generate segments of a map that are meaningful to the goal? ***
+Density based clustering of large file set. Can define a route as a "commonly ridden path", a useful metric
+that can signal a lot of other factors, like safety and training suitability. although not the determining factor
+
+brainstorm metrics that would be insightful, and more importantly, how to get them from data.
+
+
+How to apply segments to a route to visualise the information we are looking for? 
+Snap-to-path algorithm could be used to create extensions for gpx files to define each trkpoint as belonging to a segment
+trkpoints that are considered to be "on" a segment that exists will be stored along with the segment information in the database.
+
+Segments is a term used by Strava, what other term could we use for it that makes sense?
+Section? Routelet? sprint? ride-piece? Lots of options
+
+How to maintain segments over time (updates due to construction, repaving, traffic, etc?)
+Initialise once (hopefully), and just update the entry, give each segment a uuid?
+Update entry means periodically call the algorithm to redefine the values of a segment based on saved gpx data.
+
+how to aggregate large amounts of training data to power the model?
+Further research required
+
+what model are we going to use?
+Training model? Machine learning? Or just basic algorithms?
+
+what will the architecture of the system look like?
+Web stack: definitely a front end webpage, database, and back end. Maybe separate worker servers too?
+
+
+what kind of database do we need, and what are the entities?
+
+

@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <trk>
+    <name>Florida Time Trial</name>
+    <trkseg>
+      <trkpt lat="41.33386" lon="-74.372126">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:33:08</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333861" lon="-74.372128">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:33:09</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333861" lon="-74.372128">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:33:10</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333861" lon="-74.372128">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:33:11</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333766" lon="-74.372395">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:33:14</time>
+        <extensions>
+          <velocity_smooth>3.1</velocity_smooth>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333692" lon="-74.37261">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:33:16</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.33343" lon="-74.373367">
+        <ele>119.5</ele>
+        <time>2014-08-06T22:33:22</time>
+        <extensions>
+          <velocity_smooth>9.3</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333064" lon="-74.374472">
+        <ele>119.4</ele>
+        <time>2014-08-06T22:33:30</time>
+        <extensions>
+          <velocity_smooth>11.5</velocity_smooth>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.332647" lon="-74.37568">
+        <ele>119.8</ele>
+        <time>2014-08-06T22:33:39</time>
+        <extensions>
+          <velocity_smooth>12.4</velocity_smooth>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.332216" lon="-74.376941">
+        <ele>120.2</ele>
+        <time>2014-08-06T22:33:49</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.331791" lon="-74.37821">
+        <ele>120.7</ele>
+        <time>2014-08-06T22:33:59</time>
+        <extensions>
+          <velocity_smooth>10.6</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.331325" lon="-74.379591">
+        <ele>120.7</ele>
+        <time>2014-08-06T22:34:10</time>
+        <extensions>
+          <velocity_smooth>11.0</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330859" lon="-74.380949">
+        <ele>120.2</ele>
+        <time>2014-08-06T22:34:21</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330718" lon="-74.381306">
+        <ele>120.0</ele>
+        <time>2014-08-06T22:34:24</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330486" lon="-74.381555">
+        <ele>119.8</ele>
+        <time>2014-08-06T22:34:27</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330278" lon="-74.381555">
+        <ele>119.8</ele>
+        <time>2014-08-06T22:34:29</time>
+        <extensions>
+          <velocity_smooth>10.7</velocity_smooth>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330077" lon="-74.381514">
+        <ele>119.8</ele>
+        <time>2014-08-06T22:34:31</time>
+        <extensions>
+          <velocity_smooth>10.8</velocity_smooth>
+          <grade_smooth>2.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329793" lon="-74.381591">
+        <ele>121.0</ele>
+        <time>2014-08-06T22:34:34</time>
+        <extensions>
+          <velocity_smooth>11.0</velocity_smooth>
+          <grade_smooth>2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32967" lon="-74.381777">
+        <ele>122.0</ele>
+        <time>2014-08-06T22:34:36</time>
+        <extensions>
+          <velocity_smooth>10.8</velocity_smooth>
+          <grade_smooth>2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329631" lon="-74.38189">
+        <ele>122.2</ele>
+        <time>2014-08-06T22:34:37</time>
+        <extensions>
+          <velocity_smooth>10.7</velocity_smooth>
+          <grade_smooth>0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329382" lon="-74.382718">
+        <ele>122.9</ele>
+        <time>2014-08-06T22:34:44</time>
+        <extensions>
+          <velocity_smooth>10.6</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329149" lon="-74.383457">
+        <ele>122.1</ele>
+        <time>2014-08-06T22:34:50</time>
+        <extensions>
+          <velocity_smooth>10.6</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.328813" lon="-74.38449">
+        <ele>121.7</ele>
+        <time>2014-08-06T22:34:58</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.328539" lon="-74.385036">
+        <ele>122.1</ele>
+        <time>2014-08-06T22:35:03</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.328174" lon="-74.385747">
+        <ele>122.4</ele>
+        <time>2014-08-06T22:35:10</time>
+        <extensions>
+          <velocity_smooth>10.4</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.327839" lon="-74.386469">
+        <ele>122.5</ele>
+        <time>2014-08-06T22:35:16</time>
+        <extensions>
+          <velocity_smooth>11.0</velocity_smooth>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.327416" lon="-74.38743">
+        <ele>121.7</ele>
+        <time>2014-08-06T22:35:24</time>
+        <extensions>
+          <velocity_smooth>11.7</velocity_smooth>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.327081" lon="-74.388317">
+        <ele>120.7</ele>
+        <time>2014-08-06T22:35:31</time>
+        <extensions>
+          <velocity_smooth>11.7</velocity_smooth>
+          <grade_smooth>-1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32677" lon="-74.389229">
+        <ele>120.1</ele>
+        <time>2014-08-06T22:35:38</time>
+        <extensions>
+          <velocity_smooth>11.9</velocity_smooth>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.326641" lon="-74.389612">
+        <ele>119.6</ele>
+        <time>2014-08-06T22:35:41</time>
+        <extensions>
+          <velocity_smooth>11.9</velocity_smooth>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.326341" lon="-74.390622">
+        <ele>118.6</ele>
+        <time>2014-08-06T22:35:49</time>
+        <extensions>
+          <velocity_smooth>11.5</velocity_smooth>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.326007" lon="-74.391735">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:35:58</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.325753" lon="-74.392576">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:36:05</time>
+        <extensions>
+          <velocity_smooth>11.0</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32546" lon="-74.393559">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:36:13</time>
+        <extensions>
+          <velocity_smooth>10.9</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32508" lon="-74.394798">
+        <ele>118.8</ele>
+        <time>2014-08-06T22:36:23</time>
+        <extensions>
+          <velocity_smooth>10.7</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.324742" lon="-74.395911">
+        <ele>119.3</ele>
+        <time>2014-08-06T22:36:32</time>
+        <extensions>
+          <velocity_smooth>10.8</velocity_smooth>
+          <grade_smooth>1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.324412" lon="-74.396955">
+        <ele>119.4</ele>
+        <time>2014-08-06T22:36:41</time>
+        <extensions>
+          <velocity_smooth>10.8</velocity_smooth>
+          <grade_smooth>1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32416" lon="-74.397902">
+        <ele>123.2</ele>
+        <time>2014-08-06T22:36:49</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.323961" lon="-74.398851">
+        <ele>122.6</ele>
+        <time>2014-08-06T22:36:57</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.323762" lon="-74.399615">
+        <ele>123.0</ele>
+        <time>2014-08-06T22:37:04</time>
+        <extensions>
+          <velocity_smooth>10.1</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.323476" lon="-74.400251">
+        <ele>123.0</ele>
+        <time>2014-08-06T22:37:10</time>
+        <extensions>
+          <velocity_smooth>9.2</velocity_smooth>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.323074" lon="-74.400801">
+        <ele>123.5</ele>
+        <time>2014-08-06T22:37:16</time>
+        <extensions>
+          <velocity_smooth>9.7</velocity_smooth>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.322468" lon="-74.401579">
+        <ele>123.8</ele>
+        <time>2014-08-06T22:37:25</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.321958" lon="-74.402312">
+        <ele>123.9</ele>
+        <time>2014-08-06T22:37:33</time>
+        <extensions>
+          <velocity_smooth>10.4</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.321443" lon="-74.403074">
+        <ele>124.2</ele>
+        <time>2014-08-06T22:37:41</time>
+        <extensions>
+          <velocity_smooth>10.6</velocity_smooth>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.321018" lon="-74.403716">
+        <ele>124.1</ele>
+        <time>2014-08-06T22:37:48</time>
+        <extensions>
+          <velocity_smooth>10.3</velocity_smooth>
+          <grade_smooth>-1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.320726" lon="-74.404138">
+        <ele>123.2</ele>
+        <time>2014-08-06T22:37:53</time>
+        <extensions>
+          <velocity_smooth>9.8</velocity_smooth>
+          <grade_smooth>-1.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.320685" lon="-74.404422">
+        <ele>121.7</ele>
+        <time>2014-08-06T22:37:56</time>
+        <extensions>
+          <velocity_smooth>9.4</velocity_smooth>
+          <grade_smooth>-2.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.320817" lon="-74.404549">
+        <ele>121.4</ele>
+        <time>2014-08-06T22:37:58</time>
+        <extensions>
+          <velocity_smooth>8.9</velocity_smooth>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.320998" lon="-74.404601">
+        <ele>121.1</ele>
+        <time>2014-08-06T22:38:00</time>
+        <extensions>
+          <velocity_smooth>9.2</velocity_smooth>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.321787" lon="-74.40482">
+        <ele>120.6</ele>
+        <time>2014-08-06T22:38:08</time>
+        <extensions>
+          <velocity_smooth>10.3</velocity_smooth>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.322087" lon="-74.404911">
+        <ele>120.4</ele>
+        <time>2014-08-06T22:38:11</time>
+        <extensions>
+          <velocity_smooth>10.6</velocity_smooth>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.322785" lon="-74.405122">
+        <ele>120.0</ele>
+        <time>2014-08-06T22:38:18</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.323663" lon="-74.4054">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:38:27</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.324498" lon="-74.405651">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:38:36</time>
+        <extensions>
+          <velocity_smooth>10.8</velocity_smooth>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.325421" lon="-74.405941">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:38:46</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.326373" lon="-74.406227">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:38:56</time>
+        <extensions>
+          <velocity_smooth>10.7</velocity_smooth>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32699" lon="-74.406401">
+        <ele>118.6</ele>
+        <time>2014-08-06T22:39:03</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.327646" lon="-74.406543">
+        <ele>119.5</ele>
+        <time>2014-08-06T22:39:10</time>
+        <extensions>
+          <velocity_smooth>10.2</velocity_smooth>
+          <grade_smooth>1.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.328278" lon="-74.406665">
+        <ele>121.0</ele>
+        <time>2014-08-06T22:39:17</time>
+        <extensions>
+          <velocity_smooth>10.4</velocity_smooth>
+          <grade_smooth>3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.32855" lon="-74.406707">
+        <ele>122.3</ele>
+        <time>2014-08-06T22:39:20</time>
+        <extensions>
+          <velocity_smooth>10.2</velocity_smooth>
+          <grade_smooth>4.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.328894" lon="-74.406623">
+        <ele>125.3</ele>
+        <time>2014-08-06T22:39:24</time>
+        <extensions>
+          <velocity_smooth>9.9</velocity_smooth>
+          <grade_smooth>3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329029" lon="-74.40649">
+        <ele>125.9</ele>
+        <time>2014-08-06T22:39:26</time>
+        <extensions>
+          <velocity_smooth>9.7</velocity_smooth>
+          <grade_smooth>1.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329482" lon="-74.40602">
+        <ele>125.7</ele>
+        <time>2014-08-06T22:39:33</time>
+        <extensions>
+          <velocity_smooth>9.2</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.329915" lon="-74.405674">
+        <ele>125.2</ele>
+        <time>2014-08-06T22:39:39</time>
+        <extensions>
+          <velocity_smooth>9.3</velocity_smooth>
+          <grade_smooth>1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330438" lon="-74.405296">
+        <ele>125.6</ele>
+        <time>2014-08-06T22:39:46</time>
+        <extensions>
+          <velocity_smooth>9.4</velocity_smooth>
+          <grade_smooth>2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.330874" lon="-74.405009">
+        <ele>129.3</ele>
+        <time>2014-08-06T22:39:52</time>
+        <extensions>
+          <velocity_smooth>9.2</velocity_smooth>
+          <grade_smooth>3.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.33095" lon="-74.404971">
+        <ele>129.7</ele>
+        <time>2014-08-06T22:39:53</time>
+        <extensions>
+          <velocity_smooth>9.0</velocity_smooth>
+          <grade_smooth>5.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.331249" lon="-74.404942">
+        <ele>131.0</ele>
+        <time>2014-08-06T22:39:57</time>
+        <extensions>
+          <velocity_smooth>8.7</velocity_smooth>
+          <grade_smooth>4.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.331383" lon="-74.40501">
+        <ele>131.9</ele>
+        <time>2014-08-06T22:39:59</time>
+        <extensions>
+          <velocity_smooth>8.5</velocity_smooth>
+          <grade_smooth>4.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.331907" lon="-74.405462">
+        <ele>135.1</ele>
+        <time>2014-08-06T22:40:08</time>
+        <extensions>
+          <velocity_smooth>7.8</velocity_smooth>
+          <grade_smooth>4.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.332241" lon="-74.405738">
+        <ele>136.6</ele>
+        <time>2014-08-06T22:40:14</time>
+        <extensions>
+          <velocity_smooth>7.5</velocity_smooth>
+          <grade_smooth>3.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.332473" lon="-74.405722">
+        <ele>137.8</ele>
+        <time>2014-08-06T22:40:18</time>
+        <extensions>
+          <velocity_smooth>7.0</velocity_smooth>
+          <grade_smooth>2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.33252" lon="-74.405669">
+        <ele>137.6</ele>
+        <time>2014-08-06T22:40:19</time>
+        <extensions>
+          <velocity_smooth>6.8</velocity_smooth>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.332845" lon="-74.405253">
+        <ele>137.7</ele>
+        <time>2014-08-06T22:40:25</time>
+        <extensions>
+          <velocity_smooth>8.1</velocity_smooth>
+          <grade_smooth>-2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333292" lon="-74.404729">
+        <ele>137.3</ele>
+        <time>2014-08-06T22:40:32</time>
+        <extensions>
+          <velocity_smooth>8.9</velocity_smooth>
+          <grade_smooth>-1.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333774" lon="-74.40428">
+        <ele>133.3</ele>
+        <time>2014-08-06T22:40:38</time>
+        <extensions>
+          <velocity_smooth>10.1</velocity_smooth>
+          <grade_smooth>-1.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.334425" lon="-74.40372">
+        <ele>132.6</ele>
+        <time>2014-08-06T22:40:45</time>
+        <extensions>
+          <velocity_smooth>11.6</velocity_smooth>
+          <grade_smooth>-3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.335205" lon="-74.403077">
+        <ele>132.3</ele>
+        <time>2014-08-06T22:40:53</time>
+        <extensions>
+          <velocity_smooth>12.5</velocity_smooth>
+          <grade_smooth>-2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.335917" lon="-74.402462">
+        <ele>126.7</ele>
+        <time>2014-08-06T22:41:00</time>
+        <extensions>
+          <velocity_smooth>13.0</velocity_smooth>
+          <grade_smooth>-2.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.336701" lon="-74.401792">
+        <ele>124.8</ele>
+        <time>2014-08-06T22:41:07</time>
+        <extensions>
+          <velocity_smooth>14.1</velocity_smooth>
+          <grade_smooth>-2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.33746" lon="-74.401147">
+        <ele>121.0</ele>
+        <time>2014-08-06T22:41:14</time>
+        <extensions>
+          <velocity_smooth>14.6</velocity_smooth>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.33817" lon="-74.400544">
+        <ele>122.7</ele>
+        <time>2014-08-06T22:41:21</time>
+        <extensions>
+          <velocity_smooth>13.9</velocity_smooth>
+          <grade_smooth>2.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338588" lon="-74.400178">
+        <ele>128.3</ele>
+        <time>2014-08-06T22:41:26</time>
+        <extensions>
+          <velocity_smooth>12.6</velocity_smooth>
+          <grade_smooth>3.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.339001" lon="-74.399833">
+        <ele>130.9</ele>
+        <time>2014-08-06T22:41:32</time>
+        <extensions>
+          <velocity_smooth>10.2</velocity_smooth>
+          <grade_smooth>3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.339416" lon="-74.399488">
+        <ele>130.6</ele>
+        <time>2014-08-06T22:41:38</time>
+        <extensions>
+          <velocity_smooth>9.1</velocity_smooth>
+          <grade_smooth>1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.340016" lon="-74.398987">
+        <ele>130.3</ele>
+        <time>2014-08-06T22:41:46</time>
+        <extensions>
+          <velocity_smooth>9.5</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.340651" lon="-74.398468">
+        <ele>131.5</ele>
+        <time>2014-08-06T22:41:54</time>
+        <extensions>
+          <velocity_smooth>10.1</velocity_smooth>
+          <grade_smooth>-1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.341228" lon="-74.398004">
+        <ele>131.0</ele>
+        <time>2014-08-06T22:42:01</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.341932" lon="-74.397445">
+        <ele>127.4</ele>
+        <time>2014-08-06T22:42:09</time>
+        <extensions>
+          <velocity_smooth>11.0</velocity_smooth>
+          <grade_smooth>-2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.34253" lon="-74.396982">
+        <ele>126.0</ele>
+        <time>2014-08-06T22:42:16</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>-2.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.343107" lon="-74.396613">
+        <ele>124.6</ele>
+        <time>2014-08-06T22:42:22</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>-1.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.34388" lon="-74.396205">
+        <ele>122.0</ele>
+        <time>2014-08-06T22:42:29</time>
+        <extensions>
+          <velocity_smooth>12.4</velocity_smooth>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.34478" lon="-74.395727">
+        <ele>121.9</ele>
+        <time>2014-08-06T22:42:37</time>
+        <extensions>
+          <velocity_smooth>13.3</velocity_smooth>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.34537" lon="-74.395358">
+        <ele>122.2</ele>
+        <time>2014-08-06T22:42:43</time>
+        <extensions>
+          <velocity_smooth>12.9</velocity_smooth>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.34599" lon="-74.394877">
+        <ele>122.3</ele>
+        <time>2014-08-06T22:42:50</time>
+        <extensions>
+          <velocity_smooth>11.7</velocity_smooth>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.346803" lon="-74.394215">
+        <ele>124.0</ele>
+        <time>2014-08-06T22:42:59</time>
+        <extensions>
+          <velocity_smooth>11.6</velocity_smooth>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.346977" lon="-74.394079">
+        <ele>124.5</ele>
+        <time>2014-08-06T22:43:01</time>
+        <extensions>
+          <velocity_smooth>11.7</velocity_smooth>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.347079" lon="-74.393723">
+        <ele>123.5</ele>
+        <time>2014-08-06T22:43:04</time>
+        <extensions>
+          <velocity_smooth>10.9</velocity_smooth>
+          <grade_smooth>-3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.347002" lon="-74.39346">
+        <ele>121.9</ele>
+        <time>2014-08-06T22:43:06</time>
+        <extensions>
+          <velocity_smooth>11.0</velocity_smooth>
+          <grade_smooth>-4.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.346943" lon="-74.393328">
+        <ele>121.2</ele>
+        <time>2014-08-06T22:43:07</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>-2.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.346738" lon="-74.392904">
+        <ele>119.9</ele>
+        <time>2014-08-06T22:43:10</time>
+        <extensions>
+          <velocity_smooth>12.8</velocity_smooth>
+          <grade_smooth>-0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.346471" lon="-74.392327">
+        <ele>119.9</ele>
+        <time>2014-08-06T22:43:14</time>
+        <extensions>
+          <velocity_smooth>13.9</velocity_smooth>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.345901" lon="-74.391006">
+        <ele>119.8</ele>
+        <time>2014-08-06T22:43:23</time>
+        <extensions>
+          <velocity_smooth>14.1</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.345368" lon="-74.389674">
+        <ele>119.8</ele>
+        <time>2014-08-06T22:43:32</time>
+        <extensions>
+          <velocity_smooth>14.1</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.344783" lon="-74.388215">
+        <ele>119.6</ele>
+        <time>2014-08-06T22:43:42</time>
+        <extensions>
+          <velocity_smooth>14.0</velocity_smooth>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.344265" lon="-74.386916">
+        <ele>119.2</ele>
+        <time>2014-08-06T22:43:51</time>
+        <extensions>
+          <velocity_smooth>13.8</velocity_smooth>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.343733" lon="-74.385563">
+        <ele>118.7</ele>
+        <time>2014-08-06T22:44:00</time>
+        <extensions>
+          <velocity_smooth>13.9</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.343116" lon="-74.384056">
+        <ele>119.0</ele>
+        <time>2014-08-06T22:44:10</time>
+        <extensions>
+          <velocity_smooth>14.3</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.342688" lon="-74.382999">
+        <ele>119.2</ele>
+        <time>2014-08-06T22:44:17</time>
+        <extensions>
+          <velocity_smooth>14.3</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.341905" lon="-74.381096">
+        <ele>120.3</ele>
+        <time>2014-08-06T22:44:30</time>
+        <extensions>
+          <velocity_smooth>14.1</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.341318" lon="-74.379673">
+        <ele>119.6</ele>
+        <time>2014-08-06T22:44:40</time>
+        <extensions>
+          <velocity_smooth>13.8</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.340799" lon="-74.378412">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:44:49</time>
+        <extensions>
+          <velocity_smooth>13.4</velocity_smooth>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.340211" lon="-74.377001">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:44:59</time>
+        <extensions>
+          <velocity_smooth>13.4</velocity_smooth>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.339809" lon="-74.376022">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:06</time>
+        <extensions>
+          <velocity_smooth>13.4</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.339752" lon="-74.375882">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:07</time>
+        <extensions>
+          <velocity_smooth>13.3</velocity_smooth>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.339752" lon="-74.375882">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:07</time>
+        <extensions>
+          <velocity_smooth>13.3</velocity_smooth>
+          <grade_smooth>0.7</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.339294" lon="-74.374779">
+        <ele>119.6</ele>
+        <time>2014-08-06T22:45:15</time>
+        <extensions>
+          <velocity_smooth>13.2</velocity_smooth>
+          <grade_smooth>0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338882" lon="-74.373659">
+        <ele>120.0</ele>
+        <time>2014-08-06T22:45:23</time>
+        <extensions>
+          <velocity_smooth>13.1</velocity_smooth>
+          <grade_smooth>0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338624" lon="-74.37265">
+        <ele>120.5</ele>
+        <time>2014-08-06T22:45:30</time>
+        <extensions>
+          <velocity_smooth>12.9</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338598" lon="-74.37203">
+        <ele>120.5</ele>
+        <time>2014-08-06T22:45:34</time>
+        <extensions>
+          <velocity_smooth>12.8</velocity_smooth>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338603" lon="-74.370944">
+        <ele>119.9</ele>
+        <time>2014-08-06T22:45:41</time>
+        <extensions>
+          <velocity_smooth>12.9</velocity_smooth>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338493" lon="-74.370061">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:47</time>
+        <extensions>
+          <velocity_smooth>12.7</velocity_smooth>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338423" lon="-74.369784">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:49</time>
+        <extensions>
+          <velocity_smooth>12.4</velocity_smooth>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.338129" lon="-74.369183">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:54</time>
+        <extensions>
+          <velocity_smooth>12.2</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337885" lon="-74.368719">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:45:58</time>
+        <extensions>
+          <velocity_smooth>12.0</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337764" lon="-74.368179">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:02</time>
+        <extensions>
+          <velocity_smooth>11.9</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337768" lon="-74.367903">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:04</time>
+        <extensions>
+          <velocity_smooth>11.8</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337887" lon="-74.366713">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:13</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337918" lon="-74.366464">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:15</time>
+        <extensions>
+          <velocity_smooth>11.2</velocity_smooth>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337804" lon="-74.366306">
+        <ele>118.6</ele>
+        <time>2014-08-06T22:46:18</time>
+        <extensions>
+          <velocity_smooth>7.8</velocity_smooth>
+          <grade_smooth>4.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337682" lon="-74.366337">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:46:20</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <grade_smooth>5.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337249" lon="-74.3664">
+        <ele>122.3</ele>
+        <time>2014-08-06T22:46:25</time>
+        <extensions>
+          <velocity_smooth>7.3</velocity_smooth>
+          <grade_smooth>3.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.337066" lon="-74.366436">
+        <ele>123.1</ele>
+        <time>2014-08-06T22:46:27</time>
+        <extensions>
+          <velocity_smooth>8.1</velocity_smooth>
+          <grade_smooth>1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.336405" lon="-74.366506">
+        <ele>123.2</ele>
+        <time>2014-08-06T22:46:34</time>
+        <extensions>
+          <velocity_smooth>10.1</velocity_smooth>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.335856" lon="-74.366576">
+        <ele>120.9</ele>
+        <time>2014-08-06T22:46:40</time>
+        <extensions>
+          <velocity_smooth>10.2</velocity_smooth>
+          <grade_smooth>-2.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.335637" lon="-74.366979">
+        <ele>118.8</ele>
+        <time>2014-08-06T22:46:44</time>
+        <extensions>
+          <velocity_smooth>10.4</velocity_smooth>
+          <grade_smooth>-2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.33561" lon="-74.367111">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:45</time>
+        <extensions>
+          <velocity_smooth>10.7</velocity_smooth>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.335408" lon="-74.368055">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:52</time>
+        <extensions>
+          <velocity_smooth>11.5</velocity_smooth>
+          <grade_smooth>-0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.335231" lon="-74.368697">
+        <ele>118.5</ele>
+        <time>2014-08-06T22:46:57</time>
+        <extensions>
+          <velocity_smooth>11.5</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.334911" lon="-74.369207">
+        <ele>118.6</ele>
+        <time>2014-08-06T22:47:02</time>
+        <extensions>
+          <velocity_smooth>11.3</velocity_smooth>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.334787" lon="-74.369413">
+        <ele>118.8</ele>
+        <time>2014-08-06T22:47:04</time>
+        <extensions>
+          <velocity_smooth>11.1</velocity_smooth>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.334481" lon="-74.370283">
+        <ele>119.5</ele>
+        <time>2014-08-06T22:47:11</time>
+        <extensions>
+          <velocity_smooth>10.5</velocity_smooth>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.334178" lon="-74.371229">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:47:18</time>
+        <extensions>
+          <velocity_smooth>10.7</velocity_smooth>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333898" lon="-74.372024">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:47:24</time>
+        <extensions>
+          <velocity_smooth>11.6</velocity_smooth>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="41.333898" lon="-74.372024">
+        <ele>119.1</ele>
+        <time>2014-08-06T22:47:25</time>
+        <extensions>
+          <velocity_smooth>10.6</velocity_smooth>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

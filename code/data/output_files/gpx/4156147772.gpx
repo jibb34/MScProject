@@ -1,0 +1,2988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <trk>
+    <name>Evening Ride</name>
+    <trkseg>
+      <trkpt lat="40.860467" lon="-74.186843">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:11:09</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-1.5</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860517" lon="-74.18689">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:11:10</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860635" lon="-74.187052">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:11:14</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860592" lon="-74.18709">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:11:16</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860514" lon="-74.187022">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:11:18</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860244" lon="-74.186641">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:11:24</time>
+        <extensions>
+          <velocity_smooth>6.8</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85999" lon="-74.186264">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:11:30</time>
+        <extensions>
+          <velocity_smooth>7.2</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859827" lon="-74.186035">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:11:34</time>
+        <extensions>
+          <velocity_smooth>6.9</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859725" lon="-74.186001">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:11:36</time>
+        <extensions>
+          <velocity_smooth>6.4</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859622" lon="-74.186031">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:11:38</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>1.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859576" lon="-74.186106">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:11:40</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859611" lon="-74.186145">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:11:42</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-4.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859646" lon="-74.186174">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:11:44</time>
+        <extensions>
+          <velocity_smooth>3.3</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859568" lon="-74.186228">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:11:47</time>
+        <extensions>
+          <velocity_smooth>3.1</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859463" lon="-74.186225">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:11:49</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859313" lon="-74.18621">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:11:52</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859218" lon="-74.186229">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:11:54</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85914" lon="-74.186297">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:11:56</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859104" lon="-74.186399">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:11:58</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859112" lon="-74.186501">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:12:00</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>192</heartrate>
+          <grade_smooth>-1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859149" lon="-74.186509">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:12:02</time>
+        <extensions>
+          <velocity_smooth>3.8</velocity_smooth>
+          <heartrate>192</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859236" lon="-74.186439">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:12:06</time>
+        <extensions>
+          <velocity_smooth>2.7</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859164" lon="-74.186553">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:12:10</time>
+        <extensions>
+          <velocity_smooth>3.0</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859185" lon="-74.186554">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:12:12</time>
+        <extensions>
+          <velocity_smooth>2.7</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859369" lon="-74.186347">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:12:17</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85943" lon="-74.186338">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:12:19</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>190</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859382" lon="-74.186444">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:12:22</time>
+        <extensions>
+          <velocity_smooth>3.7</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859202" lon="-74.186598">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:12:26</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859166" lon="-74.186654">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:12:27</time>
+        <extensions>
+          <velocity_smooth>6.0</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-1.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859144" lon="-74.18679">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:12:29</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859175" lon="-74.186925">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:12:31</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859247" lon="-74.18705">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:12:33</time>
+        <extensions>
+          <velocity_smooth>6.1</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859497" lon="-74.187412">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:12:39</time>
+        <extensions>
+          <velocity_smooth>6.8</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859615" lon="-74.187619">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:12:42</time>
+        <extensions>
+          <velocity_smooth>7.0</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859651" lon="-74.187733">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:12:44</time>
+        <extensions>
+          <velocity_smooth>6.5</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85942" lon="-74.187412">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:12:50</time>
+        <extensions>
+          <velocity_smooth>6.1</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859165" lon="-74.186988">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:12:56</time>
+        <extensions>
+          <velocity_smooth>7.0</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>0.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858938" lon="-74.186555">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:13:02</time>
+        <extensions>
+          <velocity_smooth>7.5</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858892" lon="-74.18641">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:13:04</time>
+        <extensions>
+          <velocity_smooth>7.2</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>2.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858889" lon="-74.186117">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:13:08</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>3.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858882" lon="-74.186052">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:13:09</time>
+        <extensions>
+          <velocity_smooth>6.0</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858829" lon="-74.186131">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:13:13</time>
+        <extensions>
+          <velocity_smooth>4.2</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>-2.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858844" lon="-74.186273">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:13:15</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>-3.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858838" lon="-74.186337">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:13:16</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858815" lon="-74.186374">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:13:17</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>4.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858707" lon="-74.186319">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:13:20</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>5.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858673" lon="-74.18627">
+        <ele>66.4</ele>
+        <time>2020-09-30T22:13:21</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>6.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858575" lon="-74.186121">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:13:24</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>6.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858511" lon="-74.18603">
+        <ele>68.0</ele>
+        <time>2020-09-30T22:13:26</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>5.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858448" lon="-74.185932">
+        <ele>68.6</ele>
+        <time>2020-09-30T22:13:28</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>5.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858283" lon="-74.185716">
+        <ele>69.6</ele>
+        <time>2020-09-30T22:13:33</time>
+        <extensions>
+          <velocity_smooth>5.2</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>5.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858182" lon="-74.185589">
+        <ele>70.8</ele>
+        <time>2020-09-30T22:13:36</time>
+        <extensions>
+          <velocity_smooth>5.2</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>5.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858058" lon="-74.185443">
+        <ele>71.8</ele>
+        <time>2020-09-30T22:13:40</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>4.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858036" lon="-74.185363">
+        <ele>72.0</ele>
+        <time>2020-09-30T22:13:42</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>1.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858217" lon="-74.185184">
+        <ele>72.6</ele>
+        <time>2020-09-30T22:13:48</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>189</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858459" lon="-74.185023">
+        <ele>72.2</ele>
+        <time>2020-09-30T22:13:54</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858794" lon="-74.184797">
+        <ele>71.4</ele>
+        <time>2020-09-30T22:14:00</time>
+        <extensions>
+          <velocity_smooth>6.0</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858893" lon="-74.184725">
+        <ele>71.2</ele>
+        <time>2020-09-30T22:14:02</time>
+        <extensions>
+          <velocity_smooth>6.8</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-3.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85894" lon="-74.184703">
+        <ele>70.6</ele>
+        <time>2020-09-30T22:14:03</time>
+        <extensions>
+          <velocity_smooth>6.7</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-6.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858991" lon="-74.184697">
+        <ele>70.0</ele>
+        <time>2020-09-30T22:14:04</time>
+        <extensions>
+          <velocity_smooth>6.6</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-8.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859038" lon="-74.184711">
+        <ele>69.6</ele>
+        <time>2020-09-30T22:14:05</time>
+        <extensions>
+          <velocity_smooth>5.8</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-6.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85907" lon="-74.184765">
+        <ele>69.4</ele>
+        <time>2020-09-30T22:14:06</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-6.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859051" lon="-74.184965">
+        <ele>68.4</ele>
+        <time>2020-09-30T22:14:08</time>
+        <extensions>
+          <velocity_smooth>6.6</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-4.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859032" lon="-74.185055">
+        <ele>67.6</ele>
+        <time>2020-09-30T22:14:09</time>
+        <extensions>
+          <velocity_smooth>7.0</velocity_smooth>
+          <heartrate>188</heartrate>
+          <grade_smooth>-1.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858958" lon="-74.185198">
+        <ele>67.6</ele>
+        <time>2020-09-30T22:14:11</time>
+        <extensions>
+          <velocity_smooth>7.8</velocity_smooth>
+          <heartrate>187</heartrate>
+          <grade_smooth>2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858869" lon="-74.185233">
+        <ele>68.6</ele>
+        <time>2020-09-30T22:14:13</time>
+        <extensions>
+          <velocity_smooth>6.5</velocity_smooth>
+          <heartrate>186</heartrate>
+          <grade_smooth>6.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858788" lon="-74.185199">
+        <ele>69.4</ele>
+        <time>2020-09-30T22:14:15</time>
+        <extensions>
+          <velocity_smooth>5.6</velocity_smooth>
+          <heartrate>185</heartrate>
+          <grade_smooth>9.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858704" lon="-74.185149">
+        <ele>70.4</ele>
+        <time>2020-09-30T22:14:17</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>185</heartrate>
+          <grade_smooth>4.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858592" lon="-74.185114">
+        <ele>71.8</ele>
+        <time>2020-09-30T22:14:20</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>184</heartrate>
+          <grade_smooth>3.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85838" lon="-74.185229">
+        <ele>71.0</ele>
+        <time>2020-09-30T22:14:26</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858334" lon="-74.185249">
+        <ele>71.0</ele>
+        <time>2020-09-30T22:14:27</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858195" lon="-74.185292">
+        <ele>71.0</ele>
+        <time>2020-09-30T22:14:30</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858193" lon="-74.185368">
+        <ele>71.0</ele>
+        <time>2020-09-30T22:14:32</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858225" lon="-74.185391">
+        <ele>70.8</ele>
+        <time>2020-09-30T22:14:33</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858273" lon="-74.185385">
+        <ele>70.6</ele>
+        <time>2020-09-30T22:14:34</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858466" lon="-74.185325">
+        <ele>70.8</ele>
+        <time>2020-09-30T22:14:38</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-2.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858561" lon="-74.185338">
+        <ele>70.0</ele>
+        <time>2020-09-30T22:14:40</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-3.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858607" lon="-74.185363">
+        <ele>69.8</ele>
+        <time>2020-09-30T22:14:41</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-8.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85865" lon="-74.185396">
+        <ele>69.2</ele>
+        <time>2020-09-30T22:14:42</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-8.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858681" lon="-74.185441">
+        <ele>68.6</ele>
+        <time>2020-09-30T22:14:43</time>
+        <extensions>
+          <velocity_smooth>5.3</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-6.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858691" lon="-74.185508">
+        <ele>68.2</ele>
+        <time>2020-09-30T22:14:44</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>183</heartrate>
+          <grade_smooth>-5.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858653" lon="-74.185671">
+        <ele>67.8</ele>
+        <time>2020-09-30T22:14:46</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>-4.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858643" lon="-74.185757">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:14:47</time>
+        <extensions>
+          <velocity_smooth>6.4</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>-2.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858662" lon="-74.185839">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:14:48</time>
+        <extensions>
+          <velocity_smooth>6.8</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858745" lon="-74.185917">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:14:50</time>
+        <extensions>
+          <velocity_smooth>6.6</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85883" lon="-74.185868">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:14:52</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-2.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858892" lon="-74.185771">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:14:54</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859024" lon="-74.185774">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:14:58</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859109" lon="-74.185808">
+        <ele>66.4</ele>
+        <time>2020-09-30T22:15:00</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859183" lon="-74.185749">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:15:02</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>2.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859049" lon="-74.185554">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:15:06</time>
+        <extensions>
+          <velocity_smooth>5.3</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858935" lon="-74.185379">
+        <ele>67.6</ele>
+        <time>2020-09-30T22:15:10</time>
+        <extensions>
+          <velocity_smooth>5.2</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858953" lon="-74.185292">
+        <ele>67.8</ele>
+        <time>2020-09-30T22:15:12</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859144" lon="-74.185112">
+        <ele>68.0</ele>
+        <time>2020-09-30T22:15:17</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859245" lon="-74.185149">
+        <ele>67.6</ele>
+        <time>2020-09-30T22:15:19</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859327" lon="-74.185252">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:15:21</time>
+        <extensions>
+          <velocity_smooth>5.6</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-2.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859443" lon="-74.18543">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:15:24</time>
+        <extensions>
+          <velocity_smooth>6.5</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-3.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85948" lon="-74.185557">
+        <ele>66.4</ele>
+        <time>2020-09-30T22:15:26</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-3.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859466" lon="-74.185622">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:15:27</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-2.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859432" lon="-74.185686">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:15:28</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859334" lon="-74.185807">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:15:30</time>
+        <extensions>
+          <velocity_smooth>6.5</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859238" lon="-74.185908">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:15:32</time>
+        <extensions>
+          <velocity_smooth>7.0</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85921" lon="-74.186021">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:15:34</time>
+        <extensions>
+          <velocity_smooth>6.4</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859246" lon="-74.18607">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:15:36</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859486" lon="-74.185809">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:15:42</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859528" lon="-74.18576">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:15:43</time>
+        <extensions>
+          <velocity_smooth>5.8</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859676" lon="-74.185721">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:15:48</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859535" lon="-74.18584">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:15:51</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859435" lon="-74.185904">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:15:53</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859372" lon="-74.185991">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:15:55</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859452" lon="-74.186039">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:15:58</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.8595" lon="-74.186009">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:15:59</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859745" lon="-74.185878">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:16:04</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859843" lon="-74.185898">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:16:06</time>
+        <extensions>
+          <velocity_smooth>5.8</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859922" lon="-74.186012">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:16:08</time>
+        <extensions>
+          <velocity_smooth>6.0</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.86015" lon="-74.18639">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:16:14</time>
+        <extensions>
+          <velocity_smooth>6.7</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860412" lon="-74.186753">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:16:20</time>
+        <extensions>
+          <velocity_smooth>6.9</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860588" lon="-74.186934">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:16:24</time>
+        <extensions>
+          <velocity_smooth>6.7</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860645" lon="-74.187041">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:16:27</time>
+        <extensions>
+          <velocity_smooth>5.3</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860585" lon="-74.187047">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:16:29</time>
+        <extensions>
+          <velocity_smooth>4.0</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>-1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860501" lon="-74.186972">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:16:31</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860271" lon="-74.18663">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:16:37</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.860048" lon="-74.186308">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:16:43</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859872" lon="-74.186064">
+        <ele>65.6</ele>
+        <time>2020-09-30T22:16:48</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>182</heartrate>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859794" lon="-74.185998">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:16:50</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859706" lon="-74.185983">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:16:52</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859614" lon="-74.186017">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:16:54</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859646" lon="-74.186103">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:16:58</time>
+        <extensions>
+          <velocity_smooth>3.9</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859688" lon="-74.18613">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:17:00</time>
+        <extensions>
+          <velocity_smooth>3.0</velocity_smooth>
+          <heartrate>181</heartrate>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859526" lon="-74.186196">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:17:04</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859387" lon="-74.186218">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:17:07</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859255" lon="-74.186231">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:17:10</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>180</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859122" lon="-74.186448">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:17:16</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859153" lon="-74.186499">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:17:18</time>
+        <extensions>
+          <velocity_smooth>4.0</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859181" lon="-74.186557">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:17:24</time>
+        <extensions>
+          <velocity_smooth>1.5</velocity_smooth>
+          <heartrate>179</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859301" lon="-74.186445">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:17:30</time>
+        <extensions>
+          <velocity_smooth>2.0</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859421" lon="-74.186321">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:17:34</time>
+        <extensions>
+          <velocity_smooth>3.4</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-2.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859465" lon="-74.186329">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:17:36</time>
+        <extensions>
+          <velocity_smooth>3.7</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859393" lon="-74.186424">
+        <ele>64.0</ele>
+        <time>2020-09-30T22:17:39</time>
+        <extensions>
+          <velocity_smooth>3.3</velocity_smooth>
+          <heartrate>176</heartrate>
+          <grade_smooth>-0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859187" lon="-74.186628">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:17:44</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859156" lon="-74.186754">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:17:46</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85919" lon="-74.186881">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:17:48</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859219" lon="-74.186938">
+        <ele>64.0</ele>
+        <time>2020-09-30T22:17:49</time>
+        <extensions>
+          <velocity_smooth>5.6</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859252" lon="-74.186991">
+        <ele>63.6</ele>
+        <time>2020-09-30T22:17:50</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859475" lon="-74.187303">
+        <ele>63.6</ele>
+        <time>2020-09-30T22:17:56</time>
+        <extensions>
+          <velocity_smooth>6.0</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859661" lon="-74.18765">
+        <ele>64.0</ele>
+        <time>2020-09-30T22:18:02</time>
+        <extensions>
+          <velocity_smooth>6.0</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859662" lon="-74.187696">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:18:03</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859549" lon="-74.187614">
+        <ele>64.0</ele>
+        <time>2020-09-30T22:18:06</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859296" lon="-74.187204">
+        <ele>63.8</ele>
+        <time>2020-09-30T22:18:12</time>
+        <extensions>
+          <velocity_smooth>6.6</velocity_smooth>
+          <heartrate>176</heartrate>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85914" lon="-74.18693">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:18:16</time>
+        <extensions>
+          <velocity_smooth>7.3</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858928" lon="-74.186556">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:18:22</time>
+        <extensions>
+          <velocity_smooth>6.8</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858896" lon="-74.186421">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:18:24</time>
+        <extensions>
+          <velocity_smooth>6.4</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>1.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858924" lon="-74.186169">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:18:28</time>
+        <extensions>
+          <velocity_smooth>5.6</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>4.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858921" lon="-74.186106">
+        <ele>66.4</ele>
+        <time>2020-09-30T22:18:29</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858904" lon="-74.186055">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:18:30</time>
+        <extensions>
+          <velocity_smooth>5.2</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>-2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858857" lon="-74.186234">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:18:35</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>-3.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858854" lon="-74.186296">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:18:36</time>
+        <extensions>
+          <velocity_smooth>4.2</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858801" lon="-74.186367">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:18:38</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>4.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858698" lon="-74.186275">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:18:41</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>6.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85867" lon="-74.18622">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:18:42</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>8.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85862" lon="-74.186125">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:18:44</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>6.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85859" lon="-74.186083">
+        <ele>67.8</ele>
+        <time>2020-09-30T22:18:45</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>5.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858439" lon="-74.185877">
+        <ele>69.0</ele>
+        <time>2020-09-30T22:18:50</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>5.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858303" lon="-74.185692">
+        <ele>70.2</ele>
+        <time>2020-09-30T22:18:55</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>5.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858184" lon="-74.18556">
+        <ele>71.2</ele>
+        <time>2020-09-30T22:18:59</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>5.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858085" lon="-74.185446">
+        <ele>72.4</ele>
+        <time>2020-09-30T22:19:03</time>
+        <extensions>
+          <velocity_smooth>4.0</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>5.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858069" lon="-74.185384">
+        <ele>72.4</ele>
+        <time>2020-09-30T22:19:05</time>
+        <extensions>
+          <velocity_smooth>3.4</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>3.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858202" lon="-74.185216">
+        <ele>73.4</ele>
+        <time>2020-09-30T22:19:11</time>
+        <extensions>
+          <velocity_smooth>3.3</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858375" lon="-74.185107">
+        <ele>73.2</ele>
+        <time>2020-09-30T22:19:17</time>
+        <extensions>
+          <velocity_smooth>3.5</velocity_smooth>
+          <heartrate>178</heartrate>
+          <grade_smooth>-0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858579" lon="-74.184966">
+        <ele>72.2</ele>
+        <time>2020-09-30T22:19:23</time>
+        <extensions>
+          <velocity_smooth>3.9</velocity_smooth>
+          <heartrate>177</heartrate>
+          <grade_smooth>-2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858857" lon="-74.18477">
+        <ele>72.2</ele>
+        <time>2020-09-30T22:19:29</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859025" lon="-74.184693">
+        <ele>71.2</ele>
+        <time>2020-09-30T22:19:34</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859045" lon="-74.184728">
+        <ele>70.8</ele>
+        <time>2020-09-30T22:19:35</time>
+        <extensions>
+          <velocity_smooth>4.0</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>-5.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859064" lon="-74.184864">
+        <ele>70.2</ele>
+        <time>2020-09-30T22:19:37</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>-6.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859061" lon="-74.18494">
+        <ele>69.8</ele>
+        <time>2020-09-30T22:19:38</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>-2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859045" lon="-74.185013">
+        <ele>69.4</ele>
+        <time>2020-09-30T22:19:39</time>
+        <extensions>
+          <velocity_smooth>5.6</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858972" lon="-74.185098">
+        <ele>69.8</ele>
+        <time>2020-09-30T22:19:41</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>4.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858772" lon="-74.185106">
+        <ele>70.8</ele>
+        <time>2020-09-30T22:19:46</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>5.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858638" lon="-74.185098">
+        <ele>72.0</ele>
+        <time>2020-09-30T22:19:50</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>3.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858556" lon="-74.185123">
+        <ele>72.8</ele>
+        <time>2020-09-30T22:19:53</time>
+        <extensions>
+          <velocity_smooth>3.5</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>1.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858496" lon="-74.18524">
+        <ele>72.0</ele>
+        <time>2020-09-30T22:19:57</time>
+        <extensions>
+          <velocity_smooth>3.1</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858266" lon="-74.185284">
+        <ele>72.0</ele>
+        <time>2020-09-30T22:20:03</time>
+        <extensions>
+          <velocity_smooth>3.8</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>-2.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858189" lon="-74.185369">
+        <ele>71.6</ele>
+        <time>2020-09-30T22:20:07</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>-1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858259" lon="-74.18539">
+        <ele>71.2</ele>
+        <time>2020-09-30T22:20:09</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>171</heartrate>
+          <grade_smooth>-2.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858523" lon="-74.185376">
+        <ele>71.2</ele>
+        <time>2020-09-30T22:20:15</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>169</heartrate>
+          <grade_smooth>-4.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858602" lon="-74.185376">
+        <ele>70.4</ele>
+        <time>2020-09-30T22:20:17</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>169</heartrate>
+          <grade_smooth>-4.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858675" lon="-74.185409">
+        <ele>69.2</ele>
+        <time>2020-09-30T22:20:19</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>168</heartrate>
+          <grade_smooth>-7.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858684" lon="-74.185464">
+        <ele>68.8</ele>
+        <time>2020-09-30T22:20:20</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>168</heartrate>
+          <grade_smooth>-5.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858662" lon="-74.185583">
+        <ele>68.8</ele>
+        <time>2020-09-30T22:20:22</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>167</heartrate>
+          <grade_smooth>-2.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858611" lon="-74.1857">
+        <ele>68.4</ele>
+        <time>2020-09-30T22:20:24</time>
+        <extensions>
+          <velocity_smooth>5.3</velocity_smooth>
+          <heartrate>166</heartrate>
+          <grade_smooth>-1.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858628" lon="-74.185832">
+        <ele>68.2</ele>
+        <time>2020-09-30T22:20:26</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>165</heartrate>
+          <grade_smooth>-2.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858694" lon="-74.18592">
+        <ele>68.0</ele>
+        <time>2020-09-30T22:20:28</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>165</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858774" lon="-74.185901">
+        <ele>67.8</ele>
+        <time>2020-09-30T22:20:30</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>164</heartrate>
+          <grade_smooth>-2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858839" lon="-74.185815">
+        <ele>68.2</ele>
+        <time>2020-09-30T22:20:32</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>164</heartrate>
+          <grade_smooth>-2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85897" lon="-74.185732">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:20:36</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>163</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859041" lon="-74.185791">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:20:38</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>163</heartrate>
+          <grade_smooth>-0.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859125" lon="-74.185809">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:20:40</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>162</heartrate>
+          <grade_smooth>3.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859158" lon="-74.185737">
+        <ele>67.8</ele>
+        <time>2020-09-30T22:20:43</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>162</heartrate>
+          <grade_smooth>4.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859131" lon="-74.185714">
+        <ele>68.2</ele>
+        <time>2020-09-30T22:20:44</time>
+        <extensions>
+          <velocity_smooth>4.1</velocity_smooth>
+          <heartrate>162</heartrate>
+          <grade_smooth>4.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859051" lon="-74.185608">
+        <ele>68.8</ele>
+        <time>2020-09-30T22:20:48</time>
+        <extensions>
+          <velocity_smooth>3.2</velocity_smooth>
+          <heartrate>164</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859121" lon="-74.185685">
+        <ele>68.8</ele>
+        <time>2020-09-30T22:20:54</time>
+        <extensions>
+          <velocity_smooth>2.4</velocity_smooth>
+          <heartrate>162</heartrate>
+          <grade_smooth>-2.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85919" lon="-74.185841">
+        <ele>67.6</ele>
+        <time>2020-09-30T22:20:59</time>
+        <extensions>
+          <velocity_smooth>2.4</velocity_smooth>
+          <heartrate>158</heartrate>
+          <grade_smooth>-4.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859206" lon="-74.185906">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:21:01</time>
+        <extensions>
+          <velocity_smooth>3.0</velocity_smooth>
+          <heartrate>156</heartrate>
+          <grade_smooth>-6.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859206" lon="-74.185973">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:21:04</time>
+        <extensions>
+          <velocity_smooth>2.2</velocity_smooth>
+          <heartrate>153</heartrate>
+          <grade_smooth>-6.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859207" lon="-74.185996">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:21:10</time>
+        <extensions>
+          <velocity_smooth>0.8</velocity_smooth>
+          <heartrate>152</heartrate>
+          <grade_smooth>-2.8</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859207" lon="-74.185995">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:21:16</time>
+        <extensions>
+          <velocity_smooth>0.1</velocity_smooth>
+          <heartrate>153</heartrate>
+          <grade_smooth>-5.4</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859208" lon="-74.185996">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:21:22</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>154</heartrate>
+          <grade_smooth>-5.3</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859208" lon="-74.185997">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:21:28</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>154</heartrate>
+          <grade_smooth>-5.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859208" lon="-74.185996">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:21:34</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>152</heartrate>
+          <grade_smooth>-2.9</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859208" lon="-74.185997">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:21:40</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>150</heartrate>
+          <grade_smooth>-7.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859207" lon="-74.185997">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:21:43</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>147</heartrate>
+          <grade_smooth>-8.8</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859207" lon="-74.185998">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:21:48</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>144</heartrate>
+          <grade_smooth>-7.5</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859207" lon="-74.185997">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:21:54</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>142</heartrate>
+          <grade_smooth>-7.6</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859205" lon="-74.186001">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:21:55</time>
+        <extensions>
+          <velocity_smooth>0.1</velocity_smooth>
+          <heartrate>142</heartrate>
+          <grade_smooth>-6.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859233" lon="-74.186048">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:21:59</time>
+        <extensions>
+          <velocity_smooth>1.3</velocity_smooth>
+          <heartrate>139</heartrate>
+          <grade_smooth>-6.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859259" lon="-74.186045">
+        <ele>66.4</ele>
+        <time>2020-09-30T22:22:05</time>
+        <extensions>
+          <velocity_smooth>0.9</velocity_smooth>
+          <heartrate>139</heartrate>
+          <grade_smooth>-8.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859286" lon="-74.186067">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:22:10</time>
+        <extensions>
+          <velocity_smooth>0.6</velocity_smooth>
+          <heartrate>141</heartrate>
+          <grade_smooth>-5.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859281" lon="-74.186093">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:22:11</time>
+        <extensions>
+          <velocity_smooth>1.0</velocity_smooth>
+          <heartrate>141</heartrate>
+          <grade_smooth>-3.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859198" lon="-74.186189">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:22:14</time>
+        <extensions>
+          <velocity_smooth>2.0</velocity_smooth>
+          <heartrate>139</heartrate>
+          <grade_smooth>-2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859146" lon="-74.186333">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:22:17</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>140</heartrate>
+          <grade_smooth>-1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859186" lon="-74.186427">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:22:20</time>
+        <extensions>
+          <velocity_smooth>4.0</velocity_smooth>
+          <heartrate>141</heartrate>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859255" lon="-74.186391">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:22:23</time>
+        <extensions>
+          <velocity_smooth>3.1</velocity_smooth>
+          <heartrate>145</heartrate>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859273" lon="-74.186399">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:22:24</time>
+        <extensions>
+          <velocity_smooth>2.9</velocity_smooth>
+          <heartrate>149</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859271" lon="-74.186427">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:22:25</time>
+        <extensions>
+          <velocity_smooth>2.5</velocity_smooth>
+          <heartrate>151</heartrate>
+          <grade_smooth>1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859252" lon="-74.186455">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:22:26</time>
+        <extensions>
+          <velocity_smooth>2.6</velocity_smooth>
+          <heartrate>154</heartrate>
+          <grade_smooth>-1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859204" lon="-74.186511">
+        <ele>65.0</ele>
+        <time>2020-09-30T22:22:28</time>
+        <extensions>
+          <velocity_smooth>2.9</velocity_smooth>
+          <heartrate>157</heartrate>
+          <grade_smooth>-2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859232" lon="-74.186523">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:22:31</time>
+        <extensions>
+          <velocity_smooth>2.3</velocity_smooth>
+          <heartrate>159</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859266" lon="-74.186488">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:22:32</time>
+        <extensions>
+          <velocity_smooth>2.7</velocity_smooth>
+          <heartrate>159</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859474" lon="-74.186309">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:22:38</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>161</heartrate>
+          <grade_smooth>-0.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859466" lon="-74.186345">
+        <ele>64.8</ele>
+        <time>2020-09-30T22:22:39</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>162</heartrate>
+          <grade_smooth>-0.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859209" lon="-74.186587">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:22:45</time>
+        <extensions>
+          <velocity_smooth>5.5</velocity_smooth>
+          <heartrate>164</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859169" lon="-74.186716">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:22:47</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>165</heartrate>
+          <grade_smooth>-1.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859216" lon="-74.186847">
+        <ele>63.8</ele>
+        <time>2020-09-30T22:22:49</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>166</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85932" lon="-74.187036">
+        <ele>63.4</ele>
+        <time>2020-09-30T22:22:52</time>
+        <extensions>
+          <velocity_smooth>6.4</velocity_smooth>
+          <heartrate>167</heartrate>
+          <grade_smooth>-0.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859543" lon="-74.187398">
+        <ele>63.8</ele>
+        <time>2020-09-30T22:22:58</time>
+        <extensions>
+          <velocity_smooth>6.6</velocity_smooth>
+          <heartrate>168</heartrate>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859648" lon="-74.187577">
+        <ele>63.8</ele>
+        <time>2020-09-30T22:23:01</time>
+        <extensions>
+          <velocity_smooth>6.5</velocity_smooth>
+          <heartrate>170</heartrate>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859645" lon="-74.187688">
+        <ele>64.0</ele>
+        <time>2020-09-30T22:23:03</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>171</heartrate>
+          <grade_smooth>-0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859534" lon="-74.187641">
+        <ele>63.6</ele>
+        <time>2020-09-30T22:23:06</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>0.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859324" lon="-74.187279">
+        <ele>63.4</ele>
+        <time>2020-09-30T22:23:12</time>
+        <extensions>
+          <velocity_smooth>5.8</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>0.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859156" lon="-74.186995">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:23:17</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858959" lon="-74.186629">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:23:23</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858932" lon="-74.186566">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:23:24</time>
+        <extensions>
+          <velocity_smooth>6.3</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>1.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858897" lon="-74.186434">
+        <ele>64.2</ele>
+        <time>2020-09-30T22:23:26</time>
+        <extensions>
+          <velocity_smooth>6.2</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>3.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858921" lon="-74.186238">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:23:29</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>4.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85892" lon="-74.186114">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:23:31</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>1.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858897" lon="-74.186003">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:23:33</time>
+        <extensions>
+          <velocity_smooth>5.2</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858861" lon="-74.186185">
+        <ele>65.2</ele>
+        <time>2020-09-30T22:23:38</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>-3.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858863" lon="-74.186252">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:23:39</time>
+        <extensions>
+          <velocity_smooth>4.4</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>-3.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858852" lon="-74.186319">
+        <ele>64.4</ele>
+        <time>2020-09-30T22:23:40</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>1.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858781" lon="-74.186369">
+        <ele>64.6</ele>
+        <time>2020-09-30T22:23:42</time>
+        <extensions>
+          <velocity_smooth>4.6</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>5.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858702" lon="-74.186244">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:23:45</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>7.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858623" lon="-74.186081">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:23:49</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>7.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85854" lon="-74.185976">
+        <ele>68.4</ele>
+        <time>2020-09-30T22:23:53</time>
+        <extensions>
+          <velocity_smooth>3.6</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>6.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858427" lon="-74.185829">
+        <ele>69.4</ele>
+        <time>2020-09-30T22:23:58</time>
+        <extensions>
+          <velocity_smooth>3.4</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>5.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858284" lon="-74.18564">
+        <ele>70.0</ele>
+        <time>2020-09-30T22:24:04</time>
+        <extensions>
+          <velocity_smooth>3.7</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>4.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858178" lon="-74.18552">
+        <ele>70.6</ele>
+        <time>2020-09-30T22:24:08</time>
+        <extensions>
+          <velocity_smooth>3.8</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>3.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858068" lon="-74.185382">
+        <ele>71.6</ele>
+        <time>2020-09-30T22:24:13</time>
+        <extensions>
+          <velocity_smooth>3.6</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>4.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85807" lon="-74.18535">
+        <ele>71.6</ele>
+        <time>2020-09-30T22:24:14</time>
+        <extensions>
+          <velocity_smooth>3.3</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858245" lon="-74.185182">
+        <ele>72.6</ele>
+        <time>2020-09-30T22:24:20</time>
+        <extensions>
+          <velocity_smooth>3.8</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>-1.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85841" lon="-74.185117">
+        <ele>71.2</ele>
+        <time>2020-09-30T22:24:25</time>
+        <extensions>
+          <velocity_smooth>4.0</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-0.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858315" lon="-74.185219">
+        <ele>71.0</ele>
+        <time>2020-09-30T22:24:28</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-3.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858218" lon="-74.18524">
+        <ele>71.0</ele>
+        <time>2020-09-30T22:24:30</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-2.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858193" lon="-74.185339">
+        <ele>70.4</ele>
+        <time>2020-09-30T22:24:33</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858283" lon="-74.185372">
+        <ele>70.2</ele>
+        <time>2020-09-30T22:24:35</time>
+        <extensions>
+          <velocity_smooth>4.7</velocity_smooth>
+          <heartrate>175</heartrate>
+          <grade_smooth>-1.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858389" lon="-74.18535">
+        <ele>70.4</ele>
+        <time>2020-09-30T22:24:37</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>-2.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858521" lon="-74.185312">
+        <ele>70.2</ele>
+        <time>2020-09-30T22:24:40</time>
+        <extensions>
+          <velocity_smooth>5.4</velocity_smooth>
+          <heartrate>174</heartrate>
+          <grade_smooth>-2.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858605" lon="-74.185331">
+        <ele>69.4</ele>
+        <time>2020-09-30T22:24:42</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>-5.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85864" lon="-74.185358">
+        <ele>69.0</ele>
+        <time>2020-09-30T22:24:43</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>-6.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858665" lon="-74.185407">
+        <ele>68.4</ele>
+        <time>2020-09-30T22:24:44</time>
+        <extensions>
+          <velocity_smooth>4.8</velocity_smooth>
+          <heartrate>173</heartrate>
+          <grade_smooth>-4.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858661" lon="-74.185543">
+        <ele>68.2</ele>
+        <time>2020-09-30T22:24:46</time>
+        <extensions>
+          <velocity_smooth>5.1</velocity_smooth>
+          <heartrate>172</heartrate>
+          <grade_smooth>-4.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858612" lon="-74.185677">
+        <ele>68.0</ele>
+        <time>2020-09-30T22:24:48</time>
+        <extensions>
+          <velocity_smooth>5.8</velocity_smooth>
+          <heartrate>171</heartrate>
+          <grade_smooth>-2.6</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858621" lon="-74.185808">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:24:50</time>
+        <extensions>
+          <velocity_smooth>5.9</velocity_smooth>
+          <heartrate>170</heartrate>
+          <grade_smooth>-2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.85867" lon="-74.185912">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:24:52</time>
+        <extensions>
+          <velocity_smooth>5.7</velocity_smooth>
+          <heartrate>169</heartrate>
+          <grade_smooth>-3.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858747" lon="-74.185929">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:24:54</time>
+        <extensions>
+          <velocity_smooth>5.2</velocity_smooth>
+          <heartrate>169</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858784" lon="-74.185904">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:24:55</time>
+        <extensions>
+          <velocity_smooth>4.9</velocity_smooth>
+          <heartrate>169</heartrate>
+          <grade_smooth>-1.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858821" lon="-74.185861">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:24:56</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>168</heartrate>
+          <grade_smooth>-3.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.858885" lon="-74.185765">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:24:58</time>
+        <extensions>
+          <velocity_smooth>5.0</velocity_smooth>
+          <heartrate>168</heartrate>
+          <grade_smooth>-1.4</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859017" lon="-74.185751">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:25:02</time>
+        <extensions>
+          <velocity_smooth>4.5</velocity_smooth>
+          <heartrate>167</heartrate>
+          <grade_smooth>0.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859102" lon="-74.185782">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:25:04</time>
+        <extensions>
+          <velocity_smooth>4.3</velocity_smooth>
+          <heartrate>168</heartrate>
+          <grade_smooth>1.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859132" lon="-74.185734">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:25:06</time>
+        <extensions>
+          <velocity_smooth>3.9</velocity_smooth>
+          <heartrate>167</heartrate>
+          <grade_smooth>6.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859127" lon="-74.185711">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:25:07</time>
+        <extensions>
+          <velocity_smooth>3.4</velocity_smooth>
+          <heartrate>167</heartrate>
+          <grade_smooth>3.9</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859086" lon="-74.185665">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:25:10</time>
+        <extensions>
+          <velocity_smooth>2.2</velocity_smooth>
+          <heartrate>166</heartrate>
+          <grade_smooth>0.0</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859085" lon="-74.185725">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:25:14</time>
+        <extensions>
+          <velocity_smooth>1.9</velocity_smooth>
+          <heartrate>163</heartrate>
+          <grade_smooth>-2.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859132" lon="-74.185746">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:25:16</time>
+        <extensions>
+          <velocity_smooth>2.1</velocity_smooth>
+          <heartrate>160</heartrate>
+          <grade_smooth>-5.7</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859189" lon="-74.185805">
+        <ele>66.6</ele>
+        <time>2020-09-30T22:25:19</time>
+        <extensions>
+          <velocity_smooth>2.8</velocity_smooth>
+          <heartrate>158</heartrate>
+          <grade_smooth>-3.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859198" lon="-74.185846">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:25:20</time>
+        <extensions>
+          <velocity_smooth>2.9</velocity_smooth>
+          <heartrate>158</heartrate>
+          <grade_smooth>-3.1</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859189" lon="-74.186011">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:25:26</time>
+        <extensions>
+          <velocity_smooth>2.4</velocity_smooth>
+          <heartrate>158</heartrate>
+          <grade_smooth>-3.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859186" lon="-74.186022">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:25:32</time>
+        <extensions>
+          <velocity_smooth>1.1</velocity_smooth>
+          <heartrate>157</heartrate>
+          <grade_smooth>2.8</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859186" lon="-74.186021">
+        <ele>66.0</ele>
+        <time>2020-09-30T22:25:38</time>
+        <extensions>
+          <velocity_smooth>0.0</velocity_smooth>
+          <heartrate>156</heartrate>
+          <grade_smooth>-12.0</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859185" lon="-74.18602">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:25:42</time>
+        <extensions>
+          <velocity_smooth>0.1</velocity_smooth>
+          <heartrate>153</heartrate>
+          <grade_smooth>3.6</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859184" lon="-74.186021">
+        <ele>66.2</ele>
+        <time>2020-09-30T22:25:48</time>
+        <extensions>
+          <velocity_smooth>0.1</velocity_smooth>
+          <heartrate>151</heartrate>
+          <grade_smooth>2.8</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859154" lon="-74.186043">
+        <ele>65.4</ele>
+        <time>2020-09-30T22:25:54</time>
+        <extensions>
+          <velocity_smooth>0.3</velocity_smooth>
+          <heartrate>150</heartrate>
+          <grade_smooth>2.8</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859122" lon="-74.186026">
+        <ele>65.8</ele>
+        <time>2020-09-30T22:25:57</time>
+        <extensions>
+          <velocity_smooth>0.9</velocity_smooth>
+          <heartrate>151</heartrate>
+          <grade_smooth>3.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859162" lon="-74.185885">
+        <ele>66.8</ele>
+        <time>2020-09-30T22:26:03</time>
+        <extensions>
+          <velocity_smooth>1.9</velocity_smooth>
+          <heartrate>148</heartrate>
+          <grade_smooth>7.2</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859161" lon="-74.185862">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:26:04</time>
+        <extensions>
+          <velocity_smooth>2.1</velocity_smooth>
+          <heartrate>147</heartrate>
+          <grade_smooth>6.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859145" lon="-74.18583">
+        <ele>67.0</ele>
+        <time>2020-09-30T22:26:06</time>
+        <extensions>
+          <velocity_smooth>2.0</velocity_smooth>
+          <heartrate>144</heartrate>
+          <grade_smooth>6.5</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859125" lon="-74.185792">
+        <ele>67.2</ele>
+        <time>2020-09-30T22:26:09</time>
+        <extensions>
+          <velocity_smooth>1.4</velocity_smooth>
+          <heartrate>141</heartrate>
+          <grade_smooth>5.3</grade_smooth>
+          <moving>True</moving>
+        </extensions>
+      </trkpt>
+      <trkpt lat="40.859121" lon="-74.185786">
+        <ele>67.4</ele>
+        <time>2020-09-30T22:26:11</time>
+        <extensions>
+          <velocity_smooth>0.9</velocity_smooth>
+          <heartrate>140</heartrate>
+          <grade_smooth>9.3</grade_smooth>
+          <moving>False</moving>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
