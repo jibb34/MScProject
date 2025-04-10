@@ -68,3 +68,24 @@ we can maybe cross reference gpx data with OpenStreetMap data through Overpass A
 
 Potenti
 
+
+Python Problems:
+Extract all data from various sources: communicating with apis, open files, webscraping?
+save data to files
+section merging
+algorithm development
+section detection and cleaning
+clustering
+creating visualisations
+other data manipulation:
+
+Go Problems:
+File generation
+spatial hashing, R-tree processes
+performance tasks
+Parse and standardize GPX files
+back end server/api
+database management with SQLite
+route-section mapping
+routing section/route metadata to the front end
+concurrent processing on multiple or heavy route files
