@@ -1,87 +1,114 @@
-    \documentclass{article}
-    \usepackage{graphicx}
-    \usepackage{hyperref}
-    \usepackage{geometry}
-    \geometry{a4paper}
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper}
 
-    \title{Bike Training Tracking Application}
-    \author{Jack Jibb\\ Student ID: 001408490 \\ MSc Computer Science}
-    \date{\today}
+\title{Bike Training Tracking Application}
+\author{Jack Jibb\\ Student ID: 001408490 \\ MSc Computer Science}
+\date{\today}
 
-    \begin{document}
+\begin{document}
 
-    \maketitle
+\maketitle
 
-    \section*{Supervisor}
-    Dr. Elena Irena Popa
+\section*{Supervisor}
+Dr. Elena Irena Popa
 
-    \section*{Topic Area}
-    Data Science, Web Development, Sports Analytics
+\section*{Topic Area}
+Data Science, Web Development, Sports Analytics
 
-    \section*{Keywords}
-    Bike Training, GPX, Web Application, Go, React, SQLite, Route Analysis
+\section*{Keywords}
+Bike Training, GPX, Web Application, Go, React, SQLite, Route Analysis, OpenStreetMap, Leaflet.js, Segmentation Algorithm, clustering, protocol buffers 
 
-    \section*{MSc Modules Contributing to this Project}
-    - Advanced Data Analysis
-    - Web Technologies
+\section*{MSc Modules Contributing to this Project}
+\begin {itemize}
+  \item Fundamentals of Data Science
+  \item Enterprise Software Engineering
+  \item Systems Administration and Security
+\end{itemize}
 
-    \section{Overview}
-    This project proposes the development of a web application that generates and analyzes bike ride routes, providing feedback on training suitability based on metrics such as power, cadence, heart rate, and other relevant data. The application will offer functionality similar to MapMyRide or Strava, allowing users to plot bike routes, visualize them on a map, and save them as .gpx files. Additionally, it will apply an algorithm to assess the training suitability of routes based on user-specified training goals.
+\section{Overview}
+  The purpose of the project is to develop an algorithmic approach to visualising cycling training opportunities on a GPX route. This will be done by programming
+  an application that groups collections of GPX trackpoints by their attributes, of which shall be gathered by a mix of rider data collection and 
+    open source data from services such as OpenStreetMap, as input into the Training Suitability Algorithm, and will be formatted in a database as a collection of Trackpoints, along with suitiablity metadata.
+\section{Motivation}
+  Traditionally, training routes have been developed as a product of programs like VeloViewer and MapMyRide, as well as personal experience, having to manually track through
+  the entire route, in order to see where good sections of road are located for training activities such as threshold or interval training. The Training Suitiability algorithm attempts to semantically apply context
+  for roads, such that an athlete or coach can see easily where to plan their route for their specific goals.
 
-    The project will be developed using React for the frontend, Go for the backend, and SQLite for data storage. The algorithm will analyze segments of routes to score them for specific training purposes such as endurance, interval training, or strength training.
+\section{Objectives}
+\subsection{Objective 1: Research and Analysis}
+\begin{itemize}
+\item Review existing algorithms and methodologies for evaluating training suitability of cycle routes.
+\item Investigate APIs that can gather anonymous training data from external sources.
+\item Research methods of road data collection
+\item \textbf{Deliverables: Literature Review and initial proof of concept programs}
+\end{itemize}
 
-    \section{Objectives}
-    \subsection{Objective 1: Research and Analysis}
-    - Review existing algorithms and methodologies for evaluating training suitability of bike routes.
-    - Investigate APIs that can gather anonymous training data from external sources.
-    - Deliverables: Literature Review.
+\subsection{Objective 2: Project Development Plan}
+\begin{itemize}
+\item Create a detailed project plan including a schedule of tasks, problem domain goals, and deliverables for each phase of the project
+\item \textbf{Deliverables: Requirements Specification, Evaluation and Testing plan, Gantt Chart, Project Timeline, technical design document, technology stack report.}
+\end{itemize}
 
-    \subsection{Objective 2: Design and Implementation of the Web Application}
-    - Develop a React frontend for route plotting and visualization.
-    - Implement a Go backend for handling data storage and processing.
-    - Store training data and scores in an SQLite database.
-    - Deliverables: Functional Web Application.
+\subsection{Objective 3: Design and Implementation of the Web Application}
+\begin{itemize}
+\item Develop a React frontend for route plotting and visualization prototyping.
+\item Implement a Go backend for handling data storage and processing.
+\item Store training data and scores in an SQLite database.
+\item \textbf{Deliverables: Functional Web Application, and technical documentation}
+\end{itemize}
 
-    \subsection{Objective 3: Development of Training Suitability Algorithm}
-    - Design an algorithm to assess training suitability based on power, cadence, heart rate, and other metrics.
-    - Implement scoring overlays and metrics visualization using charts.
-    - Deliverables: Algorithm Design Document, Scoring System.
+\subsection{Objective 4: Development of Training Suitability Algorithm}
+\begin{itemize}
+\item Interface and analyse OpenStreetMap API to gather inherant street data.
+\item Assess training suitability based on power, cadence, heart rate, and other cycling metrics, and apply metrics to GPX file via extensions
+\item Segment a GPX route into "routlets" based on trackpoint metric similarity
+\item Implement scoring system and metrics visualization for individual segments
+\item \textbf{Deliverables: Algorithm Design Document, Scoring System Documentation.}
+\end{itemize}
 
-    \subsection{Objective 4: Testing and Evaluation}
-    - Compare algorithm performance with real-world data and user feedback.
-    - Deliverables: Evaluation Report.
+\subsection{Objective 5: Testing and Evaluation}
+\begin{itemize}
+\item Compare algorithm performance with real-world data and user feedback.
+\item \textbf{Deliverables: Evaluation Report, test input and output dataset, and acceptance testing document.}
+\end{itemize}
 
-    \subsection{Objective 5: Project Plan Development}
-    - Create a detailed project plan including a schedule of tasks, descriptions, and durations.
-    - Deliverables: Gantt Chart, Project Timeline.
 
-    \section{Legal, Social, and Ethical Issues}
-    - Data privacy concerns regarding user-uploaded data.
-    - Compliance with relevant data protection regulations.
-    - Ethical considerations when using external data sources.
+\section{Legal, Social, and Ethical Issues}
+- Data privacy concerns regarding user-uploaded data.
+- Compliance with relevant data protection regulations.
+- Ethical considerations when using external data sources.
 
-    \section{Resources}
-    - React, Go, SQLite.
-    - APIs for gathering external data.
-    - Computing resources for development and testing.
+\section{Resources}
+- React, Go, SQLite.
+- APIs for gathering external data.
+- Computing resources for development and testing.
 
-    \section{Critical Success Factors}
-    - Effective implementation of the training suitability algorithm.
-    - User-friendly interface for route plotting and analysis.
-    - Reliable data storage and retrieval.
+\section{Critical Success Factors}
+- Effective implementation of the training suitability algorithm.
+- User-friendly interface for route plotting and analysis.
+- Reliable data storage and retrieval.
 
-    \section{Schedule}
-    \begin{itemize}
-        \item Research and Planning: 1-2 weeks
-        \item Frontend Development: 2-3 weeks
-        \item Backend Development: 3-4 weeks
-        \item Training Suitability Algorithm: 3-4 weeks
-        \item Visualization and Feedback: 2 weeks
-        \item Testing and Evaluation: 2-3 weeks
-        \item Deployment and Finalization: 1-2 weeks
-    \end{itemize}
+\section{Schedule}
+\begin{itemize}
+  \item \textbf{Total time to completion:} 20 Weeks
+  \item Research and Planning: 2 weeks
+  \item Frontend Development: 2 weeks
+  \item Backend Development: 3 weeks
+  \item Training Suitability Algorithm: 4 weeks
+  \item Visualization and Feedback: 2 weeks
+  \item Testing and Evaluation: 3 weeks
+  \item Deployment and Finalization: 2 weeks
+  \item Report Finalisation: 2 Weeks
+\end{itemize}
 
-    \section{References}
-    To be added as research progresses.
+\section{References}
+To be added as research progresses.
+For researching OSM: https://wiki.openstreetmap.org/wiki/Map_features\\
 
-    \end{document}
+
+
+
+\end{document}

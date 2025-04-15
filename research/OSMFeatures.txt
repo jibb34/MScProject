@@ -1,0 +1,88 @@
+This is a list of useful OpenStreetMap features that can be gathered from nodes or ways pulled from the API
+
+https://wiki.openstreetmap.org/wiki/Map_features
+
+Categories with relevent features:
+
+> Amenity (in general, every amenity that doesnt give a net + will give -)
+   - cafe (+)
+   - pub (+/-)
+   - bicycle repair station (+)
+   - fuel (+/-)
+   - drinking water (++)
+   - water point (++)
+   - toilets (+)
+
+> Barrier (generally considered negative, as it impedes movement, but could result in some positives (like no cars in section))
+Any access control barrier that does not allow access should null any segment that potentially is generated through it.
+   - kerb
+   - cycle_barrier
+   - debris
+
+> Building (certain building types that attract cars will detract from safety score)
+
+> Highway (bread and butter of road cycling, there are a lot of values we want to pay attention to)
+   - Motorway (will null any segment)
+   - trunk highway (Main A Roads) (also nulls segments)
+   - primary Highway (Minor A Roads) (0)
+   - Secondary Highway (B Roads) (+)
+   - Tertiary Highway (small link roads) (+/- depending on road width)
+   - unclassified highway (hardly used non-residential roads) (++)
+   - link roads (all link roads that attach to any trunk or motorway are nulled) (0)
+   - residential, service, and pedestrian roads given low score for training but high for safety
+   - footpaths that are cycle-enabled (bicycle=yes)
+   - cycleway (++++) always highly rated, unless other factors lower mark
+   - cycleway lane, oneway:bicycle yes, share_busway, shared_lane cycleways have their own marking depending on the type
+   - parking:<location>:orientation=<orientation> will determine the safety based on where the parking is in relation to bike path
+  - Attributes useful for determining score: bicycle_road, embedded_rails, ford, incline, junction, lanes, lit, max_speed, motorroad, oneway:(bicycle), shoulder, smoothness, surface, tracktype, traffic_calming, bus stop, crossing, cyclist_waiting_aid, stop, traffic_signals. 
+
+> Land Use (if a segment is created in this region it is automatically scored based on it)
+   - commercial (-)
+   - construction (--)
+   - industrial (-)
+   - residential (+)
+   - farmland (+/-)
+   - forest (+)
+   - meadow (0)
+   - vineyard (+)
+   - landfill (--)
+
+> Leisure (not too much here, but some entities can be considered a plus)
+   - common (+)
+   - park (+)
+   - track (+)
+
+> place:
+  - places like city, borough, suburb, town, village, etc could be a good determiner of how busy the roads are likely to be
+
+> public transport
+   - areas with a lot of public transport stop_position, stop_area, etc will have lower suitability scores
+
+> Railway
+   - level_crossing
+
+> route*
+   - A route describes a collection of ways or nodes that are taken repeatedly by a particular entity (car bike, person, etc)
+     this means that the entity named in the route is the primary method of travel for it.
+   - bicycle (The biggest single + for this section)
+   - bus (generally - since buses are scary)
+   - road
+     - interestingly, a useful feature is that a "road" relation will have local unique ref number, which is used to define a road purpose.
+       this means that it is a natural separator for segments of our bike route.
+   - detour
+
+> properties** < secondary tags that can define additional information
+   - bridge > could be used to define bridges as their own segments (generally are required for route mapping)
+   - crossing > further refinement if a node is tagged with crossing (highway or railway)
+   - ele > elevation value (VERY IMPORTANT) this may be useful if altitude is a consideration, as well as a fast grade calculation
+   - width/est_width > describes the width of the road (wide roads more beneficial for cycling fast)
+   - narrow > determines a temporary narrowing of a way (lots in a segment lowers its quality)
+   - toilets > determines if there are usable toilets in area
+
+> Restrictions
+   - access > can be used to determine if access is granted for bikes (includes yes, permissive, designated)
+   - bicycle > if = dismount or no, bikes are not allowed explicitly
+   - if bicycle is granted (yes, permissive, designated), and the following are denied, increase the scores:
+     > bus, foot, hgv, motorcar, motorcycle, taxi, vehicle
+   - noexit: nulls any segments on the way that exists from an intersection
+   - oneway: yes/no/-1 
