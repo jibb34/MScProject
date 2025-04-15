@@ -27,6 +27,7 @@ def save_downloaded_activities(downloaded_activities):
     with open(PROGRESS_FILE, "w") as f:
         json.dump(list(downloaded_activities), f, indent=4)
 
+
 # load all the downloaded files, so we can skip them in our check.
 
 
@@ -35,6 +36,7 @@ def load_downloaded_activities():
         with open(PROGRESS_FILE, "r") as f:
             return set(json.load(f))
     return set()
+
 
 # gets a new access token when calling the api
 
@@ -54,8 +56,11 @@ def refresh_access_token():
     if response.status_code == 200:
         print("[SUCCESS] Access token refreshed successfully.")
     else:
-        print(f"[ERROR] Failed to refresh access token: {
-              response.status_code} - {response.text}")
+        print(
+            f"[ERROR] Failed to refresh access token: {response.status_code} - {
+                response.text
+            }"
+        )
     response.raise_for_status()
     return response.json()["access_token"]
 
@@ -103,8 +108,11 @@ def fetch_activity_id_list(access_token):
             handle_rate_limit(response)
             continue
         if response.status_code != 200:
-            print(f"[ERROR] Failed to fetch activities: {
-                  response.status_code} - {response.text}")
+            print(
+                f"[ERROR] Failed to fetch activities: {response.status_code} - {
+                    response.text
+                }"
+            )
             response.raise_for_status()
         response.raise_for_status()
         # get the json of the response
@@ -121,17 +129,20 @@ def fetch_activity_id_list(access_token):
             is_indoors = activity.get("trainer", False)
 
             # add to list if it is an outdoor cycling ride, and has either HR or power metric
-            if (is_cycling and not is_indoors) and (has_heart_rate or (average_watts is not None and average_watts > 0)):
+            if (is_cycling and not is_indoors) and (
+                has_heart_rate or (
+                    average_watts is not None and average_watts > 0)
+            ):
                 activity_id = str(activity["id"])
                 metadata[activity_id] = {
-                    "name": activity.get('name'),
-                    "start_date": activity.get('start_date'),
-                    "type": activity.get('type'),
-                    "trainer": activity.get('trainer', False),
-                    "distance": activity.get('distance'),
-                    "has_heartrate": activity.get('has_heartrate', False),
-                    "average_watts": activity.get('average_watts'),
-                    "moving_time": activity.get('moving_time')
+                    "name": activity.get("name"),
+                    "start_date": activity.get("start_date"),
+                    "type": activity.get("type"),
+                    "trainer": activity.get("trainer", False),
+                    "distance": activity.get("distance"),
+                    "has_heartrate": activity.get("has_heartrate", False),
+                    "average_watts": activity.get("average_watts"),
+                    "moving_time": activity.get("moving_time"),
                 }
                 activities.append(activity["id"])
 
@@ -165,6 +176,7 @@ def load_metadata(output_dir):
     print(f"[SUCCESS] Loaded metadata from {metadata_file}.")
 
     return metadata
+
 
 # ==================================================================================
 
@@ -210,9 +222,9 @@ def save_to_gpx(activity_id, data, output_dir, metadata):
 
     # Check if data is valid
     # get start date from metadata and convert to datetime object
-    start_time_str = activity_metadata.get('start_date')
+    start_time_str = activity_metadata.get("start_date")
     try:
-        start_time = datetime.strptime(start_time_str, '%Y-%m-%dT%H:%M:%SZ')
+        start_time = datetime.strptime(start_time_str, "%Y-%m-%dT%H:%M:%SZ")
     except Exception as e:
         print(f"[ERROR] Failed to parse start date for activity {
               activity_id}: {e}")
@@ -221,39 +233,55 @@ def save_to_gpx(activity_id, data, output_dir, metadata):
     # new gpx generator object
     gpx = gpxpy.gpx.GPX()
     # create a new track with the name of the activity
-    gpx_track = gpxpy.gpx.GPXTrack(name=activity_metadata.get('name'))
+    gpx_track = gpxpy.gpx.GPXTrack(name=activity_metadata.get("name"))
     gpx.tracks.append(gpx_track)
     gpx_segment = gpxpy.gpx.GPXTrackSegment()
     gpx_track.segments.append(gpx_segment)
 
     # Create a dictionary for the stream data
-    streams = {d['type']: d['data'] for d in data if 'data' in d}
-    print(f"[INFO] Available streams for activity {
-          activity_id}: {', '.join(streams.keys())}")
+    streams = {d["type"]: d["data"] for d in data if "data" in d}
+    print(
+        f"[INFO] Available streams for activity {activity_id}: {
+            ', '.join(streams.keys())
+        }"
+    )
 
     # if esssential gpx data is missing, skips the creation of the file
-    if 'latlng' not in streams or 'time' not in streams:
-        print(f"[WARNING] Missing essential streams (latlng or time) for activity {
-              activity_id}. Skipping...")
+    if "latlng" not in streams or "time" not in streams:
+        print(
+            f"[WARNING] Missing essential streams (latlng or time) for activity {
+                activity_id
+            }. Skipping..."
+        )
         return
 
     # Basic GPX data
-    latlng_data = streams.get('latlng', [])
-    altitude_data = streams.get('altitude', [None] * len(latlng_data))
-    time_data = streams.get('time', [None] * len(latlng_data))
+    latlng_data = streams.get("latlng", [])
+    altitude_data = streams.get("altitude", [None] * len(latlng_data))
+    time_data = streams.get("time", [None] * len(latlng_data))
 
     # Extension GPX data (aggregated in a list)
-    extension_variables = ['velocity_smooth', 'heartrate',
-                           'cadence', 'watts', 'grade_smooth', 'moving']
+    extension_variables = [
+        "velocity_smooth",
+        "heartrate",
+        "cadence",
+        "watts",
+        "grade_smooth",
+        "moving",
+    ]
 
     # get data streams that are present in the input data
-    data_streams = {var: streams.get(
-        # NOTE: might need to look here
-        var, [None] * len(latlng_data)) for var in extension_variables}
+    data_streams = {
+        var: streams.get(
+            # NOTE: might need to look here
+            var,
+            [None] * len(latlng_data),
+        )
+        for var in extension_variables
+    }
 
     # for each coordinate position
     for i, latlng in enumerate(latlng_data):
-
         if latlng:
             # generate a new track point if the latlng exists
             point = gpxpy.gpx.GPXTrackPoint(
@@ -317,16 +345,22 @@ if __name__ == "__main__":
         try:
             json_file = os.path.join(OUTPUT_DIR, f"{activity_id}.json")
             if os.path.exists(json_file):
-                print(f"[INFO] JSON file found for activity {
-                      activity_id}. Skipping download.")
+                print(
+                    f"[INFO] JSON file found for activity {
+                        activity_id
+                    }. Skipping download."
+                )
                 try:
                     with open(json_file, "r") as f:
                         data = json.load(f)
                     save_to_gpx(activity_id, data, gpx_dir, metadata)
                     continue
                 except Exception as e:
-                    print(f"[ERROR] Failed to load existing JSON file for activity {
-                        activity_id}: {e}")
+                    print(
+                        f"[ERROR] Failed to load existing JSON file for activity {
+                            activity_id
+                        }: {e}"
+                    )
                     continue
             else:
                 data = fetch_activity_data(activity_id, access_token)
