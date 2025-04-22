@@ -1,0 +1,87 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Danks \harvardand\ London}{2017}{danks2017bias}
+Danks, D. \harvardand\ London, A.~J.  \harvardyearleft 2017\harvardyearright ,
+  Algorithmic bias in autonomous systems, {\em in} `Proceedings of the 26th
+  International Joint Conference on Artificial Intelligence (IJCAI)',
+  pp.~4691--4697.
+
+\harvarditem{{European Union}}{2018}{gdpr}
+{European Union}  \harvardyearleft 2018\harvardyearright , `General data
+  protection regulation (gdpr)', \url{https://gdpr.eu}.
+\newblock Accessed: 18 April 2025.
+
+\harvarditem{Floridi \harvardand\ Taddeo}{2016}{floridi2016data}
+Floridi, L. \harvardand\ Taddeo, M.  \harvardyearleft 2016\harvardyearright ,
+  `What is data ethics?', {\em Philosophical Transactions of the Royal Society
+  A: Mathematical, Physical and Engineering Sciences} {\bf
+  374}(2083),~20160360.
+
+\harvarditem{{\em Go Documentation}}{2024}{golangdoc}
+{\em Go Documentation}  \harvardyearleft 2024\harvardyearright ,
+  \url{https://go.dev/doc/}.
+\newblock Official documentation for Golang, supporting development of the GPX
+  and backend tooling.
+
+\harvarditem{Goodchild}{2007}{goodchild2007citizens}
+Goodchild, M.~F.  \harvardyearleft 2007\harvardyearright , `Citizens as
+  sensors: the world of volunteered geography', {\em GeoJournal} {\bf
+  69}(4),~211--221.
+
+\harvarditem{Haklay}{2010}{haklay2010vgi}
+Haklay, M.  \harvardyearleft 2010\harvardyearright , `How good is volunteered
+  geographical information? a comparative study of openstreetmap and ordnance
+  survey datasets', {\em Environment and Planning B: Planning and Design} {\bf
+  37}(4),~682--703.
+
+\harvarditem{{Leaflet.js}}{2024}{leafletdoc}
+{Leaflet.js}  \harvardyearleft 2024\harvardyearright , `Leaflet documentation',
+  \url{https://leafletjs.com/reference.html}.
+\newblock Accessed: 18 April 2025.
+
+\harvarditem{Leszczynski}{2015}{leszczynski2015spatial}
+Leszczynski, A.  \harvardyearleft 2015\harvardyearright , `Spatial big data and
+  anxieties of control', {\em Environment and Planning D: Society and Space}
+  {\bf 33}(6),~965--984.
+
+\harvarditem{{OpenStreetMap Foundation}}{2024}{osmodbl}
+{OpenStreetMap Foundation}  \harvardyearleft 2024\harvardyearright , `Open
+  database license (odbl)',
+  \url{https://wiki.openstreetmap.org/wiki/Open_Database_License }.
+\newblock Accessed: 18 April 2025.
+
+\harvarditem{{OpenStreetMap Wiki}}{2024{\em a}}{overpassapi}
+{OpenStreetMap Wiki}  \harvardyearleft 2024{\em a}\harvardyearright , `Overpass
+  api', \url{https://wiki.openstreetmap.org/wiki/Overpass_API}.
+\newblock Accessed: 18 April 2025.
+
+\harvarditem{{OpenStreetMap Wiki}}{2024{\em b}}{overpasspolicy}
+{OpenStreetMap Wiki}  \harvardyearleft 2024{\em b}\harvardyearright , `Overpass
+  api – public usage policy', \url{
+  https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Usage_Policy }.
+\newblock Accessed: 18 April 2025.
+
+\harvarditem{{\em OpenStreetMap Wiki}}{2024}{osmwiki}
+{\em OpenStreetMap Wiki}  \harvardyearleft 2024\harvardyearright ,
+  \url{https://wiki.openstreetmap.org}.
+\newblock Useful for understanding the structure, tagging schema, and
+  guidelines of OSM data.
+
+\harvarditem{{\em Python 3 Documentation}}{2024}{pythondoc}
+{\em Python 3 Documentation}  \harvardyearleft 2024\harvardyearright ,
+  \url{https://docs.python.org/3/}.
+\newblock Core reference for scripting, data processing, and API communication
+  in Python.
+
+\harvarditem{Tufekci}{2015}{tufekci2015algorithmic}
+Tufekci, Z.  \harvardyearleft 2015\harvardyearright , `Algorithmic harms beyond
+  facebook and google: Emergent challenges of computational agency', {\em
+  Colorado Technology Law Journal} {\bf 13},~203--218.
+
+\harvarditem{Wiley \harvardand\ Kumar}{2018}{wiley2018mllicenses}
+Wiley, B. \harvardand\ Kumar, P.  \harvardyearleft 2018\harvardyearright ,
+  `Data licensing and the machine learning ecosystem',
+  \url{https://datasociety.net}.
+\newblock Data \& Society Research Institute. Accessed: 18 April 2025.
+
+\end{thebibliography}

@@ -1,10 +1,23 @@
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{parskip} % optional: improves spacing
+\usepackage[most]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{pgfgantt}
 \usepackage{hyperref}
 \usepackage{geometry}
+\usepackage{url}
+\usepackage{natbib}
+
+% Bibliography style (choose one)
+
 \geometry{a4paper}
 
-\title{Bike Training Tracking Application}
+\title{An Algorithmic Approach to Route Planning for Performance-Minded Cyclists: Using Segmentation and Machine Learning to Visualise Training Routes}
 \author{Jack Jibb\\ Student ID: 001408490 \\ MSc Computer Science}
 \date{\today}
 
@@ -12,101 +25,369 @@
 
 \maketitle
 
+\begin{center}
+	\textbf{Project Proposal}
+\end{center}
+
 \section*{Supervisor}
 Dr. Elena Irena Popa
 
 \section*{Topic Area}
-Data Science, Web Development, Sports Analytics
+Data Science, Web Development, Segmentation Algorithms
 
 \section*{Keywords}
-Bike Training, GPX, Web Application, Go, React, SQLite, Route Analysis, OpenStreetMap, Leaflet.js, Segmentation Algorithm, clustering, protocol buffers 
+Bike Training, GPX, Web Application, Go, React, SQLite, Route Analysis, OpenStreetMap, Leaflet.js, Segmentation Algorithm, Clustering, Protocol Buffers
 
 \section*{MSc Modules Contributing to this Project}
 \begin {itemize}
-  \item Fundamentals of Data Science
-  \item Enterprise Software Engineering
-  \item Systems Administration and Security
+\item Fundamentals of Data Science - Gained a fundamental understanding of data manipulation in Python, which will help with organising large data collections from GPX and OSM sources
+\item Enterprise Software Engineering - Learned the logistics and administration behind developing a strong software project, including Architecture Diagrams and Agile Methodologies
+\item Systems Administration and Security - Learned basics of Linux, web stack development, and web security, such as HTTPS, Apache, and the LAMP stack.
 \end{itemize}
 
-\section{Overview}
-  The purpose of the project is to develop an algorithmic approach to visualising cycling training opportunities on a GPX route. This will be done by programming
-  an application that groups collections of GPX trackpoints by their attributes, of which shall be gathered by a mix of rider data collection and 
-    open source data from services such as OpenStreetMap, as input into the Training Suitability Algorithm, and will be formatted in a database as a collection of Trackpoints, along with suitiablity metadata.
 \section{Motivation}
-  Traditionally, training routes have been developed as a product of programs like VeloViewer and MapMyRide, as well as personal experience, having to manually track through
-  the entire route, in order to see where good sections of road are located for training activities such as threshold or interval training. The Training Suitiability algorithm attempts to semantically apply context
-  for roads, such that an athlete or coach can see easily where to plan their route for their specific goals.
+Existing GPS routing apps for cyclists mainly address simple metrics like distance, time, and terrain. They don't have tools for analyzing
+suitability in terms of effectiveness towards particular training objectives. The tools that do exist don't address dynamic and context-specific factors
+such as traffic, road environment (e.g., road furniture), or availability of unbroken sections suitable for prolonged effort.
+Therefore, coaches and athletes have to depend on personal knowledge or manual examination via services such as Google Street View or VeloViewer to gauge
+training value. This can be a laborious and inexact process.
+\section{Overview}
+This thesis puts forward an algorithmic approach to display cycling training appropriateness on a section-by-section basis from GPX route files.
+The method will be to create a software application that divides a GPX track into spatially and contextually meaningful segments, then score these
+segments based on the following metrics (note that these metrics are subject to change based on project feedback):
+\begin{itemize}
+	\item Safety
+	\item Adventure
+	\item Amenities
+	\item Difficulty
+	\item Technicality
+	\item Interval Suitibility
+	\item Endurance Suitibility
+\end{itemize}
+
+The preliminary principal part of this project is to design a segmentation algorithm that can divide GPX track points into grouped segments,
+and save these segments to a database. This segmentation process will use data from OpenStreetMap \citep{osmwiki}, retrieved through the
+Overpass API \citep{overpassapi}, and will determine the range of gpx points that contribute to a segment.
+After segmentation, a scoring system will analyse each segment. This will score segments based on certain performance-critical metrics via a
+Training Suitability Algorithm, so that users can rapidly gauge the training value of that particular segment, giving them the
+knowledge to use or omit it from their route.
+
 
 \section{Objectives}
-\subsection{Objective 1: Research and Analysis}
-\begin{itemize}
-\item Review existing algorithms and methodologies for evaluating training suitability of cycle routes.
-\item Investigate APIs that can gather anonymous training data from external sources.
-\item Research methods of road data collection
-\item \textbf{Deliverables: Literature Review and initial proof of concept programs}
-\end{itemize}
+\newcounter{objnum}
+\newcommand{\objectiveblock}[3]{%
+	\stepcounter{objnum}
+	\ifodd\value{objnum}
+	\def\blockcolor{gray!10}
+	\else
+	\def\blockcolor{white}
+	\fi
+	\begin{tcolorbox}[
+			colback=\blockcolor,
+			colframe=black!10,
+			arc=2mm,
+			boxrule=0.3pt,
+			left=5pt,
+			right=5pt,
+			top=5pt,
+			bottom=5pt,
+			width=\textwidth,
+			enhanced
+		]
+		\textbf{#1} \\[0.5em]
+		\noindent
+		\begin{minipage}[t]{0.48\textwidth}
+			\RaggedRight
+			\textbf{Activities:}
+			\begin{itemize}
+				#2
+			\end{itemize}
+		\end{minipage}\hfill
+		\begin{minipage}[t]{0.48\textwidth}
+			\RaggedRight
+			\textbf{Deliverables:}
+			\begin{itemize}
+				#3
+			\end{itemize}
+		\end{minipage}
+	\end{tcolorbox}\vspace{1em}
+}
+% Now define each objective using \objectiveblock{Title}{Activities}{Deliverables}
 
-\subsection{Objective 2: Project Development Plan}
-\begin{itemize}
-\item Create a detailed project plan including a schedule of tasks, problem domain goals, and deliverables for each phase of the project
-\item \textbf{Deliverables: Requirements Specification, Evaluation and Testing plan, Gantt Chart, Project Timeline, technical design document, technology stack report.}
-\end{itemize}
+\objectiveblock{\RaggedRight Objective 1: Research and Analyse Segmentation Algorithms, Map Data APIs, and Data Sanitation Methods}{
+	\item Review existing algorithms and methodologies for evaluating training suitability of cycle routes.
+	\item Investigate APIs that can gather anonymous training data from external sources.
+	\item Research methods of road data collection from OpenStreetMap and other GIS sources.
+	\item Analyse prior academic work and technical case studies on route scoring and geospatial analysis.
+}{
+	\item Literature Review
+	\item Proof of Concept programs, cleaned data collection, and API test scripts
+}
 
-\subsection{Objective 3: Design and Implementation of the Web Application}
-\begin{itemize}
-\item Develop a React frontend for route plotting and visualization prototyping.
-\item Implement a Go backend for handling data storage and processing.
-\item Store training data and scores in an SQLite database.
-\item \textbf{Deliverables: Functional Web Application, and technical documentation}
-\end{itemize}
+\objectiveblock{\RaggedRight Objective 2: Plan and Define the Project Architecture and Development Roadmap for the Web Application, and the Algorithms}{
+	\item Create a detailed project plan including a schedule of tasks and technical milestones.
+	\item Identify requirements, architecture designs, and risks.
+	\item Choose technology stack for implementation of project.
+}{
+	\item Requirements Specification
+	\item Evaluation and Testing plan
+	\item Gantt Chart
+	\item Project Timeline
+	\item Technical design document including Architectural Diagrams, data models, and system interfaces.
+	\item Technology stack report
+}
 
-\subsection{Objective 4: Development of Training Suitability Algorithm}
-\begin{itemize}
-\item Interface and analyse OpenStreetMap API to gather inherant street data.
-\item Assess training suitability based on power, cadence, heart rate, and other cycling metrics, and apply metrics to GPX file via extensions
-\item Segment a GPX route into "routlets" based on trackpoint metric similarity
-\item Implement scoring system and metrics visualization for individual segments
-\item \textbf{Deliverables: Algorithm Design Document, Scoring System Documentation.}
-\end{itemize}
+\objectiveblock{\RaggedRight Objective 3: Design and Implement the Web Application}{
+	\item Develop a front end for route plotting and segment score visualisation.
+	\item Develop a back end for data processing, scoring, and segment generation.
+	\item Design and implement a database for storage of GPX files, metrics, and segment data structures.
+	\item Build a simple REST API to link the front end and back end systems.
+}{
+	\item Fully functional web application source code and version history.
+	\item Technical documentation and user guide for web application and API
+}
 
-\subsection{Objective 5: Testing and Evaluation}
-\begin{itemize}
-\item Compare algorithm performance with real-world data and user feedback.
-\item \textbf{Deliverables: Evaluation Report, test input and output dataset, and acceptance testing document.}
-\end{itemize}
+\objectiveblock{\RaggedRight Objective 4: Develop and Evaluate the Route Segmentation Algorithm}{
+	\item Parse GPX files to extract sequential trackpoints and associated cycling metrics.
+	\item Pull nearby data from Overpass API.
+	\item Group trackpoints into logical sections based on metric and OSM similarity.
+	\item Develop a segmentation algorithm to generate "Routelets" that compose the larger GPX route.
+	\item Store generated segments into the database for the web application to access.
+}{
+	\item Segmentation Algorithm Source Code
+	\item Sample GPX segment data
+	\item Segment Structure Documentation
+}
+
+\objectiveblock{\RaggedRight Objective 5: Develop and Evaluate the Suitability Score Algorithm}{
+	\item Query OSM API for road and environment data.
+	\item Engineer OSM/GPX parser to characterise an input segment from matching GPS Coordinates.
+	\item Define scoring model to generate Suitability Scores, either via Machine Learning or a heuristic approach.
+	\item Implement and evaluate a scoring algorithm for each defined Suitability Score.
+}{
+	\item Suitability Score Algorithm Documentation
+	\item Scoring System Implementation Code
+	\item Segment-to-Score Dataset
+}
+
+\objectiveblock{\RaggedRight Objective 6: Test, Validate, and Evaluate the Algorithms in Context With the Web Application}{
+	\item Test and validate both algorithms using real-world GPX data and reconnaissance via field testing or Google Street View.
+	\item Perform unit, integration, and usability testing of the application.
+}{
+	\item Evaluation Reports
+	\item Testing logs and scripts
+	\item Final summary of findings and limitations
+}
 
 
+\newpage
 \section{Legal, Social, and Ethical Issues}
-- Data privacy concerns regarding user-uploaded data.
-- Compliance with relevant data protection regulations.
-- Ethical considerations when using external data sources.
 
+\paragraph{Legal}
+
+\begin{itemize}
+	\item \textbf{ODbL OpenStreetMap Licensing:} All data used from OpenStreetMap is licensed under the Open Database License (ODbL), which requires proper attribution and that any derivative databases must also be openly shared under the same license \citep{osmodbl}. This impacts the project if enriched or processed OSM data is redistributed.
+	\item \textbf{Attribution Requirements for OSM and Leaflet.js:} OpenStreetMap and Leaflet.js both require clear attribution in visualizations and public-facing applications \citep{osmwiki, leafletdoc}. This must be explicitly included in the final application.
+	\item \textbf{Use of Public API and Rate Limiting TOS:} The Overpass API enforces strict rate limits and usage policies to ensure fair access for all users \citep{overpasspolicy}. Excessive automated requests for segment data could violate these terms and require rate limiting or caching on the backend.
+	\item \textbf{Handling of User-Generated Data under Copyright Law:} GPX tracks and annotations created by users may be subject to copyright if they are derived from unique contributions. If user data is uploaded, its handling must comply with copyright and ownership principles.
+	\item \textbf{Data Retention and Access Control:} Any user-submitted or processed data stored on the system should be retained only as long as necessary, with adequate access controls and encryption to protect it \citep{gdpr}.
+	\item \textbf{Legal Implications of Data Scraping:} Even open APIs may have terms prohibiting scraping or excessive querying without permission. Bulk downloads or programmatic querying must respect the service’s legal boundaries \citep{overpassapi}.
+	\item \textbf{Use of Restricted Government or Commercial Map Layers:} Care must be taken not to use government or commercial tiles (e.g., Ordnance Survey, Google Maps) that are not licensed for redistribution or analysis.
+	\item \textbf{Licenses and Machine Learning Usage:} Some open data sources restrict use for model training, or require that resulting models not be commercialised unless attribution or relicensing occurs \citep{wiley2018mllicenses}.
+\end{itemize}
+
+\paragraph{Social}
+
+\begin{itemize}
+	\item \textbf{Discrimination and Area Labeling:} Labeling a route or area as "unsafe" based on scoring algorithms may unintentionally stigmatize certain neighbourhoods, particularly lower-income or minority-dense areas.
+	\item \textbf{Equity in Route Scoring:} Bias in data or scoring criteria may make it harder for some users (e.g., rural, disabled, or low-income groups) to access safe or suitable routes, reinforcing digital inequality \citep{haklay2010vgi}.
+	\item \textbf{Data Literacy and Accessibility:} Users may misinterpret complex visualizations or scoring metrics without sufficient explanation or interface clarity, reducing the tool’s effectiveness and inclusiveness.
+	\item \textbf{Data Quality Discrepancies in Low-Income Areas:} OpenStreetMap coverage is uneven and often less complete in economically disadvantaged areas, which could skew scoring or produce biased results \citep{goodchild2007citizens}.
+	\item \textbf{Privacy Concerns in Public GPX Trace Usage:} While GPX files are often shared publicly, repeated use could enable de-anonymization or tracking, especially when traces include home locations \citep{leszczynski2015spatial}.
+	\item \textbf{Unintended Consequences of Route Suggestions:} Suggesting "adventurous" or high-score routes based on environmental data may inadvertently lead users into potentially unsafe areas, especially where real-time hazards (e.g., wildlife, road works) aren't accounted for.
+\end{itemize}
+
+\paragraph{Ethical}
+
+\begin{itemize}
+	\item \textbf{Transparency in Score Calculation:} Users should be able to understand how segment scores are calculated and what factors are considered. Algorithmic opacity can erode trust and create misinformation \citep{floridi2016data}.
+	\item \textbf{Consent in User Data Usage:} If user-uploaded data (like GPX traces) is used to refine the scoring models, informed consent must be obtained and users should have the option to opt out \citep{gdpr}.
+	\item \textbf{Misrepresentation of Safety:} If users rely heavily on the app’s safety score, it may create a false sense of security, especially if real-world dangers (e.g., traffic, poor lighting) aren't well represented \citep{tufekci2015algorithmic}.
+	\item \textbf{Fairness and Bias in Machine Learning:} Machine learning models may inadvertently inherit biases from training data, leading to unfair or inaccurate scoring. Methods must be tested for bias and explained clearly \citep{danks2017bias}.
+	\item \textbf{Conflicting Metrics and Trade-Offs:} Users may prioritize different route aspects (e.g., safety vs. challenge), so scoring must be transparent about how trade-offs are handled and allow for customization.
+	\item \textbf{Anonymisation Before Storage or Transmission:} Any GPX or telemetry data transmitted to a central server must be anonymised and stripped of identifying metadata to protect user privacy .
+\end{itemize}
+
+\newpage
 \section{Resources}
-- React, Go, SQLite.
-- APIs for gathering external data.
-- Computing resources for development and testing.
+\paragraph{Programming \& Data Resources}
+\begin{itemize}
+	\item Language for data processing, machine learning, and API calls; Most likely Python. \citep{pythondoc}
+	\item A concurrent easy-to-code programming language will be used for GPX parsing and backend logic; most likely GoLang \citep{golangdoc}
+	\item Leaflet.js potentially used for front end map visualisation \citep{leafletdoc}
+	\item OpenStreetMap with Overpass API for map data and base maps \citep{overpassapi}
+	\item Neovim Editor on Arch Linux for development.
+	\item Github for version control and continuous integration.
+	\item Personal GPX activity files (sample data)
+	\item Open repository GPX data (if available)
+	\item Local HTTP server for development with Nginx or Apache
+\end{itemize}
+\paragraph{Hardware Resources}
+\begin{itemize}
+	\item Personal Development Machines
+	\item Dedicated GPU machine for training models
+	\item Internet Access
+	\item Resources for on-site reconnaissance (bike, camera, GPS device).
+	\item GPX-capable GPS Device
+\end{itemize}
+\paragraph{Financial Resources}
+\begin{itemize}
+	\item Cloud Computing Credits
+	\item University-Provided Funding (including access to academic databases, computer labs, software licences, department funding)
 
+\end{itemize}
+\paragraph{Academic Resources}
+\begin{itemize}
+	\item Papers and information on Geospatial Analysis, Routing Algorithms, and Machine Learning
+	\item OpenStreetMap Overpass API, Leaflet.js, scikit-learn Documentation
+	\item University and Research databases
+\end{itemize}
+
+\newpage
 \section{Critical Success Factors}
-- Effective implementation of the training suitability algorithm.
-- User-friendly interface for route plotting and analysis.
-- Reliable data storage and retrieval.
+For each objective to be considered successful, the following requirements should be fulfilled:
 
+\begin{table}[h!]
+	\centering
+	\rowcolors{2}{gray!10}{white}
+	\renewcommand{\arraystretch}{1.2}
+
+	\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}m{0.6cm}
+		>{\raggedright\arraybackslash}X
+		>{\raggedright\arraybackslash}X}
+		\toprule
+		\textbf{\#} & \textbf{Critical activity / resource}                 & \textbf{Key risk(s)}                                               \\
+		\midrule
+		1           & High‑quality, complete OSM \& GPX data                & Sparse coverage in rural areas; Overpass rate‑limiting or downtime \\
+		2           & Sound research foundation \& data‑sanitation pipeline & Important literature missed ⇒ weak algorithm design                \\
+		3           & Clear architecture \& realistic roadmap               & Scope creep; under‑estimated task durations                        \\
+		4           & Seamless front‑end / back‑end / DB integration        & API contract drift; latency or data‑format mismatch                \\
+		5           & Accurate GPX segmentation algorithm                   & Over‑ / under‑segmentation producing invalid “routelets”           \\
+		6           & Trustworthy suitability‑scoring model                 & Over‑fitting, data bias, poor interpretability for athletes        \\
+		7           & Data‑privacy / GDPR compliance                        & Storage of identifying location data in raw GPX traces             \\
+		8           & Comprehensive testing \& validation                   & Insufficient time for usability tests and field checks             \\
+		9           & Regular supervisor / peer feedback                    & Drift from academic requirements; late course‑corrections          \\
+		10          & Adequate computing resources                          & Computer unable to handle large Overpass queries or model training \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Critical activities/resources and associated risks}
+\end{table}
+
+
+
+
+
+\section{Risk Matrix}
+
+\renewcommand{\arraystretch}{1.3}
+\rowcolors{2}{gray!10}{white}
+
+\begin{center}
+	\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash}X
+		>{\centering\arraybackslash}m{1.8cm}
+		>{\centering\arraybackslash}m{1.8cm}
+		>{\RaggedRight\arraybackslash}X}
+		\toprule
+		\textbf{Risk}                             & \textbf{Likelihood} & \textbf{Impact} & \textbf{Mitigation Strategy}                                                                    \\
+		\midrule
+		Incomplete OSM data in target area        & Medium              & High            & Cache OSM data; allow user corrections or fallback data sources (e.g., MetroExtracts)           \\
+		Algorithm fails to segment GPX correctly  & Medium              & High            & Use visual validation tools and segment with heuristics as fallback                             \\
+		Overpass API rate-limiting or downtime    & High                & Medium          & Use data caching; throttle requests; prefetch large areas                                       \\
+		Inaccurate or misleading scoring model    & Medium              & High            & Start with explainable heuristic scores before switching to ML; gather user feedback            \\
+		Frontend-backend integration bugs         & Medium              & Medium          & Use Postman tests; define schemas up front; automate integration tests                          \\
+		User GPX data privacy breach              & Low                 & High            & Anonymise data on ingest; strip timestamps and identifiable home location                       \\
+		Scope creep or time underestimation       & Medium              & High            & Prioritise MVP; follow weekly planning and retrospectives; maintain issue tracker               \\
+		Lack of supervisor feedback at key stages & Low                 & High            & Book recurring meetings in advance; prepare concise progress notes                              \\
+		Hardware/API quota limits during testing  & Medium              & Medium          & Test locally when possible; apply for academic cloud credits; limit frequency of external calls \\
+		\bottomrule
+	\end{tabularx}
+\end{center}
+
+\newpage
 \section{Schedule}
 \begin{itemize}
-  \item \textbf{Total time to completion:} 20 Weeks
-  \item Research and Planning: 2 weeks
-  \item Frontend Development: 2 weeks
-  \item Backend Development: 3 weeks
-  \item Training Suitability Algorithm: 4 weeks
-  \item Visualization and Feedback: 2 weeks
-  \item Testing and Evaluation: 3 weeks
-  \item Deployment and Finalization: 2 weeks
-  \item Report Finalisation: 2 Weeks
+	\item \textbf{Total time to completion:} 18 Weeks
 \end{itemize}
+%TODO: Implement gantt chart
+\begin{center}
+	\begin{ganttchart}[
+			hgrid,
+			vgrid,
+			bar/.style={fill=blue!50},
+			group/.style={fill=gray!30, draw=black},
+			milestone/.style={fill=red!60},
+			bar height=0.3,
+			group height=0.4,
+			group top shift=0.3,
+			group peaks height=0.15,
+			title label font=\bfseries\footnotesize,
+			bar label font=\footnotesize,
+			group label font=\bfseries\footnotesize,
+			milestone label font=\scriptsize\bfseries,
+			x unit=0.45cm,
+			y unit chart=0.5cm
+		]{1}{18}
 
-\section{References}
-To be added as research progresses.
-For researching OSM: https://wiki.openstreetmap.org/wiki/Map_features\\
+		\gantttitle{Weeks}{18} \\
+		\gantttitlelist{1,...,18}{1} \\
+
+		\ganttgroup{Objective 1: Research \& Analyse}{1}{2} \\
+		\ganttbar[bar/.style={fill=cyan!70}]{Review algorithms and APIs}{1}{1} \\
+		\ganttbar[bar/.style={fill=cyan!50}]{Collect GPX and OSM data}{2}{2} \\
+
+		\ganttgroup{Objective 2: Project Planning}{3}{4} \\
+		\ganttbar[bar/.style={fill=orange!60}]{Define requirements}{3}{3} \\
+		\ganttbar[bar/.style={fill=orange!40}]{Create architecture \& plan}{4}{4} \\
+
+		\ganttgroup{Objective 3: Web Application}{5}{9} \\
+		\ganttbar[bar/.style={fill=teal!70}]{Frontend dev (React + Leaflet)}{5}{6} \\
+		\ganttbar[bar/.style={fill=teal!50}]{Backend dev (Go + SQLite)}{7}{9} \\
+
+		\ganttgroup{Objective 4: Segmentation Algorithm}{10}{13} \\
+		\ganttbar[bar/.style={fill=blue!60}]{Segment GPX into routelets}{10}{11} \\
+		\ganttbar[bar/.style={fill=blue!40}]{OSM data integration}{12}{13} \\
+
+		\ganttgroup{Objective 5: Suitability Scoring}{14}{15} \\
+		\ganttbar[bar/.style={fill=purple!50}]{Feature extraction + scoring}{14}{15} \\
+
+		\ganttgroup{Objective 6: Testing \& Evaluation}{5}{18} \\
+		\ganttbar[bar/.style={fill=green!60}]{Visualization + feedback}{5}{10} \\
+		\ganttbar[bar/.style={fill=green!40}]{System testing + refinement}{7}{15} \\
+		\ganttbar[bar/.style={fill=red!50}]{Final report writing}{15}{18}
+
+	\end{ganttchart}
+\end{center}
+\subsection*{Deadlines}
+\begin{footnotesize}
+	\begin{itemize}
+		\item \textbf{May 5:} Objective 1 Deliverables: Literature Review, and Proof-of-Concept code
+		\item \textbf{May 10:} Interim Report
+		\item \textbf{May 23:} Objective 2 Deliverables: SRS, Evaluation \& Testing Plan, in depth GANTT chart and project timeline, Technical Design document, and Technology Stack report
+		\item \textbf{June 2:} Basic front end completed with Documentation
+		\item \textbf{June 23:} Back end and API completed with Documentation
+		\item \textbf{July 7:} Basic Segmentation Implementation with dummy data
+		\item \textbf{July 21:} Segmentation Algorithm Integration with OSM Data
+		\item \textbf{August 4:} Suitability Scoring Algorithm complete implementation
+		\item \textbf{August 11:} Evaluation Report and Testing Logs
+		\item \textbf{August 18:} All Documentation and Code completed
+		\item \textbf{September 6:} Final report and Source code submitted
+	\end{itemize}
+\end{footnotesize}
+\newpage
+\bibliographystyle{agsm}
+\bibliography{proposal}
+
+
 
 
 

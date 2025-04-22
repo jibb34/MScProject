@@ -1,180 +1,1210 @@
-This is LuaTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)  (format=luatex 2025.4.14)  14 APR 2025 12:00
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  22 APR 2025 15:50
  restricted system commands enabled.
 **proposal.tex
 (./proposal.tex
-! Undefined control sequence.
-l.1 \documentclass
-                  {article}
-? q
-OK, entering \batchmode...
-! Undefined control sequence.
-l.2 \usepackage
-             {graphicx}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/opt/homebrew/Cellar/texlive/202403
+12_3/share/texmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/luatex/
+luaotfload/fontloader-2023-12-28.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/opt/homebrew/Cellar/texlive/202403
+12_3/share/texmf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/articl
+e.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
 
-! Undefined control sequence.
-l.3 \usepackage
-             {hyperref}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/size10
+.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /opt/homebrew/Cellar/texlive/2
+0240312_3/share/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen139
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/gr
+aphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-! Undefined control sequence.
-l.4 \usepackage
-             {geometry}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/ke
+yval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/gr
+aphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-! Undefined control sequence.
-l.5 \geometry
-           {a4paper}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/tr
+ig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-cf
+g/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 107.
 
-! Undefined control sequence.
-l.7 \title
-        {Bike Training Tracking Application}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-de
+f/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen140
+\Gin@req@width=\dimen141
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/ragged2e/ra
+gged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip50
+\RaggedLeftLeftskip=\skip51
+\RaggedRightLeftskip=\skip52
+\CenteringRightskip=\skip53
+\RaggedLeftRightskip=\skip54
+\RaggedRightRightskip=\skip55
+\CenteringParfillskip=\skip56
+\RaggedLeftParfillskip=\skip57
+\RaggedRightParfillskip=\skip58
+\JustifyingParfillskip=\skip59
+\CenteringParindent=\skip60
+\RaggedLeftParindent=\skip61
+\RaggedRightParindent=\skip62
+\JustifyingParindent=\skip63
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/array
+.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen142
+\ar@mcellbox=\box51
+\extrarowheight=\dimen143
+\NC@list=\toks18
+\extratabsurround=\skip64
+\backup@length=\skip65
+\ar@cellbox=\box52
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/xcolor/xcol
+or.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
-! Undefined control sequence.
-l.8 \author
-         {Jack Jibb\\ Student ID: 001408490 \\ MSc Computer Science}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-cf
+g/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 274.
 
-! Argument of \\ has an extra }.
-<inserted text> 
-\par 
-<to be read again> 
-}
-l.8 ...tudent ID: 001408490 \\ MSc Computer Science}
-                                                  
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/ma
+thcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/colortbl/co
+lortbl.sty
+Package: colortbl 2024/02/20 v1.0g Color table columns (DPC)
+\everycr=\toks19
+\minrowclearance=\skip66
+\rownum=\count194
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/parskip/par
+skip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 
-Runaway argument?
- Student ID: 001408490 \\ MSc Computer Science
-! Paragraph ended before \\ was complete.
-<to be read again> 
-\par 
-<to be read again> 
-}
-l.8 ...tudent ID: 001408490 \\ MSc Computer Science}
-                                                  
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/kvoptions/k
+voptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 
-! Undefined control sequence.
-l.9 \date
-       {\today}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/ltxcmds/l
+txcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/kvsetkeys/k
+vsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/etoolbox/et
+oolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count195
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+colorbox.sty
+Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
 
-! Undefined control sequence.
-l.9 \date{\today
-              }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/basicla
+yer/pgf.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/utiliti
+es/pgfrcs.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfutil-common.tex
+\pgfutil@everybye=\toks20
+\pgfutil@tempdima=\dimen144
+\pgfutil@tempdimb=\dimen145
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfutil-latex.def
+\pgfutil@abb=\box53
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfrcs.code.tex
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/pgf.r
+evision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 
-! Undefined control sequence.
-l.11 \begin
-         {document}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/basicla
+yer/pgfcore.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/systeml
+ayer/pgfsys.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
+mlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
-! Undefined control sequence.
-l.13 \maketitle
-             
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks21
+\pgfkeys@temptoks=\toks22
 
-! Undefined control sequence.
-l.15 \section
-           *{Supervisor}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks23
+))
+\pgf@x=\dimen146
+\pgf@y=\dimen147
+\pgf@xa=\dimen148
+\pgf@ya=\dimen149
+\pgf@xb=\dimen150
+\pgf@yb=\dimen151
+\pgf@xc=\dimen152
+\pgf@yc=\dimen153
+\pgf@xd=\dimen154
+\pgf@yd=\dimen155
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count196
+\c@pgf@countb=\count197
+\c@pgf@countc=\count198
+\c@pgf@countd=\count199
+\t@pgf@toka=\toks24
+\t@pgf@tokb=\toks25
+\t@pgf@tokc=\toks26
+\pgf@sys@id@count=\count266
 
-! Undefined control sequence.
-l.18 \section
-           *{Topic Area}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
+mlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-luatex.def
 
-! Undefined control sequence.
-l.21 \section
-           *{Keywords}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
+mlayer/pgfsys-luatex.def
+File: pgfsys-luatex.def 2023-01-15 v3.1.10 (3.1.10)
 
-! Undefined control sequence.
-l.24 \section
-           *{MSc Modules Contributing to this Project}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
+mlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
+mlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count267
+\pgfsyssoftpath@bigbuffer@items=\count268
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
+mlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 
-! Undefined control sequence.
-l.25 \begin
-          {itemize}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmath.code.tex
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathutil.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathparser.code.tex
+\pgfmath@dimen=\dimen156
+\pgfmath@count=\count269
+\pgfmath@box=\box54
+\pgfmath@toks=\toks27
+\pgfmath@stack@operand=\toks28
+\pgfmath@stack@operation=\toks29
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.basic.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.trigonometric.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.random.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.comparison.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.base.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.round.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.misc.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfunctions.integerarithmetics.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathcalc.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count270
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfint.code.tex)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen157
+\pgf@picmaxx=\dimen158
+\pgf@picminy=\dimen159
+\pgf@picmaxy=\dimen160
+\pgf@pathminx=\dimen161
+\pgf@pathmaxx=\dimen162
+\pgf@pathminy=\dimen163
+\pgf@pathmaxy=\dimen164
+\pgf@xx=\dimen165
+\pgf@xy=\dimen166
+\pgf@yx=\dimen167
+\pgf@yy=\dimen168
+\pgf@zx=\dimen169
+\pgf@zy=\dimen170
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen171
+\pgf@path@lasty=\dimen172
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen173
+\pgf@shorten@start@additional=\dimen174
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box55
+\pgf@hbox=\box56
+\pgf@layerbox@main=\box57
+\pgf@picture@serial@count=\count271
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen175
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen176
+\pgf@pt@y=\dimen177
+\pgf@pt@temp=\dimen178
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen179
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen180
+\pgf@sys@shading@range@num=\count272
+\pgf@shadingcount=\count273
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box58
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
+layer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
+es/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box59
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
+es/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/compati
+bility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen181
+\pgf@nodesepend=\dimen182
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/compati
+bility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/verba
+tim.sty
+Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks30
+\verbatim@line=\toks31
+\verbatim@in@stream=\read3
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/environ/env
+iron.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
 
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])</usr/share/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on proposal.pdf (1 page, 21853 bytes).
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/trimspaces/
+trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks32
+)
+\tcb@titlebox=\box60
+\tcb@upperbox=\box61
+\tcb@lowerbox=\box62
+\tcb@phantombox=\box63
+\c@tcbbreakpart=\count274
+\c@tcblayer=\count275
+\c@tcolorbox@number=\count276
+\l__tcobox_tmpa_box=\box64
+\l__tcobox_tmpa_dim=\dimen183
+\tcb@temp=\box65
+\tcb@temp=\box66
+\tcb@temp=\box67
+\tcb@temp=\box68
 
-PDF statistics: 12 PDF objects out of 1000 (max. 8388607)
- 7 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.2.0'
+\c@tcbrastercolumn=\count277
+\c@tcbrasterrow=\count278
+\c@tcbrasternum=\count279
+\c@tcbraster=\count280
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/fronten
+dlayer/tikz.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/utiliti
+es/pgffor.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/utiliti
+es/pgfkeys.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfkeys.code.tex))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/math/pg
+fmath.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
+pgfmath.code.tex))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen184
+\pgffor@skip=\dimen185
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
+ries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count281
+\pgfplotmarksize=\dimen186
+)
+\tikz@lastx=\dimen187
+\tikz@lasty=\dimen188
+\tikz@lastxsaved=\dimen189
+\tikz@lastysaved=\dimen190
+\tikz@lastmovetox=\dimen191
+\tikz@lastmovetoy=\dimen192
+\tikzleveldistance=\dimen193
+\tikzsiblingdistance=\dimen194
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count282
+\tikznumberofchildren=\count283
+\tikznumberofcurrentchild=\count284
+\tikz@fig@count=\count285
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
+es/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count286
+\pgfmatrixcurrentcolumn=\count287
+\pgf@matrix@numberofcolumns=\count288
+)
+\tikz@expandcount=\count289
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tikzfill/ti
+kzfill.image.sty
+Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tikzfill/ti
+kzfill-common.sty
+Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tikzfill/ti
+kzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
+\l__tikzfill_img_box=\box73
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pdfcol/pdfc
+ol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/infwarerr
+/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/iftex/ift
+ex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box74
+\tcb@totalupperbox=\box75
+\tcb@totallowerbox=\box76
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/iftex/ifl
+uatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.2.0'
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
+math.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip67
+
+For additional information on amsmath, use the `?' option.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
+text.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
+gen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks35
+\ex@=\dimen195
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
+bsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen196
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
+opn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count290
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count291
+\leftroot@=\count292
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count293
+\DOTSCASE@=\count294
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box77
+\strutbox@=\box78
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen197
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count295
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count296
+\dotsspace@=\muskip16
+\c@parentequation=\count297
+\dspbrk@lvl=\count298
+\tag@help=\toks36
+\row@=\count299
+\column@=\count300
+\maxfields@=\count301
+\andhelp@=\toks37
+\eqnshift@=\dimen198
+\alignsep@=\dimen199
+\tagshift@=\dimen256
+\tagwidth@=\dimen257
+\totwidth@=\dimen258
+\lineht@=\dimen259
+\@envbody=\toks38
+\multlinegap=\skip68
+\multlinetaggap=\skip69
+\mathdisplay@stack=\toks39
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
+\tcbfitdim=\dimen260
+\tcb@lowerfitdim=\dimen261
+\tcb@upperfitdim=\dimen262
+\tcb@cur@hbadness=\count302
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/li
+stings.sty
+\lst@mode=\count303
+\lst@gtempboxa=\box79
+\lst@token=\toks40
+\lst@length=\count304
+\lst@currlwidth=\dimen263
+\lst@column=\count305
+\lst@pos=\count306
+\lst@lostspace=\dimen264
+\lst@width=\dimen265
+\lst@newlines=\count307
+\lst@lineno=\count308
+\lst@maxwidth=\dimen266
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
+tpatch.sty
+File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
+tmisc.sty
+File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
+\c@lstnumber=\count309
+\lst@skipnumbers=\count310
+\lst@framebox=\box80
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/li
+stings.cfg
+File: listings.cfg 2024/02/21 1.10 listings configuration
+))
+Package: listings 2024/02/21 1.10 (Carsten Heinz)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
+)
+\c@tcblisting=\count311
+))
+Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. 
+Library `listings` is loaded instead. on input line 29.
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.2.0'
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.2.0'
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.2.0'
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
+ries/pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tcolorbox/t
+cbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.2.0'
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/tabul
+arx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen267
+\TX@old@table=\dimen268
+\TX@old@col=\dimen269
+\TX@target=\dimen270
+\TX@delta=\dimen271
+\TX@cols=\count312
+\TX@ftn=\toks41
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/booktabs/bo
+oktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen272
+\lightrulewidth=\dimen273
+\cmidrulewidth=\dimen274
+\belowrulesep=\dimen275
+\belowbottomsep=\dimen276
+\aboverulesep=\dimen277
+\abovetopsep=\dimen278
+\cmidrulesep=\dimen279
+\cmidrulekern=\dimen280
+\defaultaddspace=\dimen281
+\@cmidla=\count313
+\@cmidlb=\count314
+\@aboverulesep=\dimen282
+\@belowrulesep=\dimen283
+\@thisruleclass=\count315
+\@lastruleclass=\count316
+\@thisrulewidth=\dimen284
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgfgantt/pg
+fgantt.sty
+Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
+ries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen285
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box81
+\pgf@layerboxsaved@background=\box82
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
+ries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
+ries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/utiliti
+es/pgfcalendar.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
+ties/pgfcalendar.code.tex
+File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfcalendarcurrentjulian=\count317
+\pgf@cal@easter@Y=\count318
+\pgf@cal@easter@G=\count319
+\pgf@cal@easter@C=\count320
+\pgf@cal@easter@X=\count321
+\pgf@cal@easter@Z=\count322
+\pgf@cal@easter@D=\count323
+\pgf@cal@easter@E=\count324
+\pgf@cal@easter@N=\count325
+\pgf@cal@easter@M=\count326
+\pgf@cal@easter@julianday=\count327
+))
+\gtt@currentline=\count328
+\gtt@lasttitleline=\count329
+\gtt@currgrid=\count330
+\gtt@chartwidth=\count331
+\gtt@lasttitleslot=\count332
+\gtt@elementid=\count333
+\gtt@today@slot=\count334
+\gtt@startjulian=\count335
+\gtt@endjulian=\count336
+\gtt@chartid=\count337
+\gtt@vrule@slot=\count338
+\gtt@calendar@slots=\count339
+\gtt@calendar@weeknumber=\count340
+\gtt@calendar@startofweek=\count341
+\gtt@left@slot=\count342
+\gtt@right@slot=\count343
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/hy
+perref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/kvdefinek
+eys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pdfescape
+/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pdftexcmd
+s/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks42
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hycolor/hyc
+olor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/auxhook/aux
+hook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/na
+meref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/refcount/re
+fcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/gettitles
+tring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count344
+)
+\@linkdim=\dimen286
+\Hy@linkcounter=\count345
+\Hy@pagecounter=\count346
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/pd
+1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/intcalc/i
+ntcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count347
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/pu
+enc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count348
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen287
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/bitset/bi
+tset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/bigintcal
+c/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count349
+\Field@Width=\dimen288
+\Fld@charsize=\dimen289
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/atbegs
+hi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count350
+\c@Item=\count351
+\c@Hfootnote=\count352
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/hl
+uatex.def
+File: hluatex.def 2024-01-20 v7.01h Hyperref driver for luaTeX
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/stringenc
+/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/atvery
+end-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count353
+\c@bookmark@seq@number=\count354
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/rerunfilech
+eck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/uniquecou
+nter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip70
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/geometry/ge
+ometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/iftex/ifv
+tex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count355
+\Gm@cntv=\count356
+\c@Gm@tempcnt=\count357
+\Gm@bindingoffset=\dimen290
+\Gm@wd@mp=\dimen291
+\Gm@odd@mp=\dimen292
+\Gm@even@mp=\dimen293
+\Gm@layoutwidth=\dimen294
+\Gm@layoutheight=\dimen295
+\Gm@layouthoffset=\dimen296
+\Gm@layoutvoffset=\dimen297
+\Gm@dimlist=\toks43
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/natbib/natb
+ib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip71
+\bibsep=\skip72
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count358
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3backend/l
+3backend-luatex.def
+File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count359
+Inserting `l3color' in `luaotfload.parse_color'.
+\l__pdf_internal_box=\box83
+) (./proposal.aux)
+\openout1 = proposal.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
+4.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ts1cmr
+.fd
+File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii
+/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count360
+\scratchdimen=\dimen298
+\scratchbox=\box84
+\nofMPsegments=\count361
+\nofMParguments=\count362
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count363
+\MPscratchDim=\dimen299
+\MPnumerator=\count364
+\makeMPintoPDFobject=\count365
+\everyMPtoPDFconversion=\toks45
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/epstopdf-pk
+g/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/latexconfig
+/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count366
+Package hyperref Info: Link coloring OFF on input line 24.
+ (./proposal.out) (./proposal.out)
+\@outlinefile=\write4
+
+\openout4 = proposal.out
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+[1
+
+{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updma
+p/pdftex.map}]
+\c@objnum=\count367
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
+[]\TU/lmr/bx/n/10 Ob-jec-tive 1: Re-search and Anal-yse Seg-men-ta-tion Al-go-ri
+thms, Map Data APIs,
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+[]\TU/lmr/bx/n/10 Ob-jec-tive 2: Plan and De-fine the Project Ar-chi-tec-ture an
+d De-vel-op-ment
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+[]\TU/lmr/bx/n/10 Ob-jec-tive 6: Test, Val-i-date, and Eval-u-ate the Al-go-rith
+ms in Con-text With the
+ []
+
+[4]
+Overfull \hbox (7.32632pt too wide) in paragraph at lines 190--191
+\TU/lmr/m/n/10 both re-quire clear at-tri-bu-tion in vi-su-al-iza-tions and publ
+ic-facing ap-pli-ca-tions ([]\TU/lmr/m/it/10 Open-StreetMap
+ []
+
+[5] [6]
+Overfull \hbox (0.96922pt too wide) in paragraph at lines 225--226
+[]\TU/lmr/m/n/10 Lan-guage for data pro-cess-ing, ma-chine learn-ing, and API ca
+lls; Most likely Python. ([]\TU/lmr/m/it/10 Python
+ []
+
+[7] [8
+Missing character: There is no ⇒ (U+21D2) in font [lmroman10-regular]:+tlig;!
+] [9] [10] (./proposal.bbl
+Underfull \hbox (badness 6944) in paragraph at lines 48--52
+[]\TU/lmr/m/n/10 Open-StreetMap Foun-da-tion (2024), ‘Open database li-cense 
+(odbl)’, []$\TU/lmtt/m/n/10 https://wiki.
+ []
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 54--57
+[]\TU/lmr/m/n/10 Open-StreetMap Wiki (2024\TU/lmr/m/it/10 a\TU/lmr/m/n/10 ), 
+‘Over-pass api’, []$\TU/lmtt/m/n/10 https://wiki.openstreetmap.org/wiki/
+ []
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 59--63
+[]\TU/lmr/m/n/10 Open-StreetMap Wiki (2024\TU/lmr/m/it/10 b\TU/lmr/m/n/10 ), 
+‘Over-pass api – pub-lic us-age pol-icy’, []$\TU/lmtt/m/n/10 https://wiki.
+
+ []
+
+) [11] (./proposal.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+Package rerunfilecheck Info: File `proposal.out' has not changed.
+(rerunfilecheck)             Checksum: DEC026ED15513BB26E9AED810FEE6751;930.
+)
+
+Here is how much of LuaTeX's memory you used:
+ 30332 strings out of 476447
+ 125086,1977958 words of node,token memory allocated
+ 1445 words of node memory still in use:
+   30 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 87 attribute, 72 glue_sp
+ec, 87 attribute_list, 2 write, 24 pdf_literal, 7 pdf_action, 24 pdf_colorstack 
+nodes
+   avail lists: 1:3,2:4498,3:2523,4:239,5:450,6:115,7:6733,8:68,9:1246,10:12,11:
+553
+ 51615 multiletter control sequences out of 65536+600000
+ 49 fonts using 3525991 bytes
+ 91i,11n,95p,528b,895s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
+lm/lmmono10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dis
+t/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20
+240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homeb
+rew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman1
+0-italic.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/ope
+ntype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/s
+hare/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cella
+r/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.ot
+f></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/publi
+c/lm/lmroman12-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-
+dist/fonts/opentype/public/lm/lmroman17-regular.otf>
+Output written on proposal.pdf (11 pages, 94226 bytes).
+
+PDF statistics: 284 PDF objects out of 1000 (max. 8388607)
+ 217 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 131072)
+ 320 words of extra memory for PDF output out of 10000 (max. 100000000)
 
