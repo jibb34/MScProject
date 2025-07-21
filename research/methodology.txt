@@ -1,0 +1,26 @@
+The general idea for segmentation:
+
+Use Wavelets to segment based on continuous metrics such as power, cadence, heart rate, speed, etc.
+To do this, we can just treat the gpx data as a flow of a signal over time, and convert it to the wavelet domain with wavelet footprints, 
+to indicate inflection points. We can then further refine this to our liking
+ 
+Use OSM Ways to segment by map items, aka roads, districts, locations, etc.
+This can be done by taking a gpx location data, and pulling ways that intersect with the map. For each way that is on the path, check if the way
+significantly deviates from the course. If there is an unintentional discontinuity, search the space between the two end nodes for nodes that exist closest to the gpx route, and use a way that connects them. This should reduce the amount of items to parse through, while also enriching the route with map data.
+
+
+I realized that Wavelets would be best used at various levels of duration, to mirror the zones of training as per this graphic: 
+https://indoorcyclingassociation.com/ask-the-expert-how-much-time-should-you-spend-in-the-red-zone/
+
+Therefore, we want to separate our Wavelet analysis into these levels of detail:
+
+1.) <20 Seconds
+2.) 20-3 minutes
+3.) 3-8 minutes
+4.) 10-60 Minutes
+5.) 60+ minutes
+
+It doesn't make much sense to work on a timeframe longer than 1 hour, since practically, no segment should last that long. Even on longer, consistent climbs such as the Alps, they can be broken down into multiple, similar sections.
+
+
+Lipschitz regularity - a way to measure roughness, useful for determining good training sections
