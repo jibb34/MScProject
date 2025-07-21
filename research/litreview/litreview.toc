@@ -1,17 +1,17 @@
-\contentsline {section}{\numberline {1}Categorization and Separation Algorithm Design and Analysis}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Research Objectives}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Algorithmic Approaches to Segmentation and Categorization}{2}{subsection.1.2}%
-\contentsline {paragraph}{Paul Newson and John Krumm: "Hidden Markov Map Matchign Through Noise and Sparseness"}{2}{paragraph*.1}%
-\contentsline {paragraph}{Wang et al., “CycleTrajectory: An End-to-End Framework for Enriching Cycling Trajectory Data”}{3}{paragraph*.2}%
-\contentsline {paragraph}{Evgeny Arbatov: "GPX Route Generator"}{3}{paragraph*.3}%
-\contentsline {paragraph}{Boeing, G: "Modeling and Analyzing Urban Networks and Amenities with OSMnx"}{3}{paragraph*.4}%
-\contentsline {subsection}{\numberline {1.3}Applications in Cyclist Route Planning}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Methodological Considerations and Assumptions}{3}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Training Suitability Scoring Methodologies}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Research Objectives}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Approaches to Suitability Scoring}{5}{subsection.2.2}%
-\contentsline {paragraph}{Sharifzadeh et al. "Change Detection in Time Series Data Using Wavelet Footprints"}{5}{paragraph*.5}%
-\contentsline {paragraph}{Indoor Cycling Association: "How Much Time in the Red Zone?"}{7}{paragraph*.6}%
-\contentsline {paragraph}{Sean Hurley: "Normalized Power: What It Is and How to Use It" https://www.trainerroad.com/blog/normalized-power-what-it-is-and-how-to-use-it/}{7}{paragraph*.7}%
-\contentsline {subsection}{\numberline {2.3}Applications in Training Suitability Scoring}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Methodological Considerations and Assumptions}{8}{subsection.2.4}%
+\contentsline {section}{\numberline {0.1}Categorization and Separation Algorithm Design and Analysis}{2}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Research Objectives}{2}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Algorithmic Approaches to Segmentation and Categorization}{2}{subsection.0.1.2}%
+\contentsline {paragraph}{Paul Newson and John Krumm: "Hidden Markov Map Matching Through Noise and Sparseness"}{3}{paragraph*.2}%
+\contentsline {paragraph}{Wang et al., “CycleTrajectory: An End-to-End Framework for Enriching Cycling Trajectory Data”}{3}{paragraph*.3}%
+\contentsline {paragraph}{Evgeny Arbatov: "GPX Route Generator"}{3}{paragraph*.4}%
+\contentsline {paragraph}{Boeing, G: "Modeling and Analyzing Urban Networks and Amenities with OSMnx"}{3}{paragraph*.5}%
+\contentsline {subsection}{\numberline {0.1.3}Applications in Cyclist Route Planning}{4}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}Methodological Considerations and Assumptions}{4}{subsection.0.1.4}%
+\contentsline {section}{\numberline {0.2}Training Suitability Scoring}{5}{section.0.2}%
+\contentsline {subsection}{\numberline {0.2.1}Research Objectives}{5}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {0.2.2}Approaches to Suitability Scoring}{5}{subsection.0.2.2}%
+\contentsline {paragraph}{Sharifzadeh et al. "Change Detection in Time Series Data Using Wavelet Footprints"}{5}{paragraph*.6}%
+\contentsline {paragraph}{Indoor Cycling Association: "How Much Time in the Red Zone?"}{7}{paragraph*.7}%
+\contentsline {paragraph}{Sean Hurley: "Normalized Power: What It Is and How to Use It" https://www.trainerroad.com/blog/normalized-power-what-it-is-and-how-to-use-it/}{8}{paragraph*.8}%
+\contentsline {subsection}{\numberline {0.2.3}Applications in Training Suitability Scoring}{9}{subsection.0.2.3}%
+\contentsline {subsection}{\numberline {0.2.4}Methodological Considerations and Assumptions}{9}{subsection.0.2.4}%

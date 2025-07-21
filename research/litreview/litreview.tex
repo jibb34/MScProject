@@ -1,16 +1,21 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{report}
 
-\usepackage{geometry}
+\usepackage[a4paper, margin=1in]{geometry}
 \geometry{margin=1in}
 \usepackage{titlesec}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 \title{Literature Review \\ \large An Algorithmic Approach to Route Planning for Cyclists}
 \author{Jack Jibb \\ MSc Computer Science}
 \date{\today}
 
+\onehalfspacing
 \begin{document}
 
 \maketitle
@@ -42,7 +47,7 @@ applied to the algorithm, since there is not one method to solve all segmentatio
 achieving advanced segmentation.
 
 
-\paragraph{Paul Newson and John Krumm: "Hidden Markov Map Matchign Through Noise and Sparseness"}
+\paragraph{Paul Newson and John Krumm: "Hidden Markov Map Matching Through Noise and Sparseness"}
 A useful way to clean up the location data as a pre-processing step could be through map matching. Newson and Krumm explore map-snapping through a HMM model on timestamp-marked latitude and longitude pairs.
 The approach showcased in the paper is focused on automobile traffic, so there may be some need to tweak the emission delta for bikes, to accomodate for larger variance in the horizontal travel distance, as well as increasing
 the search range for nodes around each track point. The search would then use a Gaussian probability curve, centred on GPX trackpoint, with nodes closer being more likely than ones further away. Then a transition probability will be implemented between consecutive points
@@ -67,18 +72,32 @@ ways and nodes represent roads and intersections, which is useful for cleaning u
 
 
 \subsection{Applications in Cyclist Route Planning}
-% How segmentation algorithms are applied in training route selection and analysis
 In the creation of a route, segmentation should be done automatically if a segment doesn't already exist in the database. Additionally, each route should be converted to
 a series of OSM ways, for purpose of generating a Training Suitability Score.
 
 \subsection{Methodological Considerations and Assumptions}
+The method for segmentation via street type will be based on the factors stated in Research Objectives. In order to segment, first, each GPX file
+must be separated and the data should be pre-processed. To do this, the data must be organized as such:
 \begin{itemize}
-	\item Filtering of route signal to reduce noise
-	\item Tuning the algorithms manually may be required to best align the segmentation strength.
+	\item The GPX file must contain 1 data sample (trackpoint) per second, a rate of 1 hz.
+	\item Each trackpoint must contain exactly 1 Latitude, Longitude, Elevation, and Time data point.
+	\item If there is a significant gap in data ($>{}5$ seconds), the GPX file must be separated at that point.
+	\item Any sudden jumps in elevation ($>{}1$ standard deviation) between two track points should be discarded
+\end{itemize}
+In order to maintain these requirements, the following actions may be applied:
+\begin{itemize}
+	\item The data may be resampled, and interpolated in order to populate data at exactly 1 hz.
+	\item Interpolation may also be used to fill in missing or erroneous values due to GPS errors
+\end{itemize}
+There also may be some pre-calculations done to speed up processing later. These would be added to "extensions" in the GPX trackpoint.
+\begin{itemize}
+	\item Speed
+	\item Heading (degrees from due north)
+	\item Elevation Gradient (in \%)
 \end{itemize}
 \newpage
 
-\section{Training Suitability Scoring Methodologies}
+\section{Training Suitability Scoring}
 
 \subsection{Research Objectives}
 Implementing a summative score that represents a section requires access to rider metrics, GPS data, and historical data. This is more an art than a science, and requires
@@ -197,10 +216,13 @@ We will define a variable $k$ that represents this:
 		30,    & (T-t) \ge 30 \\
 	\end{cases}
 \]
-Now we can define the rolling average at time $t$ to be:
+Now we can define the rolling average, ${P}_{r}$ at time $t$ to be:
 \[
-	\overline{P}_{k[t]}[t] = \frac{1}{k[t]} \sum_{j=0}^{k[t]-1} P[j]
-
+	\overline{P}_{r}[t] = \frac{1}{k[t]} \sum_{j=0}^{k[t]-1} P[j]
+\]
+The final definition of NP is:
+\[
+	\mathrm{NP} = \bigg( \frac{1}{M} \sum_{i=1}^{M}\big(\overline{P}_{r}[i]\big)^{4}\bigg)^{1/4}
 \]
 \subsection{Applications in Training Suitability Scoring}
 
