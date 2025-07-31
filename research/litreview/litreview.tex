@@ -3,6 +3,7 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \geometry{margin=1in}
 \usepackage{titlesec}
+\usepackage{dirtytalk}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
@@ -23,23 +24,16 @@
 \tableofcontents
 \newpage
 
-\section{Categorization and Separation Algorithm Design and Analysis}
+\section{Training Suitability and Segmentation Algorithm Design and Analysis}
 
 \subsection{Research Objectives}
 The purpose of creating an algorithmic approach to categorizing and segmenting a GPX route is to be able to rapidly and systematically construct new routes based on the requirements of the rider's training plan.
 It makes sense intuitively to segment a route, so riders does not have to analyse every part of a map to determine where to send their route. Riders are specifically interested in sections of the route such as climbs, descents, busy roads, and gravel.
 The objective of research should be to come up with a suitable method of segmentation, and subsequent categorization of the resulting segments so riders can select ones that suit their training needs.
 \\
-In order to achieve the categorization, it is necessary to know what athletes require for training. This is a complex topic with a lot of nuance, however as far as route planning goes, cyclists mostly look for six main factors.
-Here are the main actions that need to be considered:
-\begin{itemize}
-	\item \textbf{Segmentation-by-road-name} - The simplest separation, if the name of the road changes (i.e. at an intersection)
-	\item \textbf{Categorization-by-road-type} - If the surface of the road, or the road purpose changes (bike lane, shared use, gravel, etc)
-	\item \textbf{Categorization-by-gradient} - If a significant hill occurs (+/- 4\% sustained for at least 500m)
-	\item \textbf{Categorization-by-road-width} - If the width of a road becomes larger or smaller suddenly (changing from dual to single lane, road-side parking, etc)
-	\item \textbf{Categorization-by-sharp-turn} - If a road suddenly has a sharp bend
-	\item \textbf{Categorization-by-road-behaviour} - If a road becomes twisty, or enters a forest or village.
-\end{itemize}
+Intuitively, we can segment a route by the roads that it follows, when a route changes roads, we add a segment. However this can prove more difficult to formalize, as
+a road can have many intersections. How can we categorize a segment by road name but also have node values that connect to other road names that may or may not be part of the same segment?
+The following research applies to the problem of Segmentation, and how we may approach defining a route segment formally.
 
 \subsection{Algorithmic Approaches to Segmentation and Categorization}
 There are several methdologies when it comes to segmentation, including (but not limited to) clustering, heuristic methods, signal analysis, and map-based segmentation. Some, or all of these may be
@@ -48,11 +42,12 @@ achieving advanced segmentation.
 
 
 \paragraph{Paul Newson and John Krumm: "Hidden Markov Map Matching Through Noise and Sparseness"}
-A useful way to clean up the location data as a pre-processing step could be through map matching. Newson and Krumm explore map-snapping through a HMM model on timestamp-marked latitude and longitude pairs.
+A useful way to clean up the location data as a pre-processing step could be through map matching. Newson and Krumm \textbf{(cite here)} explore map-snapping through a HMM model on timestamp-marked latitude and longitude pairs.
 The approach showcased in the paper is focused on automobile traffic, so there may be some need to tweak the emission delta for bikes, to accomodate for larger variance in the horizontal travel distance, as well as increasing
 the search range for nodes around each track point. The search would then use a Gaussian probability curve, centred on GPX trackpoint, with nodes closer being more likely than ones further away. Then a transition probability will be implemented between consecutive points
-so straight line distance is more probable. Lastly, a Viterbi algorithm will be run to find the "most likely" node sequence.
+so straight line distance is more probable. Lastly, a Viterbi algorithm will be run to find the "most likely" node sequence. Their approach includes two variables that need to be tweaked to maximise accuracy. This could be done via machine learning, but is out of the scope of this research. It will be set to a "good enough" setting.
 Once the node sequence is determined, the sequence of ways can then be determined.
+
 
 \paragraph{Wang et al., “CycleTrajectory: An End-to-End Framework for Enriching Cycling Trajectory Data”}
 The authors propose a framework to provide a pipeline to correct GPS data with OpenStreetMap metadata for cycling behaviour analysis. This allows
@@ -67,13 +62,21 @@ They use OSM's nearest-node API to pull intersection nodes, and generate a track
 
 \paragraph{Boeing, G: "Modeling and Analyzing Urban Networks and Amenities with OSMnx"}
 Boeing Details a novel Python package that downloads and analyses street networks from OpenStreetMap, which implements simple query langauge for pulling street data from the OSM database. It also includes tools for simplifying OSM map data so
-ways and nodes represent roads and intersections, which is useful for cleaning up a network created by the CyclingTrajectory framework. It is important to note however that by reducing the map's complexity, it does increase computational complexity, so there is a trade-off there.
+ways and nodes represent roads and intersections, which is useful for cleaning up a network created by the CyclingTrajectory framework.
+As described in their Getting Started guide, the library enables a programmatic approach to visualizing OSM data as a mathematical graph. The graph
+can be formatted as a GeoDataFrame, which can be exported using NetworkX and geopandas libraries. Using a function like \texttt{graph_from_bbox()}, it is possible
+to obtain a road network around a geographical point, which can then return a clean and topologically correct graph $\mathcal{G}$.
+It is important to note however that by reducing the map's complexity, it does increase computational complexity, so there is a trade-off there.
+It can be mitigated somewhat by being a little clever about how we create a bounding box around the route.
 
-
+%TODO: Implement more sources and determine a method for creating segments
 
 \subsection{Applications in Cyclist Route Planning}
-In the creation of a route, segmentation should be done automatically if a segment doesn't already exist in the database. Additionally, each route should be converted to
-a series of OSM ways, for purpose of generating a Training Suitability Score.
+In the creation of a route, segmentation should be done automatically if a segment doesn't already exist in a database, so when a cyclist uploads their GPX file,
+the route segments should be available to view.
+Each route should be broken down into segments, for purpose of generating a Training Suitability Score.
+A segment should be created from a series of ways, so they should always be ridable by a cyclist, and from a glance, a cyclist should be able to tell
+where each segment begins and ends on a map.
 
 \subsection{Methodological Considerations and Assumptions}
 The method for segmentation via street type will be based on the factors stated in Research Objectives. In order to segment, first, each GPX file
@@ -95,22 +98,40 @@ There also may be some pre-calculations done to speed up processing later. These
 	\item Heading (degrees from due north)
 	\item Elevation Gradient (in \%)
 \end{itemize}
+After pre-processing, each track point (observation) will be snapped to a nearby OSM way. The map density of the road network should be considered,
+since we may be able to save time with a more simplistic algorithm for snapping in areas of less route density.\\
+We could also relate map density to the density of gps points, as one straight long road will need a lot fewer gps points to return a correct result than a complex series of turns.
+Newson and Krumm approach this in their paper by statically removing all points that are within $2\sigma_z$ of the next point, $\sigma_z$ being the standard deviation of Gaussian GPS noise.
+Their approach is specific to cars, which travel much faster than cyclists, it may be worthwhile to remove only points within $\sigma_z$ instead.kj:w
+
 \newpage
 
 \section{Training Suitability Scoring}
 
 \subsection{Research Objectives}
-Implementing a summative score that represents a section requires access to rider metrics, GPS data, and historical data. This is more an art than a science, and requires
-experience in cycling lots of roads, but also can be boiled down to six main metrics:
+
+In order to classify a segment, it is necessary to know what an athlete values in training. As a cyclist, I have used my own experience to compile this list:
+
+\begin{itemize}
+	\item Type: What is the categorization of the road? (A, B, Service, Motorway, Bike path)
+	\item Surface: What is the surface of the road made of? (Tarmac, concrete, gravel, dirt, wood?)
+	\item Behaviour: How does the road act? (Straight, gradual bends, sharp curves, switchbacks)
+	\item Safety: How safe is this route? Are there a lot of accidents, is there a lot of commercial traffic?
+	\item Elevation: Is this route a consistent gradient, is it flat, uphill, downhill, rolling?
+	\item Length: How long is the route in metres.
+\end{itemize}
+
+Implementing a summative score that represents a segment will also benefit from taking rider metrics, such as Power, HR, Cadence, and Speed.
+As a cyclist or group of cyclists ride a specific segment, the better picture we get of the route, as the average values will be a good representation
+of the training suitability of the route.
 \begin{enumerate}
 	\item Safety (a composite metric defined by various factors, could also be gathered collectively from rider feedback)
-	\item Difference between Average and Normalized Power
+	\item Difference between Average and Normalized Power (in Watts/Kg)
 	\item Length (of segment)
 	\item Elevation Gain (or loss)
-	\item Road Surface Quality
+	\item Road Quality
 	\item Absolute Normal Distance Change (aka how twisty the road is)
 \end{enumerate}
-
 
 \subsection{Approaches to Suitability Scoring}
 
@@ -121,57 +142,6 @@ The smaller the wavelet, the more reactive it will be to change in the original 
 Wavelet footprints have an advantage over the general Wavelet transform, where they only retain the most significant components. This is done by having wavelets occur in orthoganal sets.
 Due to Heisenberg's Uncertainty Principle, it is impossible to perfectly describe both the frequency content of a signal and the location in time of the signal. Time-domain and Frequency-Domain analysis in this regard are
 at opposite ends of the spectrum, but the Wavelet Domain sits in the middle, allowing for a sliding scale value, where a larger scale gives more frequency and less time resolution, while smaller scales give less frequency, and more time resolution.
-The following are some key concepts from the paper that will be useful in implementation of the algorithm:
-
-\begin{itemize}
-	\item \textbf{Wavelet Decomposition of Trajectory}: \\ Given a signal $x[n]$ of length $N$, it can be expressed as a wavelet series:
-	      \[
-		      x[n] =
-		      \sum_{j=0}^{J-1} \sum_{k} d_{j,k} \, \psi_{j,k}[n]
-		      + \sum_{k} c_{J,k} \, \phi_{J,k}[n]
-	      \]
-	      where:
-	      \begin{itemize}
-		      \item $\psi_{j,k}[n]$ are the wavelet basis functions at scale $j$ and position $k$.
-		      \item $\phi_{J,k}[n]$ are the scaling functions at the coarsest level $J$.
-		      \item $d_{j,k}$ are detail coefficients at scale $j$ and position $k$.
-		      \item $c_{J,k}$ are approximation coefficients.
-	      \end{itemize}
-	\item \textbf{Footprint Definition}\\
-	      The \textbf{wavelet footprint} of $x$ is defined as the set of significant coefficients:
-	      \[
-		      F(x) = \{ (j,k) \;|\; |d_{j,k}| > T_j \}
-	      \]
-	      where $T_j$ is a scale-dependent threshold, which can be tuned to correspond to physiological thresholds of training intensity zones. This is useful since
-	      at different scales, the detail coefficients are not comparable, so the threshold must be defined explicitly.
-
-	\item \textbf{Footprint Calculation}\\
-	      To calculate the Wavelet Footprint, first the detail coefficient, $d_{j,k}$ is extracted. Since not all detail coefficients are meaningful, a scale-dependent threshold $T_j$
-	      is defined to filter out noise. This is calculated with the standard deviation of the specific scale:
-	      \[
-		      T_j = \gamma_j \dot \sigma_j
-	      \]
-
-	      Where:
-	      \begin{itemize}
-		      \item $\sigma_j$ is the standard deviation of $d_{j,k}$ at scale $j$.
-		      \item $\gamma_j$ is the tuning parameter.
-	      \end{itemize}
-	      This value can then be used to define the Footprint Definition described earlier.
-
-	\item \textbf{Compact Representation}\\
-	      To reduce dimensionality, only the $k$ largest coefficients can be retained:
-	      \[
-		      F_k(x) = \text{top-}k \text{ elements of } F(x)
-	      \]
-	      This is useful to optimize data set size, while not reducing the accuracy of the data significantly.
-	\item \textbf{Matching and Distance}\\
-	      The overall difference in two signals $x$ and $y$ can be approximated by taking the difference of their footprints:
-	      \[
-		      D(x,y) \approx \| F(x) - F(y) \|
-	      \]
-
-\end{itemize}
 
 The advantage of using wavelet footprints over the Fourier Transform means that it is possible to isolate points in the signal where significant changes occur in specific metrics, or combination of metrics, allowing flexibility in choosing
 what conditions must be met to enact a segmentation.
@@ -182,9 +152,12 @@ The general consensus is having 5 zones is a good compromise between continuous 
 Zones 1-3 all fall outside of the hour range, which for the purpose of segment analysis would be fairly useless. The 5-Zone model approach
 has good suitability to wavelet analysis, since small scale values for a wavelet would detect short burst efforts, while larger scales will detect longer, sustained effort.
 Having 5 zones allows for a reduced scale array, contributing to higher performance. Here is a graphic, courtesy of the Indoor Cycling Association, that breaks down each zone. Zones 3-7 will be used for Wavelet Analysis.
-\begin{center}
-	\includegraphics[width=0.6\textwidth]{zones.png}
-\end{center}
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{zones.png}
+	\end{center}
+	\caption{The 7 Zone Training Model, courtesy of Indoor Cycling Association}
+\end{figure}
 
 \paragraph{Sean Hurley: "Normalized Power: What It Is and How to Use It" https://www.trainerroad.com/blog/normalized-power-what-it-is-and-how-to-use-it/}
 TrainerRoad writer Sean Hurley provides a useful and consise definition of Normalized Power (NP), a metric invented by Dr. Andrew Coggan in his book \textit{Training and Racing With a Power Meter}. NP
@@ -197,39 +170,30 @@ good indication of power variability, and as such is useful in determining the t
 	\item Determine the average of all the rolling values
 	\item Take the fourth root.
 \end{enumerate}
-
-What follows is a formalization of this algorithm.
-
-Let the input power series be:
+For an input power signal, $P(t)$ over interval $(0,N)$, the formula for Normalized Power (NP) is:
 \[
-	P[t], t \in \;[0,T\;]
+	\mathrm{NP} = \bigg( \frac{1}{N} \sum_{i=1}^{N}\big(\overline{P}_{r}(i)\big)^{4}\bigg)^{1/4}
 \]
-where $t$ is the time in seconds, and $T$ is the duration of the segment.
+where $P_r$ is the 30 second rolling average power starting at point i in the power data array.
 
-Instead of a 30 second rolling average, we will take the lesser of either 30 seconds, or the remaining duration of the segment, so we don't end up
-with a lot of segments with skewed NP due to the rolling window running off the edge of the data set.
-
-We will define a variable $k$ that represents this:
-\[
-	k[t] = \begin{cases}
-		(T-t), & (T-t) < 30   \\
-		30,    & (T-t) \ge 30 \\
-	\end{cases}
-\]
-Now we can define the rolling average, ${P}_{r}$ at time $t$ to be:
-\[
-	\overline{P}_{r}[t] = \frac{1}{k[t]} \sum_{j=0}^{k[t]-1} P[j]
-\]
-The final definition of NP is:
-\[
-	\mathrm{NP} = \bigg( \frac{1}{M} \sum_{i=1}^{M}\big(\overline{P}_{r}[i]\big)^{4}\bigg)^{1/4}
-\]
 \subsection{Applications in Training Suitability Scoring}
 
 The application of Wavelet analysis in GPX data is a novel and flexible way of determing suitability, as it is a generic signal analysis method. Considering GPX files can
 contain multiple signals, Wavelets can be applied to any discrete signal that utilizes numerical reporting. Such signals may include Power, Speed, Cadence, Heart Rate, Elevation, and Heading.
+We can define wavelets of a length proportional to the maximum amount of time in training zones, as per the 5 Power Zone model, which will detect high variance up to the length. The higher the variance
+at that particular training scale, the lower the suitability of the segment for that type of training.
+
+In order to determine variance, we can use the Lipschitz Regularity to define a "variant" vs "non-variant" segment.
+
+%TODO: Discuss Lipschitz regularity and further research and how it can be used to generate a suitability score.
+
 
 
 \subsection{Methodological Considerations and Assumptions}
+% TODO: Implement The Methodology: should have the different scoring categories, and how to obtain each one.
+Power data for all methods should be first normalized, so it is not cyclist-specific. For example, power data for a professional cyclist could be an easy ride, where as for an amateur it could be an all out effort.
+We have to therefore take some preliminary data points, such as rider Functional Threshold Power (FTP), and weight.
+Therefore, for all power values, a power curve should be generated in advance, based on historical maximum power values for certain time thresholds.
+
 
 \end{document}

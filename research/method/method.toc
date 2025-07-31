@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {0.1}Methodology}{2}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Pre-processing}{2}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Map-Matching}{2}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {0.1.3}Segmentation}{6}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}Categorization}{6}{subsection.0.1.4}%
+\contentsline {subsection}{\numberline {0.1.5}Segment Analysis}{6}{subsection.0.1.5}%
+\contentsline {subsubsection}{Wavelet Transform}{6}{subsubsection*.2}%
+\contentsline {subsubsection}{Normalized Power}{7}{subsubsection*.3}%
+\contentsline {subsection}{\numberline {0.1.6}Training Suitability Score Evaluation}{8}{subsection.0.1.6}%
