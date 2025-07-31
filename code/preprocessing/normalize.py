@@ -91,8 +91,7 @@ def haversine(lat1, lon1, lat2, lon2):
     lat1, lon1, lat2, lon2 = map(np.radians, (lat1, lon1, lat2, lon2))
     dlat = lat2 - lat1
     dlon = lon2 - lon1
-    a = np.sin(dlat / 2.0) ** 2 + np.cos(lat1) * \
-        np.cos(lat2) * np.sin(dlon / 2.0) ** 2
+    a = np.sin(dlat / 2.0) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2.0) ** 2
     c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
     return EARTH_R * c
 
@@ -148,8 +147,7 @@ def main():
     points = load_points(args.input_json)
     diffs = compute_deltas(points, args.metric)
     missing_idx, missing_vals = find_missing(points, args.metric)
-    print(f"Missing for '{args.metric}': indices={
-          missing_idx}, values={missing_vals}")
+    print(f"Missing for '{args.metric}': indices={missing_idx}, values={missing_vals}")
 
     # out_idx, out_values, mu, sigma = find_outliers(diffs, args.threshold)
 

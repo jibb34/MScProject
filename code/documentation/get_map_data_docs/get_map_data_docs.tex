@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define colors for code listings
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{purple},
+  commentstyle=\color{gray},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+}
+
+\title{Documentation: GPX-to-JSON Normalizer}
+\author{Auto-generated}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Map Preprocessing and Graph Construction}
+
+To enable candidate edge detection and Hidden Markov Model (HMM)-based path inference, the road network must be represented as a graph. This section describes how OpenStreetMap (OSM) data is either dynamically fetched or loaded from disk and filtered for bicycle-compatible roads.
+
+\subsection{Input Format}
+The program accepts a JSON file consisting of sequential GPS observations. Each observation is a dictionary with spatial and contextual metadata such as latitude, longitude, elevation, timestamp, temperature, heart rate, cadence, speed, and heading.
+
+\begin{lstlisting}
+{
+  "lat": 38.821468,
+  "long": -104.862572,
+  "elv": 1886.6,
+  "time": "2024-08-06T13:12:10+00:00",
+  "atemp": "20",
+  "hr": "104",
+  "cad": "62",
+  "speed": 0.0,
+  "heading": 0.0
+}
+\end{lstlisting}
+
+\subsection{Graph Loading}
+The road network can be supplied in two ways:
+
+\begin{enumerate}
+	\item \textbf{From a GraphML File:} If the user provides a file using \texttt{--graphml}, the graph is loaded via \texttt{osmnx.load\_graphml()}.
+	\item \textbf{From OSM Bounding Box:} If no file is provided, the code calculates the bounding box of all valid GPS coordinates and queries OSM via \texttt{osmnx.graph\_from\_bbox()}.
+\end{enumerate}
+
+\subsection{Road Type Filtering}
+Only road types usable by cyclists are retained in the graph. This includes:
+\begin{itemize}
+	\item \texttt{cycleway}
+	\item \texttt{primary, secondary, tertiary}
+	\item \texttt{residential, unclassified, service}
+\end{itemize}
+
+Edges not matching these categories are removed to improve routing accuracy and reduce computational overhead.
+
+\subsection{Caching}
+To avoid repeated API calls during development, OSM data is cached locally in a \texttt{./cache} folder.
+
+\subsection{Execution}
+Run the script with either:
+
+\begin{lstlisting}
+# Load from GraphML file
+python get_map_data.py test.json --graphml my_graph.graphml
+
+# Download from OSM based on GPS bounding box
+python get_map_data.py test.json
+\end{lstlisting}
+
+\end{document}
+
+

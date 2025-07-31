@@ -41,6 +41,24 @@
 \section{Methodology}
 
 \subsection{Pre-processing}
+Firstly we must obtain a GPX file. This is give from either a new or existing activity. It can be downloaded in many ways, either from common fitness websites (Strava, Garmin, MapMyRide, etc.), or directly
+downloaded from a GPS device. Either way, there are some standards we can take advantage of. Each GPX file has the following structure:
+\\ <insert Structure here>
+\\
+Once downloaded, they must be normalized and processed. This is done simply by converting to a standard JSON structure, where each object contains at least Latitude, Longitude, Elevation, and timing data.
+After this, some processing is done to remove any erroneous values. Simply detecting 0s or NaN values in the data stream is sufficient, and the missing data is interpolated with the average of the surrounding values.
+Next, the speed values are calculated along with heading, this is done mathematically using the Haversine formula, and added as an extension in the JSON file.
+
+\subsection{Pulling Map Data}
+A useful library for python called OSMnx exists, which allows easy and efficient pulling of API data from the OpenStreetMap database. This is what we will use to correct the GPS data, and to enrich the data for segmentation and categorization.
+To do this, we use the \texttt{os.graph\_from\_bbox()} function to pull only nearby data (within the bounding box of the route). The approach is as follows:
+\begin{enumerate}
+	\item Find the largest and smallest coordinates in the route
+	\item Generate a bounding box of the extreme coordinates
+	\item Send the bounding box to a function that pulls the data from OSM
+\end{enumerate}
+
+
 \subsection{Map-Matching}
 After the data has been processed, it needs to be matched to a route that exists in reality. The best way to do this is to "snap" the gpx path to a network of roads from OpenStreetMap.
 Paul Newson and John Krumm (2016) have developed a method to doing this using Hidden Markov Matching.
