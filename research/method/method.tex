@@ -57,6 +57,22 @@ To do this, we use the \texttt{os.graph\_from\_bbox()} function to pull only nea
 	\item Generate a bounding box of the extreme coordinates
 	\item Send the bounding box to a function that pulls the data from OSM
 \end{enumerate}
+After obtaining a reasonable size of data, we further minimized it to only the required network for the task. We query the spatial index of the map file,
+and store the N closest edges to each GPX point in a CandidateState object. This will be explained later in the Map-matching section.
+Essentially however, the purpose is to only keep N closest edges to every GPX point, within a given radius, this helps filter out a lot of data that has a very
+low probability of being the correct route. The basic algorithm is:
+\begin{enumerate}
+  \item Initialize an empty list of candidate states
+  \item From 0-(N-1), where N is the number of nearest edges to keep: 
+    \subitem Call ox.nearest\_edges() to get the nearest edge for every point p in the gps data-set
+    \subitem For each point, compute the Haversine distance between the point and the edge
+   \subitem if the distance is smaller than the maximum distance threshold, add the edge to the candidate state list
+\end{enumerate}
+Each CandidateState has 1 location point, N candidate edges, with N candidate distances. 
+
+
+The purpose of this algorithm, is to 
+
 
 
 \subsection{Map-Matching}
@@ -72,14 +88,7 @@ An observation series can be defined as:
 
 A road network can be defined as $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, with nodes $\mathcal{V}$ and edges $\mathcal{E}$. The goal of Newson and Krumm
 was to find the most probable sequence of roads that forms a path $\mathcal{P}$ through network $\mathcal{G}$ that matches observations $\mathcal{O}$.
-Newson and Krumm explore four different methods of finding $\mathcal{P}$:
-\begin{itemize}
-	\item Geometric Model
-	\item Topological Model
-	\item Probabilistic Model (What they focus on)
-	\item Kalman Filters
-\end{itemize}
-The Probabilistic model formalizes map-matching as a \textbf{maximum-likelyhood estimation} problem, using a Hidden Markov Model (HMM).
+The Probabilistic model that they explore formalizes map-matching as a \textbf{maximum-likelyhood estimation} problem, using a Hidden Markov Model (HMM).
 The paper states the definition of a HMM:\\
 \say{The HMM models processes that involve a path through many
 	possible states, where some state transitions are more likely than

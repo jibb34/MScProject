@@ -33,7 +33,8 @@ def haversine(lat1, lon1, lat2, lon2):
     lat1, lon1, lat2, lon2 = map(np.radians, (lat1, lon1, lat2, lon2))
     dlat = lat2 - lat1
     dlon = lon2 - lon1
-    a = np.sin(dlat / 2.0) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2.0) ** 2
+    a = np.sin(dlat / 2.0) ** 2 + np.cos(lat1) * \
+        np.cos(lat2) * np.sin(dlon / 2.0) ** 2
     c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
     return EARTH_R * c
 
@@ -57,12 +58,14 @@ def query_spatial_index(G: nx.MultiDiGraph, points, N, radius):
     # Approach: use osmnx.distance.nearest_edges to get the nearest edge to each point,
     # and iterate N times, deleting the nearest edge each time, so the next iteration gets the next closest
     # should return the distance, and skip if outside of radius range
+    # TEST: figuring out the average distance between point and road of each iteration of loops
+
     candidate_states = []
     print(G.graph["crs"])
     # create copy to destroy
     G_copy = G.copy()
     # get N closest edges for each point
-    for _ in range(N):
+    for n in range(N):
         nearest_edges, distance = ox.nearest_edges(
             G_copy,
             [p["long"] for p in points],
@@ -89,15 +92,18 @@ def query_spatial_index(G: nx.MultiDiGraph, points, N, radius):
             ):
                 # add edge and distance to location if location exists
                 try:
-                    candidate_states[idx].candidate_edges.append(nearest_edges[idx])
-                    candidate_states[idx].candidate_distances.append(distance[idx])
+                    candidate_states[idx].candidate_edges.append(
+                        nearest_edges[idx])
+                    candidate_states[idx].candidate_distances.append(
+                        distance[idx])
+                    candidate_states[idx].rank = n
                 except Exception:
                     # if location doesn't exist, add the new candidate state
                     candidate_states.append(
                         CandidateState(
                             location=(p["long"], p["lat"]),
                             candidate_edges=[nearest_edges[idx]],
-                            candidate_distances=[distance[idx]],
+                            candidate_distances=[distance[idx]]
                         )
                     )
                 # delete closest edge to find next nearest through the next iteration
@@ -109,7 +115,7 @@ def query_spatial_index(G: nx.MultiDiGraph, points, N, radius):
                         nearest_edges[idx][1],
                         nearest_edges[idx][2],
                     )
-
+        # Calculate average candidate distance after this iteration
     return candidate_states
 
 
@@ -171,7 +177,23 @@ def main():
     import matplotlib.pyplot as plt
 
     G = ox.load_graphml(args.graphml)
-    states = query_spatial_index(G, points, 7, 200)
+    N = 7
+    states = query_spatial_index(G, points, N, 200)
+    for state in states:
+        for i, d in enumerate(state.candidate_distances):
+            state.candidate_distances[i] = degrees_to_meters(
+                d, state.location[1])
+
+    from statistics import mean
+    average_distances = {n: [] for n in range(N)}
+    for state in states:
+        for i, dist in enumerate(state.candidate_distances):
+            if i < N:
+                average_distances[i].append(state.candidate_distances[i])
+    for i in range(N):
+        values = average_distances[i]
+        avg = mean(values) if values else 0
+        print(f"Rank {i}: Average candidate distance = {avg:.2f} meters")
     G2 = filter_graph_from_candidate_states(G, states)
     print(len(states))
     fig2, ax = ox.plot_graph(
