@@ -1,0 +1,12 @@
+
+For transition:
+
+we need to iterate through our locations, L, and observe L+1
+for each candidate r in L:
+  calc the distance between L and every r in L+1 using route planner
+  compare route distance to haversine distance of L and L+1
+  correct matches will be roughly the same, so probability would become:
+
+p = 1/beta * e ^ ()-(diff in haversine and route distance)/beta)
+
+
