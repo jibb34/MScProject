@@ -1,0 +1,4 @@
+gpx_file: data/input/test.gpx
+pbf_output: data/osrm_map/map.osm.pbf
+json_directory: data/temp
+chunk_size: 240
