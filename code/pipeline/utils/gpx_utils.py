@@ -13,7 +13,7 @@ def bounding_box_from_data(data):
     # TODO: Possibly may need to expand the bbox slightly if error matching causes issues, route could go outside the box even if gpx points don't
     # Get all lat/long values
     lats = [p["lat"] for p in data if "lat" in p and p["lat"] is not None]
-    longs = [p["long"] for p in data if "long" in p and p["long"] is not None]
+    longs = [p["lon"] for p in data if "lon" in p and p["lon"] is not None]
     # get the extrema
     north = max(lats)
     south = min(lats)
@@ -21,7 +21,7 @@ def bounding_box_from_data(data):
     west = min(longs)
 
     # return a quaduple of the extrema in bbox format (left, bottom, right, top)
-    return (west, south, east, north)
+    return (south, west, north, east)
 
 
 def write_json(points, path):
@@ -35,8 +35,9 @@ def download_osm_pbf(bbox, output_path):
     import requests
 
     # Convert bbox to Overpass API bbox string:
-    s, n, w, e = bbox
-    bbox_str = f"{s},{w},{n},{e}"
+    s, w, n, e = bbox
+    print(f"Min Lat: {s}, max lat: {n}, min long: {w}, max long: {e}")
+    bbox_str = f"{w},{s},{e},{n}"
     url = f"https://overpass-api.de/api/map?bbox={bbox_str}"
 
     response = requests.get(url)
