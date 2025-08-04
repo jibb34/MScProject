@@ -1,0 +1,600 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.981436,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.244197,
+            41.155631
+          ],
+          [
+            -74.244277,
+            41.155679
+          ],
+          [
+            -74.244595,
+            41.155867
+          ],
+          [
+            -74.244671,
+            41.155912
+          ],
+          [
+            -74.244996,
+            41.156115
+          ],
+          [
+            -74.245069,
+            41.15616
+          ],
+          [
+            -74.245362,
+            41.156372
+          ],
+          [
+            -74.245453,
+            41.156438
+          ],
+          [
+            -74.245688,
+            41.156613
+          ],
+          [
+            -74.24599,
+            41.156838
+          ],
+          [
+            -74.246048,
+            41.156881
+          ],
+          [
+            -74.246283,
+            41.157071
+          ],
+          [
+            -74.24655,
+            41.157288
+          ],
+          [
+            -74.246815,
+            41.157504
+          ],
+          [
+            -74.247084,
+            41.157722
+          ],
+          [
+            -74.247329,
+            41.157921
+          ],
+          [
+            -74.247577,
+            41.158122
+          ],
+          [
+            -74.247822,
+            41.158321
+          ],
+          [
+            -74.248079,
+            41.158529
+          ],
+          [
+            -74.24833,
+            41.158733
+          ],
+          [
+            -74.248584,
+            41.158939
+          ],
+          [
+            -74.248841,
+            41.159148
+          ],
+          [
+            -74.249093,
+            41.159352
+          ],
+          [
+            -74.249352,
+            41.159562
+          ],
+          [
+            -74.249609,
+            41.159771
+          ],
+          [
+            -74.249778,
+            41.159908
+          ],
+          [
+            -74.249813,
+            41.159937
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 42.4,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 43.5,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 41.9,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 38.3,
+          "duration": 2.7,
+          "summary": "",
+          "weight": 2.7
+        },
+        {
+          "steps": [],
+          "distance": 35.6,
+          "duration": 2.6,
+          "summary": "",
+          "weight": 2.6
+        },
+        {
+          "steps": [],
+          "distance": 35.7,
+          "duration": 2.5,
+          "summary": "",
+          "weight": 2.5
+        },
+        {
+          "steps": [],
+          "distance": 32.9,
+          "duration": 2.4,
+          "summary": "",
+          "weight": 2.4
+        },
+        {
+          "steps": [],
+          "distance": 32.7,
+          "duration": 2.4,
+          "summary": "",
+          "weight": 2.4
+        },
+        {
+          "steps": [],
+          "distance": 33.1,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 30.2,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 30.5,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 30.2,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 31.6,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 30.9,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 31.3,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 31.7,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 31,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 31.9,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 31.7,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 25.2,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        }
+      ],
+      "distance": 672.3,
+      "duration": 48.4,
+      "weight_name": "duration",
+      "weight": 48.4
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.244197,
+        41.155631
+      ],
+      "name": "Long Meadow Road",
+      "distance": 5.531367,
+      "hint": "mCUAgMolAAAMAAAABwAAAF0BAAAAAwAAMi2RQbknCUFoBvJDBVaFRAwAAAAHAAAAXQEAAAADAAABAAAAmx-T-y_8cwLEH5P7VvxzAgkATxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.244595,
+        41.155867
+      ],
+      "name": "Long Meadow Road",
+      "distance": 5.670522,
+      "hint": "mCUAgMolAAAYAAAABgAAAHABAADiAgAAKYcHQhqjAUF3Yv9DhhaARBgAAAAGAAAAcAEAAOICAAABAAAADR6T-xv9cwI3HpP7Q_1zAgoATxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.244996,
+        41.156115
+      ],
+      "name": "Long Meadow Road",
+      "distance": 6.193493,
+      "hint": "mCUAgMolAAAZAAAABgAAAI4BAADDAgAAF4kNQm37_EA6MApEhVp1RBkAAAAGAAAAjgEAAMMCAAABAAAAfByT-xP-cwKrHJP7Pv5zAgsAXxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.245362,
+        41.156372
+      ],
+      "name": "Long Meadow Road",
+      "distance": 4.75002,
+      "hint": "mCUAgMolAAAYAAAACAAAAK0BAACjAgAAkCoIQvFaKUHAAhVEcDJqRBgAAAAIAAAArQEAAKMCAAABAAAADhuT-xT_cwI1G5P7M_9zAgwAnxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.245688,
+        41.156613
+      ],
+      "name": "Long Meadow Road",
+      "distance": 5.281096,
+      "hint": "mCUAgMolAAATAAAAHwAAAM0BAABxAgAAe3_dQamhKULVKiBEWqxYRBMAAAAfAAAAzQEAAHECAAABAAAAyBmT-wUAdAL0GZP7JwB0Ag0ArxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.24599,
+        41.156838
+      ],
+      "name": "Long Meadow Road",
+      "distance": 4.059247,
+      "hint": "mCUAgMolAAAtAAAABQAAAM0BAABxAgAAPBt9QnYx2kDVKiBEWqxYRC0AAAAFAAAAzQEAAHECAAABAAAAmhiT--YAdAK8GJP7AAF0Ag0ArxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.246283,
+        41.157071
+      ],
+      "name": "Long Meadow Road",
+      "distance": 4.239971,
+      "hint": "mCUAgMolAAAUAAAANwEAAP8BAAAmAQAAKgznQXs410PrsDFEeq_LQxQAAAA3AQAA_wEAACYBAAABAAAAdReT-88BdAKaF5P76QF0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.24655,
+        41.157288
+      ],
+      "name": "Long Meadow Road",
+      "distance": 4.239971,
+      "hint": "mCUAgMolAAAsAAAAHwEAAP8BAAAmAQAAByV3QpvExkPrsDFEeq_LQywAAAAfAQAA_wEAACYBAAABAAAAahaT-6gCdAKPFpP7wgJ0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.246815,
+        41.157504
+      ],
+      "name": "Long Meadow Road",
+      "distance": 3.966109,
+      "hint": "mCUAgMolAABEAAAABwEAAP8BAAAmAQAA1v28QsZptkPrsDFEeq_LQ0QAAAAHAQAA_wEAACYBAAABAAAAYRWT-4ADdAKEFZP7mAN0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.247084,
+        41.157722
+      ],
+      "name": "Long Meadow Road",
+      "distance": 3.294748,
+      "hint": "mCUAgMolAABbAAAA8AAAAP8BAAAmAQAAfzH_QtzcpUPrsDFEeq_LQ1sAAADwAAAA_wEAACYBAAABAAAAVBST-1oEdAJxFJP7bgR0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.247329,
+        41.157921
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.486596,
+      "hint": "mCUAgMolAABxAAAA2gAAAP8BAAAmAQAA6ccdQ0fFlkPrsDFEeq_LQ3EAAADaAAAA_wEAACYBAAABAAAAXxOT-yEFdAJ1E5P7MAV0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.247577,
+        41.158122
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.014323,
+      "hint": "mCUAgMolAACHAAAAxAAAAP8BAAAmAQAAmkw8Q-6Ch0PrsDFEeq_LQ4cAAADEAAAA_wEAACYBAAABAAAAZxKT--oFdAJ5EpP79gV0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.247822,
+        41.158321
+      ],
+      "name": "Long Meadow Road",
+      "distance": 3.096078,
+      "hint": "mCUAgMolAACdAAAArgAAAP8BAAAmAQAAxHtaQ7TWcEPrsDFEeq_LQ50AAACuAAAA_wEAACYBAAABAAAAchGT-7EGdAKNEZP7xAZ0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.248079,
+        41.158529
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.822298,
+      "hint": "mCUAgMolAAC0AAAAlwAAAP8BAAAmAQAA2xV6Q5w8UUPrsDFEeq_LQ7QAAACXAAAA_wEAACYBAAABAAAAcRCT-4EHdAKKEJP7kgd0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.24833,
+        41.158733
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.685763,
+      "hint": "mCUAgMolAADKAAAAgQAAAP8BAAAmAQAAcoKMQ5RNMkPrsDFEeq_LQ8oAAACBAAAA_wEAACYBAAABAAAAdg-T-00IdAKOD5P7XQh0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.248584,
+        41.158939
+      ],
+      "name": "Long Meadow Road",
+      "distance": 1.281161,
+      "hint": "mCUAgMolAADhAAAAagAAAP8BAAAmAQAAuiScQwQJE0PrsDFEeq_LQ-EAAABqAAAA_wEAACYBAAABAAAAeA6T-xsJdAKDDpP7Iwl0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.248841,
+        41.159148
+      ],
+      "name": "Long Meadow Road",
+      "distance": 0.871206,
+      "hint": "mCUAgMolAAD3AAAAVAAAAP8BAAAmAQAALfyrQzu05kLrsDFEeq_LQ_cAAABUAAAA_wEAACYBAAABAAAAdw2T--wJdAJ_DZP78Ql0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.249093,
+        41.159352
+      ],
+      "name": "Long Meadow Road",
+      "distance": 1.815212,
+      "hint": "mCUAgMolAAAOAQAAPQAAAP8BAAAmAQAAA3u7Q-S4qELrsDFEeq_LQw4BAAA9AAAA_wEAACYBAAABAAAAewyT-7gKdAKLDJP7wwp0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.249352,
+        41.159562
+      ],
+      "name": "Long Meadow Road",
+      "distance": 1.815212,
+      "hint": "mCUAgMolAAAlAQAAJgAAAP8BAAAmAQAAgWvLQ9jtUULrsDFEeq_LQyUBAAAmAAAA_wEAACYBAAABAAAAeAuT-4oLdAKIC5P7lQt0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.249609,
+        41.159771
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.424947,
+      "hint": "mCUAgMolAAA8AQAADwAAAP8BAAAmAQAA9ELbQ3tkpkHrsDFEeq_LQzwBAAAPAAAA_wEAACYBAAABAAAAdwqT-1sMdAKMCpP7agx0Ag4A3xOG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.249813,
+        41.159937
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.1509,
+      "hint": "mCUAgMolAAADAAAAMQAAAEoDAADyAAAAj3qLQOsfh0LEQpJEnbmnQwMAAAAxAAAASgMAAPIAAAABAAAAqwmT-wENdAK-CZP7Dg10Ag8A3xOG2cFP"
+    }
+  ]
+}

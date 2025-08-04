@@ -1,0 +1,756 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.975565,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.008975,
+            41.303393
+          ],
+          [
+            -74.009,
+            41.30341
+          ],
+          [
+            -74.009147,
+            41.303526
+          ],
+          [
+            -74.009163,
+            41.303538
+          ],
+          [
+            -74.009211,
+            41.303595
+          ],
+          [
+            -74.009257,
+            41.303658
+          ],
+          [
+            -74.009273,
+            41.303686
+          ],
+          [
+            -74.009291,
+            41.30372
+          ],
+          [
+            -74.009324,
+            41.303794
+          ],
+          [
+            -74.009349,
+            41.303863
+          ],
+          [
+            -74.009353,
+            41.303877
+          ],
+          [
+            -74.009417,
+            41.304085
+          ],
+          [
+            -74.009424,
+            41.304107
+          ],
+          [
+            -74.009455,
+            41.304186
+          ],
+          [
+            -74.009488,
+            41.30425
+          ],
+          [
+            -74.009518,
+            41.304296
+          ],
+          [
+            -74.009539,
+            41.304329
+          ],
+          [
+            -74.00961,
+            41.304415
+          ],
+          [
+            -74.009676,
+            41.304499
+          ],
+          [
+            -74.009813,
+            41.304673
+          ],
+          [
+            -74.009849,
+            41.304722
+          ],
+          [
+            -74.009874,
+            41.304756
+          ],
+          [
+            -74.00993,
+            41.304847
+          ],
+          [
+            -74.009977,
+            41.304931
+          ],
+          [
+            -74.010003,
+            41.304993
+          ],
+          [
+            -74.010005,
+            41.304997
+          ],
+          [
+            -74.010024,
+            41.305057
+          ],
+          [
+            -74.01006,
+            41.305202
+          ],
+          [
+            -74.01007,
+            41.305251
+          ],
+          [
+            -74.010086,
+            41.305332
+          ],
+          [
+            -74.010124,
+            41.305506
+          ],
+          [
+            -74.010177,
+            41.305757
+          ],
+          [
+            -74.010202,
+            41.305871
+          ],
+          [
+            -74.010229,
+            41.305981
+          ],
+          [
+            -74.010229,
+            41.305981
+          ],
+          [
+            -74.010248,
+            41.30604
+          ],
+          [
+            -74.01027,
+            41.306087
+          ],
+          [
+            -74.010298,
+            41.306143
+          ],
+          [
+            -74.010331,
+            41.306196
+          ],
+          [
+            -74.010339,
+            41.306207
+          ],
+          [
+            -74.010378,
+            41.306262
+          ],
+          [
+            -74.010511,
+            41.306445
+          ],
+          [
+            -74.010568,
+            41.306523
+          ],
+          [
+            -74.010601,
+            41.306578
+          ],
+          [
+            -74.010625,
+            41.306626
+          ],
+          [
+            -74.010643,
+            41.306675
+          ],
+          [
+            -74.010655,
+            41.306734
+          ],
+          [
+            -74.010655,
+            41.306734
+          ],
+          [
+            -74.010661,
+            41.306791
+          ],
+          [
+            -74.010663,
+            41.306867
+          ],
+          [
+            -74.010659,
+            41.306928
+          ],
+          [
+            -74.010638,
+            41.307011
+          ],
+          [
+            -74.010622,
+            41.307044
+          ],
+          [
+            -74.010607,
+            41.307073
+          ],
+          [
+            -74.010577,
+            41.307127
+          ],
+          [
+            -74.010506,
+            41.307253
+          ],
+          [
+            -74.010502,
+            41.307261
+          ],
+          [
+            -74.010465,
+            41.307336
+          ],
+          [
+            -74.010444,
+            41.307394
+          ],
+          [
+            -74.010425,
+            41.307454
+          ],
+          [
+            -74.010425,
+            41.307455
+          ],
+          [
+            -74.010417,
+            41.307533
+          ],
+          [
+            -74.010413,
+            41.307604
+          ],
+          [
+            -74.010415,
+            41.307681
+          ],
+          [
+            -74.010419,
+            41.307814
+          ],
+          [
+            -74.010425,
+            41.30791
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 20.6,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 20.8,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 22.3,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 23.7,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 25,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 26.2,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 28.7,
+          "duration": 4.1,
+          "summary": "",
+          "weight": 4.1
+        },
+        {
+          "steps": [],
+          "distance": 32.8,
+          "duration": 4.8,
+          "summary": "",
+          "weight": 4.8
+        },
+        {
+          "steps": [],
+          "distance": 29.3,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 28.7,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 28.3,
+          "duration": 4,
+          "summary": "",
+          "weight": 4
+        },
+        {
+          "steps": [],
+          "distance": 25.3,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 26.8,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 30.1,
+          "duration": 4.4,
+          "summary": "",
+          "weight": 4.4
+        },
+        {
+          "steps": [],
+          "distance": 34.6,
+          "duration": 5,
+          "summary": "",
+          "weight": 5
+        },
+        {
+          "steps": [],
+          "distance": 34.9,
+          "duration": 5.1,
+          "summary": "",
+          "weight": 5.1
+        },
+        {
+          "steps": [],
+          "distance": 25.2,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 23.4,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 25.3,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 25.5,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        }
+      ],
+      "distance": 537.5,
+      "duration": 77.6,
+      "weight_name": "duration",
+      "weight": 77.6
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.008975,
+        41.303393
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 4.159713,
+      "hint": "UnIAAIdyAIAEAAAABAAAAFMDAAAaAQAAvmY0QCBEGkDvZhNELjpEQwQAAAAEAAAAUwMAABoBAAABAAAAcbaW-2E9dgKStpb7fT12Ai4APwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.009147,
+        41.303526
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 5.179215,
+      "hint": "UnIAAIdyAIACAAAAGgAAADcDAAAiAQAA6d3xP5mIjkHEeQ5ErHRJQwIAAAAaAAAANwMAACIBAAABAAAAxbWW--Y9dgLytZb7Bj52Ai0AjwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.009273,
+        41.303686
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 7.250491,
+      "hint": "UnIAAIdyAIAFAAAABgAAABUDAABVAQAAeRmCQIKyWEDjvQhEc6VsQwUAAAAGAAAAFQMAAFUBAAABAAAAR7WW-4Y-dgKXtZb7nz52AioA3wmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.009353,
+        41.303877
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 6.524675,
+      "hint": "UnIAAIdyAIAlAAAAAwAAANYCAAB3AQAA2s7RQbqUyz-zRPtDCFuCQyUAAAADAAAA1gIAAHcBAAABAAAA97SW-0U_dgJDtZb7Uj92AicAbwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.009417,
+        41.304085
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 5.414163,
+      "hint": "UnIAAIdyAIADAAAAJQAAANYCAAB3AQAAT84gQBxuykGzRPtDCFuCQwMAAAAlAAAA1gIAAHcBAAABAAAAt7SW-xVAdgL2tJb7IEB2AicAbwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.009518,
+        41.304296
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 4.638965,
+      "hint": "UnIAAIdyAIAFAAAACQAAALACAAC3AQAAKROCQO4qtkCCAO5DwKaYQwUAAAAJAAAAsAIAALcBAAABAAAAUrSW--hAdgKEtJb7-kB2AiQArwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.009676,
+        41.304499
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 6.122957,
+      "hint": "UnIAAIdyAIAgAAAAEAAAAHACAADVAQAAa8azQVB7LUFJuNdDrSejQyAAAAAQAAAAcAIAANUBAAABAAAAtLOW-7NBdgLzs5b7z0F2AiIAXwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.009849,
+        41.304722
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 8.709538,
+      "hint": "UnIAAIdyAIAGAAAACQAAAGECAAAFAgAASSeKQLkQx0Bpc9JD7s-zQwYAAAAJAAAAYQIAAAUCAAABAAAAB7OW-5JCdgJis5b7uEJ2AiEAfwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.010003,
+        41.304993
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 6.783212,
+      "hint": "UnIAAIdyAIAAAAAACwAAADcCAAAzAgAAqBHzPqoW50Bb-MND07bDQwAAAAALAAAANwIAADMCAAABAAAAbbKW-6FDdgK6spb7tEN2Ah4ALwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.01007,
+        41.305251
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 3.808229,
+      "hint": "UnIAAIdyAIANAAAACAAAAAACAABgAgAA1oQRQUkwsECFDbFDyy3TQw0AAAAIAAAAAAIAAGACAAABAAAAKrKW-6NEdgJXspb7qER2AhsAvwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.010124,
+        41.305506
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 3.229564,
+      "hint": "UnIAAIdyAIA6AAAAHQAAAKkBAAB1AgAAbTwkQrKsnEEvu5JDsXraQzoAAAAdAAAAqQEAAHUCAAABAAAA9LGW-6JFdgIaspb7p0V2AhoArwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.010177,
+        41.305757
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 4.487064,
+      "hint": "UnIAAIdyAIASAAAARQAAAKkBAAB1AgAA_1FNQUQ-P0Ivu5JDsXraQxIAAABFAAAAqQEAAHUCAAABAAAAv7GW-51GdgL0sZb7o0Z2AhoArwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.010229,
+        41.305981
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 3.764941,
+      "hint": "UnIAAIdyAIAAAAAAEgAAAJcBAADMAgAAAAAAAPbHRkHvhIxDBs34QwAAAAASAAAAlwEAAMwCAAABAAAAi7GW-31HdgK3sZb7hEd2AhkAnwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.010339,
+        41.306207
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 5.212814,
+      "hint": "UnIAAIdyAIAKAAAAAgAAAGYBAAADAwAAKqPdQJBUsj_oSndD8twFRAoAAAACAAAAZgEAAAMDAAABAAAAHbGW-19IdgJUsZb7dUh2AhQAfwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.010511,
+        41.306445
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 5.612886,
+      "hint": "UnIAAIdyAIAOAAAAIgAAADYBAAAPAwAA0T0eQcxkuUFzOlZDYfEHRA4AAAAiAAAANgEAAA8DAAABAAAAcbCW-01JdgKssJb7ZUl2AhMAfwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.010655,
+        41.306734
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 6.871885,
+      "hint": "UnIAAIdyAIAAAAAACgAAABIBAABZAwAAAAAAAP4g1EA6jT1Di7gURAAAAAAKAAAAEgEAAFkDAAABAAAA4a-W-25KdgIysJb7eEp2Ag8AvwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.010622,
+        41.307044
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 6.972483,
+      "hint": "UnIAAIdyAIAFAAAABgAAANoAAACQAwAAiz1dQIa7eUDiOxdDMR4eRAUAAAAGAAAA2gAAAJADAAABAAAAArCW-6RLdgJQsJb7jkt2AgoAjwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.010506,
+        41.307253
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 4.899414,
+      "hint": "UnIAAIdyAIABAAAAFgAAALoAAACkAwAAqBFzP_FBc0FolABDQpUhRAEAAAAWAAAAugAAAKQDAAABAAAAdrCW-3VMdgKssJb7ZEx2AggArwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.010425,
+        41.307454
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 2.246504,
+      "hint": "UnIAAIdyAIAAAAAACgAAAJkAAADSAwAApXLjPV0520A6HdRCGIMpRAAAAAAKAAAAmQAAANIDAAABAAAAx7CW-z5NdgLhsJb7OU12AgUAHwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.010415,
+        41.307681
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 3.267078,
+      "hint": "UnIAAIdyAIAVAAAADQAAAF8AAAD0AwAArGRsQa7ZCEEjTIRCn2UvRBUAAAANAAAAXwAAAPQDAAABAAAA0bCW-yFOdgL4sJb7Ik52AgIALwuG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.010425,
+        41.30791
+      ],
+      "name": "Perkins Memorial Drive",
+      "distance": 2.179625,
+      "hint": "UnIAAIdyAIAPAAAAEAAAAEAAAAAWBAAAXGQuQW7GKkG0TTJCmDo1RA8AAAAQAAAAQAAAABYEAAABAAAAx7CW-wZPdgLhsJb7B092AgEAHwuG2cFP"
+    }
+  ]
+}

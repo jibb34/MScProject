@@ -1,0 +1,700 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.980994,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.154674,
+            41.23443
+          ],
+          [
+            -74.154565,
+            41.234548
+          ],
+          [
+            -74.154404,
+            41.234726
+          ],
+          [
+            -74.15426,
+            41.234885
+          ],
+          [
+            -74.154143,
+            41.235021
+          ],
+          [
+            -74.154098,
+            41.235065
+          ],
+          [
+            -74.154021,
+            41.235142
+          ],
+          [
+            -74.153899,
+            41.235253
+          ],
+          [
+            -74.153786,
+            41.235336
+          ],
+          [
+            -74.153731,
+            41.235372
+          ],
+          [
+            -74.153589,
+            41.235463
+          ],
+          [
+            -74.153411,
+            41.235569
+          ],
+          [
+            -74.153319,
+            41.235615
+          ],
+          [
+            -74.153224,
+            41.235663
+          ],
+          [
+            -74.152933,
+            41.235782
+          ],
+          [
+            -74.152596,
+            41.235919
+          ],
+          [
+            -74.152515,
+            41.235952
+          ],
+          [
+            -74.152291,
+            41.236033
+          ],
+          [
+            -74.151991,
+            41.23614
+          ],
+          [
+            -74.15174,
+            41.236231
+          ],
+          [
+            -74.151732,
+            41.236233
+          ],
+          [
+            -74.151629,
+            41.236256
+          ],
+          [
+            -74.151514,
+            41.236268
+          ],
+          [
+            -74.151428,
+            41.23627
+          ],
+          [
+            -74.151367,
+            41.236272
+          ],
+          [
+            -74.151217,
+            41.236257
+          ],
+          [
+            -74.151124,
+            41.236243
+          ],
+          [
+            -74.151056,
+            41.236232
+          ],
+          [
+            -74.150936,
+            41.236198
+          ],
+          [
+            -74.15083,
+            41.236159
+          ],
+          [
+            -74.150825,
+            41.236156
+          ],
+          [
+            -74.150562,
+            41.236027
+          ],
+          [
+            -74.150559,
+            41.236026
+          ],
+          [
+            -74.150348,
+            41.23593
+          ],
+          [
+            -74.150279,
+            41.23591
+          ],
+          [
+            -74.150177,
+            41.23588
+          ],
+          [
+            -74.149983,
+            41.235841
+          ],
+          [
+            -74.149769,
+            41.235798
+          ],
+          [
+            -74.149724,
+            41.235786
+          ],
+          [
+            -74.149611,
+            41.235756
+          ],
+          [
+            -74.149467,
+            41.235706
+          ],
+          [
+            -74.149458,
+            41.235701
+          ],
+          [
+            -74.149332,
+            41.23564
+          ],
+          [
+            -74.149213,
+            41.235561
+          ],
+          [
+            -74.149202,
+            41.23555
+          ],
+          [
+            -74.149128,
+            41.235483
+          ],
+          [
+            -74.149065,
+            41.235419
+          ],
+          [
+            -74.149005,
+            41.23533
+          ],
+          [
+            -74.14899,
+            41.235301
+          ],
+          [
+            -74.148963,
+            41.235251
+          ],
+          [
+            -74.1489,
+            41.235081
+          ],
+          [
+            -74.148899,
+            41.235073
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 39.9,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 45.6,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 46,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 43.8,
+          "duration": 3.2,
+          "summary": "",
+          "weight": 3.2
+        },
+        {
+          "steps": [],
+          "distance": 37.3,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        },
+        {
+          "steps": [],
+          "distance": 32,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 28.5,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 27.8,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 24,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 25.9,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 25.7,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 26.9,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 26.3,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 27.1,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 26,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 22.5,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 24.2,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 27.3,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 33.1,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 26.5,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        }
+      ],
+      "distance": 616.4,
+      "duration": 44.8,
+      "weight_name": "duration",
+      "weight": 44.8
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.154674,
+        41.23443
+      ],
+      "name": "Kanawauke Road",
+      "distance": 2.0114,
+      "hint": "w0wAgGgEAAAKAAAADAAAALwAAAAtAQAAcGBsQR6if0HJ1IJDoknPQwoAAAAMAAAAvAAAAC0BAAABAAAATn2U-_4vdQI6fZT7CDB1AhQALwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.154404,
+        41.234726
+      ],
+      "name": "Kanawauke Road",
+      "distance": 5.36107,
+      "hint": "w0wAgGgEAAARAAAAEAAAANIAAAAMAQAA7IC_QeMhq0HdNJJDdp-4QxEAAAAQAAAA0gAAAAwBAAABAAAAXH6U-yYxdQInfpT7QTF1AhUALwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.154098,
+        41.235065
+      ],
+      "name": "Kanawauke Road",
+      "distance": 5.688125,
+      "hint": "w0wAgGgEAAAEAAAACAAAAAABAADzAAAAhI_FQM9wK0FZ4LFDaSynQwQAAAAIAAAAAAEAAPMAAAABAAAAjn-U-3kydQJYf5T7mDJ1AhcAXwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.153731,
+        41.235372
+      ],
+      "name": "Kanawauke Road",
+      "distance": 3.080409,
+      "hint": "w0wAgGgEAAAEAAAADAAAACIBAADNAAAA_E_DQD_heUGS8MhDrbGNQwQAAAAMAAAAIgEAAM0AAAABAAAA_YCU-6wzdQLlgJT7wTN1AhoAHwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.153319,
+        41.235615
+      ],
+      "name": "Kanawauke Road",
+      "distance": 2.54644,
+      "hint": "w0wAgGgEAAAGAAAACAAAAEABAACxAAAAAAoUQdhbGUEATt1DqYp1QwYAAAAIAAAAQAEAALEAAAABAAAAmYKU-580dQKIgpT7sjR1AhwAjwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.152933,
+        41.235782
+      ],
+      "name": "Kanawauke Road",
+      "distance": 1.02101,
+      "hint": "w0wAgGgEAAAUAAAAHQAAAE4BAACAAAAAQ__dQXA-H0ItueZDJ_sxQxQAAAAdAAAATgEAAIAAAAABAAAAG4SU-0Y1dQIVhJT7TjV1Ah0A3wOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.152596,
+        41.235919
+      ],
+      "name": "Kanawauke Road",
+      "distance": 1.159109,
+      "hint": "w0wAgGgEAAArAAAABgAAAE4BAACAAAAANV9vQoX29kAtueZDJ_sxQysAAAAGAAAATgEAAIAAAAABAAAAbIWU-881dQJlhZT72DV1Ah0A3wOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.152291,
+        41.236033
+      ],
+      "name": "Kanawauke Road",
+      "distance": 2.947218,
+      "hint": "w0wAgGgEAAAPAAAAJQAAAH8BAABMAAAAy5qmQaOrTEJ3QAREz_nTQg8AAAAlAAAAfwEAAEwAAAABAAAAnYaU-0E2dQKOhpT7WTZ1Ah4ADwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.151991,
+        41.23614
+      ],
+      "name": "Kanawauke Road",
+      "distance": 4.811827,
+      "hint": "w0wAgGgEAAAjAAAAEQAAAH8BAABMAAAAn5VCQgHHukF3QAREz_nTQiMAAAARAAAAfwEAAEwAAAABAAAAyYeU-6w2dQKwh5T70zZ1Ah4ADwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.151732,
+        41.236233
+      ],
+      "name": "Kanawauke Road",
+      "distance": 2.663449,
+      "hint": "w0wAgGgEAAAAAAAABwAAALMBAABFAAAAKuU0P1EaEEEHQBZE54zAQgAAAAAHAAAAswEAAEUAAAABAAAAzIiU-wk3dQLDiJT7IDd1Ah8AnwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.151428,
+        41.23627
+      ],
+      "name": "Kanawauke Road",
+      "distance": 0.555283,
+      "hint": "w0wAgGgEAAAFAAAABAAAAMEBAAA1AAAA1t3mQLDUo0CmHBtE0GmUQgUAAAAEAAAAwQEAADUAAAABAAAA_ImU-y43dQL8iZT7Mzd1AiEAfwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.151124,
+        41.236243
+      ],
+      "name": "Kanawauke Road",
+      "distance": 2.946524,
+      "hint": "w0wAgGgEAAAFAAAABQAAANMBAAAiAAAAhXP-QJCZukAGXiFEZvI-QgUAAAAFAAAA0wEAACIAAAABAAAALIuU-xM3dQIli5T7-TZ1AiMAXwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.150825,
+        41.236156
+      ],
+      "name": "Kanawauke Road",
+      "distance": 5.972396,
+      "hint": "w0wAgGgEAAAAAAAAEwAAAOwBAAAAAAAAdhcJP5CN1EG4-ClEAAAAAAAAAAATAAAA7AEAAAAAAAABAAAAV4yU-7w2dQIwjJT7jzZ1AiYAvweG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.150562,
+        41.236027
+      ],
+      "name": "Kanawauke Road",
+      "distance": 4.12045,
+      "hint": "w0wAgGgEAAASAAAAAQAAAOwBAAAAAAAAaaXWQbTJjD64-ClEAAAAABIAAAABAAAA7AEAAAAAAAABAAAAXo2U-zs2dQJDjZT7HDZ1AiYAvweG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.150279,
+        41.23591
+      ],
+      "name": "Kanawauke Road",
+      "distance": 0.712241,
+      "hint": "iQQAAGkEAIAGAAAABQAAAMEGAAAPAAAATdwSQRJRxkDR6BVFfUClQQYAAAAFAAAAwQYAAA8AAAABAAAAeY6U-8Y1dQJ8jpT7zDV1AosAPxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.149983,
+        41.235841
+      ],
+      "name": "Kanawauke Road",
+      "distance": 1.160108,
+      "hint": "iQQAAGkEAIANAAAADAAAAKgGAAAaAAAAiIyUQY-rhkFhshNFaCEQQg0AAAAMAAAAqAYAABoAAAABAAAAoY-U-4E1dQKlj5T7izV1AooAzxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.149724,
+        41.235786
+      ],
+      "name": "Kanawauke Road",
+      "distance": 0.817082,
+      "hint": "iQQAAGkEAIAHAAAAAwAAAJ4GAAAzAAAAerMgQQIOgECn0RJFut6OQgcAAAADAAAAngYAADMAAAABAAAApJCU-0o1dQKhkJT7QzV1AokAHxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.149458,
+        41.235701
+      ],
+      "name": "Kanawauke Road",
+      "distance": 4.907578,
+      "hint": "iQQAAGkEAIAJAAAAAQAAAIoGAABHAAAAEM9IQeXabz8-JRFFlIrFQgkAAAABAAAAigYAAEcAAAABAAAArpGU-_U0dQKOkZT70DR1AocA_xKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.149202,
+        41.23555
+      ],
+      "name": "Kanawauke Road",
+      "distance": 8.102274,
+      "hint": "iQQAAGkEAIAGAAAAAgAAAHgGAABbAAAACgQbQaPuwz8rnQ9FFxb7QgYAAAACAAAAeAYAAFsAAAABAAAArpKU-140dQJjkpT7MDR1AoUADxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.14899,
+        41.235301
+      ],
+      "name": "Kanawauke Road",
+      "distance": 10.002972,
+      "hint": "iQQAAGkEAIAEAAAAAwAAAGMGAABxAAAAUOS_QBpIXUDDxg1FFLUcQwQAAAADAAAAYwYAAHEAAAABAAAAgpOU-2UzdQITk5T7RDN1AoIALxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.148899,
+        41.235073
+      ],
+      "name": "Kanawauke Road",
+      "distance": 9.969511,
+      "hint": "iQQAAGkEAIAGAAAAAQAAAE4GAACGAAAAf2cGQVx0ZD9p-AtFFsQ5QwYAAAABAAAATgYAAIYAAAABAAAA3ZOU-4EydQJnk5T7djJ1AoAADxaG2cFP"
+    }
+  ]
+}

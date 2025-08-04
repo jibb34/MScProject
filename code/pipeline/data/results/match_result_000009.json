@@ -1,0 +1,604 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.981046,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.123719,
+            41.215733
+          ],
+          [
+            -74.123728,
+            41.216124
+          ],
+          [
+            -74.123729,
+            41.216156
+          ],
+          [
+            -74.123617,
+            41.216507
+          ],
+          [
+            -74.123503,
+            41.216863
+          ],
+          [
+            -74.123399,
+            41.217186
+          ],
+          [
+            -74.123388,
+            41.217221
+          ],
+          [
+            -74.123371,
+            41.217253
+          ],
+          [
+            -74.123251,
+            41.21748
+          ],
+          [
+            -74.123109,
+            41.217748
+          ],
+          [
+            -74.122982,
+            41.217988
+          ],
+          [
+            -74.122905,
+            41.218133
+          ],
+          [
+            -74.122813,
+            41.218248
+          ],
+          [
+            -74.122618,
+            41.218489
+          ],
+          [
+            -74.122428,
+            41.218725
+          ],
+          [
+            -74.122358,
+            41.218811
+          ],
+          [
+            -74.122196,
+            41.218954
+          ],
+          [
+            -74.121954,
+            41.219167
+          ],
+          [
+            -74.121864,
+            41.219247
+          ],
+          [
+            -74.121721,
+            41.219369
+          ],
+          [
+            -74.121476,
+            41.219576
+          ],
+          [
+            -74.121218,
+            41.219796
+          ],
+          [
+            -74.120946,
+            41.220027
+          ],
+          [
+            -74.120655,
+            41.220274
+          ],
+          [
+            -74.12062,
+            41.220304
+          ],
+          [
+            -74.120367,
+            41.220524
+          ],
+          [
+            -74.120079,
+            41.220773
+          ],
+          [
+            -74.119858,
+            41.220965
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 43.5,
+          "duration": 4.1,
+          "summary": "",
+          "weight": 4.1
+        },
+        {
+          "steps": [],
+          "distance": 43.7,
+          "duration": 4.3,
+          "summary": "",
+          "weight": 4.3
+        },
+        {
+          "steps": [],
+          "distance": 40.7,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 37,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 35,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 32.1,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 28.7,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        },
+        {
+          "steps": [],
+          "distance": 32.3,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 31.4,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 30.7,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 32.1,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 31.2,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 29.7,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 30.8,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 32.6,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 34.3,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 36.7,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 36.8,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 36.7,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 28.2,
+          "duration": 2.7,
+          "summary": "",
+          "weight": 2.7
+        }
+      ],
+      "distance": 684.2,
+      "duration": 65.8,
+      "weight_name": "duration",
+      "weight": 65.8
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.123719,
+        41.215733
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.670806,
+      "hint": "IFAAgCNQAAAHAAAAqAEAAI0AAAAAAAAAGpHqQAjwO0J0sRJDAAAAAAcAAACoAQAAjQAAAAAAAAABAAAAOfaU-_XmdAJB9pT79eZ0AgMAfxaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.123728,
+        41.216124
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 3.355866,
+      "hint": "IFAAgCNQAAAwAAAAIAAAAI0AAAAAAAAAAgpLQtOBY0B0sRJDAAAAADAAAAAgAAAAjQAAAAAAAAABAAAAMPaU-3zodAJY9pT7feh0AgMAfxaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.123617,
+        41.216507
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.167701,
+      "hint": "IlAAgIZQAAAmAAAATwAAAAAAAAAEAAAAe2IgQiMso0IAAAAA5w51QCYAAABPAAAAAAAAAAQAAAABAAAAn_aU-_vpdAKd9pT7--l0AgAA3wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.123503,
+        41.216863
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 1.46388,
+      "hint": "IlAAgIZQAABNAAAAKAAAAAAAAAAEAAAA_YqhQsWkI0IAAAAA5w51QE0AAAAoAAAAAAAAAAQAAAABAAAAEfeU-1_rdAIA95T7Yut0AgAA3wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.123399,
+        41.217186
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.083851,
+      "hint": "IlAAgIZQAABxAAAABAAAAAAAAAAEAAAA_V_rQrSsf0AAAAAA5w51QHEAAAAEAAAAAAAAAAQAAAABAAAAefeU-6LsdAJ695T7oux0AgAA3wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.123251,
+        41.21748
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 2.235773,
+      "hint": "DVAAAIVQAIBLAAAAGgAAACkBAAAAAAAASTecQlYm2UEmdppDAAAAAEsAAAAaAAAAKQEAAAAAAAABAAAADfiU-8jtdAL095T7z-10AgMAnwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.123109,
+        41.217748
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 4.081057,
+      "hint": "DVAAAIVQAIAsAAAAOQAAACkBAAAAAAAAvjQ4Qv7MbEImdppDAAAAACwAAAA5AAAAKQEAAAAAAAABAAAAm_iU-9TudAJu-JT74u50AgMAnwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.122982,
+        41.217988
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 3.059595,
+      "hint": "DVAAAIVQAIAQAAAAVQAAACkBAAAAAAAAccuKQQPOr0ImdppDAAAAABAAAABVAAAAKQEAAAAAAAABAAAAGvmU-8TvdAL4-JT7zu90AgMAnwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.122813,
+        41.218248
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.474455,
+      "hint": "DVAAAIVQAIBGAAAADwAAANQAAABlAAAAz32SQlm6bkHGwVxD3oDSQkYAAAAPAAAA1AAAAGUAAAABAAAAw_mU-8jwdAK--ZT7yvB0AgIAPw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.122618,
+        41.218489
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 1.349842,
+      "hint": "DVAAAIVQAIAoAAAALQAAANQAAABlAAAA9IYnQiIjOULGwVxD3oDSQigAAAAtAAAA1AAAAGUAAAABAAAAhvqU-7nxdAKU-pT7s_F0AgIAPw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.122428,
+        41.218725
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 3.63177,
+      "hint": "DVAAAIVQAIAKAAAASwAAANQAAABlAAAAWV0zQWzpmULGwVxD3oDSQgoAAABLAAAA1AAAAGUAAAABAAAARPuU-6XydAJp-5T7lPJ0AgIAPw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.122196,
+        41.218954
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 6.231197,
+      "hint": "DVAAAIVQAIAoAAAAFQAAAJcAAAC6AAAAqkorQjovp0E0CR1D9GpBQygAAAAVAAAAlwAAALoAAAABAAAALPyU-4rzdAJl_JT7ZvN0AgEAzw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.121954,
+        41.219167
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 7.373373,
+      "hint": "DVAAAIVQAIALAAAAMgAAAJcAAAC6AAAABoM6QZxBUEI0CR1D9GpBQwsAAAAyAAAAlwAAALoAAAABAAAAHv2U-1_0dAJh_ZT7NPR0AgEAzw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.121721,
+        41.219369
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 7.854708,
+      "hint": "DVAAAIVQAICFAAAAEgAAAAAAAAD3AAAAdvEKQ_-9kEEAAAAAw5GAQ4UAAAASAAAAAAAAAPcAAAABAAAAB_6U-yn1dAJN_pT7-vR0AgAA3w2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.121476,
+        41.219576
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 6.040406,
+      "hint": "DVAAAIVQAIBnAAAAMAAAAAAAAAD3AAAA1TnYQi6xQ0IAAAAAw5GAQ2cAAAAwAAAAAAAAAPcAAAABAAAA_P6U-_j1dAIy_5T71PV0AgAA3w2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.121218,
+        41.219796
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 1.951403,
+      "hint": "DVAAAIVQAIBIAAAATwAAAAAAAAD3AAAAdPWWQvQco0IAAAAAw5GAQ0gAAABPAAAAAAAAAPcAAAABAAAA_v-U-9T2dAIPAJX7yPZ0AgAA3w2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.120946,
+        41.220027
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.535514,
+      "hint": "DVAAAIVQAIAnAAAAcAAAAAAAAAD3AAAAk5wkQh3E50IAAAAAw5GAQycAAABwAAAAAAAAAPcAAAABAAAADgGV-7v3dAITAZX7uPd0AgAA3w2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.120655,
+        41.220274
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.40228,
+      "hint": "DVAAAIVQAIAEAAAAkwAAAAAAAAD3AAAABhSOQJaYGEMAAAAAw5GAQwQAAACTAAAAAAAAAPcAAAABAAAAMQKV-7L4dAI1ApX7sPh0AgAA3w2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.120367,
+        41.220524
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.671156,
+      "hint": "DlAAgH9QAAAfAAAAjAAAAAAAAAC8AQAAw20BQjriEUMAAAAAZk3nQx8AAACMAAAAAAAAALwBAAABAAAAUQOV-6z5dAJXA5X7qPl0AgAAjwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.120079,
+        41.220773
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.870815,
+      "hint": "DlAAgH9QAABCAAAAaQAAAAAAAAC8AQAADySKQkdX2kIAAAAAZk3nQ0IAAABpAAAAAAAAALwBAAABAAAAcQSV-6X6dAJ5BJX7oPp0AgAAjwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.119858,
+        41.220965
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 1.74163,
+      "hint": "DlAAgH9QAABdAAAATgAAAAAAAAC8AQAADqTCQkfXoUIAAAAAZk3nQ10AAABOAAAAAAAAALwBAAABAAAATgWV-2X7dAJeBZX7W_t0AgAAjwKG2cFP"
+    }
+  ]
+}

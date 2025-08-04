@@ -24,6 +24,11 @@ def bounding_box_from_data(data):
     return (south, west, north, east)
 
 
+def load_json(file_path):
+    with open(file_path, "r") as f:
+        return json.load(f)
+
+
 def write_json(points, path):
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w") as f:
@@ -31,7 +36,7 @@ def write_json(points, path):
         json.dump(points, f, separators=(",", ":"), ensure_ascii=False)
 
 
-def download_osm_pbf(bbox, output_path):
+def download_osm_file(bbox, output_path):
     import requests
 
     # Convert bbox to Overpass API bbox string:

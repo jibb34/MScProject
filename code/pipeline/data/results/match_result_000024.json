@@ -1,0 +1,672 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.978267,
+      "geometry": {
+        "coordinates": [
+          [
+            -73.995154,
+            41.228535
+          ],
+          [
+            -73.995015,
+            41.228301
+          ],
+          [
+            -73.994853,
+            41.228029
+          ],
+          [
+            -73.994722,
+            41.227809
+          ],
+          [
+            -73.994602,
+            41.227621
+          ],
+          [
+            -73.994577,
+            41.227588
+          ],
+          [
+            -73.994482,
+            41.22746
+          ],
+          [
+            -73.994353,
+            41.227312
+          ],
+          [
+            -73.994264,
+            41.227228
+          ],
+          [
+            -73.99419,
+            41.227157
+          ],
+          [
+            -73.994143,
+            41.227123
+          ],
+          [
+            -73.993967,
+            41.226995
+          ],
+          [
+            -73.993933,
+            41.226976
+          ],
+          [
+            -73.993735,
+            41.226866
+          ],
+          [
+            -73.993592,
+            41.226797
+          ],
+          [
+            -73.993495,
+            41.22675
+          ],
+          [
+            -73.993304,
+            41.226669
+          ],
+          [
+            -73.993215,
+            41.226632
+          ],
+          [
+            -73.993131,
+            41.226605
+          ],
+          [
+            -73.992962,
+            41.226552
+          ],
+          [
+            -73.992908,
+            41.226535
+          ],
+          [
+            -73.992696,
+            41.226498
+          ],
+          [
+            -73.992627,
+            41.226486
+          ],
+          [
+            -73.992537,
+            41.22647
+          ],
+          [
+            -73.99223,
+            41.226436
+          ],
+          [
+            -73.992194,
+            41.226432
+          ],
+          [
+            -73.991797,
+            41.226414
+          ],
+          [
+            -73.991329,
+            41.226393
+          ],
+          [
+            -73.991301,
+            41.226392
+          ],
+          [
+            -73.990859,
+            41.226372
+          ],
+          [
+            -73.990614,
+            41.226361
+          ],
+          [
+            -73.990447,
+            41.226355
+          ],
+          [
+            -73.990034,
+            41.22634
+          ],
+          [
+            -73.989607,
+            41.226325
+          ],
+          [
+            -73.989335,
+            41.226315
+          ],
+          [
+            -73.98912,
+            41.226304
+          ],
+          [
+            -73.988855,
+            41.22629
+          ],
+          [
+            -73.988531,
+            41.226245
+          ],
+          [
+            -73.988391,
+            41.226225
+          ],
+          [
+            -73.988294,
+            41.226206
+          ],
+          [
+            -73.988022,
+            41.226154
+          ],
+          [
+            -73.98785,
+            41.226135
+          ],
+          [
+            -73.987782,
+            41.226128
+          ],
+          [
+            -73.98761,
+            41.226128
+          ],
+          [
+            -73.987509,
+            41.226139
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 61.7,
+          "duration": 6.1,
+          "summary": "",
+          "weight": 6.1
+        },
+        {
+          "steps": [],
+          "distance": 54.2,
+          "duration": 5.2,
+          "summary": "",
+          "weight": 5.2
+        },
+        {
+          "steps": [],
+          "distance": 47.9,
+          "duration": 4.6,
+          "summary": "",
+          "weight": 4.6
+        },
+        {
+          "steps": [],
+          "distance": 39.5,
+          "duration": 3.8,
+          "summary": "",
+          "weight": 3.8
+        },
+        {
+          "steps": [],
+          "distance": 34.8,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 28,
+          "duration": 2.7,
+          "summary": "",
+          "weight": 2.7
+        },
+        {
+          "steps": [],
+          "distance": 16.1,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 15.3,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 29,
+          "duration": 2.7,
+          "summary": "",
+          "weight": 2.7
+        },
+        {
+          "steps": [],
+          "distance": 33.7,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 36.3,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 41.6,
+          "duration": 4.1,
+          "summary": "",
+          "weight": 4.1
+        },
+        {
+          "steps": [],
+          "distance": 37,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 34.5,
+          "duration": 3.2,
+          "summary": "",
+          "weight": 3.2
+        },
+        {
+          "steps": [],
+          "distance": 34.6,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 35.8,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 40.8,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 49.8,
+          "duration": 4.8,
+          "summary": "",
+          "weight": 4.8
+        },
+        {
+          "steps": [],
+          "distance": 58.3,
+          "duration": 5.6,
+          "summary": "",
+          "weight": 5.6
+        },
+        {
+          "steps": [],
+          "distance": 28.7,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        }
+      ],
+      "distance": 757.6,
+      "duration": 73.1,
+      "weight_name": "duration",
+      "weight": 73.1
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -73.995154,
+        41.228535
+      ],
+      "name": "Central Drive",
+      "distance": 0.083851,
+      "hint": "a1oAgGkFAAAHAAAAHAAAADIAAAAAAAAA6zUEQZXZ40G4yVBCAAAAAAcAAAAcAAAAMgAAAAAAAAABAAAAbuyW-_cYdQJt7Jb79xh1AgMAvwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -73.994853,
+        41.228029
+      ],
+      "name": "Central Drive",
+      "distance": 1.649858,
+      "hint": "6AQAAGoFAIAZAAAAIQAAAM4AAAAAAAAABk7WQf17BEI4JVZDAAAAABkAAAAhAAAAzgAAAAAAAAABAAAAm-2W-_0WdQKt7Zb7Axd1AgoA_xSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -73.994577,
+        41.227588
+      ],
+      "name": "Central Drive",
+      "distance": 0.60342,
+      "hint": "6AQAAGoFAIAPAAAABQAAAKQAAABQAAAALVyCQeoah0CjcypDAiymQg8AAAAFAAAApAAAAFAAAAABAAAAr-6W-0QVdQKp7pb7QRV1AggArxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -73.994264,
+        41.227228
+      ],
+      "name": "Central Drive",
+      "distance": 2.342508,
+      "hint": "6AQAAGoFAIAJAAAADAAAAHwAAAB3AAAA_IkgQagkP0GjywBD7I72QgkAAAAMAAAAfAAAAHcAAAABAAAA6O-W-9wTdQLS75b7zxN1AgYAHxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -73.993933,
+        41.226976
+      ],
+      "name": "Central Drive",
+      "distance": 4.453004,
+      "hint": "6AQAAGoFAIATAAAABAAAAEwAAAClAAAAfuakQaz_YkAKYJ1CJTUrQxMAAAAEAAAATAAAAKUAAAABAAAAM_GW--ASdQIT8Zb7wBJ1AgMALxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -73.993592,
+        41.226797
+      ],
+      "name": "Central Drive",
+      "distance": 2.268559,
+      "hint": "6AQAAGoFAIAJAAAADgAAADUAAAC8AAAABqEaQX2uY0E2LFtC9F1DQwkAAAAOAAAANQAAALwAAAABAAAAiPKW-y0SdQJ58pb7HBJ1AgIA7xKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -73.993304,
+        41.226669
+      ],
+      "name": "Central Drive",
+      "distance": 0.883243,
+      "hint": "6AQAAGoFAIAIAAAAEgAAABsAAADTAAAAoU4IQX3zkkELPt9B60JbQwgAAAASAAAAGwAAANMAAAABAAAAqPOW-60RdQKj85b7phF1AgEAvxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -73.993131,
+        41.226605
+      ],
+      "name": "Central Drive",
+      "distance": 0.474827,
+      "hint": "6AQAAGoFAIATAAAACAAAAAAAAADtAAAArwCiQRH39EAAAAAANyZ2QxMAAAAIAAAAAAAAAO0AAAABAAAAVfSW-20RdQJT9Jb7aRF1AgAATxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -73.992962,
+        41.226552
+      ],
+      "name": "Central Drive",
+      "distance": 0.846664,
+      "hint": "6AQAAGoFAIAEAAAAFwAAAAAAAADtAAAAGfycQAf_t0EAAAAANyZ2QwQAAAAXAAAAAAAAAO0AAAABAAAA_vSW-zgRdQIC9Zb7PxF1AgAATxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -73.992627,
+        41.226486
+      ],
+      "name": "Central Drive",
+      "distance": 1.247253,
+      "hint": "i1UAgPQEAAAFAAAACAAAAAAAAABiAAAAif29QAoY-EAAAAAAJ3XLQgUAAAAIAAAAAAAAAGIAAAABAAAATfaW-_YQdQJK9pb76xB1AgAAfwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -73.99223,
+        41.226436
+      ],
+      "name": "Central Drive",
+      "distance": 1.684734,
+      "hint": "i1UAgPQEAAAZAAAAAwAAAA0AAABGAAAAFiTQQdJFQ0CgCltB81GRQhkAAAADAAAADQAAAEYAAAABAAAA2veW-8QQdQLX95b7tRB1AgEALwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -73.991797,
+        41.226414
+      ],
+      "name": "Central Drive",
+      "distance": 1.335314,
+      "hint": "i1UAgPQEAAAgAAAAJgAAACkAAAAAAAAAEGUFQtc-HUIQCStCAAAAACAAAAAmAAAAKQAAAAAAAAABAAAAi_mW-64QdQKK-Zb7ohB1AgIA3wWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -73.991301,
+        41.226392
+      ],
+      "name": "Central Drive",
+      "distance": 1.446168,
+      "hint": "PQUAAPMEAIA3AAAAAwAAAAAAAAAAAAAANtVmQq9tFkAAAAAAAAAAADcAAAADAAAAAAAAAAAAAAABAAAAe_uW-5gQdQJ6-5b7ixB1AgAAHxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -73.990859,
+        41.226372
+      ],
+      "name": "Central Drive",
+      "distance": 1.778882,
+      "hint": "PQUAAPMEAIATAAAAJwAAAAAAAAAAAAAAP6OkQUPqHUIAAAAAAAAAABMAAAAnAAAAAAAAAAAAAAABAAAANf2W-4QQdQI0_Zb7dBB1AgAAHxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -73.990447,
+        41.226355
+      ],
+      "name": "Central Drive",
+      "distance": 2.000776,
+      "hint": "OwUAgKlYAAANAAAAWgAAAAAAAADEAAAAdU1gQQqyukIAAAAAtDhMQw0AAABaAAAAAAAAAMQAAAABAAAA0f6W-3MQdQLQ_pb7YRB1AgAAzwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -73.990034,
+        41.22634
+      ],
+      "name": "Central Drive",
+      "distance": 2.781474,
+      "hint": "OwUAgKlYAAAuAAAAOQAAAAAAAADEAAAA1cFCQp21akIAAAAAtDhMQy4AAAA5AAAAAAAAAMQAAAABAAAAbgCX-2QQdQJsAJf7SxB1AgAAzwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -73.989607,
+        41.226325
+      ],
+      "name": "Central Drive",
+      "distance": 2.892336,
+      "hint": "OwUAgKlYAABRAAAAFgAAAAAAAADEAAAAgxCpQuCstkEAAAAAtDhMQ1EAAAAWAAAAAAAAAMQAAAABAAAAGQKX-1UQdQIXApf7OxB1AgAAzwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -73.98912,
+        41.226304
+      ],
+      "name": "Central Drive",
+      "distance": 0.555283,
+      "hint": "OwUAgKlYAAARAAAAFgAAAGcAAACdAAAAz42QQbcyskG5u9ZCpOAjQxEAAAAWAAAAZwAAAJ0AAAABAAAAAASX-0AQdQIABJf7OxB1AgEA3wWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -73.988531,
+        41.226245
+      ],
+      "name": "Central Drive",
+      "distance": 2.712424,
+      "hint": "OwUAgKlYAAAaAAAADAAAAI4AAAB3AAAA1vzcQXUoP0HstRNDE534QhoAAAAMAAAAjgAAAHcAAAABAAAATQaX-wUQdQJTBpf7HRB1AgIATwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -73.98785,
+        41.226135
+      ],
+      "name": "Central Drive",
+      "distance": 2.136565,
+      "hint": "OwUAgKlYAAANAAAABgAAANMAAABFAAAAujZpQawluEAWNltD3BeQQg0AAAAGAAAA0wAAAEUAAAABAAAA9giX-5cPdQL6CJf7qg91AgUALwaG2cFP"
+    },
+    null,
+    null,
+    {
+      "alternatives_count": 3,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -73.987509,
+        41.226139
+      ],
+      "name": "Central Drive",
+      "distance": 0.904141,
+      "hint": "OwUAgKlYAAAIAAAABgAAAPQAAAApAAAAu-cIQdXUskC_9n1DweotQggAAAAGAAAA9AAAACkAAAABAAAASwqX-5sPdQJJCpf7ow91AgcAHwWG2cFP"
+    }
+  ]
+}

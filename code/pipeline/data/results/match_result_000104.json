@@ -1,0 +1,784 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.939795,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.189871,
+            41.161443
+          ],
+          [
+            -74.189983,
+            41.161399
+          ],
+          [
+            -74.190021,
+            41.161384
+          ],
+          [
+            -74.190061,
+            41.161257
+          ],
+          [
+            -74.190121,
+            41.161211
+          ],
+          [
+            -74.190179,
+            41.161167
+          ],
+          [
+            -74.190336,
+            41.161087
+          ],
+          [
+            -74.190481,
+            41.160989
+          ],
+          [
+            -74.190499,
+            41.160976
+          ],
+          [
+            -74.190763,
+            41.160719
+          ],
+          [
+            -74.190765,
+            41.160716
+          ],
+          [
+            -74.190827,
+            41.160605
+          ],
+          [
+            -74.19088,
+            41.160434
+          ],
+          [
+            -74.19089,
+            41.160395
+          ],
+          [
+            -74.19093,
+            41.160246
+          ],
+          [
+            -74.190765,
+            41.16021
+          ],
+          [
+            -74.190652,
+            41.160185
+          ],
+          [
+            -74.190559,
+            41.160165
+          ],
+          [
+            -74.190379,
+            41.160094
+          ],
+          [
+            -74.190239,
+            41.159988
+          ],
+          [
+            -74.190221,
+            41.159975
+          ],
+          [
+            -74.190207,
+            41.159965
+          ],
+          [
+            -74.190096,
+            41.159855
+          ],
+          [
+            -74.19007,
+            41.159739
+          ],
+          [
+            -74.190083,
+            41.159673
+          ],
+          [
+            -74.190083,
+            41.159673
+          ],
+          [
+            -74.19011,
+            41.159567
+          ],
+          [
+            -74.190187,
+            41.159327
+          ],
+          [
+            -74.190247,
+            41.159141
+          ],
+          [
+            -74.1903,
+            41.158971
+          ],
+          [
+            -74.19036,
+            41.158778
+          ],
+          [
+            -74.190414,
+            41.158621
+          ],
+          [
+            -74.19054,
+            41.158255
+          ],
+          [
+            -74.190568,
+            41.158174
+          ],
+          [
+            -74.190604,
+            41.158089
+          ],
+          [
+            -74.19064,
+            41.158013
+          ],
+          [
+            -74.19068,
+            41.157934
+          ],
+          [
+            -74.190706,
+            41.157889
+          ],
+          [
+            -74.190713,
+            41.157877
+          ],
+          [
+            -74.190755,
+            41.157808
+          ],
+          [
+            -74.190802,
+            41.157745
+          ],
+          [
+            -74.190881,
+            41.157654
+          ],
+          [
+            -74.190928,
+            41.157605
+          ],
+          [
+            -74.190969,
+            41.15757
+          ],
+          [
+            -74.191009,
+            41.157545
+          ],
+          [
+            -74.191019,
+            41.15754
+          ],
+          [
+            -74.191048,
+            41.157524
+          ],
+          [
+            -74.191093,
+            41.157509
+          ],
+          [
+            -74.19118,
+            41.157501
+          ],
+          [
+            -74.191254,
+            41.1575
+          ],
+          [
+            -74.19131,
+            41.157502
+          ],
+          [
+            -74.191366,
+            41.15751
+          ],
+          [
+            -74.191458,
+            41.157524
+          ],
+          [
+            -74.19158,
+            41.157542
+          ],
+          [
+            -74.191673,
+            41.157556
+          ],
+          [
+            -74.191792,
+            41.157568
+          ],
+          [
+            -74.191879,
+            41.157576
+          ],
+          [
+            -74.192079,
+            41.157596
+          ],
+          [
+            -74.192088,
+            41.157597
+          ],
+          [
+            -74.192355,
+            41.157624
+          ],
+          [
+            -74.19237,
+            41.157626
+          ],
+          [
+            -74.192504,
+            41.157639
+          ],
+          [
+            -74.192521,
+            41.157599
+          ],
+          [
+            -74.192535,
+            41.157567
+          ],
+          [
+            -74.192575,
+            41.157476
+          ],
+          [
+            -74.192621,
+            41.15738
+          ],
+          [
+            -74.192657,
+            41.157305
+          ],
+          [
+            -74.192748,
+            41.157144
+          ],
+          [
+            -74.192759,
+            41.157123
+          ],
+          [
+            -74.192786,
+            41.157075
+          ],
+          [
+            -74.192833,
+            41.156992
+          ],
+          [
+            -74.192897,
+            41.156875
+          ],
+          [
+            -74.192938,
+            41.156795
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 35.9,
+          "duration": 7.6,
+          "summary": "",
+          "weight": 7.6
+        },
+        {
+          "steps": [],
+          "distance": 39.1,
+          "duration": 5.1,
+          "summary": "",
+          "weight": 5.1
+        },
+        {
+          "steps": [],
+          "distance": 38.6,
+          "duration": 5,
+          "summary": "",
+          "weight": 5
+        },
+        {
+          "steps": [],
+          "distance": 37.3,
+          "duration": 4.9,
+          "summary": "",
+          "weight": 4.9
+        },
+        {
+          "steps": [],
+          "distance": 41.2,
+          "duration": 15.3,
+          "summary": "",
+          "weight": 15.3
+        },
+        {
+          "steps": [],
+          "distance": 41.7,
+          "duration": 5.4,
+          "summary": "",
+          "weight": 5.4
+        },
+        {
+          "steps": [],
+          "distance": 39.6,
+          "duration": 5.1,
+          "summary": "",
+          "weight": 5.1
+        },
+        {
+          "steps": [],
+          "distance": 39.5,
+          "duration": 5.3,
+          "summary": "",
+          "weight": 5.3
+        },
+        {
+          "steps": [],
+          "distance": 40.7,
+          "duration": 5.4,
+          "summary": "",
+          "weight": 5.4
+        },
+        {
+          "steps": [],
+          "distance": 40.1,
+          "duration": 5.2,
+          "summary": "",
+          "weight": 5.2
+        },
+        {
+          "steps": [],
+          "distance": 42.1,
+          "duration": 5.5,
+          "summary": "",
+          "weight": 5.5
+        },
+        {
+          "steps": [],
+          "distance": 43.1,
+          "duration": 5.7,
+          "summary": "",
+          "weight": 5.7
+        },
+        {
+          "steps": [],
+          "distance": 47.3,
+          "duration": 6.3,
+          "summary": "",
+          "weight": 6.3
+        },
+        {
+          "steps": [],
+          "distance": 48.4,
+          "duration": 6.1,
+          "summary": "",
+          "weight": 6.1
+        },
+        {
+          "steps": [],
+          "distance": 43,
+          "duration": 5.7,
+          "summary": "",
+          "weight": 5.7
+        },
+        {
+          "steps": [],
+          "distance": 23.8,
+          "duration": 3.2,
+          "summary": "",
+          "weight": 3.2
+        },
+        {
+          "steps": [],
+          "distance": 16,
+          "duration": 10.3,
+          "summary": "",
+          "weight": 10.3
+        },
+        {
+          "steps": [],
+          "distance": 25.8,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 36.6,
+          "duration": 2.4,
+          "summary": "",
+          "weight": 2.4
+        },
+        {
+          "steps": [],
+          "distance": 33.6,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        }
+      ],
+      "distance": 753.4,
+      "duration": 113.4,
+      "weight_name": "duration",
+      "weight": 113.4
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.189871,
+        41.161443
+      ],
+      "name": "Seven Lakes Drive",
+      "distance": 0.37305,
+      "hint": "tSQAAAolAIAKAAAACwAAAAMAAAAAAAAALnwpQX1EMEEHQGZAAAAAAAoAAAALAAAAAwAAAAAAAAABAAAA0fOT--MSdALP85P75hJ0AgEA7wOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.190121,
+        41.161211
+      ],
+      "name": "Academy Avenue",
+      "distance": 3.981015,
+      "hint": "aiQAALMkAIAIAAAACgAAAKQAAAATAAAAWrLcQJCG5UDu-PlCrvdnQQgAAAAKAAAApAAAABMAAAABAAAA1_KT-_sRdAK18pP7FBJ0AgYAzwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.190481,
+        41.160989
+      ],
+      "name": "Academy Avenue",
+      "distance": 2.110064,
+      "hint": "aiQAALMkAIACAAAAFgAAAHcAAAA6AAAAqLkFQECZgkF6XbVCstQxQgIAAAAWAAAAdwAAADoAAAABAAAAb_GT-x0RdAJe8ZP7KxF0AgQA_wKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.190765,
+        41.160716
+      ],
+      "name": "Academy Avenue",
+      "distance": 1.452927,
+      "hint": "aiQAALMkAIARAAAAAQAAADYAAACBAAAA6RRWQXkAvz5oMyNChgDGQhEAAAABAAAANgAAAIEAAAABAAAAU_CT-wwQdAJD8JP7ERB0AgIAbwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.19089,
+        41.160395
+      ],
+      "name": "Academy Avenue",
+      "distance": 1.113271,
+      "hint": "aiQAALMkAIAWAAAABgAAAAAAAACtAAAABROHQbksjUAAAAAA-EEEQxYAAAAGAAAAAAAAAK0AAAABAAAA1u-T-8sOdALJ75P7zQ50AgAAvwCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.190652,
+        41.160185
+      ],
+      "name": "Ballard Avenue",
+      "distance": 0.237434,
+      "hint": "ayQAgCMlAAANAAAACwAAABMAAABfAAAASxYeQdXSAUG6lWZBg22SQg0AAAALAAAAEwAAAF8AAAABAAAAxPCT-_kNdALF8JP7-w10AgEArwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.190239,
+        41.159988
+      ],
+      "name": "Ballard Avenue",
+      "distance": 0,
+      "hint": "ayQAgCMlAAAVAAAAAwAAAEEAAAAxAAAAggyFQai5BUBYx0VC79EVQhUAAAADAAAAQQAAADEAAAABAAAAYfKT-zQNdAJh8pP7NA10AgMAfwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.190083,
+        41.159673
+      ],
+      "name": "Ballard Avenue",
+      "distance": 2.207069,
+      "hint": "ayQAgCMlAAAJAAAAAQAAAIAAAAAAAAAABiLtQAAAAAAta8RCAAAAAAkAAAABAAAAgAAAAAAAAAABAAAA_fKT-_kLdALj8pP7_At0AgcAzwuG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.190187,
+        41.159327
+      ],
+      "name": "Ballard Avenue",
+      "distance": 0.51559,
+      "hint": "IiUAgCclAAAkAAAAHAAAABAAAAAAAAAAJGfbQboWqkGezj9BAAAAACQAAAAcAAAAEAAAAAAAAAABAAAAlfKT-58KdAKP8pP7oAp0AgEAHwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.1903,
+        41.158971
+      ],
+      "name": "Ballard Avenue",
+      "distance": 0.68044,
+      "hint": "yyQAACYlAIAcAAAAGgAAAK8AAAAAAAAAHCOwQXgrm0HeCgVDAAAAABwAAAAaAAAArwAAAAAAAAABAAAAJPKT-zsJdAIs8pP7Ogl0AggA3wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.190414,
+        41.158621
+      ],
+      "name": "Ballard Avenue",
+      "distance": 2.604128,
+      "hint": "yyQAACYlAIBDAAAAGAAAAFQAAAA2AAAAbi9NQpgekEG-7H5CSaclQkMAAAAYAAAAVAAAADYAAAABAAAAsvGT-90HdALQ8ZP71wd0AgcA7wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.19054,
+        41.158255
+      ],
+      "name": "Ballard Avenue",
+      "distance": 0.949407,
+      "hint": "yyQAACYlAIAMAAAATwAAAFQAAAA2AAAAucEUQU0OcEK-7H5CSaclQgwAAABPAAAAVAAAADYAAAABAAAANPGT-28GdAI_8ZP7bQZ0AgcA7wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.190706,
+        41.157889
+      ],
+      "name": "Ballard Avenue",
+      "distance": 0.825454,
+      "hint": "yyQAACYlAIABAAAACAAAACYAAAC2AAAAp2q6P_N-rkBEa-RBe_4KQwEAAAAIAAAAJgAAALYAAAABAAAAjvCT-wEFdAKX8JP7_gR0AgMAfwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.191019,
+        41.15754
+      ],
+      "name": "Ballard Avenue",
+      "distance": 4.125777,
+      "hint": "lyQAAMwkAIADAAAAAgAAABcAAAAWAAAAPNhAQCPMgD_1iY1BBCSCQQMAAAACAAAAFwAAABYAAAABAAAAVe-T-6QDdAI475P7wgN0AgMAbwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.19158,
+        41.157542
+      ],
+      "name": "Municipal Plaza",
+      "distance": 2.712472,
+      "hint": "ZiQAgDclAAANAAAACwAAAAAAAAANAAAAA-UmQTKj_kAAAAAAlzAhQQ0AAAALAAAAAAAAAA0AAAABAAAAJO2T-6YDdAIq7ZP7vgN0AgAAnxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.192088,
+        41.157597
+      ],
+      "name": "Municipal Plaza",
+      "distance": 1.684748,
+      "hint": "iSQAAMMkAIAeAAAAAQAAABAAAAAAAAAA6Na0QRBrQz_p0UlBAAAAAB4AAAABAAAAEAAAAAAAAAABAAAAKOuT-90DdAIr65P77AN0AgEAHwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.19237,
+        41.157626
+      ],
+      "name": "Municipal Plaza",
+      "distance": 1.453445,
+      "hint": "iSQAAMMkAIAOAAAAAgAAAAAAAAAfAAAAvWM1QeSaoz8AAAAAIPK6QQ4AAAACAAAAAAAAAB8AAAABAAAADuqT-_oDdAIQ6pP7BwR0AgAAHwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.192521,
+        41.157599
+      ],
+      "name": "Orange Turnpike",
+      "distance": 1.92782,
+      "hint": "iCQAgK8kAAACAAAAAwAAAAAAAAAHAAAAFk2VQB-Mb0AAAAAA42EqQQIAAAADAAAAAAAAAAcAAAABAAAAd-mT-98DdAJh6ZP75AN0AgAAXwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.192621,
+        41.15738
+      ],
+      "name": "Orange Turnpike",
+      "distance": 4.632273,
+      "hint": "rSQAgCUCAAAHAAAABgAAAAAAAAAOAAAA-Go1QeTCDUEAAAAAsZqvQQcAAAAGAAAAAAAAAA4AAAABAAAAE-mT-wQDdALf6JP7EgN0AgAAfwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.192786,
+        41.157075
+      ],
+      "name": "Orange Turnpike",
+      "distance": 5.029611,
+      "hint": "-QEAACQCAIAGAAAABAAAADwAAAAAAAAAPGogQZBZuUAGnrtCAAAAAAYAAAAEAAAAPAAAAAAAAAABAAAAbuiT-9MBdAI36JP75QF0AgcAfwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 3,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.192938,
+        41.156795
+      ],
+      "name": "Orange Turnpike",
+      "distance": 4.945536,
+      "hint": "-QEAACQCAIAAAAAABwAAACwAAAATAAAAeFm2PwdwGEEbmIlCpQXvQQAAAAAHAAAALAAAABMAAAABAAAA1ueT-7sAdAKf55P7ywB0AgUAXwGG2cFP"
+    }
+  ]
+}

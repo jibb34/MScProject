@@ -1,0 +1,792 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.980573,
+      "geometry": {
+        "coordinates": [
+          [
+            -73.96498,
+            41.29358
+          ],
+          [
+            -73.965082,
+            41.293595
+          ],
+          [
+            -73.965231,
+            41.293614
+          ],
+          [
+            -73.965374,
+            41.29363
+          ],
+          [
+            -73.965511,
+            41.293643
+          ],
+          [
+            -73.965612,
+            41.293646
+          ],
+          [
+            -73.965666,
+            41.293648
+          ],
+          [
+            -73.965811,
+            41.293643
+          ],
+          [
+            -73.96595,
+            41.29363
+          ],
+          [
+            -73.966089,
+            41.293608
+          ],
+          [
+            -73.966227,
+            41.293578
+          ],
+          [
+            -73.966227,
+            41.293578
+          ],
+          [
+            -73.966418,
+            41.293526
+          ],
+          [
+            -73.966638,
+            41.29346
+          ],
+          [
+            -73.966859,
+            41.293386
+          ],
+          [
+            -73.967298,
+            41.293239
+          ],
+          [
+            -73.967505,
+            41.293176
+          ],
+          [
+            -73.967528,
+            41.29317
+          ],
+          [
+            -73.967705,
+            41.293126
+          ],
+          [
+            -73.96792,
+            41.293079
+          ],
+          [
+            -73.968129,
+            41.293042
+          ],
+          [
+            -73.968309,
+            41.293015
+          ],
+          [
+            -73.968373,
+            41.293006
+          ],
+          [
+            -73.96861,
+            41.292974
+          ],
+          [
+            -73.968831,
+            41.292947
+          ],
+          [
+            -73.969016,
+            41.292933
+          ],
+          [
+            -73.969039,
+            41.292931
+          ],
+          [
+            -73.96927,
+            41.292917
+          ],
+          [
+            -73.969489,
+            41.292904
+          ],
+          [
+            -73.969709,
+            41.292896
+          ],
+          [
+            -73.96975,
+            41.292896
+          ],
+          [
+            -73.969932,
+            41.292897
+          ],
+          [
+            -73.970155,
+            41.292909
+          ],
+          [
+            -73.970429,
+            41.292938
+          ],
+          [
+            -73.970553,
+            41.292958
+          ],
+          [
+            -73.970722,
+            41.292985
+          ],
+          [
+            -73.970985,
+            41.293039
+          ],
+          [
+            -73.971369,
+            41.293126
+          ],
+          [
+            -73.9722,
+            41.293315
+          ],
+          [
+            -73.973076,
+            41.293515
+          ],
+          [
+            -73.973206,
+            41.293544
+          ],
+          [
+            -73.973522,
+            41.293617
+          ],
+          [
+            -73.973856,
+            41.2937
+          ],
+          [
+            -73.973933,
+            41.29372
+          ],
+          [
+            -73.97416,
+            41.293779
+          ],
+          [
+            -73.974457,
+            41.29386
+          ],
+          [
+            -73.97472,
+            41.29394
+          ],
+          [
+            -73.974748,
+            41.293949
+          ],
+          [
+            -73.97503,
+            41.294035
+          ],
+          [
+            -73.975292,
+            41.294118
+          ],
+          [
+            -73.975499,
+            41.294187
+          ],
+          [
+            -73.975556,
+            41.294206
+          ],
+          [
+            -73.97577,
+            41.294287
+          ],
+          [
+            -73.975997,
+            41.294385
+          ],
+          [
+            -73.97623,
+            41.294503
+          ],
+          [
+            -73.976251,
+            41.294515
+          ],
+          [
+            -73.976439,
+            41.29462
+          ],
+          [
+            -73.97664,
+            41.294737
+          ],
+          [
+            -73.976905,
+            41.294897
+          ],
+          [
+            -73.977459,
+            41.295232
+          ],
+          [
+            -73.977459,
+            41.295232
+          ],
+          [
+            -73.977594,
+            41.295311
+          ],
+          [
+            -73.977717,
+            41.295374
+          ],
+          [
+            -73.977839,
+            41.295429
+          ],
+          [
+            -73.977963,
+            41.295478
+          ],
+          [
+            -73.977978,
+            41.295483
+          ],
+          [
+            -73.978092,
+            41.295518
+          ],
+          [
+            -73.97823,
+            41.295549
+          ],
+          [
+            -73.978365,
+            41.295573
+          ],
+          [
+            -73.978506,
+            41.295589
+          ],
+          [
+            -73.978606,
+            41.295594
+          ],
+          [
+            -73.978651,
+            41.295596
+          ],
+          [
+            -73.978873,
+            41.295596
+          ],
+          [
+            -73.979078,
+            41.295591
+          ],
+          [
+            -73.97919,
+            41.295587
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 53.4,
+          "duration": 3.8,
+          "summary": "",
+          "weight": 3.8
+        },
+        {
+          "steps": [],
+          "distance": 52.2,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 57,
+          "duration": 4,
+          "summary": "",
+          "weight": 4
+        },
+        {
+          "steps": [],
+          "distance": 60.9,
+          "duration": 4.3,
+          "summary": "",
+          "weight": 4.3
+        },
+        {
+          "steps": [],
+          "distance": 67.6,
+          "duration": 4.9,
+          "summary": "",
+          "weight": 4.9
+        },
+        {
+          "steps": [],
+          "distance": 59.8,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 61.5,
+          "duration": 4.4,
+          "summary": "",
+          "weight": 4.4
+        },
+        {
+          "steps": [],
+          "distance": 67.6,
+          "duration": 4.8,
+          "summary": "",
+          "weight": 4.8
+        },
+        {
+          "steps": [],
+          "distance": 70.7,
+          "duration": 5.1,
+          "summary": "",
+          "weight": 5.1
+        },
+        {
+          "steps": [],
+          "distance": 72.6,
+          "duration": 5.2,
+          "summary": "",
+          "weight": 5.2
+        },
+        {
+          "steps": [],
+          "distance": 76.5,
+          "duration": 5.5,
+          "summary": "",
+          "weight": 5.5
+        },
+        {
+          "steps": [],
+          "distance": 75.2,
+          "duration": 5.4,
+          "summary": "",
+          "weight": 5.4
+        },
+        {
+          "steps": [],
+          "distance": 70.2,
+          "duration": 5.1,
+          "summary": "",
+          "weight": 5.1
+        },
+        {
+          "steps": [],
+          "distance": 70.7,
+          "duration": 5,
+          "summary": "",
+          "weight": 5
+        },
+        {
+          "steps": [],
+          "distance": 72.8,
+          "duration": 5.2,
+          "summary": "",
+          "weight": 5.2
+        },
+        {
+          "steps": [],
+          "distance": 69.2,
+          "duration": 5,
+          "summary": "",
+          "weight": 5
+        },
+        {
+          "steps": [],
+          "distance": 59.4,
+          "duration": 4.3,
+          "summary": "",
+          "weight": 4.3
+        },
+        {
+          "steps": [],
+          "distance": 51.7,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 54.2,
+          "duration": 4,
+          "summary": "",
+          "weight": 4
+        },
+        {
+          "steps": [],
+          "distance": 48.8,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        }
+      ],
+      "distance": 1272,
+      "duration": 91.1,
+      "weight_name": "duration",
+      "weight": 91.1
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -73.96498,
+        41.29358
+      ],
+      "name": "",
+      "distance": 9.836267,
+      "hint": "eHQAgH10AAAGAAAABwAAAIoFAAD0BAAAm5QQQUVQC0GhnvZEdkPdRAYAAAAHAAAAigUAAPQEAAABAAAATGKX-wwXdgJiYpf7Yxd2AmkAjxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -73.965612,
+        41.293646
+      ],
+      "name": "",
+      "distance": 10.336844,
+      "hint": "eHQAgH10AAAFAAAABAAAALEFAADRBAAAHYEHQTv1kEBkYf1EhRjXRAUAAAAEAAAAsQUAANEEAAABAAAA1F-X-04XdgLZX5f7qxd2Am0ADxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -73.966227,
+        41.293578
+      ],
+      "name": "",
+      "distance": 10.158725,
+      "hint": "eHQAgH10AAAAAAAADAAAAN0FAACiBAAAAAAAAGwbiEH2fQJFh_3ORAAAAAAMAAAA3QUAAKIEAAABAAAAbV2X-woXdgJRXZf7Yxd2AnIArw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -73.966859,
+        41.293386
+      ],
+      "name": "",
+      "distance": 9.142945,
+      "hint": "eHQAgH10AAAOAAAAHQAAAPcFAABpBAAAzhGiQWj4IEKRywRFtfLERA4AAAAdAAAA9wUAAGkEAAABAAAA9VqX-0oWdgLIWpf7lRZ2AnQAXw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -73.967528,
+        41.29317
+      ],
+      "name": "",
+      "distance": 8.539052,
+      "hint": "eHQAgH10AAABAAAADAAAAC8GAABPBAAAwn8CQErVeUHRvglFVWfARAEAAAAMAAAALwYAAE8EAAABAAAAWFiX-3IVdgI4WJf7uxV2AnYAvw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -73.968309,
+        41.293015
+      ],
+      "name": "",
+      "distance": 18.909464,
+      "hint": "eHQAgH10AAALAAAABAAAAFYGAAAmBAAAdwd2QQCNrkAlJQ1F_DS5RAsAAAAEAAAAVgYAACYEAAABAAAAS1WX-9cUdgIfVZf7fhV2AnkALxCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -73.969016,
+        41.292933
+      ],
+      "name": "",
+      "distance": 13.394161,
+      "hint": "eHQAgH10AAALAAAAAgAAAIAGAAD-AwAA4UB5QSZN-D9Y4RBFniayRAsAAAACAAAAgAYAAP4DAAABAAAAiFKX-4UUdgJ4Upf7_RR2AnwAjxCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -73.96975,
+        41.292896
+      ],
+      "name": "",
+      "distance": 12.327671,
+      "hint": "eHQAgH10AAACAAAACwAAALUGAADJAwAAR9tbQF3-c0ETfhVF0MeoRAIAAAALAAAAtQYAAMkDAAABAAAAqk-X-2AUdgKrT5f7zxR2AoAA7xCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -73.970553,
+        41.292958
+      ],
+      "name": "",
+      "distance": 9.886455,
+      "hint": "eHQAgH10AAAHAAAACwAAAOAGAACZAwAASP0pQWmVZ0GpRxlFamegRAcAAAALAAAA4AYAAJkDAAABAAAAh0yX-54UdgKgTJf79RR2AoMArxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -73.971369,
+        41.293126
+      ],
+      "name": "",
+      "distance": 9.623534,
+      "hint": "eHQAgH10AAAYAAAAdAAAAAIHAAD9AgAA1V8GQrvDIEOiRhxFKkGFRBgAAAB0AAAAAgcAAP0CAAABAAAAV0mX-0YVdgJ4SZf7mRV2AoUA7xGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -73.9722,
+        41.293315
+      ],
+      "name": "",
+      "distance": 11.600436,
+      "hint": "eHQAgH10AABMAAAAQAAAAAIHAAD9AgAAgaHUQt0VsEKiRhxFKkGFREwAAABAAAAAAgcAAP0CAAABAAAAGEaX-wMWdgJARpf7ZxZ2AoUA7xGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -73.973076,
+        41.293515
+      ],
+      "name": "",
+      "distance": 11.020415,
+      "hint": "eHQAgH10AACDAAAACQAAAAIHAAD9AgAA9v82Qz28NUGiRhxFKkGFRIMAAAAJAAAAAgcAAP0CAAABAAAArEKX-8sWdgLSQpf7Khd2AoUA7xGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -73.973933,
+        41.29372
+      ],
+      "name": "",
+      "distance": 10.359236,
+      "hint": "eHQAgH10AAAEAAAADwAAALcHAADBAgAA4VfaQODuoEHT_itFVHx1RAQAAAAPAAAAtwcAAMECAAABAAAAUz-X-5gXdgJ8P5f78Bd2AogAHxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -73.97472,
+        41.29394
+      ],
+      "name": "",
+      "distance": 11.145645,
+      "hint": "eHQAgH10AAARAAAAAgAAAN0HAACbAgAApRO-QXc0I0A8VS9FDUtoRBEAAAACAAAA3QcAAJsCAAABAAAAQDyX-3QYdgJyPJf70Rh2AooATxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -73.975499,
+        41.294187
+      ],
+      "name": "",
+      "distance": 11.919297,
+      "hint": "eHQAgH10AAANAAAABAAAABMIAABnAgAAvbCXQUoUp0DkDjRFjOxVRA0AAAAEAAAAEwgAAGcCAAABAAAANTmX-2sZdgJvOZf7zRl2Ao0AXxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -73.976251,
+        41.294515
+      ],
+      "name": "",
+      "distance": 10.940117,
+      "hint": "eHQAgH10AAABAAAADwAAAFMIAAAoAgAAs0MNQM_JnEGZqTlF1hlARAEAAAAPAAAAUwgAACgCAAABAAAARTaX-7MadgKTNpf7Aht2ApEALxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -73.976905,
+        41.294897
+      ],
+      "name": "",
+      "distance": 11.108602,
+      "hint": "eHQAgH10AAAUAAAAKwAAAHIIAADaAQAAwYHjQVXzbULUWjxFN80kRBQAAAArAAAAcggAANoBAAABAAAAtzOX-zEcdgIKNJf7fxx2ApMATxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -73.977459,
+        41.295232
+      ],
+      "name": "",
+      "distance": 10.097566,
+      "hint": "eHQAgH10AAAAAAAACgAAALEIAADQAQAAAAAAACsKZUGl2UFFDjkhRAAAAAAKAAAAsQgAANABAAABAAAAjTGX-4AddgLdMZf7xB12ApQAPxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -73.977978,
+        41.295483
+      ],
+      "name": "",
+      "distance": 9.144592,
+      "hint": "eHQAgH10AAAAAAAACAAAANUIAACuAQAAd9-vPzn_JEErAEVFOkcVRAAAAAAIAAAA1QgAAK4BAAABAAAAhi-X-3sedgKwL5f7xx52ApgATxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -73.978606,
+        41.295594
+      ],
+      "name": "",
+      "distance": 8.01193,
+      "hint": "eHQAgH10AAAGAAAAAwAAAPcIAACLAQAAW1oGQW25cUBB9UdFpFMJRAYAAAADAAAA9wgAAIsBAAABAAAAEi2X--oedgIYLZf7Mh92ApwAHxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -73.97919,
+        41.295587
+      ],
+      "name": "",
+      "distance": 8.783542,
+      "hint": "eHQAgH10AAAGAAAALwAAABkJAAA9AQAAZ1AWQdL7gEKc9EpFOdHbQwYAAAAvAAAAGQkAAD0BAAABAAAAyiqX--MedgLFKpf7Mh92Ap8AvxCG2cFP"
+    }
+  ]
+}

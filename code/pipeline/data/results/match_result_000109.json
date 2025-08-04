@@ -1,0 +1,720 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.958393,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.215916,
+            41.156357
+          ],
+          [
+            -74.21624,
+            41.156318
+          ],
+          [
+            -74.21628,
+            41.156313
+          ],
+          [
+            -74.216598,
+            41.156274
+          ],
+          [
+            -74.21682,
+            41.156246
+          ],
+          [
+            -74.217016,
+            41.156218
+          ],
+          [
+            -74.217018,
+            41.156218
+          ],
+          [
+            -74.217109,
+            41.156205
+          ],
+          [
+            -74.2172,
+            41.15619
+          ],
+          [
+            -74.217294,
+            41.156172
+          ],
+          [
+            -74.217386,
+            41.156151
+          ],
+          [
+            -74.21742,
+            41.156141
+          ],
+          [
+            -74.217477,
+            41.156125
+          ],
+          [
+            -74.217561,
+            41.156098
+          ],
+          [
+            -74.217647,
+            41.156067
+          ],
+          [
+            -74.217729,
+            41.156034
+          ],
+          [
+            -74.217813,
+            41.155998
+          ],
+          [
+            -74.217813,
+            41.155998
+          ],
+          [
+            -74.217893,
+            41.155959
+          ],
+          [
+            -74.217973,
+            41.155915
+          ],
+          [
+            -74.218048,
+            41.155871
+          ],
+          [
+            -74.218101,
+            41.155834
+          ],
+          [
+            -74.218118,
+            41.155823
+          ],
+          [
+            -74.218183,
+            41.155773
+          ],
+          [
+            -74.218238,
+            41.155725
+          ],
+          [
+            -74.218298,
+            41.155671
+          ],
+          [
+            -74.218468,
+            41.155768
+          ],
+          [
+            -74.218772,
+            41.155942
+          ],
+          [
+            -74.21888,
+            41.156004
+          ],
+          [
+            -74.218983,
+            41.156075
+          ],
+          [
+            -74.219035,
+            41.156115
+          ],
+          [
+            -74.219042,
+            41.156121
+          ],
+          [
+            -74.219095,
+            41.15618
+          ],
+          [
+            -74.219152,
+            41.156253
+          ],
+          [
+            -74.219207,
+            41.156332
+          ],
+          [
+            -74.219209,
+            41.156336
+          ],
+          [
+            -74.219273,
+            41.156471
+          ],
+          [
+            -74.219307,
+            41.156543
+          ],
+          [
+            -74.219392,
+            41.156723
+          ],
+          [
+            -74.219477,
+            41.156901
+          ],
+          [
+            -74.219558,
+            41.157073
+          ],
+          [
+            -74.219614,
+            41.157191
+          ],
+          [
+            -74.219633,
+            41.157212
+          ],
+          [
+            -74.21969,
+            41.157275
+          ],
+          [
+            -74.219764,
+            41.157331
+          ],
+          [
+            -74.219774,
+            41.157337
+          ],
+          [
+            -74.219846,
+            41.157386
+          ],
+          [
+            -74.219927,
+            41.157425
+          ],
+          [
+            -74.219927,
+            41.157425
+          ],
+          [
+            -74.22002,
+            41.15746
+          ],
+          [
+            -74.220108,
+            41.157481
+          ],
+          [
+            -74.220137,
+            41.157488
+          ],
+          [
+            -74.220246,
+            41.157506
+          ],
+          [
+            -74.220287,
+            41.157508
+          ],
+          [
+            -74.220327,
+            41.15751
+          ],
+          [
+            -74.220408,
+            41.157507
+          ],
+          [
+            -74.220441,
+            41.157505
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 27.5,
+          "duration": 2.6,
+          "summary": "",
+          "weight": 2.6
+        },
+        {
+          "steps": [],
+          "distance": 30.4,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 35.7,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 34.8,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 36.6,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 30.3,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 42.4,
+          "duration": 9.8,
+          "summary": "",
+          "weight": 9.8
+        },
+        {
+          "steps": [],
+          "distance": 32,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 29.3,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 28.6,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 24.4,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 21.2,
+          "duration": 2.7,
+          "summary": "",
+          "weight": 2.7
+        },
+        {
+          "steps": [],
+          "distance": 21,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        },
+        {
+          "steps": [],
+          "distance": 20.3,
+          "duration": 2.6,
+          "summary": "",
+          "weight": 2.6
+        },
+        {
+          "steps": [],
+          "distance": 16.8,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 18.3,
+          "duration": 2.5,
+          "summary": "",
+          "weight": 2.5
+        },
+        {
+          "steps": [],
+          "distance": 16.2,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 16.4,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 15.3,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 12.9,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        }
+      ],
+      "distance": 510.4,
+      "duration": 64.3,
+      "weight_name": "duration",
+      "weight": 64.3
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.215916,
+        41.156357
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 5.957885,
+      "hint": "ficAAIUnAIAdAAAABQAAALcAAABYAAAAWnf3QSTyh0DEMD1DZqa0Qh0AAAAFAAAAtwAAAFgAAAABAAAAFI6T-wX_cwIJjpP7Ov9zAhIADwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.21624,
+        41.156318
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 3.944491,
+      "hint": "ficAAIUnAIADAAAAHwAAALcAAABYAAAAqb1ZQEo8_kHEMD1DZqa0QgMAAAAfAAAAtwAAAFgAAAABAAAA0IyT-97-cwLIjJP7Af9zAhIADwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.216598,
+        41.156274
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 4.163533,
+      "hint": "ficAAIUnAIASAAAAGgAAAIsAAAB6AAAAGRiXQbBF2EESRQ9DXgP7QhIAAAAaAAAAiwAAAHoAAAABAAAAaouT-7L-cwJii5P71_5zAhEADwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.217018,
+        41.156218
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 6.672086,
+      "hint": "ficAAIUnAIAHAAAAAQAAAHMAAAC2AAAAI7D4QGLbKz5_MO1Cdyo8QwcAAAABAAAAcwAAALYAAAABAAAAxomT-3r-cwK3iZP7tf5zAg8A_wSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.21742,
+        41.156141
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 4.273816,
+      "hint": "ficAAIUnAIAFAAAAAwAAAFQAAADVAAAAzEejQHvxQ0Bz06xCxR5cQwUAAAADAAAAVAAAANUAAAABAAAANIiT-y3-cwIiiJP7Uf5zAgsAXwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.217813,
+        41.155998
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 3.477984,
+      "hint": "ficAAIUnAIAAAAAACAAAADYAAADzAAAAAAAAAL2oAUHsbVtCbbx7QwAAAAAIAAAANgAAAPMAAAABAAAAq4aT-579cwKWhpP7uf1zAgcAzwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.218101,
+        41.155834
+      ],
+      "name": "Sterling Mine Road",
+      "distance": 2.85961,
+      "hint": "ficAAIUnAIABAAAABwAAABYAAAATAQAAjWbwP3LDwUDOUbVBygyOQwEAAAAHAAAAFgAAABMBAAABAAAAi4WT-_r8cwJ0hZP7Df1zAgMA_wKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.218468,
+        41.155768
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.428569,
+      "hint": "fScAgNonAAAXAAAAOQAAAAAAAABQAAAA3AGPQYCJLUIAAAAA-9V5QhcAAAA5AAAAAAAAAFAAAAABAAAAHIST-7j8cwJDhJP73_xzAgAAPxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.218772,
+        41.155942
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.150181,
+      "hint": "fScAgNonAABBAAAADwAAAAAAAABQAAAAj4NHQnQbNkEAAAAA-9V5QkEAAAAPAAAAAAAAAFAAAAABAAAA7IKT-2b9cwIRg5P7i_1zAgAAPxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.219035,
+        41.156115
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.735068,
+      "hint": "fScAgNonAAAHAAAAAgAAAF8AAAA4AAAAjkLHQE9mYz9S65FC-pQuQgcAAAACAAAAXwAAADgAAAABAAAA5YGT-xP-cwIWgpP7N_5zAgIAvxOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.219209,
+        41.156336
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.534657,
+      "hint": "fScAgNonAAAAAAAAFQAAAIsAAAAAAAAA9iHzPlzOfkFMo9ZCAAAAAAAAAAAVAAAAiwAAAAAAAAABAAAAN4GT-_D-cwJ1gZP7Af9zAgYATxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.219307,
+        41.156543
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.418423,
+      "hint": "1ScAANsnAIBjAAAADAAAAP4CAAAAAAAAUd-YQhnWB0GyRxJEAAAAAGMAAAAMAAAA_gIAAAAAAAABAAAA1YCT-7__cwISgZP7z_9zAiUADwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.219392,
+        41.156723
+      ],
+      "name": "Juniper Terrace",
+      "distance": 4.906729,
+      "hint": "1ScAANsnAIBIAAAAJwAAAP4CAAAAAAAA2NhcQqu27UGyRxJEAAAAAEgAAAAnAAAA_gIAAAAAAAABAAAAgICT-3MAdAK3gJP7ggB0AiUADwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.219477,
+        41.156901
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.613612,
+      "hint": "1ScAANsnAIAsAAAAQwAAAP4CAAAAAAAAMMkIQv3qSkKyRxJEAAAAACwAAABDAAAA_gIAAAAAAAABAAAAK4CT-yUBdAJqgJP7NgF0AiUADwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.219558,
+        41.157073
+      ],
+      "name": "Juniper Terrace",
+      "distance": 5.33922,
+      "hint": "1ScAANsnAIASAAAAXQAAAP4CAAAAAAAACr9eQTMCjkKyRxJEAAAAABIAAABdAAAA_gIAAAAAAAABAAAA2n-T-9EBdAIWgJP74QF0AiUADwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.219633,
+        41.157212
+      ],
+      "name": "Juniper Terrace",
+      "distance": 3.622427,
+      "hint": "1ScAANsnAIALAAAABAAAAO8CAABvAAAAgJoHQQDONEB6dA9EFNqpQgsAAAAEAAAA7wIAAG8AAAABAAAAj3-T-1wCdAKzf5P7bgJ0AiQAHwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.219774,
+        41.157337
+      ],
+      "name": "Juniper Terrace",
+      "distance": 4.025128,
+      "hint": "1ScAANsnAIAKAAAAAgAAANcCAACKAAAAWxkCQbkniT8p9QpEiAfSQgoAAAACAAAA1wIAAIoAAAABAAAAAn-T-9kCdAIif5P79AJ0AiIAPwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.219927,
+        41.157425
+      ],
+      "name": "Juniper Terrace",
+      "distance": 4.319534,
+      "hint": "1ScAANsnAIAAAAAACwAAAMwCAACWAAAAAAAAAKn0AEFW8QhEY27kQgAAAAALAAAAzAIAAJYAAAABAAAAaX6T-zEDdAKCfpP7UwN0AiEArweG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.220108,
+        41.157481
+      ],
+      "name": "Juniper Terrace",
+      "distance": 4.085672,
+      "hint": "1ScAANsnAIADAAAACgAAALQCAACsAAAAyH8jQNjO90A-MAREaf4CQwMAAAAKAAAAtAIAAKwAAAABAAAAtH2T-2kDdALDfZP7jAN0Ah8AvwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.220287,
+        41.157508
+      ],
+      "name": "Juniper Terrace",
+      "distance": 4.787172,
+      "hint": "1ScAANsnAIAEAAAABQAAAJ8CAADFAAAAf0pXQG2mXEAZJQBEsKcWQwQAAAAFAAAAnwIAAMUAAAABAAAAAX2T-4QDdAIFfZP7rwN0Ah0A3wWG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.220441,
+        41.157505
+      ],
+      "name": "Juniper Terrace",
+      "distance": 4.671123,
+      "hint": "1ScAANsnAIAIAAAABAAAAIoCAADXAAAAZlDEQPLLMUBbbvhDmEUkQwgAAAAEAAAAigIAANcAAAABAAAAZ3yT-4EDdAJkfJP7qwN0AhsAbwWG2cFP"
+    }
+  ]
+}

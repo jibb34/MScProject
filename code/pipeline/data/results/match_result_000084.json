@@ -1,0 +1,644 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.982737,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.05108,
+            41.231199
+          ],
+          [
+            -74.051111,
+            41.23116
+          ],
+          [
+            -74.051227,
+            41.231023
+          ],
+          [
+            -74.051351,
+            41.230877
+          ],
+          [
+            -74.051407,
+            41.230816
+          ],
+          [
+            -74.051583,
+            41.230624
+          ],
+          [
+            -74.051585,
+            41.230622
+          ],
+          [
+            -74.051764,
+            41.230445
+          ],
+          [
+            -74.051769,
+            41.23044
+          ],
+          [
+            -74.051843,
+            41.230371
+          ],
+          [
+            -74.051959,
+            41.230279
+          ],
+          [
+            -74.051988,
+            41.23026
+          ],
+          [
+            -74.052075,
+            41.230201
+          ],
+          [
+            -74.052203,
+            41.230131
+          ],
+          [
+            -74.05223,
+            41.230116
+          ],
+          [
+            -74.052513,
+            41.229979
+          ],
+          [
+            -74.052524,
+            41.229974
+          ],
+          [
+            -74.052792,
+            41.229846
+          ],
+          [
+            -74.053037,
+            41.22973
+          ],
+          [
+            -74.053046,
+            41.229726
+          ],
+          [
+            -74.053215,
+            41.229642
+          ],
+          [
+            -74.053253,
+            41.229621
+          ],
+          [
+            -74.053403,
+            41.22954
+          ],
+          [
+            -74.053446,
+            41.229516
+          ],
+          [
+            -74.053475,
+            41.2295
+          ],
+          [
+            -74.053622,
+            41.229424
+          ],
+          [
+            -74.053817,
+            41.229324
+          ],
+          [
+            -74.053964,
+            41.229248
+          ],
+          [
+            -74.05399,
+            41.229235
+          ],
+          [
+            -74.054159,
+            41.229151
+          ],
+          [
+            -74.054339,
+            41.229061
+          ],
+          [
+            -74.054407,
+            41.229027
+          ],
+          [
+            -74.054494,
+            41.228986
+          ],
+          [
+            -74.054551,
+            41.228957
+          ],
+          [
+            -74.054768,
+            41.228846
+          ],
+          [
+            -74.054948,
+            41.228754
+          ],
+          [
+            -74.055087,
+            41.228683
+          ],
+          [
+            -74.055123,
+            41.228664
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 23.1,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 27.5,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 26.2,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 25.4,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 27.2,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 23,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 31,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 27.6,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 24.2,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 21.8,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 19.9,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 17.9,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        },
+        {
+          "steps": [],
+          "distance": 19.7,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 17.5,
+          "duration": 1.2,
+          "summary": "",
+          "weight": 1.2
+        },
+        {
+          "steps": [],
+          "distance": 16.9,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        },
+        {
+          "steps": [],
+          "distance": 18.1,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        },
+        {
+          "steps": [],
+          "distance": 21.2,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 22,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 18.2,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        },
+        {
+          "steps": [],
+          "distance": 17.7,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        }
+      ],
+      "distance": 446.1,
+      "duration": 32,
+      "weight_name": "duration",
+      "weight": 32
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.05108,
+        41.231199
+      ],
+      "name": "Gate Hill Road",
+      "distance": 4.57935,
+      "hint": "iXwAAAl9AIADAAAACwAAAMYAAADPAQAAnKShQEoiYkGzjYlDpVEhRAMAAAALAAAAxgAAAM8BAAABAAAA-BGW-18jdQInEpb7SiN1AgwA7wGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.051227,
+        41.231023
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.880741,
+      "hint": "iXwAAAl9AIANAAAADgAAAKsAAADdAQAAyheaQRl3kEGKyW1Ddx0mRA0AAAAOAAAAqwAAAN0BAAABAAAAZRGW-68idQJ4EZb7piJ1AgsADwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.051407,
+        41.230816
+      ],
+      "name": "Gate Hill Road",
+      "distance": 0.736107,
+      "hint": "iXwAAAl9AIASAAAABwAAAJIAAAD4AQAAL3TPQR_iA0HinEtD73EvRBIAAAAHAAAAkgAAAPgBAAABAAAAsRCW--AhdQKqEJb75CF1AgoALwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.051585,
+        41.230622
+      ],
+      "name": "Gate Hill Road",
+      "distance": 2.074786,
+      "hint": "iXwAAAl9AIARAAAAAQAAAIAAAAARAgAAU9vFQQN_jj44mjJDGP03RBEAAAABAAAAgAAAABECAAABAAAA_w-W-x4hdQLrD5b7KSF1AgkAXwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.051769,
+        41.23044
+      ],
+      "name": "Gate Hill Road",
+      "distance": 3.7486,
+      "hint": "iXwAAAl9AIAHAAAAAQAAAHgAAAAjAgAA9MIdQcMeMj8DDChDwz0-RAcAAAABAAAAeAAAACMCAAABAAAARw-W-2ggdQIkD5b7fSB1AggAbwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.051988,
+        41.23026
+      ],
+      "name": "Gate Hill Road",
+      "distance": 5.522367,
+      "hint": "iXwAAAl9AIAGAAAAAwAAAGUAAAA1AgAA2OMcQe8MTkBX6gxDJWhERAYAAAADAAAAZQAAADUCAAABAAAAbA6W-7QfdQJADpb72R91AgYADwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.052203,
+        41.230131
+      ],
+      "name": "Gate Hill Road",
+      "distance": 4.959556,
+      "hint": "iXwAAAl9AIACAAAACgAAAFkAAAA-AgAALOQzQFUKVEFLtPlCu6lHRAIAAAAKAAAAWQAAAD4CAAABAAAAlQ2W-zMfdQJyDZb7Vx91AgUAXwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.052513,
+        41.229979
+      ],
+      "name": "Gate Hill Road",
+      "distance": 4.768755,
+      "hint": "iXwAAAl9AIAAAAAAFQAAAEQAAABKAgAAQs6JP_mB4UHKLL9Cx61LRAAAAAAVAAAARAAAAEoCAAABAAAAXwyW-5sedQJADJb7vx51AgQAnwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.052792,
+        41.229846
+      ],
+      "name": "Gate Hill Road",
+      "distance": 4.07498,
+      "hint": "iXwAAAl9AIARAAAAFAAAAB8AAABfAgAAyf3IQay51EECfi9Ct_5SRBEAAAAUAAAAHwAAAF8CAAABAAAASAuW-xYedQIuC5b7NR51AgMAnwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.053037,
+        41.22973
+      ],
+      "name": "Gate Hill Road",
+      "distance": 2.87184,
+      "hint": "iXwAAAl9AIAAAAAAJQAAAB8AAABfAgAAmC1gP0JbS0ICfi9Ct_5SRAAAAAAlAAAAHwAAAF8CAAABAAAAUwqW-6IddQJBCpb7uB11AgMAnwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.053253,
+        41.229621
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.203743,
+      "hint": "iXwAAAl9AIALAAAAAwAAAAUAAACQAgAAEmp3QY62fEDl2u9AQCpkRAsAAAADAAAABQAAAJACAAABAAAAewmW-zUddQJzCZb7Ph11AgEAbwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.053446,
+        41.229516
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.898843,
+      "hint": "iXwAAAl9AIACAAAAAwAAAAAAAACeAgAA5b9AQC17j0AAAAAAnARpRAIAAAADAAAAAAAAAJ4CAAABAAAAugiW-8wcdQKtCJb72hx1AgAAXwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.053622,
+        41.229424
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.990799,
+      "hint": "hXwAAIp8AIAZAAAACwAAACAAAAAAAAAAidEKQqkFb0FpFjJCAAAAABkAAAALAAAAIAAAAAAAAAABAAAACgiW-3AcdQL9B5b7fxx1AgEAfwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.053817,
+        41.229324
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.113251,
+      "hint": "hXwAAIp8AIAKAAAAGgAAACAAAAAAAAAAqQVvQYnRCkJpFjJCAAAAAAoAAAAaAAAAIAAAAAAAAAABAAAARweW-wwcdQI_B5b7FBx1AgEAfwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.05399,
+        41.229235
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.713218,
+      "hint": "hXwAAIp8AIAeAAAAAgAAAAAAAAAkAAAA1aAnQjhZJ0AAAAAA7ZJGQh4AAAACAAAAAAAAACQAAAABAAAAmgaW-7MbdQKPBpb7wBt1AgAAjwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.054159,
+        41.229151
+      ],
+      "name": "Gate Hill Road",
+      "distance": 0.278313,
+      "hint": "hXwAAIp8AIARAAAADwAAAAAAAAAkAAAA6ofHQfeknEEAAAAA7ZJGQhEAAAAPAAAAAAAAACQAAAABAAAA8QWW-18bdQLvBZb7YRt1AgAAjwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.054339,
+        41.229061
+      ],
+      "name": "Gate Hill Road",
+      "distance": 0.510505,
+      "hint": "hXwAAIp8AIAEAAAAHAAAAAAAAAAkAAAAItfaQIW7FkIAAAAA7ZJGQgQAAAAcAAAAAAAAACQAAAABAAAAPQWW-wUbdQJABZb7ARt1AgAAjwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.054551,
+        41.228957
+      ],
+      "name": "Gate Hill Road",
+      "distance": 2.407487,
+      "hint": "hHwAgMx8AAAEAAAAJwAAAAYAAAAdAAAAQG24QOoaWUIxlwlBbI8eQgQAAAAnAAAABgAAAB0AAAABAAAAaQSW-50adQJ5BJb7ixp1AgEAvw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.054768,
+        41.228846
+      ],
+      "name": "Gate Hill Road",
+      "distance": 1.851981,
+      "hint": "hHwAgMx8AAATAAAAGAAAAAYAAAAdAAAAqO7dQTsxAUIxlwlBbI8eQhMAAAAYAAAABgAAAB0AAAABAAAAkAOW-y4adQKcA5b7IBp1AgEAvw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.054948,
+        41.228754
+      ],
+      "name": "Gate Hill Road",
+      "distance": 2.3161,
+      "hint": "hHwAgMx8AAAgAAAACwAAAAYAAAAdAAAA8N43QnwmYUExlwlBbI8eQiAAAAALAAAABgAAAB0AAAABAAAA3AKW-9IZdQLsApb7wRl1AgEAvw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 5,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.055123,
+        41.228664
+      ],
+      "name": "Gate Hill Road",
+      "distance": 3.519561,
+      "hint": "hHwAgMx8AAACAAAAGwAAADEAAAAAAAAAUrZrQAnUD0ItR4lCAAAAAAIAAAAbAAAAMQAAAAAAAAABAAAALQKW-3gZdQJFApb7Xhl1AgIArw6G2cFP"
+    }
+  ]
+}

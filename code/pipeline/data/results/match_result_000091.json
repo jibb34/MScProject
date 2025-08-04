@@ -1,0 +1,628 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.982208,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.08746,
+            41.226958
+          ],
+          [
+            -74.087569,
+            41.226833
+          ],
+          [
+            -74.087605,
+            41.226792
+          ],
+          [
+            -74.087696,
+            41.226702
+          ],
+          [
+            -74.087853,
+            41.226547
+          ],
+          [
+            -74.087867,
+            41.226537
+          ],
+          [
+            -74.088098,
+            41.226379
+          ],
+          [
+            -74.088145,
+            41.226347
+          ],
+          [
+            -74.088368,
+            41.226223
+          ],
+          [
+            -74.088618,
+            41.226083
+          ],
+          [
+            -74.088871,
+            41.225943
+          ],
+          [
+            -74.089145,
+            41.22579
+          ],
+          [
+            -74.089373,
+            41.225663
+          ],
+          [
+            -74.089416,
+            41.225634
+          ],
+          [
+            -74.089665,
+            41.225463
+          ],
+          [
+            -74.089675,
+            41.225454
+          ],
+          [
+            -74.089938,
+            41.225215
+          ],
+          [
+            -74.089999,
+            41.225159
+          ],
+          [
+            -74.090186,
+            41.224983
+          ],
+          [
+            -74.090444,
+            41.224741
+          ],
+          [
+            -74.09048,
+            41.224707
+          ],
+          [
+            -74.090686,
+            41.224475
+          ],
+          [
+            -74.090693,
+            41.224466
+          ],
+          [
+            -74.09094,
+            41.224164
+          ],
+          [
+            -74.090986,
+            41.224107
+          ],
+          [
+            -74.091167,
+            41.223926
+          ],
+          [
+            -74.091237,
+            41.223879
+          ],
+          [
+            -74.09139,
+            41.223778
+          ],
+          [
+            -74.091581,
+            41.223677
+          ],
+          [
+            -74.09163,
+            41.223651
+          ],
+          [
+            -74.092001,
+            41.223492
+          ],
+          [
+            -74.092091,
+            41.223454
+          ],
+          [
+            -74.092518,
+            41.223271
+          ],
+          [
+            -74.092849,
+            41.223129
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 16.6,
+          "duration": 2.4,
+          "summary": "",
+          "weight": 2.4
+        },
+        {
+          "steps": [],
+          "distance": 18,
+          "duration": 2.5,
+          "summary": "",
+          "weight": 2.5
+        },
+        {
+          "steps": [],
+          "distance": 23.3,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 26.1,
+          "duration": 3.8,
+          "summary": "",
+          "weight": 3.8
+        },
+        {
+          "steps": [],
+          "distance": 28.5,
+          "duration": 4.1,
+          "summary": "",
+          "weight": 4.1
+        },
+        {
+          "steps": [],
+          "distance": 26.1,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 26.3,
+          "duration": 3.8,
+          "summary": "",
+          "weight": 3.8
+        },
+        {
+          "steps": [],
+          "distance": 28.5,
+          "duration": 4.1,
+          "summary": "",
+          "weight": 4.1
+        },
+        {
+          "steps": [],
+          "distance": 28.6,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 29.5,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 34.5,
+          "duration": 5,
+          "summary": "",
+          "weight": 5
+        },
+        {
+          "steps": [],
+          "distance": 33.1,
+          "duration": 4.8,
+          "summary": "",
+          "weight": 4.8
+        },
+        {
+          "steps": [],
+          "distance": 34.5,
+          "duration": 5,
+          "summary": "",
+          "weight": 5
+        },
+        {
+          "steps": [],
+          "distance": 37,
+          "duration": 5.3,
+          "summary": "",
+          "weight": 5.3
+        },
+        {
+          "steps": [],
+          "distance": 39.4,
+          "duration": 5.7,
+          "summary": "",
+          "weight": 5.7
+        },
+        {
+          "steps": [],
+          "distance": 40.5,
+          "duration": 5.8,
+          "summary": "",
+          "weight": 5.8
+        },
+        {
+          "steps": [],
+          "distance": 36.6,
+          "duration": 5.2,
+          "summary": "",
+          "weight": 5.2
+        },
+        {
+          "steps": [],
+          "distance": 40.7,
+          "duration": 5.9,
+          "summary": "",
+          "weight": 5.9
+        },
+        {
+          "steps": [],
+          "distance": 49.7,
+          "duration": 7.3,
+          "summary": "",
+          "weight": 7.3
+        },
+        {
+          "steps": [],
+          "distance": 31.9,
+          "duration": 4.6,
+          "summary": "",
+          "weight": 4.6
+        }
+      ],
+      "distance": 629.4,
+      "duration": 90.8,
+      "weight_name": "duration",
+      "weight": 90.8
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.08746,
+        41.226958
+      ],
+      "name": "Saint Johns Road",
+      "distance": 4.897491,
+      "hint": "oAQAgPdQAAAWAAAAIAAAAAUBAADlAQAAJNt7QWKrsEFWoDRDxUmoQxYAAAAgAAAABQEAAOUBAAABAAAA3IOV-84SdQKrg5X75hJ1AgcAXw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.087569,
+        41.226833
+      ],
+      "name": "Saint Johns Road",
+      "distance": 7.039901,
+      "hint": "oAQAgPdQAAAuAAAACAAAAAUBAADlAQAAPnIBQjrRrkBWoDRDxUmoQy4AAAAIAAAABQEAAOUBAAABAAAAb4OV-1ESdQIpg5X7dBJ1AgcAXw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.087696,
+        41.226702
+      ],
+      "name": "Saint Johns Road",
+      "distance": 9.301999,
+      "hint": "oAQAgPdQAAARAAAAIAAAADsBAAC0AQAASjJJQZldrUFvc1pDWiqXQxEAAAAgAAAAOwEAALQBAAABAAAA8IKV-84RdQKYgpX7ARJ1AggAnw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.087867,
+        41.226537
+      ],
+      "name": "Saint Johns Road",
+      "distance": 12.46095,
+      "hint": "oAQAgPdQAAACAAAALgAAAGwBAACEAQAAudjOP-iJ-0FHsnxD76KGQwIAAAAuAAAAbAEAAIQBAAABAAAARYKV-ykRdQLhgZX7fBF1AgkAPw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.088098,
+        41.226379
+      ],
+      "name": "Saint Johns Road",
+      "distance": 10.351628,
+      "hint": "oAQAgPdQAAAoAAAACAAAAGwBAACEAQAAqALeQV7QqUBHsnxD76KGQygAAAAIAAAAbAEAAIQBAAABAAAAXoGV-4sQdQILgZX70BB1AgkAPw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.088368,
+        41.226223
+      ],
+      "name": "Saint Johns Road",
+      "distance": 8.994888,
+      "hint": "oAQAgPdQAAAhAAAAlwAAAJwBAADMAAAAlse5Qdp30UKP4I5D_1ANQyEAAACXAAAAnAEAAMwAAAABAAAAUICV--8PdQIQgJX7MBB1AgoAnw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.088618,
+        41.226083
+      ],
+      "name": "Saint Johns Road",
+      "distance": 7.185918,
+      "hint": "oAQAgPdQAABGAAAAcgAAAJwBAADMAAAAXUlFQhRFnUKP4I5D_1ANQ0YAAAByAAAAnAEAAMwAAAABAAAAVn-V-2MPdQIjf5X7lw91AgoAnw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.088871,
+        41.225943
+      ],
+      "name": "Saint Johns Road",
+      "distance": 7.046768,
+      "hint": "oAQAgPdQAABsAAAATAAAAJwBAADMAAAAGD-XQlBVUUKP4I5D_1ANQ2wAAABMAAAAnAEAAMwAAAABAAAAWX6V-9cOdQInfpX7Cg91AgoAnw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.089145,
+        41.22579
+      ],
+      "name": "Saint Johns Road",
+      "distance": 7.046768,
+      "hint": "oAQAgPdQAACVAAAAIwAAAJwBAADMAAAA2GXQQpkPvkGP4I5D_1ANQ5UAAAAjAAAAnAEAAMwAAAABAAAAR32V-z4OdQIVfZX7cQ51AgoAnw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.089416,
+        41.225634
+      ],
+      "name": "Saint Johns Road",
+      "distance": 4.829454,
+      "hint": "oAQAgPdQAAAHAAAAKQAAAFQCAACcAAAAg7SaQOjJ4UH-2s5DUoTYQgcAAAApAAAAVAIAAJwAAAABAAAAOHyV-6INdQIRfJX7wg11AgsAPw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.089675,
+        41.225454
+      ],
+      "name": "Saint Johns Road",
+      "distance": 1.74163,
+      "hint": "oAQAgPdQAAABAAAAPgAAAIQCAABdAAAAx_6mPxg-KkJpYt9DTsmAQgEAAAA-AAAAhAIAAF0AAAABAAAANXuV--4MdQIle5X7-Ax1AgwAvw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.089938,
+        41.225215
+      ],
+      "name": "Saint Johns Road",
+      "distance": 2.142057,
+      "hint": "oAQAgPdQAAAzAAAADAAAAIQCAABdAAAAh0APQmHWAEFpYt9DTsmAQjMAAAAMAAAAhAIAAF0AAAABAAAALnqV-_8LdQIaepX7Cwx1AgwAvw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.090186,
+        41.224983
+      ],
+      "name": "Saint Johns Road",
+      "distance": 3.413517,
+      "hint": "oAQAgPdQAAAkAAAAOQAAAMMCAAAAAAAABnfIQRxXHUIqUfVDAAAAACQAAAA5AAAAwwIAAAAAAAABAAAANnmV-xcLdQIWeZX7Kgt1Ag0Arw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.090444,
+        41.224741
+      ],
+      "name": "Saint Johns Road",
+      "distance": 1.071028,
+      "hint": "oAQAgPdQAABWAAAABwAAAMMCAAAAAAAAYjxuQvCxmkAqUfVDAAAAAFYAAAAHAAAAwwIAAAAAAAABAAAANHiV-yUKdQIqeJX7Kwp1Ag0Arw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.090693,
+        41.224466
+      ],
+      "name": "Saint Johns Road",
+      "distance": 0.474455,
+      "hint": "9lAAgPxQAAABAAAARAAAAC0AAACrAAAAsV2UPyRTO0LWJ_hBOCbuQgEAAABEAAAALQAAAKsAAAABAAAAO3eV-xIJdQI2d5X7FAl1AgEAPw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.09094,
+        41.224164
+      ],
+      "name": "Saint Johns Road",
+      "distance": 3.904558,
+      "hint": "9lAAgPxQAAA6AAAACwAAAC0AAACrAAAAOE8iQm817UDWJ_hBOCbuQjoAAAALAAAALQAAAKsAAAABAAAARHaV--QHdQIcdpX79gd1AgEAPw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.091237,
+        41.223879
+      ],
+      "name": "Saint Johns Road",
+      "distance": 10.988892,
+      "hint": "9lAAgPxQAAALAAAAGQAAAJYAAABjAAAAxFn7QFdUiEHDZNBCuPuJQgsAAAAZAAAAlgAAAGMAAAABAAAAG3WV-8cGdQLEdJX7EQd1AgMATw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.091581,
+        41.223677
+      ],
+      "name": "Saint Johns Road",
+      "distance": 13.709121,
+      "hint": "9lAAgPxQAAAbAAAACAAAALoAAABAAAAADGycQdOyoECuFwFDEqsxQhsAAAAIAAAAugAAAEAAAAABAAAAw3OV-_0FdQJlc5X7YgZ1AgQArw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.092001,
+        41.223492
+      ],
+      "name": "Saint Johns Road",
+      "distance": 10.720606,
+      "hint": "9lAAgPxQAAAzAAAADQAAAN0AAAAAAAAATRUPQqlXCkHGqhlDAAAAADMAAAANAAAA3QAAAAAAAAABAAAAH3KV-0QFdQLgcZX7mAV1AgUADw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.092518,
+        41.223271
+      ],
+      "name": "Saint Johns Road",
+      "distance": 8.209722,
+      "hint": "ngQAAPtQAICbAAAAPAAAAO8BAAAAAAAAq6HYQkCuJEI4q6xDAAAAAJsAAAA8AAAA7wEAAAAAAAABAAAAGnCV-2cEdQLpb5X7pwR1Ag4AzwOG2cFP"
+    },
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.092849,
+        41.223129
+      ],
+      "name": "Saint Johns Road",
+      "distance": 7.795553,
+      "hint": "ngQAAPtQAIBtAAAAagAAAO8BAAAAAAAAocmYQikvkkI4q6xDAAAAAG0AAABqAAAA7wEAAAAAAAABAAAAz26V-9kDdQKhbpX7FgR1Ag4AzwOG2cFP"
+    }
+  ]
+}

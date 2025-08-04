@@ -1,4 +1,6 @@
 gpx_file: data/input/test.gpx
-pbf_output: data/osrm_map/map.osm.pbf
+osm_output: data/osrm_map/map.osm
 json_directory: data/temp
-chunk_size: 240
+chunk_size: 100
+radius: 5
+dynamic_radius_window: 10
