@@ -1,0 +1,716 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.942964,
+      "geometry": {
+        "coordinates": [
+          [
+            -73.986127,
+            41.302282
+          ],
+          [
+            -73.986099,
+            41.302388
+          ],
+          [
+            -73.986083,
+            41.302499
+          ],
+          [
+            -73.986087,
+            41.302554
+          ],
+          [
+            -73.986089,
+            41.302591
+          ],
+          [
+            -73.986113,
+            41.302675
+          ],
+          [
+            -73.986158,
+            41.302766
+          ],
+          [
+            -73.986162,
+            41.302773
+          ],
+          [
+            -73.986216,
+            41.302861
+          ],
+          [
+            -73.986306,
+            41.302992
+          ],
+          [
+            -73.98633,
+            41.303028
+          ],
+          [
+            -73.986393,
+            41.303133
+          ],
+          [
+            -73.986424,
+            41.303199
+          ],
+          [
+            -73.986443,
+            41.303239
+          ],
+          [
+            -73.986484,
+            41.303357
+          ],
+          [
+            -73.986499,
+            41.303425
+          ],
+          [
+            -73.98651,
+            41.303477
+          ],
+          [
+            -73.986533,
+            41.303576
+          ],
+          [
+            -73.986554,
+            41.303637
+          ],
+          [
+            -73.986565,
+            41.30367
+          ],
+          [
+            -73.986615,
+            41.303756
+          ],
+          [
+            -73.98665,
+            41.303805
+          ],
+          [
+            -73.986764,
+            41.303962
+          ],
+          [
+            -73.986815,
+            41.304032
+          ],
+          [
+            -73.986858,
+            41.304113
+          ],
+          [
+            -73.986873,
+            41.304161
+          ],
+          [
+            -73.986887,
+            41.304209
+          ],
+          [
+            -73.986898,
+            41.304304
+          ],
+          [
+            -73.986896,
+            41.304369
+          ],
+          [
+            -73.986895,
+            41.304386
+          ],
+          [
+            -73.986889,
+            41.30446
+          ],
+          [
+            -73.986874,
+            41.30454
+          ],
+          [
+            -73.986872,
+            41.304548
+          ],
+          [
+            -73.986826,
+            41.304721
+          ],
+          [
+            -73.98681,
+            41.30478
+          ],
+          [
+            -73.986795,
+            41.304873
+          ],
+          [
+            -73.986796,
+            41.304908
+          ],
+          [
+            -73.986798,
+            41.304961
+          ],
+          [
+            -73.986816,
+            41.305046
+          ],
+          [
+            -73.98684,
+            41.305107
+          ],
+          [
+            -73.98685,
+            41.305132
+          ],
+          [
+            -73.986894,
+            41.305223
+          ],
+          [
+            -73.986939,
+            41.305296
+          ],
+          [
+            -73.986951,
+            41.305315
+          ],
+          [
+            -73.987021,
+            41.305407
+          ],
+          [
+            -73.987075,
+            41.305475
+          ],
+          [
+            -73.98721,
+            41.305644
+          ],
+          [
+            -73.987212,
+            41.305647
+          ],
+          [
+            -73.987271,
+            41.305734
+          ],
+          [
+            -73.98733,
+            41.305868
+          ],
+          [
+            -73.987342,
+            41.305895
+          ],
+          [
+            -73.987334,
+            41.306044
+          ],
+          [
+            -73.987281,
+            41.306204
+          ],
+          [
+            -73.987274,
+            41.306224
+          ],
+          [
+            -73.987188,
+            41.306424
+          ],
+          [
+            -73.98717,
+            41.306453
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 30.6,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 25.3,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 27.2,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 25.1,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 26,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 24,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 20.4,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 19.9,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 24.1,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 23.3,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 19.1,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 20.5,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 21,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 22.5,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 22.6,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 22.9,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 22.3,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 26.6,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 38.1,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        },
+        {
+          "steps": [],
+          "distance": 29.2,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        }
+      ],
+      "distance": 490.7,
+      "duration": 35.5,
+      "weight_name": "duration",
+      "weight": 35.5
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -73.986127,
+        41.302282
+      ],
+      "name": "South Entrance Road",
+      "distance": 1.11083,
+      "hint": "BQcAgNZ4AAAIAAAACQAAAEYAAADrAQAAtE48QbANQEHnrsNCG70pRAgAAAAJAAAARgAAAOsBAAABAAAAsQ-X-wo5dgK-D5f7CDl2AgcAvwCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -73.986087,
+        41.302554
+      ],
+      "name": "South Entrance Road",
+      "distance": 1.511098,
+      "hint": "BQcAgNZ4AAAEAAAAAwAAAGAAAADbAQAArcHDQDeag0CiAwZDzRQkRAQAAAADAAAAYAAAANsBAAABAAAA2Q-X-xo6dgLrD5f7Gzp2AgkAXxaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -73.986162,
+        41.302773
+      ],
+      "name": "South Entrance Road",
+      "distance": 2.944512,
+      "hint": "BQcAgNZ4AAAAAAAACAAAAHYAAADEAQAAgrJYP49KLEGQkiRDcxgcRAAAAAAIAAAAdgAAAMQBAAABAAAAjg-X-_U6dgKuD5f7ADt2AgwA_xSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -73.986306,
+        41.302992
+      ],
+      "name": "South Entrance Road",
+      "distance": 5.087143,
+      "hint": "BQcAgNZ4AAALAAAABAAAAH4AAAC1AQAAwxKDQTAwj0DZLzBDgeEWRAsAAAAEAAAAfgAAALUBAAABAAAA_g6X-9A7dgI0D5f75Tt2Ag0AzxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -73.986424,
+        41.303199
+      ],
+      "name": "South Entrance Road",
+      "distance": 6.502868,
+      "hint": "BQcAgNZ4AAAFAAAABAAAAJYAAACjAQAAVNP4QHX-lkAQ2FFDwo4QRAUAAAAEAAAAlgAAAKMBAAABAAAAiA6X-588dgLRDpf7szx2Ag8ATxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -73.986499,
+        41.303425
+      ],
+      "name": "South Entrance Road",
+      "distance": 7.385622,
+      "hint": "BQcAgNZ4AAAFAAAABQAAAKkAAACPAQAAYfv0QO8iu0Cm4mtDhMsJRAUAAAAFAAAAqQAAAI8BAAABAAAAPQ6X-4E9dgKUDpf7jD12AhEA7xWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -73.986554,
+        41.303637
+      ],
+      "name": "South Entrance Road",
+      "distance": 7.686798,
+      "hint": "BQcAgNZ4AAAFAAAAAwAAALsAAAB_AQAAzPffQAjZcUCLRoJDXU8ERAUAAAADAAAAuwAAAH8BAAABAAAABg6X-1U-dgJfDpf7Zj52AhMAnxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -73.98665,
+        41.303805
+      ],
+      "name": "South Entrance Road",
+      "distance": 7.434775,
+      "hint": "BQcAgNZ4AAAEAAAAFQAAAMsAAABeAQAA-sfFQPD55UHn4IxDMfHxQwQAAAAVAAAAywAAAF4BAAABAAAApg2X-_0-dgL0DZf7HT92AhUAvxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -73.986764,
+        41.303962
+      ],
+      "name": "South Entrance Road",
+      "distance": 8.108814,
+      "hint": "BQcAgNZ4AAASAAAABwAAAMsAAABeAQAA83bQQYnpDUHn4IxDMfHxQxIAAAAHAAAAywAAAF4BAAABAAAANA2X-5o_dgKJDZf7vT92AhUAvxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -73.986873,
+        41.304161
+      ],
+      "name": "South Entrance Road",
+      "distance": 9.448157,
+      "hint": "BQcAgNZ4AAAEAAAABAAAAOsAAABPAQAAcUGvQCeprkDeL6NDVKHnQwQAAAAEAAAA6wAAAE8BAAABAAAAxwyX-2FAdgI1DZf7dEB2AhcAvxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -73.986896,
+        41.304369
+      ],
+      "name": "South Entrance Road",
+      "distance": 8.542617,
+      "hint": "BQcAgNZ4AAAFAAAAAgAAAPsAAABAAQAAWBDnQJzm8T8Z861DnMfdQwUAAAACAAAA-wAAAEABAAABAAAAsAyX-zFBdgIWDZf7L0F2AhkAHwCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -73.986874,
+        41.30454
+      ],
+      "name": "South Entrance Road",
+      "distance": 6.771996,
+      "hint": "BQcAgNZ4AAAGAAAAAQAAAAgBAAAzAQAAZ5EPQbVzZz8fn7ZDi7nUQwYAAAABAAAACAEAADMBAAABAAAAxgyX-9xBdgIWDZf700F2AhsAjwCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -73.986826,
+        41.304721
+      ],
+      "name": "South Entrance Road",
+      "distance": 6.068555,
+      "hint": "BQcAgNZ4AAAOAAAABQAAAA8BAAAgAQAAM8OcQe0D1kBIj7tDSJXHQw4AAAAFAAAADwEAACABAAABAAAA9gyX-5FCdgI9DZf7hkJ2AhwAvwCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -73.986796,
+        41.304908
+      ],
+      "name": "South Entrance Road",
+      "distance": 5.359412,
+      "hint": "BQcAgNZ4AAACAAAABQAAACoBAAARAQAAKtR4QHNuvEBR581DIn69QwIAAAAFAAAAKgEAABEBAAABAAAAFA2X-0xDdgJUDZf7TUN2Ah4AbxaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -73.98684,
+        41.305107
+      ],
+      "name": "South Entrance Road",
+      "distance": 6.012274,
+      "hint": "BQcAgNZ4AAAEAAAAAwAAADgBAAADAQAA8R7iQL-YOUBPktdD17qzQwQAAAADAAAAOAEAAAMBAAABAAAA6AyX-xNEdgItDZf7IkR2AiAAfxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -73.986939,
+        41.305296
+      ],
+      "name": "South Entrance Road",
+      "distance": 8.482837,
+      "hint": "BQcAgNZ4AAAGAAAAAgAAAEcBAADzAAAA5gkPQbeSFUDa7uFDh7aoQwYAAAACAAAARwEAAPMAAAABAAAAhQyX-9BEdgLhDJf78ER2AiIA_xSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -73.987075,
+        41.305475
+      ],
+      "name": "South Entrance Road",
+      "distance": 9.549763,
+      "hint": "BQcAgNZ4AAAGAAAAEAAAAFcBAADVAAAARtQMQVhGr0H-de1DzneTQwYAAAAQAAAAVwEAANUAAAABAAAA_QuX-4NFdgJfDJf7r0V2AiQAnxSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -73.987212,
+        41.305647
+      ],
+      "name": "South Entrance Road",
+      "distance": 13.515161,
+      "hint": "BQcAgNZ4AAAAAAAACAAAAG0BAADNAAAA6-q-PvKfLUEF0fxDFNuNQwAAAAAIAAAAbQEAAM0AAAABAAAAdAuX-y9GdgIEDJf7ZkZ2AiUA3xSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -73.98733,
+        41.305868
+      ],
+      "name": "South Entrance Road",
+      "distance": 15.683367,
+      "hint": "BQcAgNZ4AAALAAAAAwAAAHUBAAC_AAAALuJ6QfZkSkDfNgFEOW-EQwsAAAADAAAAdQEAAL8AAAABAAAA_gqX-wxHdgKwC5f7OEd2AiYAXxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -73.987281,
+        41.306204
+      ],
+      "name": "South Entrance Road",
+      "distance": 15.102914,
+      "hint": "BQcAgNZ4AAANAAAAAgAAAI8BAACkAAAAKYWSQRgFE0C5EApEFbJjQw0AAAACAAAAjwEAAKQAAAABAAAALwuX-1xIdgLeC5f7O0h2AigA7wCG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -73.98717,
+        41.306453
+      ],
+      "name": "South Entrance Road",
+      "distance": 12.922862,
+      "hint": "BQcAgNZ4AAACAAAADgAAAK8BAACDAAAA0pJjQI0AlUFDDhVEOyo2QwIAAAAOAAAArwEAAIMAAAABAAAAnguX-1VJdgIqDJf7JEl2AioAjwGG2cFP"
+    }
+  ]
+}

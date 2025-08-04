@@ -1,0 +1,788 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.934152,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.20641,
+            41.238346
+          ],
+          [
+            -74.206182,
+            41.238664
+          ],
+          [
+            -74.206176,
+            41.238674
+          ],
+          [
+            -74.206137,
+            41.238739
+          ],
+          [
+            -74.206099,
+            41.238809
+          ],
+          [
+            -74.206068,
+            41.23888
+          ],
+          [
+            -74.20604,
+            41.238953
+          ],
+          [
+            -74.206024,
+            41.239012
+          ],
+          [
+            -74.206018,
+            41.239032
+          ],
+          [
+            -74.206001,
+            41.239103
+          ],
+          [
+            -74.205987,
+            41.239183
+          ],
+          [
+            -74.205984,
+            41.239246
+          ],
+          [
+            -74.205983,
+            41.239308
+          ],
+          [
+            -74.205984,
+            41.239364
+          ],
+          [
+            -74.205985,
+            41.239382
+          ],
+          [
+            -74.205988,
+            41.239416
+          ],
+          [
+            -74.205994,
+            41.239464
+          ],
+          [
+            -74.206007,
+            41.239533
+          ],
+          [
+            -74.206036,
+            41.23963
+          ],
+          [
+            -74.206062,
+            41.239704
+          ],
+          [
+            -74.206081,
+            41.239749
+          ],
+          [
+            -74.206094,
+            41.23978
+          ],
+          [
+            -74.206143,
+            41.239876
+          ],
+          [
+            -74.206199,
+            41.239976
+          ],
+          [
+            -74.206256,
+            41.240071
+          ],
+          [
+            -74.20628,
+            41.240109
+          ],
+          [
+            -74.206377,
+            41.240264
+          ],
+          [
+            -74.206401,
+            41.240304
+          ],
+          [
+            -74.206423,
+            41.240348
+          ],
+          [
+            -74.206438,
+            41.240386
+          ],
+          [
+            -74.206453,
+            41.240427
+          ],
+          [
+            -74.20646,
+            41.240465
+          ],
+          [
+            -74.20646,
+            41.24049
+          ],
+          [
+            -74.20646,
+            41.240499
+          ],
+          [
+            -74.20645,
+            41.240535
+          ],
+          [
+            -74.206437,
+            41.240571
+          ],
+          [
+            -74.206417,
+            41.240609
+          ],
+          [
+            -74.206387,
+            41.240651
+          ],
+          [
+            -74.206352,
+            41.240687
+          ],
+          [
+            -74.206312,
+            41.240723
+          ],
+          [
+            -74.206308,
+            41.240725
+          ],
+          [
+            -74.206272,
+            41.240751
+          ],
+          [
+            -74.206219,
+            41.240782
+          ],
+          [
+            -74.206046,
+            41.240559
+          ],
+          [
+            -74.206019,
+            41.240525
+          ],
+          [
+            -74.205946,
+            41.240433
+          ],
+          [
+            -74.205858,
+            41.240328
+          ],
+          [
+            -74.205843,
+            41.24031
+          ],
+          [
+            -74.205739,
+            41.24019
+          ],
+          [
+            -74.205678,
+            41.240127
+          ],
+          [
+            -74.205581,
+            41.240026
+          ],
+          [
+            -74.205491,
+            41.239935
+          ],
+          [
+            -74.205395,
+            41.239837
+          ],
+          [
+            -74.205278,
+            41.239723
+          ],
+          [
+            -74.205225,
+            41.239671
+          ],
+          [
+            -74.205046,
+            41.239511
+          ],
+          [
+            -74.205023,
+            41.239492
+          ],
+          [
+            -74.204859,
+            41.239351
+          ],
+          [
+            -74.204706,
+            41.239221
+          ],
+          [
+            -74.204683,
+            41.239201
+          ],
+          [
+            -74.204373,
+            41.238945
+          ],
+          [
+            -74.203993,
+            41.238632
+          ],
+          [
+            -74.203547,
+            41.238264
+          ],
+          [
+            -74.203052,
+            41.237856
+          ],
+          [
+            -74.202917,
+            41.237745
+          ],
+          [
+            -74.202779,
+            41.237633
+          ],
+          [
+            -74.202645,
+            41.237527
+          ],
+          [
+            -74.202516,
+            41.237432
+          ],
+          [
+            -74.202485,
+            41.237411
+          ],
+          [
+            -74.202391,
+            41.237345
+          ],
+          [
+            -74.202266,
+            41.237268
+          ],
+          [
+            -74.202134,
+            41.23719
+          ],
+          [
+            -74.20199,
+            41.237109
+          ],
+          [
+            -74.201941,
+            41.237085
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 41.4,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 39.8,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 41.4,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 41.7,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 43.4,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 45.3,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 29.7,
+          "duration": 2.2,
+          "summary": "",
+          "weight": 2.2
+        },
+        {
+          "steps": [],
+          "distance": 42.9,
+          "duration": 13.6,
+          "summary": "",
+          "weight": 13.6
+        },
+        {
+          "steps": [],
+          "distance": 25.7,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 27,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 26.5,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 29.6,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 33.4,
+          "duration": 2,
+          "summary": "",
+          "weight": 2
+        },
+        {
+          "steps": [],
+          "distance": 40.1,
+          "duration": 2.4,
+          "summary": "",
+          "weight": 2.4
+        },
+        {
+          "steps": [],
+          "distance": 41.5,
+          "duration": 2.5,
+          "summary": "",
+          "weight": 2.5
+        },
+        {
+          "steps": [],
+          "distance": 47.1,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        },
+        {
+          "steps": [],
+          "distance": 55.4,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 61.4,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 68.6,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 58.2,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        }
+      ],
+      "distance": 840.1,
+      "duration": 64.9,
+      "weight_name": "duration",
+      "weight": 64.9
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.20641,
+        41.238346
+      ],
+      "name": "Long Meadow Road",
+      "distance": 1.897821,
+      "hint": "JCoAAJkqAIAcAAAAWgAAACUAAABwAAAAb6IgQjYx90LhEE1CL-sbQxwAAABaAAAAJQAAAHAAAAABAAAANrOT-0o_dQJKs5P7Qj91AgYADw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.206176,
+        41.238674
+      ],
+      "name": "Long Meadow Road",
+      "distance": 2.001829,
+      "hint": "JCoAAJkqAIAGAAAAAQAAAB4AAADmAAAAbJj9QAcPnD9bfShCM9afQwYAAAABAAAAHgAAAOYAAAABAAAAILST-5JAdQI2tJP7i0B1AgUAzwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.206024,
+        41.239012
+      ],
+      "name": "Long Meadow Road",
+      "distance": 3.255255,
+      "hint": "JCoAAJkqAIABAAAABQAAAAYAAAD_AAAA4MARQFwG1kCLNABBG_uwQwEAAAAFAAAABgAAAP8AAAABAAAAuLST--RBdQLetJP73kF1AgEA_wuG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.205985,
+        41.239382
+      ],
+      "name": "Long Meadow Road",
+      "distance": 3.779813,
+      "hint": "ESoAAGEqAIACAAAAAgAAAHgAAAAAAAAA2zFyQLYMAEDf-yVDAAAAAAIAAAACAAAAeAAAAAAAAAABAAAA37ST-1ZDdQIMtZP7WEN1AhcADwuG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.206081,
+        41.239749
+      ],
+      "name": "Long Meadow Road",
+      "distance": 4.319412,
+      "hint": "ESoAAGEqAIACAAAABAAAAFoAAAAcAAAA7h1nQNrZp0BL-fhCSrMZQgIAAAAEAAAAWgAAABwAAAABAAAAf7ST-8VEdQKwtJP70UR1AhIALwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.20628,
+        41.240109
+      ],
+      "name": "Long Meadow Road",
+      "distance": 3.895847,
+      "hint": "ESoAAGEqAIANAAAABAAAADAAAAA7AAAACE-YQfqclUAQaoNC3rGkQg0AAAAEAAAAMAAAADsAAAABAAAAuLOT-y1GdQLis5P7PEZ1Ag4ArwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.20646,
+        41.24049
+      ],
+      "name": "Long Meadow Road",
+      "distance": 5.198743,
+      "hint": "ESoAAGEqAIAAAAAAAwAAABwAAABdAAAA099_P8SwMUC6xRlCrYwBQwAAAAADAAAAHAAAAF0AAAABAAAABLOT-6pHdQJCs5P7qkd1AggATwuG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.206308,
+        41.240725
+      ],
+      "name": "Long Meadow Road",
+      "distance": 11.409946,
+      "hint": "ESoAAGEqAIACAAAAAQAAAAQAAAB1AAAAMqyFQKf3zT4z5LNAvpIhQwIAAAABAAAABAAAAHUAAAABAAAAnLOT-5VIdQL5s5P7Skh1AgEAPw6G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.206019,
+        41.240525
+      ],
+      "name": "State Highway 17A",
+      "distance": 3.502783,
+      "hint": "ECoAgBwqAAACAAAAbAAAABEAAACmHAAAWOKMQEGRPkFCnOVBPwlMRAIAAABsAAAAEQAAAKYcAAABAAAAvbST-81HdQKZtJP7vUd1AgEAXwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.205858,
+        41.240328
+      ],
+      "name": "State Highway 17A",
+      "distance": 3.560407,
+      "hint": "ECoAgBwqAAAIAAAAFgAAABsAAAAUHAAAlspcQYInF0C8DjRC7f5HRAgAAAAWAAAAGwAAABQcAAABAAAAXrWT-whHdQI6tZP790Z1AgIAPwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.205678,
+        41.240127
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.217636,
+      "hint": "ECoAgBwqAAAFAAAAfgAAAC8AAAC6GgAAW6sKQTivXUE8NJpCOWI-RAUAAAB-AAAALwAAALoaAAABAAAAEraT-z9GdQLptZP7KUZ1AgQADwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.205491,
+        41.239935
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.684669,
+      "hint": "ECoAgBwqAAAHAAAAegAAAD0AAADPGQAAXs5JQUqXWEGJP8dCo9g3RAcAAAB6AAAAPQAAAM8ZAAABAAAAzbaT-39FdQKgtpP7ZkV1AgUA_wiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.205278,
+        41.239723
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.685017,
+      "hint": "ECoAgBwqAAAJAAAAQgAAAE0AAAD9GAAAICKAQdAu6UA1jPtCNAUyRAkAAABCAAAATQAAAP0YAAABAAAAoreT-6tEdQJ2t5P7kUR1AgYA7wiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.205023,
+        41.239492
+      ],
+      "name": "State Highway 17A",
+      "distance": 5.36925,
+      "hint": "ECoAgBwqAAABAAAAvAAAAGkAAABXFwAA1_M2QGu4pkFUVixD5UcmRAEAAAC8AAAAaQAAAFcXAAABAAAAobiT-8RDdQJxuJP7pEN1AggArwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.204706,
+        41.239221
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.026938,
+      "hint": "ECoAgBwqAAALAAAAGwAAAHcAAACPFgAAvoKaQZBCPEAQCURDj7cgRAsAAAAbAAAAdwAAAI8WAAABAAAA3rmT-7VCdQK6uZP7nUJ1AgkArwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.204373,
+        41.238945
+      ],
+      "name": "State Highway 17A",
+      "distance": 3.827822,
+      "hint": "ECoAgBwqAAAXAAAAWwYAAIQAAADaDgAAzhYaQmS8NENnSlpDEs7TQxcAAABbBgAAhAAAANoOAAABAAAAK7uT-6FBdQIJu5P7ikF1AgoAnwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.203993,
+        41.238632
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.498963,
+      "hint": "ECoAgBwqAAAzAAAAswQAAIQAAADaDgAApVqrQsSUBUNnSlpDEs7TQzMAAACzBAAAhAAAANoOAAABAAAAp7yT-2hAdQJ_vJP7TUB1AgoAnwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.203547,
+        41.238264
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.834535,
+      "hint": "ECoAgBwqAABUAAAAwAIAAIQAAADaDgAA8xINQ0denEJnSlpDEs7TQ1QAAADAAgAAhAAAANoOAAABAAAAZb6T-_g-dQI6vpP72z51AgoAnwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.203052,
+        41.237856
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.772326,
+      "hint": "ECoAgBwqAAB5AAAAlwAAAIQAAADaDgAAn4VKQ8HjhUFnSlpDEs7TQ3kAAACXAAAAhAAAANoOAAABAAAAVMCT-2A9dQIqwJP7Qz11AgoAnwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.202485,
+        41.237411
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.552533,
+      "hint": "ECoAgBwqAAACAAAAYQAAACUBAACnDAAAE4FfQM42LEHe9fJDx320QwIAAABhAAAAJQEAAKcMAAABAAAAi8KT-6M7dQJmwpP7hTt1Ag4ATwiG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.201941,
+        41.237085
+      ],
+      "name": "State Highway 17A",
+      "distance": 4.814974,
+      "hint": "ECoAgBwqAAACAAAATAAAAEcBAACxCgAAPricQLEMBkEutAdEuYiYQwIAAABMAAAARwEAALEKAAABAAAAq8ST-106dQKLxJP7OTp1AhIAvweG2cFP"
+    }
+  ]
+}

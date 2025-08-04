@@ -1,0 +1,664 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.902314,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.097826,
+            41.276308
+          ],
+          [
+            -74.097801,
+            41.276317
+          ],
+          [
+            -74.097537,
+            41.276424
+          ],
+          [
+            -74.097503,
+            41.276438
+          ],
+          [
+            -74.097412,
+            41.276497
+          ],
+          [
+            -74.097306,
+            41.276583
+          ],
+          [
+            -74.097245,
+            41.276647
+          ],
+          [
+            -74.09722,
+            41.276673
+          ],
+          [
+            -74.097068,
+            41.276876
+          ],
+          [
+            -74.096897,
+            41.277102
+          ],
+          [
+            -74.09687,
+            41.277138
+          ],
+          [
+            -74.096724,
+            41.27735
+          ],
+          [
+            -74.09659,
+            41.277546
+          ],
+          [
+            -74.096581,
+            41.277554
+          ],
+          [
+            -74.096543,
+            41.277585
+          ],
+          [
+            -74.096485,
+            41.277617
+          ],
+          [
+            -74.096434,
+            41.277637
+          ],
+          [
+            -74.096378,
+            41.277651
+          ],
+          [
+            -74.09636,
+            41.277653
+          ],
+          [
+            -74.096332,
+            41.277656
+          ],
+          [
+            -74.096269,
+            41.277654
+          ],
+          [
+            -74.096201,
+            41.277648
+          ],
+          [
+            -74.096135,
+            41.277632
+          ],
+          [
+            -74.096087,
+            41.277615
+          ],
+          [
+            -74.096081,
+            41.277613
+          ],
+          [
+            -74.096011,
+            41.277581
+          ],
+          [
+            -74.095914,
+            41.27752
+          ],
+          [
+            -74.095895,
+            41.277501
+          ],
+          [
+            -74.095808,
+            41.277416
+          ],
+          [
+            -74.095763,
+            41.277355
+          ],
+          [
+            -74.095636,
+            41.277181
+          ],
+          [
+            -74.09558,
+            41.277105
+          ],
+          [
+            -74.095512,
+            41.277028
+          ],
+          [
+            -74.095399,
+            41.276901
+          ],
+          [
+            -74.095289,
+            41.276776
+          ],
+          [
+            -74.095177,
+            41.276649
+          ],
+          [
+            -74.095041,
+            41.276496
+          ],
+          [
+            -74.094929,
+            41.276369
+          ],
+          [
+            -74.094912,
+            41.27635
+          ],
+          [
+            -74.094845,
+            41.276262
+          ],
+          [
+            -74.094822,
+            41.27621
+          ],
+          [
+            -74.09475,
+            41.276045
+          ],
+          [
+            -74.094725,
+            41.275986
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 27.4,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 35.1,
+          "duration": 2.5,
+          "summary": "",
+          "weight": 2.5
+        },
+        {
+          "steps": [],
+          "distance": 29.5,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 28.9,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 31.1,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 25.7,
+          "duration": 1.8,
+          "summary": "",
+          "weight": 1.8
+        },
+        {
+          "steps": [],
+          "distance": 22,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 23.6,
+          "duration": 1.7,
+          "summary": "",
+          "weight": 1.7
+        },
+        {
+          "steps": [],
+          "distance": 20.6,
+          "duration": 1.5,
+          "summary": "",
+          "weight": 1.5
+        },
+        {
+          "steps": [],
+          "distance": 19.7,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 22.1,
+          "duration": 1.6,
+          "summary": "",
+          "weight": 1.6
+        },
+        {
+          "steps": [],
+          "distance": 19.9,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 17,
+          "duration": 1.2,
+          "summary": "",
+          "weight": 1.2
+        },
+        {
+          "steps": [],
+          "distance": 16.7,
+          "duration": 1.2,
+          "summary": "",
+          "weight": 1.2
+        },
+        {
+          "steps": [],
+          "distance": 16.9,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        },
+        {
+          "steps": [],
+          "distance": 20.5,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 16.9,
+          "duration": 1.3,
+          "summary": "",
+          "weight": 1.3
+        },
+        {
+          "steps": [],
+          "distance": 19.9,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 19.3,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        },
+        {
+          "steps": [],
+          "distance": 6.9,
+          "duration": 0.5,
+          "summary": "",
+          "weight": 0.5
+        }
+      ],
+      "distance": 439.7,
+      "duration": 31.6,
+      "weight_name": "duration",
+      "weight": 31.6
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.097826,
+        41.276308
+      ],
+      "name": "Arden Valley Road",
+      "distance": 11.852675,
+      "hint": "gEwAgPNMAAAJAAAAAgAAAMIDAADlAgAAl8VTQfuJFEDIrqdE2JuARAkAAAACAAAAwgMAAOUCAAABAAAAXluV-5TTdQIjW5X79dN1AjoAHwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.097537,
+        41.276424
+      ],
+      "name": "Arden Valley Road",
+      "distance": 16.916374,
+      "hint": "gEwAgPNMAAARAAAAAwAAAM0DAADRAgAAbeDIQRe1T0CUoKlE-SB6RBEAAAADAAAAzQMAANECAAABAAAAf1yV-wjUdQIfXJX7jtR1AjsA3wOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.097245,
+        41.276647
+      ],
+      "name": "Arden Valley Road",
+      "distance": 16.39204,
+      "hint": "gEwAgPNMAAAGAAAAAwAAAPEDAAC4AgAAdxIMQdRNZED-DrBEREZxRAYAAAADAAAA8QMAALgCAAABAAAAo12V--fUdQIEXZX7PdV1Aj4APwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.097068,
+        41.276876
+      ],
+      "name": "Arden Valley Road",
+      "distance": 11.813532,
+      "hint": "gEwAgPNMAAASAAAAGQAAAPoDAACNAgAARyXPQQ36BUJKmbFEe21iRBIAAAAZAAAA-gMAAI0CAAABAAAAVF6V-8zVdQLZXZX7ANZ1Aj8A3wGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.096897,
+        41.277102
+      ],
+      "name": "Arden Valley Road",
+      "distance": 10.664967,
+      "hint": "gEwAgPNMAAAnAAAABAAAAPoDAACNAgAAmixbQs7_kkBKmbFEe21iRCcAAAAEAAAA-gMAAI0CAAABAAAA_16V-67WdQKQXpX73dZ1Aj8A3wGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.096724,
+        41.27735
+      ],
+      "name": "Arden Valley Road",
+      "distance": 8.757997,
+      "hint": "gEwAgPNMAAATAAAAEgAAACUEAABoAgAAhELUQRnww0GvBblE56tVRBMAAAASAAAAJQQAAGgCAAABAAAArF-V-6bXdQJPX5X7ytd1AkAAvwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.096581,
+        41.277554
+      ],
+      "name": "Arden Valley Road",
+      "distance": 4.298237,
+      "hint": "gEwAgPNMAAAAAAAABAAAAEoEAABkAgAAnimVPx8PlkB5Zr9EQTVURAAAAAAEAAAASgQAAGQCAAABAAAAO2CV-3LYdQIVYJX7jNh1AkEArwKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.09636,
+        41.277653
+      ],
+      "name": "Arden Valley Road",
+      "distance": 4.712332,
+      "hint": "gEwAgPNMAAABAAAAAgAAAFkEAABWAgAAiiDDPwmnF0C9GsJEKkpPRAEAAAACAAAAWQQAAFYCAAABAAAAGGGV-9XYdQIgYZX7q9h1AkUAHwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.096087,
+        41.277615
+      ],
+      "name": "Arden Valley Road",
+      "distance": 8.467674,
+      "hint": "gEwAgPNMAAADAAAAAQAAAGgEAABGAgAA9yuOQMWyDD_XscREqdVJRAMAAAABAAAAaAQAAEYCAAABAAAAKWKV-6_YdQL-YZX7ath1AkkAPweG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.095895,
+        41.277501
+      ],
+      "name": "Arden Valley Road",
+      "distance": 7.156899,
+      "hint": "gEwAgPNMAAABAAAACQAAAHkEAAAvAgAAFSspQAPUPkGff8dEJNVBRAEAAAAJAAAAeQQAAC8CAAABAAAA6WKV-z3YdQKlYpX7Fth1AkwA7wiG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.095763,
+        41.277355
+      ],
+      "name": "Arden Valley Road",
+      "distance": 5.268847,
+      "hint": "gEwAgPNMAAAFAAAAFwAAAIMEAAATAgAAERn4QDO8_UHbUclEEfc3RAUAAAAXAAAAgwQAABMCAAABAAAAbWOV-6vXdQI2Y5X7lNd1Ak0AfwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.095636,
+        41.277181
+      ],
+      "name": "Arden Valley Road",
+      "distance": 2.0236,
+      "hint": "gEwAgPNMAAAVAAAABwAAAIMEAAATAgAAK4HuQZSCGkHbUclEEfc3RBUAAAAHAAAAgwQAABMCAAABAAAA7GOV-_3WdQLXY5X79NZ1Ak0AfwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.095512,
+        41.277028
+      ],
+      "name": "Arden Valley Road",
+      "distance": 0.674533,
+      "hint": "gEwAgPNMAAAHAAAAQgAAAJ8EAADKAQAA92gkQd4StULlQM5EEsMeRAcAAABCAAAAnwQAAMoBAAABAAAAaGSV-2TWdQJvZJX7Z9Z1Ak4ALwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.095399,
+        41.276901
+      ],
+      "name": "Arden Valley Road",
+      "distance": 1.608272,
+      "hint": "gEwAgPNMAAATAAAANgAAAJ8EAADKAQAAqBraQVYZk0LlQM5EEsMeRBMAAAA2AAAAnwQAAMoBAAABAAAA2WSV--XVdQLpZJX77dV1Ak4ALwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.095289,
+        41.276776
+      ],
+      "name": "Arden Valley Road",
+      "distance": 0.603102,
+      "hint": "gEwAgPNMAAAfAAAAKgAAAJ8EAADKAQAATbQvQqyLY0LlQM5EEsMeRB8AAAAqAAAAnwQAAMoBAAABAAAAR2WV-2jVdQJNZZX7a9V1Ak4ALwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.095177,
+        41.276649
+      ],
+      "name": "Arden Valley Road",
+      "distance": 0,
+      "hint": "gEwAgPNMAAAsAAAAHQAAAJ8EAADKAQAAvndzQkDIH0LlQM5EEsMeRCwAAAAdAAAAnwQAAMoBAAABAAAAt2WV--nUdQK3ZZX76dR1Ak4ALwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.095041,
+        41.276496
+      ],
+      "name": "Arden Valley Road",
+      "distance": 2.884689,
+      "hint": "gEwAgPNMAAA6AAAADwAAAJ8EAADKAQAA0KaiQrTkm0HlQM5EEsMeRDoAAAAPAAAAnwQAAMoBAAABAAAAP2aV-1DUdQIiZpX7QtR1Ak4ALwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.094929,
+        41.276369
+      ],
+      "name": "Arden Valley Road",
+      "distance": 4.956226,
+      "hint": "gEwAgPNMAABHAAAAAgAAAJ8EAADKAQAAiIjEQirvIkDlQM5EEsMeREcAAAACAAAAnwQAAMoBAAABAAAAr2aV-9HTdQJ-ZpX7uNN1Ak4ALwmG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.094822,
+        41.27621
+      ],
+      "name": "Arden Valley Road",
+      "distance": 7.767508,
+      "hint": "gEwAgPNMAAAEAAAANAAAAPAEAACKAQAAOdHCQNW9j0KOQ9xEZXQIRAQAAAA0AAAA8AQAAIoBAAABAAAAGmeV-zLTdQLCZpX7HNN1AlAAHwqG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.09475,
+        41.276045
+      ],
+      "name": "Arden Valley Road",
+      "distance": 6.002165,
+      "hint": "gEwAgPNMAAASAAAAJgAAAPAEAACKAQAALArLQbpQUkKOQ9xEZXQIRBIAAAAmAAAA8AQAAIoBAAABAAAAYmeV-43SdQIeZ5X7fNJ1AlAAHwqG2cFP"
+    },
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.094725,
+        41.275986
+      ],
+      "name": "Arden Valley Road",
+      "distance": 5.569625,
+      "hint": "gEwAgPNMAAAXAAAAIQAAAPAEAACKAQAA_ggBQr3MNkKOQ9xEZXQIRBcAAAAhAAAA8AQAAIoBAAABAAAAe2eV-1LSdQI8Z5X7QtJ1AlAAHwqG2cFP"
+    }
+  ]
+}

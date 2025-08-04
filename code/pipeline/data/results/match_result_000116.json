@@ -1,0 +1,736 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.261408,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.19336,
+            41.154379
+          ],
+          [
+            -74.19336,
+            41.154379
+          ],
+          [
+            -74.19334,
+            41.154481
+          ],
+          [
+            -74.19333,
+            41.154547
+          ],
+          [
+            -74.193291,
+            41.154807
+          ],
+          [
+            -74.193276,
+            41.154908
+          ],
+          [
+            -74.193268,
+            41.154973
+          ],
+          [
+            -74.19314,
+            41.154959
+          ],
+          [
+            -74.193069,
+            41.154952
+          ],
+          [
+            -74.192772,
+            41.15492
+          ],
+          [
+            -74.192499,
+            41.154892
+          ],
+          [
+            -74.192436,
+            41.154885
+          ],
+          [
+            -74.192375,
+            41.154878
+          ],
+          [
+            -74.192324,
+            41.154877
+          ],
+          [
+            -74.192252,
+            41.154878
+          ],
+          [
+            -74.19221,
+            41.154885
+          ],
+          [
+            -74.192198,
+            41.154889
+          ],
+          [
+            -74.192176,
+            41.154897
+          ],
+          [
+            -74.192129,
+            41.154919
+          ],
+          [
+            -74.192099,
+            41.154943
+          ],
+          [
+            -74.192067,
+            41.154981
+          ],
+          [
+            -74.19205,
+            41.155006
+          ],
+          [
+            -74.19203,
+            41.155056
+          ],
+          [
+            -74.19201,
+            41.155107
+          ],
+          [
+            -74.191979,
+            41.155192
+          ],
+          [
+            -74.191935,
+            41.155284
+          ],
+          [
+            -74.191912,
+            41.155331
+          ],
+          [
+            -74.191858,
+            41.155428
+          ],
+          [
+            -74.191804,
+            41.155521
+          ],
+          [
+            -74.191802,
+            41.155525
+          ],
+          [
+            -74.191678,
+            41.155737
+          ],
+          [
+            -74.191549,
+            41.155955
+          ],
+          [
+            -74.19149,
+            41.156057
+          ],
+          [
+            -74.191445,
+            41.156147
+          ],
+          [
+            -74.191415,
+            41.15621
+          ],
+          [
+            -74.191403,
+            41.156235
+          ],
+          [
+            -74.191376,
+            41.156303
+          ],
+          [
+            -74.191361,
+            41.156366
+          ],
+          [
+            -74.191349,
+            41.156443
+          ],
+          [
+            -74.191347,
+            41.156516
+          ],
+          [
+            -74.191347,
+            41.156531
+          ],
+          [
+            -74.191349,
+            41.156629
+          ],
+          [
+            -74.191414,
+            41.156623
+          ],
+          [
+            -74.191479,
+            41.156617
+          ],
+          [
+            -74.191531,
+            41.156619
+          ],
+          [
+            -74.191705,
+            41.156635
+          ],
+          [
+            -74.191531,
+            41.156619
+          ],
+          [
+            -74.191504,
+            41.156618
+          ],
+          [
+            -74.191479,
+            41.156617
+          ],
+          [
+            -74.191414,
+            41.156623
+          ],
+          [
+            -74.191349,
+            41.156629
+          ],
+          [
+            -74.191354,
+            41.15671
+          ],
+          [
+            -74.191358,
+            41.156775
+          ],
+          [
+            -74.191366,
+            41.156858
+          ],
+          [
+            -74.191367,
+            41.156867
+          ],
+          [
+            -74.191383,
+            41.156955
+          ],
+          [
+            -74.191396,
+            41.15701
+          ],
+          [
+            -74.191401,
+            41.157034
+          ],
+          [
+            -74.191414,
+            41.157117
+          ],
+          [
+            -74.191425,
+            41.157185
+          ],
+          [
+            -74.191437,
+            41.157257
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 18.9,
+          "duration": 14.4,
+          "summary": "",
+          "weight": 14.4
+        },
+        {
+          "steps": [],
+          "distance": 29.1,
+          "duration": 1.9,
+          "summary": "",
+          "weight": 1.9
+        },
+        {
+          "steps": [],
+          "distance": 35.4,
+          "duration": 9.1,
+          "summary": "",
+          "weight": 9.1
+        },
+        {
+          "steps": [],
+          "distance": 25.1,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 23.1,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 25.5,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 24.3,
+          "duration": 3.2,
+          "summary": "",
+          "weight": 3.2
+        },
+        {
+          "steps": [],
+          "distance": 26.6,
+          "duration": 3.5,
+          "summary": "",
+          "weight": 3.5
+        },
+        {
+          "steps": [],
+          "distance": 29,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 25.8,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 26.5,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 30.5,
+          "duration": 4.1,
+          "summary": "",
+          "weight": 4.1
+        },
+        {
+          "steps": [],
+          "distance": 34.7,
+          "duration": 4.4,
+          "summary": "",
+          "weight": 4.4
+        },
+        {
+          "steps": [],
+          "distance": 42.6,
+          "duration": 18.9,
+          "summary": "",
+          "weight": 18.9
+        },
+        {
+          "steps": [],
+          "distance": 16.9,
+          "duration": 15.2,
+          "summary": "",
+          "weight": 15.2
+        },
+        {
+          "steps": [],
+          "distance": 22.1,
+          "duration": 23.5,
+          "summary": "",
+          "weight": 23.5
+        },
+        {
+          "steps": [],
+          "distance": 16.5,
+          "duration": 2.1,
+          "summary": "",
+          "weight": 2.1
+        },
+        {
+          "steps": [],
+          "distance": 17.1,
+          "duration": 2.3,
+          "summary": "",
+          "weight": 2.3
+        },
+        {
+          "steps": [],
+          "distance": 19.6,
+          "duration": 2.5,
+          "summary": "",
+          "weight": 2.5
+        },
+        {
+          "steps": [],
+          "distance": 8.1,
+          "duration": 1.1,
+          "summary": "",
+          "weight": 1.1
+        }
+      ],
+      "distance": 497.4,
+      "duration": 126.7,
+      "weight_name": "duration",
+      "weight": 126.7
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.19336,
+        41.154379
+      ],
+      "name": "Eagle Valley Road",
+      "distance": 19.912844,
+      "hint": "SSEAAKMhAIAAAAAACwAAAAAAAAAfAAAAAAAAAI7KRkEAAAAAJ7kMQgAAAAALAAAAAAAAAB8AAAABAAAAMOaT-0v3cwId55P7VPdzAgAA3xGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.19333,
+        41.154547
+      ],
+      "name": "Orange Turnpike",
+      "distance": 9.797232,
+      "hint": "KyEAAEghAIAaAAAABQAAAAUAAAAHAAAApmIhQt4U7EAL_udAnDg3QRoAAAAFAAAABQAAAAcAAAABAAAATuaT-_P3cwLC5pP76fdzAgEArwuG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.193291,
+        41.154807
+      ],
+      "name": "Orange Turnpike",
+      "distance": 9.713863,
+      "hint": "KyEAAEghAIAHAAAAGAAAAAUAAAAHAAAAoZc0QVq_EUIL_udAnDg3QQcAAAAYAAAABQAAAAcAAAABAAAAdeaT-_f4cwLo5pP77fhzAgEArwuG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.193069,
+        41.154952
+      ],
+      "name": "Mill Street",
+      "distance": 0.111056,
+      "hint": "KiEAgFAhAAAHAAAARwAAAA4AAABQAAAAGEXAQMqLVkLopS1B4cBwQgcAAABHAAAADgAAAFAAAAABAAAAU-eT-4j5cwJT55P7iflzAgEAHwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.192772,
+        41.15492
+      ],
+      "name": "Mill Street",
+      "distance": 0.222111,
+      "hint": "KiEAgFAhAAAoAAAAJgAAAA4AAABQAAAAYXb5QRCy40HopS1B4cBwQigAAAAmAAAADgAAAFAAAAABAAAAfOiT-2j5cwJ86JP7avlzAgEAHwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.192499,
+        41.154892
+      ],
+      "name": "Mill Street",
+      "distance": 1.233086,
+      "hint": "KiEAgFAhAABHAAAABwAAAA4AAABQAAAApzRZQq79qkDopS1B4cBwQkcAAAAHAAAADgAAAFAAAAABAAAAjemT-0z5cwKP6ZP7V_lzAgEAHwaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.192198,
+        41.154889
+      ],
+      "name": "Mill Street",
+      "distance": 0.37305,
+      "hint": "KiEAgFAhAAABAAAAAwAAAHYAAAAyAAAAnuCMPy4fA0BwN7NCGrcXQgEAAAADAAAAdgAAADIAAAABAAAAuuqT-0n5cwK46pP7TPlzAgYADwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.19203,
+        41.155056
+      ],
+      "name": "Mill Street",
+      "distance": 1.494112,
+      "hint": "KiEAgFAhAAAHAAAACAAAAJAAAAANAAAArKC5QD8IvUBwX9pCZKocQQcAAAAIAAAAkAAAAA0AAAABAAAAYuuT-_D5cwJR65P79PlzAgsADwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.191935,
+        41.155284
+      ],
+      "name": "Mill Street",
+      "distance": 0.434021,
+      "hint": "TyEAgP0BAAAOAAAACAAAAAAAAAAeAAAAGtItQZkUskAAAAAAobi3QQ4AAAAIAAAAAAAAAB4AAAABAAAAweuT-9T6cwK865P71fpzAgAAPwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.191802,
+        41.155525
+      ],
+      "name": "Mill Street",
+      "distance": 0.083915,
+      "hint": "IQIAAPwBAIBUAAAAAQAAADoAAAAAAAAA0z6BQvYh8z5LtTJCAAAAAFQAAAABAAAAOgAAAAAAAAABAAAARuyT-8X7cwJF7JP7xftzAgUAvwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.191678,
+        41.155737
+      ],
+      "name": "Mill Street",
+      "distance": 0.474736,
+      "hint": "IQIAAPwBAIAyAAAAIwAAADoAAAAAAAAAOYcbQvy30UFLtTJCAAAAADIAAAAjAAAAOgAAAAAAAAABAAAAwuyT-5n8cwLH7JP7l_xzAgUAvwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.191549,
+        41.155955
+      ],
+      "name": "Mill Street",
+      "distance": 0.201246,
+      "hint": "IQIAAPwBAIAQAAAARQAAADoAAAAAAAAAP8xFQUXwUkJLtTJCAAAAABAAAABFAAAAOgAAAAAAAAABAAAAQ-2T-3P9cwJB7ZP7dP1zAgUAvwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.191415,
+        41.15621
+      ],
+      "name": "Mill Street",
+      "distance": 0.550302,
+      "hint": "IQIAAPwBAIADAAAACwAAAB4AAABjAAAA2gM9QKPw7UAF1LxBEZCXQgMAAAALAAAAHgAAAGMAAAABAAAAye2T-3L-cwLD7ZP7dP5zAgMAfwyG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.191347,
+        41.156516
+      ],
+      "name": "Mill Street",
+      "distance": 8.140467,
+      "hint": "siQAACMCAIACAAAACwAAAA4AAAAAAAAACjrVP5-9AUHmJy5BAAAAAAIAAAALAAAADgAAAAAAAAABAAAADe6T-6T_cwKs7ZP7pf9zAgEATwuG2cFP"
+    },
+    null,
+    {
+      "alternatives_count": 2,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.191705,
+        41.156635
+      ],
+      "name": "",
+      "distance": 2.345715,
+      "hint": "sCQAgL4kAIAVAAAAtAEAABYAAAAAAAAAdFdrQYzEQUJCv3VBAAAAABUAAAC0AQAAFgAAAAAAAAABAAAAp-yT-xsAdAKk7JP7BgB0AgMATxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 2,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.191504,
+        41.156618
+      ],
+      "name": "",
+      "distance": 1.889809,
+      "hint": "sCQAAL4kAIACAAAAFQAAABAAAAA3AgAAhXMGQKstEUD_1i9BaZp8QgIAAAAVAAAAEAAAADcCAAABAAAAcO2T-woAdAJv7ZP7-f9zAgIADxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 2,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.191354,
+        41.15671
+      ],
+      "name": "Mill Street",
+      "distance": 3.78268,
+      "hint": "sSQAgDolAAALAAAACgAAAAAAAAAyAAAAohUQQcU-50AAAAAAIy0ZQgsAAAAKAAAAAAAAADIAAAABAAAABu6T-2YAdALZ7ZP7ZAB0AgAAXxaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 2,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.191366,
+        41.156858
+      ],
+      "name": "Mill Street",
+      "distance": 2.778073,
+      "hint": "sSQAgDolAAALAAAAAgAAABUAAAAlAAAAV98TQdligD-C2oFBi2TgQQsAAAACAAAAFQAAACUAAAABAAAA-u2T-_oAdALZ7ZP7-AB0AgEAPxaG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 4,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.191396,
+        41.15701
+      ],
+      "name": "Mill Street",
+      "distance": 0.846462,
+      "hint": "sSQAgDolAAAIAAAABAAAAC8AAAAMAAAA94zGQJeuLECQXRFC1YIUQQgAAAAEAAAALwAAAAwAAAABAAAA3O2T-5IBdALS7ZP7kQF0AgMA7xWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 9,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.191425,
+        41.157185
+      ],
+      "name": "Mill Street",
+      "distance": 0.335658,
+      "hint": "OSUAgEElAAAJAAAAEgAAAAAAAAANAAAAmnTzQK7tTUEAAAAAmA8bQQkAAAASAAAAAAAAAA0AAAABAAAAv-2T-0ECdALD7ZP7QQJ0AgAADxaG2cFP"
+    },
+    null,
+    {
+      "alternatives_count": 29,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.191437,
+        41.157257
+      ],
+      "name": "Mill Street",
+      "distance": 0,
+      "hint": "OSUAgEElAAAUAAAABwAAAAAAAAANAAAAgqx6Qdb2mUAAAAAAmA8bQRQAAAAHAAAAAAAAAA0AAAABAAAAs-2T-4kCdAKz7ZP7iQJ0AgAADxaG2cFP"
+    }
+  ]
+}

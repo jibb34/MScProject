@@ -1,0 +1,736 @@
+{
+  "code": "Ok",
+  "matchings": [
+    {
+      "confidence": 0.955509,
+      "geometry": {
+        "coordinates": [
+          [
+            -74.000532,
+            41.265727
+          ],
+          [
+            -74.000646,
+            41.265753
+          ],
+          [
+            -74.001274,
+            41.265962
+          ],
+          [
+            -74.001616,
+            41.266076
+          ],
+          [
+            -74.001882,
+            41.26616
+          ],
+          [
+            -74.001924,
+            41.266169
+          ],
+          [
+            -74.002182,
+            41.266224
+          ],
+          [
+            -74.002509,
+            41.26625
+          ],
+          [
+            -74.002556,
+            41.266249
+          ],
+          [
+            -74.002809,
+            41.266244
+          ],
+          [
+            -74.003092,
+            41.266198
+          ],
+          [
+            -74.003148,
+            41.266181
+          ],
+          [
+            -74.003281,
+            41.26614
+          ],
+          [
+            -74.003453,
+            41.266056
+          ],
+          [
+            -74.00359,
+            41.265934
+          ],
+          [
+            -74.003641,
+            41.265878
+          ],
+          [
+            -74.003848,
+            41.26565
+          ],
+          [
+            -74.003993,
+            41.265547
+          ],
+          [
+            -74.004012,
+            41.26554
+          ],
+          [
+            -74.004165,
+            41.265482
+          ],
+          [
+            -74.004345,
+            41.265457
+          ],
+          [
+            -74.004521,
+            41.265474
+          ],
+          [
+            -74.004543,
+            41.265476
+          ],
+          [
+            -74.004991,
+            41.265598
+          ],
+          [
+            -74.005066,
+            41.265618
+          ],
+          [
+            -74.005315,
+            41.265663
+          ],
+          [
+            -74.005481,
+            41.265677
+          ],
+          [
+            -74.005616,
+            41.265689
+          ],
+          [
+            -74.005913,
+            41.265683
+          ],
+          [
+            -74.005942,
+            41.265682
+          ],
+          [
+            -74.006174,
+            41.26565
+          ],
+          [
+            -74.006328,
+            41.265605
+          ],
+          [
+            -74.006371,
+            41.265592
+          ],
+          [
+            -74.006424,
+            41.265562
+          ],
+          [
+            -74.006508,
+            41.265515
+          ],
+          [
+            -74.006628,
+            41.265405
+          ],
+          [
+            -74.006665,
+            41.265343
+          ],
+          [
+            -74.006689,
+            41.265302
+          ],
+          [
+            -74.006723,
+            41.265179
+          ],
+          [
+            -74.006714,
+            41.265024
+          ],
+          [
+            -74.00669,
+            41.264954
+          ],
+          [
+            -74.006654,
+            41.26485
+          ],
+          [
+            -74.006517,
+            41.264586
+          ],
+          [
+            -74.006515,
+            41.264579
+          ],
+          [
+            -74.006483,
+            41.264463
+          ],
+          [
+            -74.006474,
+            41.264353
+          ],
+          [
+            -74.0065,
+            41.264224
+          ],
+          [
+            -74.006533,
+            41.264153
+          ],
+          [
+            -74.006551,
+            41.264115
+          ],
+          [
+            -74.006654,
+            41.263986
+          ],
+          [
+            -74.006817,
+            41.263863
+          ],
+          [
+            -74.006873,
+            41.263835
+          ],
+          [
+            -74.006989,
+            41.263779
+          ],
+          [
+            -74.007458,
+            41.263634
+          ],
+          [
+            -74.007676,
+            41.263566
+          ],
+          [
+            -74.007899,
+            41.263515
+          ],
+          [
+            -74.008034,
+            41.2635
+          ],
+          [
+            -74.008139,
+            41.263489
+          ],
+          [
+            -74.0085,
+            41.263494
+          ],
+          [
+            -74.008534,
+            41.263495
+          ],
+          [
+            -74.008719,
+            41.26349
+          ]
+        ],
+        "type": "LineString"
+      },
+      "legs": [
+        {
+          "steps": [],
+          "distance": 67.4,
+          "duration": 4.9,
+          "summary": "",
+          "weight": 4.9
+        },
+        {
+          "steps": [],
+          "distance": 59.1,
+          "duration": 4.2,
+          "summary": "",
+          "weight": 4.2
+        },
+        {
+          "steps": [],
+          "distance": 53.8,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 50.4,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 54.5,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 49.2,
+          "duration": 3.6,
+          "summary": "",
+          "weight": 3.6
+        },
+        {
+          "steps": [],
+          "distance": 44.5,
+          "duration": 3.2,
+          "summary": "",
+          "weight": 3.2
+        },
+        {
+          "steps": [],
+          "distance": 41.7,
+          "duration": 3,
+          "summary": "",
+          "weight": 3
+        },
+        {
+          "steps": [],
+          "distance": 42,
+          "duration": 2.9,
+          "summary": "",
+          "weight": 2.9
+        },
+        {
+          "steps": [],
+          "distance": 36.2,
+          "duration": 2.7,
+          "summary": "",
+          "weight": 2.7
+        },
+        {
+          "steps": [],
+          "distance": 36,
+          "duration": 2.6,
+          "summary": "",
+          "weight": 2.6
+        },
+        {
+          "steps": [],
+          "distance": 41.6,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 44.3,
+          "duration": 3.1,
+          "summary": "",
+          "weight": 3.1
+        },
+        {
+          "steps": [],
+          "distance": 44.3,
+          "duration": 3.2,
+          "summary": "",
+          "weight": 3.2
+        },
+        {
+          "steps": [],
+          "distance": 48.3,
+          "duration": 3.4,
+          "summary": "",
+          "weight": 3.4
+        },
+        {
+          "steps": [],
+          "distance": 46.2,
+          "duration": 3.3,
+          "summary": "",
+          "weight": 3.3
+        },
+        {
+          "steps": [],
+          "distance": 53.9,
+          "duration": 3.9,
+          "summary": "",
+          "weight": 3.9
+        },
+        {
+          "steps": [],
+          "distance": 50.6,
+          "duration": 3.7,
+          "summary": "",
+          "weight": 3.7
+        },
+        {
+          "steps": [],
+          "distance": 39.1,
+          "duration": 2.8,
+          "summary": "",
+          "weight": 2.8
+        },
+        {
+          "steps": [],
+          "distance": 18.3,
+          "duration": 1.4,
+          "summary": "",
+          "weight": 1.4
+        }
+      ],
+      "distance": 921.4,
+      "duration": 66.4,
+      "weight_name": "duration",
+      "weight": 66.4
+    }
+  ],
+  "tracepoints": [
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 0,
+      "matchings_index": 0,
+      "location": [
+        -74.000532,
+        41.265727
+      ],
+      "name": "Mott Farm Road",
+      "distance": 3.717016,
+      "hint": "W3MAgMxzAAAIAAAACAAAAFYBAACAAQAArbM9QVuoH0F6eO5DTL0FRAgAAAAIAAAAVgEAAIABAAABAAAAbNeW-z-qdQJ515b7X6p1Ag4A_xGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 1,
+      "matchings_index": 0,
+      "location": [
+        -74.001274,
+        41.265962
+      ],
+      "name": "Mott Farm Road",
+      "distance": 3.047648,
+      "hint": "W3MAgMxzAAApAAAAFwAAAGYBAABAAQAAYwpmQm-e-kFQY_lDZw_fQykAAAAXAAAAZgEAAEABAAABAAAAhtSW-yqrdQKV1Jb7Q6t1Ag8AXxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 2,
+      "matchings_index": 0,
+      "location": [
+        -74.001924,
+        41.266169
+      ],
+      "name": "Mott Farm Road",
+      "distance": 0.237393,
+      "hint": "W3MAgMxzAAACAAAAEQAAALcBAAAcAQAAmCBqQAi1s0GP8RhEPOvFQwIAAAARAAAAtwEAABwBAAABAAAA_NGW-_mrdQL90Zb7-6t1AhEA3xGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 3,
+      "matchings_index": 0,
+      "location": [
+        -74.002556,
+        41.266249
+      ],
+      "name": "Mott Farm Road",
+      "distance": 1.554806,
+      "hint": "W3MAgMxzAAACAAAAEAAAAN4BAAD2AAAAgSF8QISkqUGLXCZESpKrQwIAAAAQAAAA3gEAAPYAAAABAAAAhM-W-0msdQKEz5b7O6x1AhMAzxCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 4,
+      "matchings_index": 0,
+      "location": [
+        -74.003148,
+        41.266181
+      ],
+      "name": "Mott Farm Road",
+      "distance": 1.186964,
+      "hint": "W3MAgMxzAAADAAAACQAAAAECAADZAAAAU9ihQLibQEEvtjJEUOWWQwMAAAAJAAAAAQIAANkAAAABAAAANM2W-wWsdQI5zZb7-6t1AhUAfw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 5,
+      "matchings_index": 0,
+      "location": [
+        -74.003641,
+        41.265878
+      ],
+      "name": "Mott Farm Road",
+      "distance": 4.020681,
+      "hint": "W3MAgMxzAAAFAAAAFwAAACYCAACkAAAAx3bxQDaI9UGBtz9EFqFkQwUAAAAXAAAAJgIAAKQAAAABAAAAR8uW-9aqdQJvy5b7wqp1AhgAbw2G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 6,
+      "matchings_index": 0,
+      "location": [
+        -74.004012,
+        41.26554
+      ],
+      "name": "Mott Farm Road",
+      "distance": 2.710261,
+      "hint": "W3MAgMxzAAABAAAACwAAAE4CAACMAAAAoMTiPwOMZUGlck1EANNDQwEAAAALAAAATgIAAIwAAAABAAAA1MmW-4SpdQLiyZb7bql1AhoAPw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 7,
+      "matchings_index": 0,
+      "location": [
+        -74.004521,
+        41.265474
+      ],
+      "name": "Mott Farm Road",
+      "distance": 1.904637,
+      "hint": "W3MAgMxzAAAKAAAAAgAAAGUCAAB1AAAAlt5tQX6m7T-oT1VEB8QjQwoAAAACAAAAZQIAAHUAAAABAAAA18eW-0KpdQLUx5b7Mal1AhwAXxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 8,
+      "matchings_index": 0,
+      "location": [
+        -74.004991,
+        41.265598
+      ],
+      "name": "Mott Farm Road",
+      "distance": 3.53219,
+      "hint": "W3MAgMxzAAAcAAAABQAAAHECAABUAAAAtKAfQrhH1UD1fVlESWPqQhwAAAAFAAAAcQIAAFQAAAABAAAAAcaW-76pdQLzxZb7oKl1Ah0AHxKG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 9,
+      "matchings_index": 0,
+      "location": [
+        -74.005481,
+        41.265677
+      ],
+      "name": "Mott Farm Road",
+      "distance": 3.23806,
+      "hint": "W3MAgMxzAAAJAAAACQAAAKECAAAzAAAAguxfQTY7NkGOf2pEYLaMQgkAAAAJAAAAoQIAADMAAAABAAAAF8SW-w2qdQITxJb78Kl1Ah8ATxGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 10,
+      "matchings_index": 0,
+      "location": [
+        -74.005913,
+        41.265683
+      ],
+      "name": "Mott Farm Road",
+      "distance": 0.555288,
+      "hint": "W3MAgMxzAAASAAAAAgAAALMCAAAfAAAAFibHQa-rG0Ar2HBEYh8sQhIAAAACAAAAswIAAB8AAAABAAAAZ8KW-xOqdQJnwpb7Dqp1AiAAzxCG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 11,
+      "matchings_index": 0,
+      "location": [
+        -74.006328,
+        41.265605
+      ],
+      "name": "Mott Farm Road",
+      "distance": 2.611321,
+      "hint": "W3MAgMxzAAAKAAAAAwAAANUCAAAEAAAAGGVdQeRneECxnXxErKaxQAoAAAADAAAA1QIAAAQAAAABAAAAyMCW-8WpdQLTwJb7r6l1AiIAjw-G2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 12,
+      "matchings_index": 0,
+      "location": [
+        -74.006665,
+        41.265343
+      ],
+      "name": "Mott Farm Road",
+      "distance": 7.419638,
+      "hint": "enMAAM1zAIADAAAABgAAAC4BAAARAAAAsEifQAik8UAU2dFDhqzEQQMAAAAGAAAALgEAABEAAAABAAAAd7-W-7-odQLIv5b7pKh1AhQAfwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 13,
+      "matchings_index": 0,
+      "location": [
+        -74.00669,
+        41.264954
+      ],
+      "name": "Mott Farm Road",
+      "distance": 8.477898,
+      "hint": "enMAAM1zAIAIAAAABgAAAAoBAAAwAAAAY_8-QW96AEGsRbhDS5iIQggAAAAGAAAACgEAADAAAAABAAAAXr-W-zqndQLAv5b7Tad1AhEAnxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 14,
+      "matchings_index": 0,
+      "location": [
+        -74.006515,
+        41.264579
+      ],
+      "name": "Mott Farm Road",
+      "distance": 6.505758,
+      "hint": "enMAAM1zAIAJAAAAAQAAAOkAAABVAAAAIopSQQ6WSz9XjaFDbIDvQgkAAAABAAAA6QAAAFUAAAABAAAADcCW-8OldQJZwJb7z6V1Ag8AzxWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 15,
+      "matchings_index": 0,
+      "location": [
+        -74.006533,
+        41.264153
+      ],
+      "name": "Mott Farm Road",
+      "distance": 1.139044,
+      "hint": "enMAAM1zAIADAAAABgAAAM0AAAByAAAAE2mPQGixBUGixI1DfG8gQwMAAAAGAAAAzQAAAHIAAAABAAAA-7-W-xmkdQLuv5b7HKR1AgwAPwGG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 16,
+      "matchings_index": 0,
+      "location": [
+        -74.006873,
+        41.263835
+      ],
+      "name": "Mott Farm Road",
+      "distance": 10.738762,
+      "hint": "enMAAM1zAIAIAAAABAAAAKcAAACVAAAAv544QWIgtEDpU2ZDZFBRQwgAAAAEAAAApwAAAJUAAAABAAAAp76W-9uidQJhvpb7LKN1AgkAjwOG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 17,
+      "matchings_index": 0,
+      "location": [
+        -74.007458,
+        41.263634
+      ],
+      "name": "Mott Farm Road",
+      "distance": 9.144592,
+      "hint": "enMAAM1zAIAOAAAAHwAAAHoAAAChAAAAAB-eQcjeKUJbGChDM3tiQw4AAAAfAAAAegAAAKEAAAABAAAAXryW-xKidQI0vJb7XqJ1AggAPwSG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 18,
+      "matchings_index": 0,
+      "location": [
+        -74.008034,
+        41.2635
+      ],
+      "name": "Mott Farm Road",
+      "distance": 8.973055,
+      "hint": "enMAAM1zAIAGAAAACQAAAF0AAADcAAAAxxwOQYLuNkGJQQBDdB6aQwYAAAAJAAAAXQAAANwAAAABAAAAHrqW-4yhdQIPupb73KF1AgYAHwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 0,
+      "waypoint_index": 19,
+      "matchings_index": 0,
+      "location": [
+        -74.0085,
+        41.263494
+      ],
+      "name": "Mott Farm Road",
+      "distance": 4.88725,
+      "hint": "enMAAM1zAIACAAAAFgAAAEUAAADrAAAAZHU2QFwE8kGYTr5CyUakQwIAAAAWAAAARQAAAOsAAAABAAAATLiW-4ahdQJNuJb7sqF1AgUAvwWG2cFP"
+    },
+    null,
+    null,
+    null,
+    {
+      "alternatives_count": 1,
+      "waypoint_index": 20,
+      "matchings_index": 0,
+      "location": [
+        -74.008719,
+        41.26349
+      ],
+      "name": "Mott Farm Road",
+      "distance": 1.557061,
+      "hint": "enMAAM1zAIACAAAADAAAADcAAAADAQAAgSF8QAIreEE4aJdC59O0QwIAAAAMAAAANwAAAAMBAAABAAAAcbeW-4KhdQJwt5b7kKF1AgQAjwWG2cFP"
+    }
+  ]
+}

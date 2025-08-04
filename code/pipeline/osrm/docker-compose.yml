@@ -1,15 +1,10 @@
-version: "3.8"
 services:
   osrm:
     image: osrm/osrm-backend
     container_name: osrm
-    volumes:
-      - ./data/osrm_map:/data
     ports:
       - "5000:5000"
+    volumes:
+      - ./osrm/data:/data # mounts your .osrm files
     command: >
-      bash -c "
-        osrm-extract -p /opt/car.lua /data/map.osm.pbf &&
-        osrm-partition /data/map.osrm &&
-        osrm-customize /data/map.osrm &&
-        osrm-routed --algorithm mld /data/map.osrm"
+      osrm-routed --algorithm mld /data/map.osrm
