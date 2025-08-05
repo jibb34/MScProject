@@ -1,0 +1,53 @@
+services:
+  # ----------------------------------------------------------------
+  # 1. Convert .osm → .pbf via osmium
+  # ----------------------------------------------------------------
+  osmium:
+    build:
+      context: ./osmium
+      dockerfile: Dockerfile
+    container_name: osmium-convert
+    volumes:
+      - ./data/osm_files:/data
+      - ./osmium/scripts:/scripts
+    entrypoint: ["bash", "-c", "/scripts/convert.sh && /scripts/merge.sh"]
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "test", "-f", "/data/map.pbf"]
+      interval: 5s
+      retries: 5
+  # ----------------------------------------------------------------
+  # 2. Build the OSRM graph
+  # ----------------------------------------------------------------
+  osrm-prep:
+    image: osrm/osrm-backend
+    container_name: osrm-prep
+    volumes:
+      - ./data/osrm_map:/data
+      - ./osrm/profile.lua:/settings/profile.lua:ro
+    entrypoint: >
+      bash -c "
+        osrm-extract -p /settings/profile.lua /data/map.pbf &&
+        osrm-partition /data/map.osrm &&
+        osrm-customize /data/map.osrm
+      "
+    profiles: ["prep"] # So it doesn't run automatically on 'up'
+
+  osrm-server:
+    image: osrm/osrm-backend
+    container_name: osrm-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data/osrm_map:/data
+    command: >
+      osrm-routed --algorithm mld --max-matching-size 500 /data/map.osrm
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      retries: 5
+
+networks:
+  default:
+    name: osrm-network

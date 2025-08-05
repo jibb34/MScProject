@@ -6,6 +6,7 @@ from pathlib import Path
 from math import ceil
 import osmnx as ox
 import requests
+import xml.etree.ElementTree as ET
 
 
 """Generates JSON object(s) from a list of GPX trackpoints, in the format:
@@ -196,3 +197,17 @@ def diagnose_points(OSRM, coords, radius=100):
         # waypoint.distance is in meters
         results.append((lat, lon, wp["distance"], wp["name"]))
     return results
+
+
+def read_osm_bounds(osm_path):
+    """Parse the <bounds> element from an OSM XML file"""
+    for even, elem in ET.iterparse(osm_path, events=('start,')):
+        if elem.tag == 'bounds':
+            minlat = float(elem.attrib['minlat'])
+            minlon = float(elem.attrib['minlon'])
+            maxlat = float(elem.attrib['maxlat'])
+            maxlon = float(elem.attrib['maxlon'])
+            return minlat, minlon, maxlat, maxlon
+        # when we see first element we are done
+        break
+    raise ValueError("No <bounds> tag found in OSM file")

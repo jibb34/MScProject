@@ -54,14 +54,14 @@ def main():
             chunk_data = json.load(f)
         raw_pts = chunk_data.get("coordinates", [])
         # Plot coordinates of raw points to compare
-        for lon, lat in raw_pts:
-            folium.CircleMarker(
-                location=[lat, lon],
-                radius=1,
-                color=color,
-                fill=True,
-                fill_opacity=0.5,
-            ).add_to(m)
+        # for lon, lat in raw_pts:
+        #     folium.CircleMarker(
+        #         location=[lat, lon],
+        #         radius=1,
+        #         color=color,
+        #         fill=True,
+        #         fill_opacity=0.5,
+        #     ).add_to(m)
 
     # Save to HTML
     output_file = "interactive_map.html"

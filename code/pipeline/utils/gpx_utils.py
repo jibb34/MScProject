@@ -2,6 +2,7 @@ import gpxpy
 import osmnx as ox
 import json
 import os
+from utils.osrm_utils import read_osm_bounds
 
 
 def load_gpx(path):
@@ -36,6 +37,17 @@ def write_json(points, path):
         json.dump(points, f, separators=(",", ":"), ensure_ascii=False)
 
 
+def bbox_contains(outer, inner):
+    minlat_o, minlon_o, maxlat_o, maxlon_o = outer
+    minlat_i, minlon_i, maxlat_i, maxlon_i = inner
+    return (
+        minlat_i >= minlat_o and
+        minlon_i >= minlon_o and
+        maxlat_i <= maxlat_o and
+        maxlon_i <= maxlon_o
+    )
+
+
 def download_osm_file(bbox, output_path):
     import requests
 
@@ -45,9 +57,31 @@ def download_osm_file(bbox, output_path):
     bbox_str = f"{w},{s},{e},{n}"
     url = f"https://overpass-api.de/api/map?bbox={bbox_str}"
 
-    response = requests.get(url)
-    with open(output_path, 'wb') as f:
-        f.write(response.content)
+    def overpass_query(query_url):
+        response = requests.get(url)
+        with open(output_path, 'wb') as f:
+            f.write(response.content)
+    overpass_query(url)
+
+    # Overpass API request:
+    # if os.path.exists(output_path):
+    #     try:
+    #         osm_bbox = read_osm_bounds(output_path)
+    #         # if existing bbox contains this bbox, we don't need to redownload
+    #         if bbox_contains(osm_bbox, bbox):
+    #             print(f"[INFO] Existing {output_path} already covers GPX bbox {
+    #                 bbox}, skipping download...")
+    #             return
+    #         else:
+    #             print("[INFO] OSM bbox too small; redownloading...")
+    #             overpass_query(url)
+    #     except Exception as e:
+    #         print(f"[WARNING] Couldn't parse existing OSM: {
+    #               e} - redownloading...")
+    #         overpass_query(url)
+    # else:
+    #     print("[INFO] No existing OSM file; downloading new extract.")
+    #     overpass_query(url)
 
 
 def extract_data_from_gpx(gpx):
