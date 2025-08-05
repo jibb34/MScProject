@@ -166,7 +166,7 @@ def main(input_dir, output_dir, output_name):
     print(f"[CHECK] Total tracepoints in final merge: {
           len(merged['tracepoints'])}")
     with open(output_json, "w") as f:
-        json.dump(merged, f, indent=2)
+        json.dump(merged, f)
 
     return 0
 
