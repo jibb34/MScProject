@@ -6,14 +6,16 @@ from itertools import cycle
 
 def main():
     # Directory containing match result JSON files
-    directory = "./data/results"
+    directory = "./data/"
     chunk_dir = "./data/temp"
 
     # Collect all match_result_*.json files
-    files = sorted([
-        f for f in os.listdir(directory)
-        if f.startswith("match_result_") and f.endswith(".json")
-    ])
+    # files = sorted([
+    #     f for f in os.listdir(directory)
+    #     if f.startswith("match_result_") and f.endswith(".json")
+    # ])
+    files = []
+    files.append("merge.json")
     chunk_files = sorted([
         f for f in os.listdir(chunk_dir)
         if f.startswith("match_chunk_") and f.endswith(".json")
@@ -61,10 +63,10 @@ def main():
         #         color=color,
         #         fill=True,
         #         fill_opacity=0.5,
-        # ).add_to(m)
+        #     ).add_to(m)
 
     # Save to HTML
-    output_file = "interactive_map.html"
+    output_file = "interactive_map_merged.html"
     m.save(output_file)
     print(f"Saved interactive map to {output_file}")
 

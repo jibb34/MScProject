@@ -4,6 +4,7 @@ networkx
 requests
 polyline
 folium
+tqdm
 pyrosm>=0.6.2
 matplotlib>=3.7.0
 geopandas>=0.13.0

@@ -6,12 +6,10 @@
 
 VENV_DIR=".venv"
 REQ_FILE="requirements.txt"
-MAIN_SCRIPT="prepare_map.py"
 CONFIG_FILE="settings.yml"
-PROFILE_PATH="osrm/profile.lua"
-OSRM_DATA_DIR="osrm/data"
-DEBUG=0
-
+PROFILE_PATH="docker/osrm/profile.lua"
+OSRM_DATA_DIR="docker/osrm/data"
+export COMPOSE_FILE=docker/docker-compose.yml
 # ------------------------------------------------------------------
 # 1. YAML parsing function
 # ------------------------------------------------------------------
@@ -76,8 +74,8 @@ pip install --quiet -r "$REQ_FILE"
 # 3. Prepare map & split GPX
 # ------------------------------------------------------------------
 
-echo "[PYTHON] Running ${MAIN_SCRIPT}"
-python3 "$MAIN_SCRIPT" \
+echo "[PYTHON] Parsing GPX file and getting OSM map file"
+python3 source/prepare_map.py \
   "$GPX_FILE" \
   "$OSM_OUTPUT" \
   "$JSON_DIR" \
@@ -153,22 +151,29 @@ docker compose up -d osrm-server
 # 8. Batch matching of GPX chunks
 # ------------------------------------------------------------------
 
-python3 batch_route_calc.py "./data/temp" $DYNAMIC_WINDOW
+python3 source/batch_route_calc.py "./data/temp" $DYNAMIC_WINDOW
 
 # ------------------------------------------------------------------
-# 9. Visualize results
+# 9. Merge chunks
 # ------------------------------------------------------------------
-python3 plot_map.py #OPTIONAL: Add other methods of visualisation...
+python3 source/merge_routes.py
+
+# ------------------------------------------------------------------
+# 10. Visualize results
+# ------------------------------------------------------------------
+# python3 plot_map.py
+python3 source/plot_merged.py #OPTIONAL: Add other methods of visualisation...
 # this area is just for testing purposes.
 
+#
 # ------------------------------------------------------------------
-# 10. Cleanup
+# 11. Cleanup
 # ------------------------------------------------------------------
 
 echo "[CLEANUP] Cleaning up JSON chunks..."
 rm -rf data/temp/*
 rm -rf data/results/*
-rm -rf osrm/data/*
+rm -rf docker/osrm/data/*
 rm -rf data/osm_files/*.pbf
 rm -rf data/osm_files/fragments/*
 echo "[CLEANUP] Removing excess map data..."
