@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     container_name: osmium-convert
     volumes:
-      - ./data/osm_files:/data
+      - ../data/osm_files:/data
       - ./osmium/scripts:/scripts
     entrypoint: ["bash", "-c", "/scripts/convert.sh && /scripts/merge.sh"]
     restart: "no"
@@ -23,7 +23,7 @@ services:
     image: osrm/osrm-backend
     container_name: osrm-prep
     volumes:
-      - ./data/osrm_map:/data
+      - ../data/osrm_map:/data
       - ./osrm/profile.lua:/settings/profile.lua:ro
     entrypoint: >
       bash -c "
@@ -39,7 +39,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./data/osrm_map:/data
+      - ../data/osrm_map:/data
     command: >
       osrm-routed --algorithm mld --max-matching-size 500 /data/map.osrm
     restart: "no"
