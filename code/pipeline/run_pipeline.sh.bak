@@ -68,6 +68,20 @@ fi
 
 source "$VENV_DIR/bin/activate"
 
+#Create hash for caching
+CURRENT_HASH=$(sha256sum "${REQ_FILE}" | awk '{print $1}')
+
+# If saved hash differs, reinstall & update hash
+#
+if [[ ! -f "${REQ_HASH_FILE}" ]] || [[ "$(cat "${REQ_HASH_FILE}")" != "${CURRENT_HASH}" ]]; then
+  echo "[INFO] requirements.txt changed (or first run). Installing dependencies…"
+  pip install --upgrade pip
+  pip install -r "${REQ_FILE}"
+  echo "${CURRENT_HASH}" >"${REQ_HASH_FILE}"
+else
+  echo "[INFO] requirements.txt unchanged. Skipping pip install"
+fi
+
 echo "[INIT] Installing Python dependencies (if needed)..."
 pip install --upgrade pip
 pip install --quiet -r "$REQ_FILE"
@@ -99,55 +113,50 @@ cp "$OSM_OUTPUT" "$OSRM_DATA_DIR/$OSRM_BASENAME.osm"
 
 #Build Docker image
 echo "[DOCKER] Starting Osmium Docker container"
-# docker build -t osmium-converter ./osmium
-echo "[DOCKER] Performing conversion of OSM XML to PBF with Osmium"
-docker compose run --rm --build osmium
+docker build -t osmium-converter ./osmium
 
-# docker run --rm \
-#   -v "$PWD/$OSRM_DATA_DIR:/data" \
-#   osmium-converter \
-#   cat "/data/$OSRM_BASENAME.osm" -o "/data/$OSRM_BASENAME.osm.pbf" -f pbf --overwrite >>/dev/null 2>&1
+echo "[DOCKER] Performing conversion of OSM XML to PBF with Osmium"
+docker run --rm \
+  -v "$PWD/$OSRM_DATA_DIR:/data" \
+  osmium-converter \
+  cat "/data/$OSRM_BASENAME.osm" -o "/data/$OSRM_BASENAME.osm.pbf" -f pbf --overwrite >>/dev/null 2>&1
 
 # Return file info for user feedback
-# docker run --rm \
-#   -v "$PWD/$OSRM_DATA_DIR:/data" \
-#   osmium-converter \
-#   fileinfo "/data/$OSRM_BASENAME.osm.pbf"
+docker run --rm \
+  -v "$PWD/$OSRM_DATA_DIR:/data" \
+  osmium-converter \
+  fileinfo "/data/$OSRM_BASENAME.osm.pbf"
 
-if [ ! -f "data/osm_files/merged.pbf" ]; then
+if [ ! -f "$OSRM_DATA_DIR/$OSRM_BASENAME.osm.pbf" ]; then
   echo "[FATAL] Osmium conversion failed or output is missing"
   exit 1
 fi
 
-cp ./data/osm_files/merged.pbf ./data/osrm_map/map.pbf
-
-echo "[DOCKER] Launching OSRM Server"
-# docker compose up -d --rm osrm-server #>>/dev/null 2>&1
 # ------------------------------------------------------------------
 # 6. Prepare OSRM graph via docker osrm-backend
 # ------------------------------------------------------------------
-echo "[DOCKER] Pre-processing map.pbf with custom profile: $PROFILE_PATH"
-docker compose --profile prep up --abort-on-container-exit osrm-prep
-# docker run --rm \
-#   -v "$PWD/$OSRM_DATA_DIR:/data" \
-#   -v "$PWD/$PROFILE_PATH:/opt/profile.lua" \
-#   osrm/osrm-backend \
-#   bash -c "\
-#   osrm-extract -p /opt/profile.lua '/data/$OSRM_BASENAME.osm' &&
-#   osrm-partition '/data/$OSRM_BASENAME.osrm' &&
-#   osrm-customize '/data/$OSRM_BASENAME.osrm' " >>/dev/null 2>&1
+
+echo "[DOCKER] Pre-processing $OSM_OUTPUT with custom profile: $PROFILE_PATH"
+docker run --rm \
+  -v "$PWD/$OSRM_DATA_DIR:/data" \
+  -v "$PWD/$PROFILE_PATH:/opt/profile.lua" \
+  osrm/osrm-backend \
+  bash -c "\
+  osrm-extract -p /opt/profile.lua '/data/$OSRM_BASENAME.osm' &&
+  osrm-partition '/data/$OSRM_BASENAME.osrm' &&
+  osrm-customize '/data/$OSRM_BASENAME.osrm' " >>/dev/null 2>&1
 
 # ------------------------------------------------------------------
 # 7. Start detached OSRM routing server
 # ------------------------------------------------------------------
 
-docker compose up -d osrm-server
-# docker run -d \
-#   -v "$PWD/$OSRM_DATA_DIR:/data" \
-#   -p 5000:5000 \
-#   --name osrm \
-#   osrm/osrm-backend \
-#   osrm-routed --algorithm mld --max-matching-size 500 "/data/$OSRM_BASENAME.osrm" >>/dev/null 2>&1
+echo "[DOCKER] Launching OSRM Container"
+docker run -d \
+  -v "$PWD/$OSRM_DATA_DIR:/data" \
+  -p 5000:5000 \
+  --name osrm \
+  osrm/osrm-backend \
+  osrm-routed --algorithm mld --max-matching-size 500 "/data/$OSRM_BASENAME.osrm" >>/dev/null 2>&1
 
 # ------------------------------------------------------------------
 # 8. Batch matching of GPX chunks
@@ -158,6 +167,7 @@ python3 batch_route_calc.py "./data/temp" $DYNAMIC_WINDOW
 # ------------------------------------------------------------------
 # 9. Visualize results
 # ------------------------------------------------------------------
+
 python3 plot_map.py #OPTIONAL: Add other methods of visualisation...
 # this area is just for testing purposes.
 
@@ -168,16 +178,13 @@ python3 plot_map.py #OPTIONAL: Add other methods of visualisation...
 echo "[CLEANUP] Cleaning up JSON chunks..."
 rm -rf data/temp/*
 rm -rf data/results/*
-rm -rf osrm/data/*
-rm -rf data/osm_files/*.pbf
-rm -rf data/osm_files/fragments/*
 echo "[CLEANUP] Removing excess map data..."
+rm -rf osrm/data/*
 
 echo "[CLEANUP] Cleaning up virtual environment..."
 deactivate
 echo "[CLEANUP] Shutting down Docker container"
-# docker rm -f osrm >/dev/null 2>&1 || true
-docker compose down
+docker rm -f osrm >/dev/null 2>&1 || true
 # rm -rf "$VENV_DIR"
 
 echo "Done :)"

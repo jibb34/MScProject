@@ -1,5 +1,5 @@
 gpx_file: data/input/test.gpx
-osm_output: data/osrm_map/map.osm
+osm_output: data/osm_files/map.osm
 json_directory: data/temp
 chunk_size: 100
 radius: 5

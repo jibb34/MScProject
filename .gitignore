@@ -1,4 +1,4 @@
-./code/data
+code/pipeline/data/
 .DS_Store
-./code/matching/test.graphml
-./code/.archive
+code/.archive/
+code/pipeline/osrm/data/
