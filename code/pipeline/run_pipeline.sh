@@ -30,6 +30,7 @@ fi
 GPX_SOURCE_PATH=$(parse_yaml_value "gpx_source")
 # GPX_FILE=$(parse_yaml_value "gpx_file")
 OSM_OUTPUT_PATH="data/osm_files"
+mkdir -p "$OSM_OUTPUT_PATH"
 CHUNK_SIZE=$(parse_yaml_value "chunk_size")
 RADIUS=$(parse_yaml_value "radius")
 DYNAMIC_WINDOW=$(parse_yaml_value "dynamic_radius_window")
@@ -42,8 +43,8 @@ for filepath in "$OSM_OUTPUT_PATH"/*; do
 done
 
 # Error if no .gpx or output directory found
-if [ -z "$GPX_SOURCE_PATH" ] || [ -z "$OSM_OUTPUT_PATH" ]; then
-  echo "[ERROR] gpx_source and osm_files must be set in $CONFIG_FILE"
+if [ -z "$GPX_SOURCE_PATH" ]; then
+  echo "[ERROR] gpx_source  must be set in $CONFIG_FILE"
   exit 1
 fi
 
@@ -169,14 +170,14 @@ for dir in ./data/results/*/; do
   python3 source/merge_routes.py "$dir" "./data/results"
 done
 find ./data/results -mindepth 1 -type d -exec rm -rf {} +
-rm -rf ./data/temp/*
-exit 1
 # ------------------------------------------------------------------
 # 10. Visualize results
 # ------------------------------------------------------------------
-python3 source/plot_map.py
-python3 source/plot_merged.py #OPTIONAL: Add other methods of visualisation...
-# this area is just for testing purposes.
+# python3 source/plot_map.py
+for input in ./data/results/*; do
+  python3 source/plot_merged.py "$input"
+done
+#OPTIONAL: Add other methods of visualisation...
 
 #
 # ------------------------------------------------------------------
@@ -184,11 +185,10 @@ python3 source/plot_merged.py #OPTIONAL: Add other methods of visualisation...
 # ------------------------------------------------------------------
 
 echo "[CLEANUP] Cleaning up JSON chunks..."
-rm -rf data/temp/*
-rm -rf data/results/*
-rm -rf docker/osrm/data/*
+rm -rf ./data/temp/*
 rm -rf data/osm_files/*.pbf
 rm -rf data/osm_files/fragments/*
+rm -rf data/osrm/*
 echo "[CLEANUP] Removing excess map data..."
 
 echo "[CLEANUP] Cleaning up virtual environment..."

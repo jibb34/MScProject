@@ -1,4 +1,5 @@
 import os
+import argparse
 import json
 import folium
 from itertools import cycle
@@ -6,24 +7,22 @@ from itertools import cycle
 
 def main():
     # Directory containing match result JSON files
-    directory = "./data/"
-    chunk_dir = "./data/temp"
+    directory = "./data/results"
 
     # Collect all match_result_*.json files
     # files = sorted([
     #     f for f in os.listdir(directory)
     #     if f.startswith("match_result_") and f.endswith(".json")
     # ])
-    files = []
-    files.append("merge.json")
-    chunk_files = sorted([
-        f for f in os.listdir(chunk_dir)
-        if f.startswith("match_chunk_") and f.endswith(".json")
-    ])
+    files = [f for f in os.listdir(directory)]
+    # chunk_files = sorted([
+    #     f for f in os.listdir(chunk_dir)
+    #     if f.startswith("match_chunk_") and f.endswith(".json")
+    # ])
 
     if not files:
         raise FileNotFoundError(
-            f"No match_result_*.json files found in {directory}")
+            f"No .json files found in {directory}")
 
     # Compute an average center for the initial map view
     all_lats = []
@@ -37,14 +36,14 @@ def main():
     center = [sum(all_lats) / len(all_lats), sum(all_lons) / len(all_lons)]
 
     # Create Folium map
-    m = folium.Map(location=center, zoom_start=13)
 
     # Define two alternating colors
     colors = ['blue', 'orange']
     color_cycle = cycle(colors)
 
     # Add each chunk as a PolyLine with alternating color
-    for filename, chunk_file in zip(files, chunk_files):
+    for filename in files:
+        m = folium.Map(location=center, zoom_start=13)
         color = next(color_cycle)
         data = json.load(open(os.path.join(directory, filename)))
         for seg in data.get("matchings", []):
@@ -52,9 +51,6 @@ def main():
                       for lon, lat in seg["geometry"]["coordinates"]]
             folium.PolyLine(coords, color=color, weight=5,
                             opacity=0.8).add_to(m)
-        with open(os.path.join(chunk_dir, chunk_file)) as f:
-            chunk_data = json.load(f)
-        raw_pts = chunk_data.get("coordinates", [])
         # Plot coordinates of raw points to compare
         # for lon, lat in raw_pts:
         #     folium.CircleMarker(
@@ -65,10 +61,11 @@ def main():
         #         fill_opacity=0.5,
         #     ).add_to(m)
 
-    # Save to HTML
-    output_file = "interactive_map_merged.html"
-    m.save(output_file)
-    print(f"Saved interactive map to {output_file}")
+        # Save to HTML
+        output_file = f"interactive_map_{
+            os.path.splitext(os.path.basename(filename))[0]}.html"
+        m.save(output_file)
+        print(f"Saved interactive map to {output_file}")
 
 
 if __name__ == "__main__":
