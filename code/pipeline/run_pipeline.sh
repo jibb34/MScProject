@@ -125,7 +125,7 @@ echo "[DOCKER] Launching OSRM Server"
 # 6. Prepare OSRM graph via docker osrm-backend
 # ------------------------------------------------------------------
 echo "[DOCKER] Pre-processing map.pbf with custom profile: $PROFILE_PATH"
-docker compose --profile prep up --abort-on-container-exit osrm-prep
+docker compose --profile prep up --abort-on-container-exit osrm-prep >>/dev/null 2>&1
 # docker run --rm \
 #   -v "$PWD/$OSRM_DATA_DIR:/data" \
 #   -v "$PWD/$PROFILE_PATH:/opt/profile.lua" \
@@ -150,7 +150,6 @@ docker compose up -d osrm-server
 # ------------------------------------------------------------------
 # 8. Batch matching of GPX chunks
 # ------------------------------------------------------------------
-
 python3 source/batch_route_calc.py "./data/temp" $DYNAMIC_WINDOW
 
 # ------------------------------------------------------------------
@@ -161,7 +160,6 @@ python3 source/merge_routes.py
 # ------------------------------------------------------------------
 # 10. Visualize results
 # ------------------------------------------------------------------
-# python3 plot_map.py
 python3 source/plot_map.py
 python3 source/plot_merged.py #OPTIONAL: Add other methods of visualisation...
 # this area is just for testing purposes.
@@ -183,7 +181,9 @@ echo "[CLEANUP] Cleaning up virtual environment..."
 deactivate
 echo "[CLEANUP] Shutting down Docker container"
 # docker rm -f osrm >/dev/null 2>&1 || true
-docker compose down
+docker-compose down --remove-orphans -v
+docker network prune -f
+
 # rm -rf "$VENV_DIR"
 
 echo "Done :)"
