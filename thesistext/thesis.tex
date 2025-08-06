@@ -1,0 +1,300 @@
+% !TEX TS-program = xelatex
+\documentclass[12pt,a4paper]{report}
+
+%---------------------------------------------------------------------------
+% Packages
+%---------------------------------------------------------------------------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+
+%---------------------------------------------------------------------------
+% Graphics and Listings Setup
+%---------------------------------------------------------------------------
+\graphicspath{{figures/}}
+\captionsetup{font=small,labelfont=bf}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal},
+  showstringspaces=false
+}
+
+%---------------------------------------------------------------------------
+% Header and Footer
+%---------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%---------------------------------------------------------------------------
+% Spacing
+%---------------------------------------------------------------------------
+\onehalfspacing
+
+%---------------------------------------------------------------------------
+% Document
+%---------------------------------------------------------------------------
+\begin{document}
+
+%-------------------- Front Matter --------------------
+\begin{titlepage}
+	\centering
+	{\Huge\bfseries Title of the Thesis\\[1em]}
+	{\Large Subtitle if needed\\[4em]}
+	{\Large Author Name\\[2em]}
+	{\large Department, University\\[1em]}
+	{\large Month Year\\[4em]}
+\end{titlepage}
+
+% Abstract
+\begin{abstract}
+	% Add Abstract to ToC
+	\addcontentsline{toc}{chapter}{Abstract}
+	% Your abstract text here.
+	In professional cycling, athletes are often sent to training camps in locations such as the French Alps, Andorra, Sierra Nevada,
+	Colorado Springs, or other high altitude destinations. While a big part of this is altitude acclimatisation, many cyclists report
+	that the biggest effect is actually the suitability of the roads for training. Long, car-devoid mountains, where athletes can just
+	put their head down and focus on their effort means that their training quality is improved, as opposed to having to ride through small
+	villages, stopping at intersections and being constantly vigilant of overtaking cars or traffic furniture. This thesis explores the
+	possibility of being able to track and quantize "Training Suitability" of roads. What is proposed is an integrated framework that
+	can semantically partition continuous trajectory data from a cyclist's GPS device, and meaningfully define each segment in the context of
+	training suitability. Starting from raw GPS traces, we apply geometric filtering and map-matching to correct noise and align positions with a
+	reference network. An adaptive segmentation algorithm then identifies breakpoints using curvature statistics, speed variance,
+	and road metadata (such as road name, or speed limit), yielding segments that have a homogenous quality.
+	Each segment is characterized by spatial, temporal, and contextual features and subsequently classified through a Wavelet Transform
+	function that quantizes variability and changepoints in data streams. The scalability and robustness of the framework will be evaluated
+	through a small-scale live web application.
+
+\end{abstract}
+
+% Table of Contents, List of Figures, List of Tables
+\tableofcontents
+\listoffigures
+\listoftables
+
+%-------------------- Main Chapters --------------------
+
+\chapter{Introduction}
+\label{chap:introduction}
+\section{Background}
+% Background content here.
+
+\section{Research Objectives}
+% Objectives here.
+
+\chapter{Objects of Relevance}
+\label{chap:objects}
+% Describe objects relevant to the project.
+
+\chapter{Literature Review}
+\label{chap:litreview}
+\section{LSEPI Analysis}
+% LSEPI analysis content.
+
+% Sections for each component
+\section{Component A}
+% ...
+
+\section{Component B}
+% ...
+
+% Add more as needed
+
+\chapter{Requirements Document}
+\label{chap:requirements}
+\section{Software Requirements Specification (SRS)}
+\label{sec:srs}
+% ISO/IEC/IEEE 29148-compliant structure
+\subsection{Purpose and Scope}
+% Define the purpose of this SRS and the scope of the system.
+
+\subsection{Intended Audience and Reading Suggestions}
+% Stakeholders and recommendations for reading order.
+
+\subsection{Overall Description}
+\subsubsection{Product Perspective}
+% Context and interfaces with other systems.
+
+\subsubsection{Product Functions}
+% Summary of major functions of the system.
+
+\subsubsection{User Characteristics}
+% User profiles, skill levels, and constraints.
+
+\subsubsection{Operating Environment}
+% Hardware, software, and regulatory environments.
+
+\subsubsection{Design and Implementation Constraints}
+% Standards, languages, and tools that constrain design.
+
+\subsubsection{Assumptions and Dependencies}
+% External factors assumed to be true.
+
+\subsection{Specific Requirements}
+\subsubsection{External Interface Requirements}
+% \paragraph{User Interfaces} Description of UI requirements.
+% \paragraph{Hardware Interfaces} Hardware communication needs.
+% \paragraph{Software Interfaces} APIs and protocols.
+% \paragraph{Communication Interfaces} Network protocols and formats.
+
+\subsubsection{Functional Requirements}
+% Enumerate functional requirements (ID, description, rationale).
+
+\subsubsection{Performance Requirements}
+% Timing, throughput, and capacity requirements.
+
+\subsubsection{Logical Database Requirements}
+% Data definitions, schemas, and constraints.
+
+\subsubsection{Software System Attributes}
+\paragraph{Reliability}
+% Availability, MTBF, and error handling.
+
+\paragraph{Availability}
+% Uptime requirements.
+
+\paragraph{Security}
+% Authentication, authorization, and encryption.
+
+\paragraph{Maintainability}
+% Modularity and supportability requirements.
+
+\paragraph{Portability}
+% Platform portability requirements.
+
+\subsubsection{Other Requirements}
+% Safety, legal, and standards compliance.
+
+\section{Standards and Compliance}
+% List standards adhered to.
+
+\chapter{Methodology}
+\label{chap:methodology}
+% Chronological methodology
+
+\section{Design}
+\label{sec:design}
+% ISO/IEC/IEEE 42010 compliant design documentation
+
+\subsection{Scope and Purpose}
+Define the objectives and deliverables of the design phase, linking back to the SRS.
+
+\subsection{Architectural Design}
+\subsubsection{Reference Architecture}
+Present a high-level system architecture diagram using UML or SysML.
+
+\paragraph{Architectural Views}
+\begin{itemize}
+	\item \textbf{Context View}: System boundaries, external entities, and interfaces.
+	\item \textbf{Functional View}: Key modules and their responsibilities.
+	\item \textbf{Physical View}: Hardware deployment and network topology.
+	\item \textbf{Information View}: Data flow and storage structures.
+	\item \textbf{Behavioral View}: Sequence and state diagrams for critical scenarios.
+\end{itemize}
+
+\subsubsection{Design Rationale}
+Justify architectural decisions, discuss alternatives, and document trade-offs.
+
+\subsubsection{Design Patterns and Styles}
+Identify and describe any applied patterns (e.g., MVC, layered) and coding conventions.
+
+\subsection{Module-Level Design}
+\subsubsection{Module Decomposition}
+List all system modules, their interfaces, and dependencies. Include a module dependency diagram.
+
+\subsubsection{Module Specifications}
+For each module:
+\begin{description}
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+
+\subsection{Interface Design}
+\subsubsection{User Interface}
+Wireframes or mockups, navigation flows, and accessibility guidelines (e.g., WCAG 2.1).
+
+\subsubsection{Software Interfaces}
+API contracts, message schemas (e.g., JSON, XML), and error handling.
+
+\subsubsection{Hardware Interfaces}
+Detailed electrical and protocol specifications for device interactions.
+
+\subsection{Data Design}
+\subsubsection{Data Models}
+ER diagrams or class diagrams showing data entities and relationships.
+
+\subsubsection{Database Schema}
+Detailed table definitions, keys, indexes, and normalization rules.
+
+\subsubsection{Data Dictionary}
+Definitions and formats for all data elements used in the system.
+
+\subsection{Security and Safety Design}
+Risk assessment, threat models, and mitigation strategies.
+
+\subsection{Standards and Compliance in Design}
+List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g., ISO/IEC 27001 for security).
+
+\section{Implementation}
+% Implementation details.
+
+\section{Testing and Results}
+% Testing procedures and results.
+
+\chapter{Results and Conclusions}
+\label{chap:results}
+% Final results and conclusions.
+
+\chapter{Further Discussions and Research Gaps}
+\label{chap:discussion}
+% Discussion and gaps.
+
+\appendix
+\chapter{Appendix}
+\label{chap:appendix}
+\section{Further Reading}
+% References for further reading.
+
+\section{Source Code}
+% Include code listings or reference external files.
+
+\section{File Structure}
+% Describe directory/file organization.
+
+\section{Additional Documentation}
+% Any extra docs.
+
+%---------------------------------------------------------------------------
+% Bibliography
+%---------------------------------------------------------------------------
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
+

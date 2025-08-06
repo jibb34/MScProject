@@ -1,0 +1,63 @@
+\contentsline {chapter}{Abstract}{1}{Doc-Start}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Research Objectives}{3}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Objects of Relevance}{4}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Literature Review}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}LSEPI Analysis}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Component A}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Component B}{5}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Requirements Document}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Software Requirements Specification (SRS)}{6}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Purpose and Scope}{6}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Intended Audience and Reading Suggestions}{6}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Overall Description}{6}{subsection.4.1.3}%
+\contentsline {subsubsection}{Product Perspective}{6}{section*.1}%
+\contentsline {subsubsection}{Product Functions}{6}{section*.2}%
+\contentsline {subsubsection}{User Characteristics}{6}{section*.3}%
+\contentsline {subsubsection}{Operating Environment}{6}{section*.4}%
+\contentsline {subsubsection}{Design and Implementation Constraints}{6}{section*.5}%
+\contentsline {subsubsection}{Assumptions and Dependencies}{6}{section*.6}%
+\contentsline {subsection}{\numberline {4.1.4}Specific Requirements}{6}{subsection.4.1.4}%
+\contentsline {subsubsection}{External Interface Requirements}{6}{section*.7}%
+\contentsline {subsubsection}{Functional Requirements}{6}{section*.8}%
+\contentsline {subsubsection}{Performance Requirements}{6}{section*.9}%
+\contentsline {subsubsection}{Logical Database Requirements}{6}{section*.10}%
+\contentsline {subsubsection}{Software System Attributes}{6}{section*.11}%
+\contentsline {paragraph}{Reliability}{6}{section*.12}%
+\contentsline {paragraph}{Availability}{6}{section*.13}%
+\contentsline {paragraph}{Security}{7}{section*.14}%
+\contentsline {paragraph}{Maintainability}{7}{section*.15}%
+\contentsline {paragraph}{Portability}{7}{section*.16}%
+\contentsline {subsubsection}{Other Requirements}{7}{section*.17}%
+\contentsline {section}{\numberline {4.2}Standards and Compliance}{7}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Methodology}{8}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Design}{8}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Scope and Purpose}{8}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Architectural Design}{8}{subsection.5.1.2}%
+\contentsline {subsubsection}{Reference Architecture}{8}{section*.18}%
+\contentsline {paragraph}{Architectural Views}{8}{section*.19}%
+\contentsline {subsubsection}{Design Rationale}{8}{section*.20}%
+\contentsline {subsubsection}{Design Patterns and Styles}{8}{section*.21}%
+\contentsline {subsection}{\numberline {5.1.3}Module-Level Design}{9}{subsection.5.1.3}%
+\contentsline {subsubsection}{Module Decomposition}{9}{section*.22}%
+\contentsline {subsubsection}{Module Specifications}{9}{section*.23}%
+\contentsline {subsection}{\numberline {5.1.4}Interface Design}{9}{subsection.5.1.4}%
+\contentsline {subsubsection}{User Interface}{9}{section*.24}%
+\contentsline {subsubsection}{Software Interfaces}{9}{section*.25}%
+\contentsline {subsubsection}{Hardware Interfaces}{9}{section*.26}%
+\contentsline {subsection}{\numberline {5.1.5}Data Design}{9}{subsection.5.1.5}%
+\contentsline {subsubsection}{Data Models}{9}{section*.27}%
+\contentsline {subsubsection}{Database Schema}{9}{section*.28}%
+\contentsline {subsubsection}{Data Dictionary}{9}{section*.29}%
+\contentsline {subsection}{\numberline {5.1.6}Security and Safety Design}{10}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Standards and Compliance in Design}{10}{subsection.5.1.7}%
+\contentsline {section}{\numberline {5.2}Implementation}{10}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Testing and Results}{10}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Results and Conclusions}{11}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Further Discussions and Research Gaps}{12}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Appendix}{13}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Further Reading}{13}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Source Code}{13}{section.A.2}%
+\contentsline {section}{\numberline {A.3}File Structure}{13}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Additional Documentation}{13}{section.A.4}%
