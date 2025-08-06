@@ -105,6 +105,8 @@ def get_osrm_match(file_path, radius_step=5, max_radius=100):
                                 params=params,
                                 timeout=30)
         response.raise_for_status()
+        # print(f"{base_name}: {response.status_code}, {
+        #       response.json().get('code')}")
         result = response.json()
         # If multiple matchings found (more than 1 continuous route),
         # diagnose poorly matched points

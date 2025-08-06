@@ -43,11 +43,3 @@ services:
     command: >
       osrm-routed --algorithm mld --max-matching-size 500 /data/map.osrm
     restart: "no"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
-      interval: 10s
-      retries: 5
-
-networks:
-  default:
-    name: osrm-network
