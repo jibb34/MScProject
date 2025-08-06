@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}System Overview}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Purpose}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Scope}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Repository Structure}{2}{section.3}%
+\contentsline {section}{\numberline {4}Configuration and Dependencies}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Configuration: \texttt {settings.yml}}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Dependencies: \texttt {requirements.txt}}{3}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Pipeline Driver}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}\texttt {run\_pipeline.sh}}{3}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Preprocessing Stage}{3}{section.6}%
+\contentsline {subsection}{\numberline {6.1}\texttt {prepare\_map.py}}{3}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Matching Stage}{3}{section.7}%
+\contentsline {subsection}{\numberline {7.1}\texttt {batch\_route\_calc.py}}{3}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Visualization}{4}{section.8}%
+\contentsline {subsection}{\numberline {8.1}\texttt {plot\_map.py}}{4}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}\texttt {show\_osm.py}}{4}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Utility Modules}{4}{section.9}%
+\contentsline {subsection}{\numberline {9.1}\texttt {utils/gpx\_utils.py}}{4}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}\texttt {utils/osrm\_utils.py}}{4}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Docker Infrastructure}{4}{section.10}%
+\contentsline {subsection}{\numberline {10.1}\texttt {docker-compose.yml}}{4}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}\texttt {osmium/} Directory}{5}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}\texttt {osrm/} Directory}{5}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Experimental Tools (\texttt {temp/})}{5}{section.11}%
+\contentsline {section}{\numberline {12}Algorithms}{5}{section.12}%
+\contentsline {subsection}{\numberline {12.1}GPX--OSRM Matching}{5}{subsection.12.1}%
+\contentsline {section}{\numberline {13}Methods}{5}{section.13}%
+\contentsline {section}{\numberline {14}Usage Summary}{6}{section.14}%
+\contentsline {section}{\numberline {15}References}{6}{section.15}%
