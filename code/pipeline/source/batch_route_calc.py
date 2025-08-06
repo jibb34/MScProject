@@ -22,10 +22,9 @@ def parse_args():
         "chunk_dir", help="Directory that contains all JSON chunks of the GPX file"
     )
     parser.add_argument(
-        "dynamic_window", help="The length of the window used to calculate dynamic radius search")
+        "output_dir", help="Directory that the match file is sent to")
     parser.add_argument(
-        "--debug", action="store_true", help="Run in debug mode"
-    )
+        "dynamic_window", help="The length of the window used to calculate dynamic radius search")
     return parser.parse_args()
 
 
@@ -51,14 +50,13 @@ def route_fill_gaps(results_dir, output_dir, overview="full", geometries="geojso
     pass
 
 
-def get_osrm_match(file_path, radius_step=5, max_radius=100):
+def get_osrm_match(file_path, args):
     """
     Send a match request to the OSRM server for a given JSON chunk.
 
     Args:
         file_path (str): Path to the JSON chunk file.
-        radius_step (int): Step size for radius (unused; dynamic radius is used).
-        max_radius (int): Maximum search radius (unused).
+        args: list of input arguments, used to get file outputs
 
     Returns:
         tuple: (file_path, result_json)
@@ -126,7 +124,7 @@ def get_osrm_match(file_path, radius_step=5, max_radius=100):
     # If a chunk could not be processed,
     # an empty chunk is produced in results/gap
     # for later processing
-    out_dir = "./data/results"
+    out_dir = args.output_dir
     gap_dir = os.path.join(out_dir, "gap")
     dest = (os.path.join(out_dir, output_file)
             if result.get("matchings")
@@ -149,14 +147,15 @@ def main(args):
     """
     CHUNK_DIR = args.chunk_dir
     # Prepare results directories
-    results_dir = "./data/results"
+    results_dir = args.output_dir
     gap_dir = os.path.join(results_dir, "gap")
     os.makedirs(gap_dir, exist_ok=True)
 
     # Set max thread count to either the number of chunks to
     # process, or 32, whichever is less
     MAX_THREADS = min(32, sum(1 for name in os.listdir(CHUNK_DIR)))
-    os.makedirs("./data/results/gap", exist_ok=True)
+    print(f"Max threadcount: {MAX_THREADS}")
+    os.makedirs(os.path.join(results_dir, "gap"), exist_ok=True)
 
     # =========== pull all chunk files from directory sorted ===========
     json_files = sorted([
@@ -168,7 +167,9 @@ def main(args):
     # Send request on each thread to server running OSRM software
     with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
         future_to_file = {executor.submit(
-            get_osrm_match, f): f for f in json_files}
+            get_osrm_match, f, args): f for f in json_files}
+    print(f"[PYTHON] Matching complete for {os.path.basename(os.path.normpath(CHUNK_DIR))}. {
+          len(future_to_file)} files processed")
     for future in as_completed(future_to_file):
         try:
             file, result = future.result()

@@ -76,7 +76,7 @@ pip install --upgrade pip
 pip install --quiet -r "$REQ_FILE"
 
 # ------------------------------------------------------------------
-# 3. Prepare map & split GPX
+# 3. Prepare maps & split GPX files
 # ------------------------------------------------------------------
 
 echo "[PYTHON] Parsing GPX file and getting OSM map file"
@@ -90,11 +90,8 @@ echo "[PYTHON] Map Downloaded as .osm"
 # ------------------------------------------------------------------
 # 4. Copy OSM into OSRM dir
 # ------------------------------------------------------------------
-exit 1
 
 echo "[SHELL] Copying files to Docker Volumes"
-mkdir -p "$OSRM_DATA_DIR"
-cp "$OSM_OUTPUT" "$OSRM_DATA_DIR/$OSRM_BASENAME.osm"
 
 # ------------------------------------------------------------------
 # 5. Convert .osm → .pbf via docker osmium
@@ -103,7 +100,7 @@ cp "$OSM_OUTPUT" "$OSRM_DATA_DIR/$OSRM_BASENAME.osm"
 #Build Docker image
 echo "[DOCKER] Starting Osmium Docker container"
 # docker build -t osmium-converter ./osmium
-echo "[DOCKER] Performing conversion of OSM XML to PBF with Osmium"
+echo "[DOCKER] Performing conversion of OSM to PBF with Osmium"
 docker compose run --rm --build osmium
 
 # docker run --rm \
@@ -121,9 +118,9 @@ if [ ! -f "data/osm_files/merged.pbf" ]; then
   echo "[FATAL] Osmium conversion failed or output is missing"
   exit 1
 fi
-
+rm -rf ./data/osrm_map/*
+mkdir -p ./data/osrm_map
 cp ./data/osm_files/merged.pbf ./data/osrm_map/map.pbf
-
 echo "[DOCKER] Launching OSRM Server"
 # docker compose up -d --rm osrm-server #>>/dev/null 2>&1
 # ------------------------------------------------------------------
@@ -143,7 +140,6 @@ docker compose --profile prep up --abort-on-container-exit osrm-prep >>/dev/null
 # ------------------------------------------------------------------
 # 7. Start detached OSRM routing server
 # ------------------------------------------------------------------
-
 docker compose up -d osrm-server
 # docker run -d \
 #   -v "$PWD/$OSRM_DATA_DIR:/data" \
@@ -155,13 +151,26 @@ docker compose up -d osrm-server
 # ------------------------------------------------------------------
 # 8. Batch matching of GPX chunks
 # ------------------------------------------------------------------
-python3 source/batch_route_calc.py "./data/temp" $DYNAMIC_WINDOW
+
+# Each directory in temp will get a corresponding directory in "/data/results"
+for dir in ./data/temp/*/; do
+  [ -d "$dir" ] || continue
+  dirname=$(basename "$dir")
+  target_subdir="./data/results/$dirname"
+  mkdir -p "$target_subdir"
+  python3 source/batch_route_calc.py "$dir" "$target_subdir" "$DYNAMIC_WINDOW"
+done
 
 # ------------------------------------------------------------------
 # 9. Merge chunks
 # ------------------------------------------------------------------
-python3 source/merge_routes.py
-
+for dir in ./data/results/*/; do
+  [ -d "$dir" ] || continue
+  python3 source/merge_routes.py "$dir" "./data/results"
+done
+find ./data/results -mindepth 1 -type d -exec rm -rf {} +
+rm -rf ./data/temp/*
+exit 1
 # ------------------------------------------------------------------
 # 10. Visualize results
 # ------------------------------------------------------------------

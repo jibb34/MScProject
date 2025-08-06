@@ -1,8 +1,20 @@
 import os
+import argparse
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from tqdm import tqdm
 import polyline
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Pass in the input and output directory"
+    )
+    parser.add_argument(
+        "input_dir", help="Directory that contains all JSON chunks of the GPX file"
+    )
+    parser.add_argument(
+        "output_dir", help="Directory that the match file is sent to")
+    return parser.parse_args()
 
 
 def extract_coords(matching, label=""):
@@ -124,7 +136,7 @@ def tree_merge_routes(matches, executor):
         index = future_to_index[future]
         merged_results[index] = future.result()
     # recursive call
-    print(f"Merging {len(merged_results)} chunks")
+    # print(f"Merging {len(merged_results)} chunks")
     return tree_merge_routes(merged_results, executor)
 
 
@@ -154,11 +166,8 @@ def main(input_dir, output_dir, output_name):
     # Start thread executor
     with ThreadPoolExecutor(max_workers=num_threads) as executor:
         print(f"[INFO] Loading {len(json_files)} match files...")
-        match_chunks = list(
-            tqdm(executor.map(get_json_data,
-                              json_files),
-                 total=len(json_files)))
-        print(f"[INFO] Recursively merging using {num_threads} threads...")
+        match_chunks = list(executor.map(get_json_data, json_files))
+        # print(f"[INFO] Recursively merging using {num_threads} threads...")
         merged = tree_merge_routes(match_chunks, executor)
 
     print(f"[CHECK] Total matchings in final merge: {
@@ -172,7 +181,9 @@ def main(input_dir, output_dir, output_name):
 
 
 if __name__ == "__main__":
-    input_directory = "./data/results"
-    output_dir = "./data"
-    output_name = "merge"
+    args = parse_args()
+    input_directory = args.input_dir
+    output_dir = args.output_dir
+    # name of directory for naming the merge
+    output_name = os.path.basename(os.path.normpath(input_directory))
     main(input_directory, output_dir, output_name)

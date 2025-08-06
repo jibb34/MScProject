@@ -28,7 +28,7 @@ Notes:
     """
 
 
-def points_to_osrm_json(gpx_points, output_dir, radius=5, chunk_size=0):
+def points_to_osrm_json(gpx_points, output_dir, basename, radius=5, chunk_size=0):
 
     Path(output_dir).mkdir(parents=True, exist_ok=True)
 
@@ -84,7 +84,7 @@ def points_to_osrm_json(gpx_points, output_dir, radius=5, chunk_size=0):
             payload = create_payload(chunk, radius)
             chunk_idx = i // chunk_size
             # Setting the index to 000000...999999 instead to keep leading 0
-            path = os.path.join(output_dir, f"match_chunk_{
+            path = os.path.join(output_dir, f"{basename}_chunk_{
                                 chunk_idx:06d}.json")
             with open(path, "w") as f:
                 json.dump(payload, f, indent=2)

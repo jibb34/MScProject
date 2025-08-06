@@ -28,10 +28,36 @@ def parse_args():
     return parser.parse_args()
 
 
-def get_single_osm_from_gpx(gpx_file, output_path, radius, chunk_size):
-    gpx_name = os.path.basename(gpx_file)
+def thread_processes(gpx_file, output_path, chunk_dir, radius, chunk_size):
+    """ Thread processes that are executed at the start of the pipeline.
+    Includes reading and parsing GPX files, splitting the files into chunks,
+    and downloading the OSM file from the Overpass API
+    Could maybe further optimise this by having separate threads for splitting
+    chunks and downloading files from Overpass, but loading the files
+    must be done first regardless, so not much time would be saved from
+    creating more threads"""
+    # Gather data
+    gpx = load_gpx(gpx_file)
+    points = extract_data_from_gpx(gpx)
+    # Get all names that are required
+    gpx_name = os.path.splitext(os.path.basename(gpx_file))[0]
     output_file = gpx_name + ".osm"
-    chunk_dir = "/data/temp"
+    os.makedirs(output_path, exist_ok=True)
+    full_output_path = os.path.join(output_path, output_file)
+
+    points_to_osrm_json(points, chunk_dir, gpx_name, radius, chunk_size)
+    if not os.path.exists(full_output_path):
+        print(len(points))
+        get_single_osm_from_gpx(gpx_file, points, gpx_name, output_path)
+    else:
+        print(f"[WARNING] {output_file} exists in {output_path}, skipping...")
+        return
+
+
+def get_single_osm_from_gpx(gpx_file, points, gpx_name, output_path):
+    bbox = bounding_box_from_data(points)
+    gpx_name = os.path.splitext(os.path.basename(gpx_file))[0]
+    output_file = gpx_name + ".osm"
     full_output_path = os.path.join(output_path, output_file)
 
     # ========Load data into points=======
@@ -44,7 +70,6 @@ def get_single_osm_from_gpx(gpx_file, output_path, radius, chunk_size):
         download_osm_file(bbox, full_output_path)
     else:
         print(f"[WARNING] {output_file} exists in {output_path}, skipping...")
-        points_to_osrm_json(points, chunk_dir, radius, chunk_size)
         return
 
 
@@ -65,16 +90,21 @@ def main():
         if os.path.isfile(os.path.join(GPX_FILE_PATH, f))
         and os.path.splitext(f)[1].lower() == ".gpx"]
 
+    print(f"Found {len(gpx_files)} GPX files: {gpx_files}")
     with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
-        futures = [executor.submit(get_single_osm_from_gpx,
+        futures = [executor.submit(thread_processes,
                                    gpx_file,
                                    OSM_FILE_PATH,
+                                   f"data/temp/{os.path.splitext(
+                                       os.path.basename(gpx_file))[0]}",
                                    RADIUS,
-                                   CHUNK_SIZE)
+                                   CHUNK_SIZE
+                                   )
                    for gpx_file in gpx_files]
     for future in as_completed(futures):
         future.result()
 
-    if __name__ == "__main__":
-        args = parse_args()
-        main(debug=args.debug)
+
+if __name__ == "__main__":
+    print("test")
+    main()
