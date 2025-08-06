@@ -27,18 +27,23 @@ fi
 # 1.1. Load all settings into variables
 # ------------------------------------------------------------------
 
-GPX_FILE=$(parse_yaml_value "gpx_file")
-OSM_OUTPUT="data/osm_files/map.osm"
+GPX_SOURCE_PATH=$(parse_yaml_value "gpx_source")
+# GPX_FILE=$(parse_yaml_value "gpx_file")
+OSM_OUTPUT_PATH="data/osm_files"
 CHUNK_SIZE=$(parse_yaml_value "chunk_size")
-JSON_DIR="data/temp"
 RADIUS=$(parse_yaml_value "radius")
 DYNAMIC_WINDOW=$(parse_yaml_value "dynamic_radius_window")
 # ... load other keys similarly ...
-OSRM_BASENAME=$(basename "$OSM_OUTPUT" .osm)
+#
+OSRM_BASENAMES=()
+for filepath in "$OSM_OUTPUT_PATH"/*; do
+  name=$(basename "$filepath")
+  OSRM_BASENAMES+=("$name")
+done
 
 # Error if no .gpx or output directory found
-if [ -z "$GPX_FILE" ] || [ -z "$OSM_OUTPUT" ]; then
-  "[ERROR] gpx_file and osm_output must be set in $CONFIG_FILE"
+if [ -z "$GPX_SOURCE_PATH" ] || [ -z "$OSM_OUTPUT_PATH" ]; then
+  echo "[ERROR] gpx_source and osm_files must be set in $CONFIG_FILE"
   exit 1
 fi
 
@@ -47,13 +52,13 @@ if [ -z "$CHUNK_SIZE" ]; then
 fi
 
 if [ "$CHUNK_SIZE" -gt 200 ]; then
-  echo "[ERROR] Chunk Size cannot go beyond 50 points, due to current GET limits"
+  echo "[ERROR] Chunk Size cannot go beyond 200 points, due to current GET limits"
   exit 1
 fi
 
 echo "Starting pipeline..."
-echo "[INIT] GPX file: $GPX_FILE"
-echo "[INIT] OSM output file: $OSM_OUTPUT"
+echo "[INIT] GPX file path: $GPX_SOURCE_PATH"
+echo "[INIT] OSM output file path: $OSM_OUTPUT_PATH"
 
 # ------------------------------------------------------------------
 # 2. Create & activate Python virtualenv
@@ -76,9 +81,8 @@ pip install --quiet -r "$REQ_FILE"
 
 echo "[PYTHON] Parsing GPX file and getting OSM map file"
 python3 source/prepare_map.py \
-  "$GPX_FILE" \
-  "$OSM_OUTPUT" \
-  "$JSON_DIR" \
+  "$GPX_SOURCE_PATH" \
+  "$OSM_OUTPUT_PATH" \
   "$RADIUS" \
   "$CHUNK_SIZE"
 echo "[PYTHON] Map Downloaded as .osm"
@@ -86,6 +90,7 @@ echo "[PYTHON] Map Downloaded as .osm"
 # ------------------------------------------------------------------
 # 4. Copy OSM into OSRM dir
 # ------------------------------------------------------------------
+exit 1
 
 echo "[SHELL] Copying files to Docker Volumes"
 mkdir -p "$OSRM_DATA_DIR"
