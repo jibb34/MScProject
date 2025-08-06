@@ -15,6 +15,7 @@ import argparse
 
 import geopandas as gpd
 import folium
+from utils.gpx_utils import extract_data_from_gpx, load_gpx
 
 
 def load_roads(osm_file):
@@ -41,9 +42,23 @@ def visualize(osm_file, output_html, zoom):
     # Center map on roads bounding box
     minx, miny, maxx, maxy = roads.total_bounds
     center = [(miny + maxy) / 2, (minx + maxx) / 2]
+    gpx = load_gpx("data/input/test.gpx")
+    points = extract_data_from_gpx(gpx)
 
     m = folium.Map(location=center, zoom_start=zoom, tiles='cartodbpositron')
     folium.GeoJson(roads.to_json(), name='roads').add_to(m)
+    fg = folium.FeatureGroup(name="GPX Points")
+    for _, row in points.iterrows():
+        lon, lat = row.geometry.x, row.geometry.y
+        folium.CircleMarker(
+            location=(lat, lon),
+            radius=1,
+            color="red",
+            fill=True,
+            fill_color="red"
+        ).add_to(fg)
+    fg.add_to(m)
+
     folium.LayerControl().add_to(m)
     m.save(output_html)
     print(f"Saved interactive map to {output_html}")
