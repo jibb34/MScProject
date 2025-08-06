@@ -28,9 +28,9 @@ fi
 # ------------------------------------------------------------------
 
 GPX_FILE=$(parse_yaml_value "gpx_file")
-OSM_OUTPUT=$(parse_yaml_value "osm_output")
+OSM_OUTPUT="data/osm_files/map.osm"
 CHUNK_SIZE=$(parse_yaml_value "chunk_size")
-JSON_DIR=$(parse_yaml_value "json_directory")
+JSON_DIR="data/temp"
 RADIUS=$(parse_yaml_value "radius")
 DYNAMIC_WINDOW=$(parse_yaml_value "dynamic_radius_window")
 # ... load other keys similarly ...
@@ -162,6 +162,7 @@ python3 source/merge_routes.py
 # 10. Visualize results
 # ------------------------------------------------------------------
 # python3 plot_map.py
+python3 source/plot_map.py
 python3 source/plot_merged.py #OPTIONAL: Add other methods of visualisation...
 # this area is just for testing purposes.
 
