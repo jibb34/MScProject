@@ -3,7 +3,6 @@
 
 echo "Converting all .osm to .pbf..."
 
-mkdir -p "/data/fragments"
 for f in /data/*.osm; do
   [ -e "$f" ] || continue # skip if no .osm files
   f_b=$(basename "$f")

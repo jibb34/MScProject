@@ -1,5 +1,4 @@
 import os
-import argparse
 import json
 import folium
 from itertools import cycle
@@ -25,25 +24,29 @@ def main():
             f"No .json files found in {directory}")
 
     # Compute an average center for the initial map view
-    all_lats = []
     all_lons = []
+    all_lats = []
+    center = []
     for filename in files:
         data = json.load(open(os.path.join(directory, filename)))
         for seg in data.get("matchings", []):
             for lon, lat in seg["geometry"]["coordinates"]:
                 all_lats.append(lat)
                 all_lons.append(lon)
-    center = [sum(all_lats) / len(all_lats), sum(all_lons) / len(all_lons)]
+        center.append([sum(all_lats) / len(all_lats),
+                       sum(all_lons) / len(all_lons)])
+        all_lons = []
+        all_lats = []
 
     # Create Folium map
 
     # Define two alternating colors
-    colors = ['blue', 'orange']
+    colors = ['blue', 'green']
     color_cycle = cycle(colors)
 
     # Add each chunk as a PolyLine with alternating color
-    for filename in files:
-        m = folium.Map(location=center, zoom_start=13)
+    for i, filename in enumerate(files):
+        m = folium.Map(location=center[i], zoom_start=13)
         color = next(color_cycle)
         data = json.load(open(os.path.join(directory, filename)))
         for seg in data.get("matchings", []):

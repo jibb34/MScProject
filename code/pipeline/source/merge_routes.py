@@ -162,7 +162,6 @@ def main(input_dir, output_dir, output_name):
         os.path.join(INPUT_DIR, f) for f in os.listdir(INPUT_DIR)
         if f.endswith(".json")
     ])
-    # print(json_files)
     # Start thread executor
     with ThreadPoolExecutor(max_workers=num_threads) as executor:
         print(f"[INFO] Loading {len(json_files)} match files...")

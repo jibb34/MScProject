@@ -19,7 +19,7 @@ def parse_args():
         description="Pass in a GPX file"
     )
     parser.add_argument(
-        "chunk_dir", help="Directory that contains all JSON chunks of the GPX file"
+        "input_dir", help="Directory that contains all JSON chunks of the GPX file"
     )
     parser.add_argument(
         "output_dir", help="Directory that the match file is sent to")
@@ -145,7 +145,7 @@ def main(args):
     - Send them to the get_osrm_match function in parallel
     - Collect and save results
     """
-    CHUNK_DIR = args.chunk_dir
+    input_dir = args.input_dir
     # Prepare results directories
     results_dir = args.output_dir
     gap_dir = os.path.join(results_dir, "gap")
@@ -153,13 +153,13 @@ def main(args):
 
     # Set max thread count to either the number of chunks to
     # process, or 32, whichever is less
-    MAX_THREADS = min(32, sum(1 for name in os.listdir(CHUNK_DIR)))
+    MAX_THREADS = min(32, sum(1 for name in os.listdir(input_dir)))
     print(f"Max threadcount: {MAX_THREADS}")
     os.makedirs(os.path.join(results_dir, "gap"), exist_ok=True)
 
     # =========== pull all chunk files from directory sorted ===========
     json_files = sorted([
-        os.path.join(CHUNK_DIR, f) for f in os.listdir(CHUNK_DIR)
+        os.path.join(input_dir, f) for f in os.listdir(input_dir)
         if f.endswith(".json")
     ])
     # ============== Multithreaded requests =====================
@@ -168,7 +168,7 @@ def main(args):
     with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
         future_to_file = {executor.submit(
             get_osrm_match, f, args): f for f in json_files}
-    print(f"[PYTHON] Matching complete for {os.path.basename(os.path.normpath(CHUNK_DIR))}. {
+    print(f"[PYTHON] Matching complete for {os.path.basename(os.path.normpath(input_dir))}. {
           len(future_to_file)} files processed")
     for future in as_completed(future_to_file):
         try:
@@ -176,10 +176,6 @@ def main(args):
             results.append((file, result))
         except Exception as e:
             print(f"[ERROR] Thread Failed: {e}")
-
-    # ================= Merge into larger route ==============
-
-    # TODO: Implement merge function
 
 
 if __name__ == "__main__":

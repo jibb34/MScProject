@@ -92,8 +92,6 @@ echo "[PYTHON] Map Downloaded as .osm"
 # 4. Copy OSM into OSRM dir
 # ------------------------------------------------------------------
 
-echo "[SHELL] Copying files to Docker Volumes"
-
 # ------------------------------------------------------------------
 # 5. Convert .osm → .pbf via docker osmium
 # ------------------------------------------------------------------
@@ -101,6 +99,7 @@ echo "[SHELL] Copying files to Docker Volumes"
 #Build Docker image
 echo "[DOCKER] Starting Osmium Docker container"
 # docker build -t osmium-converter ./osmium
+mkdir -p data/osm_files/fragments
 echo "[DOCKER] Performing conversion of OSM to PBF with Osmium"
 docker compose run --rm --build osmium
 
@@ -142,6 +141,7 @@ docker compose --profile prep up --abort-on-container-exit osrm-prep >>/dev/null
 # 7. Start detached OSRM routing server
 # ------------------------------------------------------------------
 docker compose up -d osrm-server
+
 # docker run -d \
 #   -v "$PWD/$OSRM_DATA_DIR:/data" \
 #   -p 5000:5000 \
@@ -174,9 +174,7 @@ find ./data/results -mindepth 1 -type d -exec rm -rf {} +
 # 10. Visualize results
 # ------------------------------------------------------------------
 # python3 source/plot_map.py
-for input in ./data/results/*; do
-  python3 source/plot_merged.py "$input"
-done
+python3 source/plot_merged.py
 #OPTIONAL: Add other methods of visualisation...
 
 #
@@ -197,6 +195,10 @@ echo "[CLEANUP] Shutting down Docker container"
 # docker rm -f osrm >/dev/null 2>&1 || true
 docker-compose down --remove-orphans -v
 docker network prune -f
+docker stop osrm-server 1>/dev/null || true
+docker stop osrm-prep 1>/dev/null || true
+docker rm osrm-server 1>/dev/null || true
+docker rm osrm-prep 1>/dev/null || true
 
 # rm -rf "$VENV_DIR"
 
