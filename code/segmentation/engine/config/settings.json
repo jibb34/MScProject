@@ -1,0 +1,13 @@
+{
+  "server": {
+    "port": 5005,
+    "endpoints": [
+      "/segment",
+      "/debug"
+    ]
+  },
+  "logging": {
+    "level": "debug",
+    "file": "logs/segmentation.log"
+  }
+}

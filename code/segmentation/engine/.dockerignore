@@ -1,0 +1,9 @@
+# .dockerignore
+build/
+cmake-build-*/
+compile_commands.json
+logs/
+.git/
+.vscode/
+.DS_Store
+

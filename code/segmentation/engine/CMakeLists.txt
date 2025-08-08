@@ -1,28 +1,13 @@
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 cmake_minimum_required(VERSION 3.10)
-project(segmentation-engine)
-
+project(segmentation_engine)
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(
-  src
-  third_party/crow/include
-  third_party/yaml-cpp/include
-)
-add_subdirectory(
-  third_party/yaml-cpp
-)
+# Executable target
+add_executable(segmentation_engine src/main.cpp)
 
-add_executable(segmentation-engine
-    src/main.cpp
-    src/http_server.cpp
-    src/segmenter.cpp
-)
+# Include directories for headers
+target_include_directories(segmentation_engine PRIVATE include)
 
-find_package(Threads REQUIRED)
-find_package(yaml-cpp REQUIRED)
-
-target_link_libraries(segmentation-engine
-    yaml-cpp
-    pthread
-)
-
+# Link any libraries here (e.g., pthread)
+target_link_libraries(segmentation_engine PRIVATE pthread)

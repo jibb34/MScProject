@@ -4,3 +4,9 @@
 [submodule "code/segmentation/engine/src/third_party/yaml-cpp"]
 	path = code/segmentation/engine/src/third_party/yaml-cpp
 	url = https://github.com/jbeder/yaml-cpp.git
+[submodule "code/segmentation/engine/external/cpp-httplib"]
+	path = code/segmentation/engine/external/cpp-httplib
+	url = https://github.com/yhirose/cpp-httplib.git
+[submodule "code/segmentation/engine/external/json"]
+	path = code/segmentation/engine/external/json
+	url = https://github.com/nlohmann/json.git

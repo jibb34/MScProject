@@ -1,10 +1,40 @@
-#include "http_server.hpp"
-#include "segmentor.hpp"
+// #include "httplib.h" // single‑header HTTP library
+#include "http/http_handler.hpp"
+#include "json.hpp" // nlohmann/json
+#include <fstream>
 #include <iostream>
-#include <yaml-cpp/yaml.h>
+
+using json = nlohmann::json;
 
 int main() {
-  YAML::Node config = YAML::LoadFile("settings/config.yml");
-  start_http_server(config);
+  // Load configuration
+  std::ifstream cfg("config/settings.json");
+  if (!cfg) {
+    std::cerr << "[ERROR] Cannot open config/settings.json\n";
+    return 1;
+  }
+  json settings;
+  cfg >> settings;
+  int port = settings["server"]["port"];
+  std::string logLevel = settings["logging"]["level"];
+  std::string logFile = settings["logging"]["file"];
+
+  // Simple debug log to stdout/file
+  std::cout << "[DEBUG] Starting server on port " << port << std::endl;
+
+  // HTTP server setup
+  httplib::Server server;
+  HttpHandler handler;
+  for (const auto &ep : settings["endpoints"]) {
+    std::string path = ep["path"].get<std::string>();
+    // get name of endpoint to call the handler
+    std::string action =
+        (!path.empty() && path[0] == '/') ? path.substr(1) : path;
+    server.Post(path.c_str(), [&](const auto &req, auto &res) {
+      handler.callHandler(action, req, res);
+    });
+  }
+
+  server.listen("0.0.0.0", port);
   return 0;
 }
