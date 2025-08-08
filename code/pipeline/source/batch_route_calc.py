@@ -92,12 +92,12 @@ def get_osrm_match(file_path, args):
         params["timestamps"] = format_list(data["timestamps"])
 
     # Static radius definition (testing)
-    radii = data["radiuses"]
+    # radii = data["radiuses"]
     # Computer dynamic radiuses based on noise factor
     # around a given window size
-    #     radii = compute_dynamic_radius(
-    #     coords, data["radiuses"][0], window=int(args.dynamic_window), noise_scale=2.0
-    # )
+        radii = compute_dynamic_radius(
+            coords, data["radiuses"][0], window=int(args.dynamic_window), noise_scale=2.0
+        )
     params["radiuses"] = ";".join(str(radius) for radius in radii)
     try:
         # Send request to OSRM /match endpoint

@@ -59,6 +59,7 @@ fi
 
 echo "Starting pipeline..."
 echo "[INIT] GPX file path: $GPX_SOURCE_PATH"
+
 echo "[INIT] OSM output file path: $OSM_OUTPUT_PATH"
 
 # ------------------------------------------------------------------
@@ -195,9 +196,9 @@ echo "[CLEANUP] Shutting down Docker container"
 # docker rm -f osrm >/dev/null 2>&1 || true
 docker-compose down --remove-orphans -v
 docker network prune -f
-docker stop osrm-server 1>/dev/null || true
+# docker stop osrm-server 1>/dev/null || true
 docker stop osrm-prep 1>/dev/null || true
-docker rm osrm-server 1>/dev/null || true
+# docker rm osrm-server 1>/dev/null || true
 docker rm osrm-prep 1>/dev/null || true
 
 # rm -rf "$VENV_DIR"
