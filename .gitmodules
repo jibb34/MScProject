@@ -1,0 +1,6 @@
+[submodule "code/segmentation/engine/src/third_party/crow"]
+	path = code/segmentation/engine/src/third_party/crow
+	url = https://github.com/CrowCpp/crow.git
+[submodule "code/segmentation/engine/src/third_party/yaml-cpp"]
+	path = code/segmentation/engine/src/third_party/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp.git
