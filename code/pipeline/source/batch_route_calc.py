@@ -15,16 +15,16 @@ OSRM_URL = "http://localhost:5000/match/v1/cycling"
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
-        description="Pass in a GPX file"
-    )
+    parser = argparse.ArgumentParser(description="Pass in a GPX file")
     parser.add_argument(
         "input_dir", help="Directory that contains all JSON chunks of the GPX file"
     )
     parser.add_argument(
         "output_dir", help="Directory that the match file is sent to")
     parser.add_argument(
-        "dynamic_window", help="The length of the window used to calculate dynamic radius search")
+        "dynamic_window",
+        help="The length of the window used to calculate dynamic radius search",
+    )
     return parser.parse_args()
 
 
@@ -37,7 +37,9 @@ def format_list(values):
     return ";".join(str(v) for v in values)
 
 
-def route_fill_gaps(results_dir, output_dir, overview="full", geometries="geojson"):  # Unused stub
+def route_fill_gaps(
+    results_dir, output_dir, overview="full", geometries="geojson"
+):  # Unused stub
     """
     Scan through match_result_*.json in results_dir,
     and whenever a file has no matchings, look ahead to the next file
@@ -74,7 +76,7 @@ def get_osrm_match(file_path, args):
 
     # Encode coordinate into polyline6 format to reduce URL length
     raw_poly = polyline.encode(coords, precision=6)
-    poly = quote(raw_poly, safe='')
+    poly = quote(raw_poly, safe="")
     match_url = f"{OSRM_URL}/polyline6({poly})"
 
     # Prepare match parameters
@@ -89,19 +91,17 @@ def get_osrm_match(file_path, args):
     if "timestamps" in data:
         params["timestamps"] = format_list(data["timestamps"])
 
+    # Static radius definition (testing)
+    radii = data["radiuses"]
     # Computer dynamic radiuses based on noise factor
     # around a given window size
-    radii = compute_dynamic_radius(coords,
-                                   data["radiuses"][0],
-                                   window=int(args.dynamic_window),
-                                   noise_scale=2.0)
-    params["radiuses"] = ";".join(str(radius)
-                                  for radius in radii)
+    #     radii = compute_dynamic_radius(
+    #     coords, data["radiuses"][0], window=int(args.dynamic_window), noise_scale=2.0
+    # )
+    params["radiuses"] = ";".join(str(radius) for radius in radii)
     try:
         # Send request to OSRM /match endpoint
-        response = requests.get(match_url,
-                                params=params,
-                                timeout=30)
+        response = requests.get(match_url, params=params, timeout=30)
         response.raise_for_status()
         # print(f"{base_name}: {response.status_code}, {
         #       response.json().get('code')}")
@@ -112,8 +112,11 @@ def get_osrm_match(file_path, args):
             diag = diagnose_points("http://localhost:5000", coords, radius=500)
             for lat, lon, dist, name in diag:
                 if dist is None or dist > 100:
-                    print(f"Point {(lat, lon)} snapped {
-                          dist}m away - nearest road: {name}")
+                    print(
+                        f"Point {(lat, lon)} snapped {dist}m away - nearest road: {
+                            name
+                        }"
+                    )
 
     except requests.RequestException as e:
         # If request fails, log a warning and continue
@@ -126,10 +129,11 @@ def get_osrm_match(file_path, args):
     # for later processing
     out_dir = args.output_dir
     gap_dir = os.path.join(out_dir, "gap")
-    dest = (os.path.join(out_dir, output_file)
-            if result.get("matchings")
-            else os.path.join(gap_dir, output_file)
-            )
+    dest = (
+        os.path.join(out_dir, output_file)
+        if result.get("matchings")
+        else os.path.join(gap_dir, output_file)
+    )
 
     # Write result to file
     with open(dest, "w") as out:
@@ -158,18 +162,25 @@ def main(args):
     os.makedirs(os.path.join(results_dir, "gap"), exist_ok=True)
 
     # =========== pull all chunk files from directory sorted ===========
-    json_files = sorted([
-        os.path.join(input_dir, f) for f in os.listdir(input_dir)
-        if f.endswith(".json")
-    ])
+    json_files = sorted(
+        [
+            os.path.join(input_dir, f)
+            for f in os.listdir(input_dir)
+            if f.endswith(".json")
+        ]
+    )
     # ============== Multithreaded requests =====================
     results = []
     # Send request on each thread to server running OSRM software
     with ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
-        future_to_file = {executor.submit(
-            get_osrm_match, f, args): f for f in json_files}
-    print(f"[PYTHON] Matching complete for {os.path.basename(os.path.normpath(input_dir))}. {
-          len(future_to_file)} files processed")
+        future_to_file = {
+            executor.submit(get_osrm_match, f, args): f for f in json_files
+        }
+    print(
+        f"[PYTHON] Matching complete for {
+            os.path.basename(os.path.normpath(input_dir))
+        }. {len(future_to_file)} files processed"
+    )
     for future in as_completed(future_to_file):
         try:
             file, result = future.result()

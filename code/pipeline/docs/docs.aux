@@ -2,24 +2,62 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{overpass}
+\bibstyle{agsm}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Overview of the pipeline}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Component summary}{2}{section.2}\protected@file@percent }
+\citation{overpass}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:gpx1}{{1a}{2}{Raw GPX track of whole file}{figure.caption.2}{}}
+\newlabel{sub@fig:gpx1}{{a}{2}{Raw GPX track of whole file}{figure.caption.2}{}}
+\newlabel{fig:route1}{{1b}{2}{Matched Route to whole file}{figure.caption.2}{}}
+\newlabel{sub@fig:route1}{{b}{2}{Matched Route to whole file}{figure.caption.2}{}}
+\newlabel{fig:gpx2}{{1c}{2}{A detailed subsection of GPX trackpoints}{figure.caption.2}{}}
+\newlabel{sub@fig:gpx2}{{c}{2}{A detailed subsection of GPX trackpoints}{figure.caption.2}{}}
+\newlabel{fig:route2}{{1d}{2}{The same area, in GeoJSON route form}{figure.caption.2}{}}
+\newlabel{sub@fig:route2}{{d}{2}{The same area, in GeoJSON route form}{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Comparison of raw GPX tracks and OSRM-matched routes: (a) GPX Track 1, (b) Route 1, (c) GPX Track 2, (d) Route 2.}}{2}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:gpx_vs_route_grid}{{1}{2}{Comparison of raw GPX tracks and OSRM-matched routes: (a) GPX Track 1, (b) Route 1, (c) GPX Track 2, (d) Route 2}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Description of pipeline processing steps}{2}{subsection.1.1}\protected@file@percent }
 \gdef \LT@i {\LT@entry 
     {1}{91.35826pt}\LT@entry 
     {1}{239.62204pt}\LT@entry 
     {1}{119.81102pt}}
-\newlabel{tab:modules}{{1}{3}{Component summary}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of key modules in the pipeline. The descriptions focus on the primary purpose of each module and list notable functions exposed for reuse.}}{3}{table.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Pipeline flowchart for the GPX to OSRM-matched route processing system.}}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:flowchart}{{2}{4}{Pipeline flowchart for the GPX to OSRM-matched route processing system}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Component Overview}{4}{section.2}\protected@file@percent }
+\newlabel{tab:modules}{{1}{4}{Component Overview}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \footnotesize  Summary of key modules in the pipeline. The descriptions focus on the primary purpose of each module and list notable functions exposed for reuse.}}{4}{table.1}\protected@file@percent }
+\citation{gpxpy}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Python Module Breakdown}{5}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}GPX Utilities (\texttt  {gpx\_utils.py})}{5}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{load\_gpx(path)}{5}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{extract\_data\_from\_gpx(gpx)}{5}{section*.5}\protected@file@percent }
+\citation{python-json-doc}
+\citation{overpass-api-doc,python-requests-doc}
+\citation{python-argparse-doc}
+\citation{python-concurrent-doc}
+\citation{gpxpy}
+\citation{python-os-doc}
+\@writefile{toc}{\contentsline {paragraph}{bounding\_box\_from\_data(data)}{6}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{bbox\_contains(outer, inner)}{6}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{load\_json(file\_path)}{6}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{write\_json(points, path)}{6}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{download\_osm\_file(bbox, output\_path)}{6}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Data Extraction and Map Download (\texttt  {prepare\_map.py})}{6}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{parse\_args()}{6}{section*.11}\protected@file@percent }
+\citation{overpass-api-doc}
+\citation{python-os-doc}
 \gdef \LT@ii {\LT@entry 
     {1}{119.81102pt}\LT@entry 
     {1}{262.0748pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Configuration options}{4}{section.3}\protected@file@percent }
-\newlabel{tab:settings}{{2}{4}{Configuration options}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Summary of configuration keys in \texttt  {settings.yml}.}}{4}{table.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Running the pipeline}{5}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Error handling and warnings}{5}{section.5}\protected@file@percent }
-\bibcite{overpass}{1}
-\bibcite{iso26514}{2}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Suggested figures and photographs}{6}{section.6}\protected@file@percent }
-\gdef \@abspage@last{6}
+\@writefile{toc}{\contentsline {paragraph}{thread\_processes(gpx\_file, output\_path, chunk\_dir, radius, chunk\_size)}{7}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{get\_single\_osm\_from\_gpx(gpx\_file, points, gpx\_name, output\_path)}{7}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{main()}{7}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Configuration options}{7}{section.4}\protected@file@percent }
+\newlabel{tab:settings}{{2}{7}{Configuration options}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Summary of configuration keys in \texttt  {settings.yml}.}}{7}{table.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Running the pipeline}{8}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Error handling and warnings}{8}{section.6}\protected@file@percent }
+\bibcite{overpass}{{1}{}{{}}{{}}}
+\bibcite{iso26514}{{2}{}{{}}{{}}}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\gdef \@abspage@last{9}

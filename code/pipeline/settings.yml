@@ -1,5 +1,4 @@
 gpx_source: data/input
-osm_files: data/osm_files
 chunk_size: 100
 radius: 5
 dynamic_radius_window: 10

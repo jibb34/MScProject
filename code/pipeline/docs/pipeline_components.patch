@@ -1,0 +1,48 @@
+*** Begin Patch
+*** Update File: docs.tex
+@@
+-\end{longtable}
++\end{longtable}
++
++\section{Detailed Component Descriptions}
++
++\subsection{Configuration Loading}
++The pipeline begins by reading the YAML configuration file (\texttt{settings.yml}) in \texttt{run\_pipeline.sh}. A helper function \texttt{parse\_yaml\_value()} uses \texttt{grep} and \texttt{sed} to extract each key’s value into shell variables. Key settings include:
++\begin{itemize}
++  \item \texttt{gpx\_source}: Path to the GPX input directory, which is later processed by \texttt{gpxpy}.
++  \item \texttt{osm\_files}: Directory where raw OSM extracts are saved.
++  \item \texttt{radius}, \texttt{chunk\_size}, \texttt{dynamic\_radius\_window}: Parameters that control OSRM request behavior.
++\end{itemize}
++The script validates that required keys are present and enforces a maximum \texttt{chunk\_size} of 200 to avoid HTTP GET URL length limits.
++
++\subsection{Environment Setup}
++A Python virtual environment is created with \texttt{python3 -m venv .venv} and activated via \texttt{source .venv/bin/activate}, isolating dependencies. Dependencies listed in \texttt{requirements.txt} are installed with \texttt{pip install -r}, ensuring reproducible Python package versions.
++
++\subsection{Data Extraction and Map Download}
++Implemented in \texttt{prepare\_map.py}, this component:
++\begin{enumerate}
++  \item Loads each GPX file and extracts latitude/longitude/timestamp points using \texttt{load\_gpx()} and \texttt{extract\_data\_from\_gpx()} from the \texttt{gpxpy} library.
++  \item Computes a bounding box using \texttt{bounding\_box\_from\_data()}, then retrieves the corresponding OpenStreetMap extract from the Overpass API into \texttt{.osm} files.
++  \item Splits the point sequences into chunks of size \texttt{chunk\_size} and invokes \texttt{points\_to\_osrm\_json()} from \texttt{osrm\_utils} to produce OSRM-compatible JSON payloads.
++\end{enumerate}
++
++\subsection{Conversion to Protocolbuffer Binary Format}
++The Osmium Docker service converts the raw \texttt{.osm} files into the compact \texttt{.pbf} format using the \texttt{osmium} command-line tool. After conversion, fragments are merged into a single \texttt{merged.pbf} for OSRM ingestion.
++
++\subsection{Graph Preparation with Docker}
++Docker Compose launches the OSRM backend’s \texttt{osrm-prep} service in pre-process mode. It runs \texttt{osrm-extract}, \texttt{osrm-partition}, and \texttt{osrm-customize} on \texttt{map.pbf} with a custom cycling profile. This produces a multi-level routing graph optimized for map matching.
++
++\subsection{Route Matching}
++The \texttt{batch\_route\_calc.py} script reads each chunk’s JSON payloads and submits parallel HTTP GET requests to the local OSRM \texttt{/match} endpoint using \texttt{concurrent.futures.ThreadPoolExecutor}. It employs a dynamic-radius algorithm to adjust search radii based on track heading variance. OSRM’s responses include encoded polylines, which are decoded with the \texttt{polyline} library.
++
++\subsection{Merging Matched Segments}
++\texttt{merge\_routes.py} implements a recursive “tree merge” algorithm (via functions \texttt{merge\_two()} and \texttt{tree\_merge\_routes()}). It decodes geometries, concatenates coordinate arrays, distances, and durations in chronological order, and outputs a consolidated JSON route.
++
++\subsection{Visualization}
++\texttt{plot\_merged.py} uses \texttt{Folium} to render interactive Leaflet maps saved as HTML files. Each matched route is color-coded per segment, and raw GPS points can optionally be overlaid for verification.
++
++\subsection{Cleanup}
++Temporary JSON chunks, \texttt{.pbf} fragments, Docker volumes, and the Python virtual environment are removed to leave the workspace clean for future runs.
++
++\section{Running the pipeline}
+*** End Patch
