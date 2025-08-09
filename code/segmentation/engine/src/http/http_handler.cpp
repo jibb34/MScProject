@@ -26,31 +26,66 @@ void HttpHandler::callHandler(std::string action, const httplib::Request &req,
 
 void HttpHandler::handleDebug(const httplib::Request &req,
                               httplib::Response &res) {
-  json geojson;
+  json doc;
   try {
-    geojson = json::parse(req.body);
-  } catch (...) {
-    // Return 400 error if could not parse jason (who even is jason?)
+    doc = json::parse(req.body);
+  } catch (const json::parse_error &e) {
     res.status = 400;
-    res.set_content("Invalid JSON", "text/plain");
+    res.set_content(std::string("Invalid JSON: ") + e.what(), "text/plain");
     return;
   }
-  // count total number of Waypoints
+
+  // Count points across OSRM /match results
   size_t point_count = 0;
-  if (geojson.contains("matchings")) {
-    for (auto &feat : geojson["matchings"]) {
-      for (auto &geo : feat["geometry"]) {
-        auto coords = geo["coordinates"];
-        if (coords.size() > 0) {
-          point_count++;
+
+  if (doc.contains("matchings") && doc["matchings"].is_array()) {
+    for (const auto &m : doc["matchings"]) {
+      if (!m.contains("geometry"))
+        continue;
+
+      const auto &geom = m["geometry"];
+
+      // If you didn't request geometries=geojson, this will be a string
+      // (polyline)
+      if (geom.is_string()) {
+        // Can't count points without decoding; bail with a helpful message
+        res.status = 400;
+        res.set_content("geometry is a string (polyline). Re-run OSRM with "
+                        "geometries=geojson "
+                        "or implement polyline decoding.",
+                        "text/plain");
+        return;
+      }
+
+      if (!geom.is_object())
+        continue;
+
+      const std::string type = geom.value("type", "");
+      const auto &coords =
+          geom.contains("coordinates") ? geom["coordinates"] : json();
+
+      if (type == "LineString" && coords.is_array()) {
+        point_count += coords.size();
+      } else if (type == "MultiLineString" && coords.is_array()) {
+        for (const auto &line : coords) {
+          if (line.is_array())
+            point_count += line.size();
         }
       }
+      // else: ignore other geometry types
     }
+  } else {
+    // Not an OSRM /match result – maybe a FeatureCollection? (handle that here
+    // if needed)
+    res.status = 400;
+    res.set_content("Expected OSRM match result with 'matchings' array.",
+                    "text/plain");
+    return;
   }
-  std::cout << "[DEBUG] Received " << point_count << " points in /debug"
-            << std::endl;
-  res.set_content("Points received: " + std::to_string(point_count),
-                  "text/plain");
+
+  std::cout << "[DEBUG] /debug -> points=" << point_count << std::endl;
+  json reply = {{"status", "ok"}, {"points", point_count}};
+  res.set_content(reply.dump(2), "application/json");
 }
 
 void HttpHandler::handleSegment(const httplib::Request &req,

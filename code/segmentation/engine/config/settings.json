@@ -6,6 +6,27 @@
       "/debug"
     ]
   },
+  "segmentation": {
+    "min_length_m": 100.0,
+    "max_length_m": 3000.0,
+    "weightings": {
+      "Parameter1": 0,
+      "Parameter2": 0,
+      "Parameter3": 0,
+      "Parameter4": 0,
+      "Parameter5": 0,
+      "Parameter6": 0
+    },
+    "thresholds": {
+      "distance_step_m": 250.0,
+      "heading_change_deg": 120.0
+    }
+  },
+  "properties_to_watch": [
+    "road_class",
+    "surface",
+    "maxspeed"
+  ],
   "logging": {
     "level": "debug",
     "file": "logs/segmentation.log"

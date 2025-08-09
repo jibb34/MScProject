@@ -119,9 +119,15 @@ if [ ! -f "data/osm_files/merged.pbf" ]; then
   echo "[FATAL] Osmium conversion failed or output is missing"
   exit 1
 fi
-rm -rf ./data/osrm_map/*
 mkdir -p ./data/osrm_map
+rm -rf ./data/osrm_map/*
 cp ./data/osm_files/merged.pbf ./data/osrm_map/map.pbf
+# -----------------------------------------------------------------
+# Pre-index map files for later:
+# -----------------------------------------------------------------
+touch way_index.sqlite
+python3 source/build_way_index.py
+
 echo "[DOCKER] Launching OSRM Server"
 # docker compose up -d --rm osrm-server #>>/dev/null 2>&1
 # ------------------------------------------------------------------
@@ -169,12 +175,15 @@ done
 for dir in ./data/results/*/; do
   [ -d "$dir" ] || continue
   python3 source/merge_routes.py "$dir" "./data/results"
+  python3 source/check_overlaps.py "$dir"
 done
 find ./data/results -mindepth 1 -type d -exec rm -rf {} +
 # ------------------------------------------------------------------
 # 10. Visualize results
 # ------------------------------------------------------------------
 # python3 source/plot_map.py
+
+python source/plot_ways.py ./data/results/Hilly_endurance_ride_around_Harriman.json ./data/osrm_map/map.pbf ways_map.html
 python3 source/plot_merged.py
 #OPTIONAL: Add other methods of visualisation...
 

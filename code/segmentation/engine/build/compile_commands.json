@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/main.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp",
+  "file": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/main.cpp.o"
+}
+]

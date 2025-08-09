@@ -24,13 +24,17 @@ int main() {
 
   // HTTP server setup
   httplib::Server server;
+  server.set_logger([](const auto &req, const auto &res) {
+    std::cout << "[HTTP] " << req.method << " " << req.path << " -> "
+              << res.status << std::endl;
+  });
   HttpHandler handler;
-  for (const auto &ep : settings["endpoints"]) {
-    std::string path = ep["path"].get<std::string>();
+  for (const auto &ep : settings["server"]["endpoints"]) {
+    std::string path = ep.get<std::string>();
     // get name of endpoint to call the handler
     std::string action =
         (!path.empty() && path[0] == '/') ? path.substr(1) : path;
-    server.Post(path.c_str(), [&](const auto &req, auto &res) {
+    server.Post(path, [action, &handler](const auto &req, auto &res) {
       handler.callHandler(action, req, res);
     });
   }

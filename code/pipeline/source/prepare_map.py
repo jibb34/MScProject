@@ -45,7 +45,8 @@ def thread_processes(gpx_file, output_path, chunk_dir, radius, chunk_size):
     os.makedirs(output_path, exist_ok=True)
     full_output_path = os.path.join(output_path, output_file)
 
-    points_to_osrm_json(points, chunk_dir, gpx_name, radius, chunk_size)
+    points_to_osrm_json(points, chunk_dir, gpx_name, radius,
+                        chunk_size)
     if not os.path.exists(full_output_path):
         print(len(points))
         get_single_osm_from_gpx(gpx_file, points, gpx_name, output_path)
@@ -75,7 +76,6 @@ def get_single_osm_from_gpx(gpx_file, points, gpx_name, output_path):
 
 def main():
     args = parse_args()
-
     GPX_FILE_PATH = args.gpx_file_path
     OSM_FILE_PATH = args.osm_output_path
     CHUNK_SIZE = int(args.chunk_size)

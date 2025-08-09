@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

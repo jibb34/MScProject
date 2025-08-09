@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/segmentation_engine.dir/link.d CMakeFiles/segmentation_engine.dir/src/main.cpp.o -o segmentation_engine  -lpthread

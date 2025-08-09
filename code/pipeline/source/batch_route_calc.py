@@ -5,10 +5,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import argparse
 import polyline
 from urllib.parse import quote
+import sqlite3
+from itertools import groupby
 
 # Utility functions from project
 from utils.gpx_utils import load_json
 from utils.osrm_utils import compute_dynamic_radius, extract_chunk_idx, diagnose_points
+from utils.osm_utils import _flatten_nodes, _edge_lookup
 
 OSRM_ROUTE_URL = "http://localhost:5000/route/v1/cycling"
 OSRM_URL = "http://localhost:5000/match/v1/cycling"
@@ -25,7 +28,64 @@ def parse_args():
         "dynamic_window",
         help="The length of the window used to calculate dynamic radius search",
     )
+    parser.add_argument("--waydb", default="way_index.sqlite",
+                        help="Path to way_index.sqlite")
+    parser.add_argument("--with-metrics", action="store_true",
+                        help="Sum distance into way runs if present")
+
     return parser.parse_args()
+
+
+def chunk_nodes_to_ways(osrm_obj, db="way_index.sqlite", with_metrics=False):
+    # Load OSRM JSON and flatten nodes
+    legs = osrm_obj.get("matchings", [{}])[0].get("legs", [])
+    nodes = _flatten_nodes(legs)
+    # Open edge index database
+    con = sqlite3.connect(db)
+    cur = con.cursor()
+
+    # optional align distance per edge
+    distances = []
+    if with_metrics:
+        for leg in osrm_obj["matchings"][0].get("legs", []):
+            ann = leg.get("annotation", {})
+            distances.extend(ann.get("distance") or [])
+
+    # Each node pair is mapped to a directional way from the SQLite database
+
+    edges = []  # list of (way_id, dir, dist)
+    # way_id = numeric ID of OSM way
+    # dir = 1, -1 or 0.
+    # +1 means forward (u->v),
+    # -1 means backwards (v->u),
+    # and 0 means no way found
+    for i, (u, v) in enumerate(zip(nodes[:-1], nodes[1:])):
+        u = int(u)
+        v = int(v)
+        if u == v:
+            continue
+        wid, dir = _edge_lookup(cur, int(u), int(v))
+        dist = distances[i] if with_metrics and i < len(distances) else None
+        edges.append((wid, dir, dist))
+
+    # compress by (way_id, dir) into "runs". node to node edges often form only part of a single way
+    runs = []
+    for (wid, d), group in groupby(edges, key=lambda e: (e[0], e[1])):
+        g = list(group)
+        # set edge count to be # of edges (essentially creaing hash map)
+        edge_count = len(g)
+        run = {"way_id": wid, "dir": d, "edge_count": edge_count}
+        if with_metrics:
+            length_m = sum(x[2] or 0.0 for x in g)
+            run.update({"length_m": length_m})
+        runs.append(run)
+
+    con.close()
+    return {
+        "runs": runs,
+        # keep these two tiny integers for merge math:
+        "total_edges": max(0, len(nodes)-1)
+    }
 
 
 def format_list(values):
@@ -86,6 +146,7 @@ def get_osrm_match(file_path, args):
         "steps": str(data.get("steps", False)).lower(),
         "gaps": "ignore",
         "tidy": "true",
+        "annotations": "nodes,distance"
     }
     # If timestamps are included in the dataset, add them here
     if "timestamps" in data:
@@ -95,9 +156,9 @@ def get_osrm_match(file_path, args):
     # radii = data["radiuses"]
     # Computer dynamic radiuses based on noise factor
     # around a given window size
-        radii = compute_dynamic_radius(
-            coords, data["radiuses"][0], window=int(args.dynamic_window), noise_scale=2.0
-        )
+    radii = compute_dynamic_radius(
+        coords, data["radiuses"][0], window=int(args.dynamic_window), noise_scale=2.0
+    )
     params["radiuses"] = ";".join(str(radius) for radius in radii)
     try:
         # Send request to OSRM /match endpoint
@@ -106,6 +167,7 @@ def get_osrm_match(file_path, args):
         # print(f"{base_name}: {response.status_code}, {
         #       response.json().get('code')}")
         result = response.json()
+
         # If multiple matchings found (more than 1 continuous route),
         # diagnose poorly matched points
         if len(result.get("matchings", [])) > 1:
@@ -134,7 +196,13 @@ def get_osrm_match(file_path, args):
         if result.get("matchings")
         else os.path.join(gap_dir, output_file)
     )
-
+    # Convert Nodes to Ways:
+    if result.get("matchings"):
+        legs = result["matchings"][0].get("legs", [])
+        route_nodes = _flatten_nodes(legs)
+        result["route_nodes"] = route_nodes
+        ways_obj = chunk_nodes_to_ways(result, args.waydb, args.with_metrics)
+        result["ways"] = ways_obj["runs"]
     # Write result to file
     with open(dest, "w") as out:
         json.dump(result, out, indent=2)

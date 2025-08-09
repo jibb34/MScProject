@@ -16,6 +16,6 @@ RUN rm -rf /app/build && \
   cmake -S /app -B /app/build -DCMAKE_BUILD_TYPE=Release && \
   cmake --build /app/build -j"$(nproc)"
 
-EXPOSE 8080
+EXPOSE 5005
 # Run the segmentation engine
 ENTRYPOINT ["/app/build/segmentation_engine"]
