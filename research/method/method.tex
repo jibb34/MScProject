@@ -85,9 +85,9 @@ Here, \texttt{coordinates} is a list of longitude-latitude pairs, \texttt{timest
 The response contains a series of \texttt{matchings}, each of which includes a snapped geometry and additional metadata. Key fields include:
 
 \begin{itemize}
-    \item \texttt{matchings[*].geometry}: A GeoJSON LineString of the matched route.
-    \item \texttt{tracepoints}: An array of points indicating how each GPS observation was matched.
-    \item \texttt{matchings[*].legs[*].annotation.nodes}: A list of OSM node IDs representing the matched path.
+	\item \texttt{matchings[*].geometry}: A GeoJSON LineString of the matched route.
+	\item \texttt{tracepoints}: An array of points indicating how each GPS observation was matched.
+	\item \texttt{matchings[*].legs[*].annotation.nodes}: A list of OSM node IDs representing the matched path.
 \end{itemize}
 
 Note that OSRM does not return OpenStreetMap \texttt{way\_id}s directly. However, with additional preprocessing or Overpass API queries, these node sequences can be translated back into way identifiers if needed.

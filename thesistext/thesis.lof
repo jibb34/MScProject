@@ -7,7 +7,6 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces High level system architecture for the Route Segmentation and Analysis System}}{15}{figure.caption.24}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces A visual representation of the Road network used for testing the pipeline. Green roads are the downloaded .pbf map edges, and the blue and yellow line is the series of GPX points plotted over the top to verify that the bounds had successfuly covered the route}}{19}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  7 AUG 2025 14:05
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  10 AUG 2025 21:42
  restricted system commands enabled.
 **docs.tex
 (./docs.tex
@@ -838,7 +838,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.62 ...ommand\NAT@force@numbers{}\NAT@force@numbers
+l.65 ...ommand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 ? 
 )
@@ -940,22 +940,22 @@ Package hyperref Info: Link coloring OFF on input line 32.
 \openout4 = docs.out
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<assets/track1_gpx.png, id=48, 916.42375pt x 666.49pt>
+<assets/track1_gpx.png, id=52, 916.42375pt x 666.49pt>
 File: assets/track1_gpx.png Graphic file (type png)
 <use assets/track1_gpx.png>
 Package luatex.def Info: assets/track1_gpx.png  used on input line 72.
 (luatex.def)             Requested size: 232.17242pt x 168.84927pt.
-<assets/track1_route.png, id=49, 959.585pt x 724.7075pt>
+<assets/track1_route.png, id=53, 959.585pt x 724.7075pt>
 File: assets/track1_route.png Graphic file (type png)
 <use assets/track1_route.png>
 Package luatex.def Info: assets/track1_route.png  used on input line 79.
 (luatex.def)             Requested size: 232.17242pt x 175.33774pt.
-<assets/track2_gpx.png, id=50, 1047.915pt x 599.23875pt>
+<assets/track2_gpx.png, id=54, 1047.915pt x 599.23875pt>
 File: assets/track2_gpx.png Graphic file (type png)
 <use assets/track2_gpx.png>
 Package luatex.def Info: assets/track2_gpx.png  used on input line 89.
 (luatex.def)             Requested size: 232.17242pt x 132.76558pt.
-<assets/track2_route.png, id=51, 1066.98625pt x 556.0775pt>
+<assets/track2_route.png, id=55, 1066.98625pt x 556.0775pt>
 File: assets/track2_route.png Graphic file (type png)
 <use assets/track2_route.png>
 Package luatex.def Info: assets/track2_route.png  used on input line 96.
@@ -1094,20 +1094,32 @@ Package natbib Warning: There were undefined citations.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `docs.out' has not changed.
-(rerunfilecheck)             Checksum: F175E8B90F54B7315F51578F1DB54358;1766.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `docs.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `docs.out':
+(rerunfilecheck)             Before: 21B9BF824409C942A366705685CB637B;2103
+(rerunfilecheck)             After:  F175E8B90F54B7315F51578F1DB54358;1766.
 )
 
 Here is how much of LuaTeX's memory you used:
- 23882 strings out of 476447
+ 23884 strings out of 476447
  125027,1977958 words of node,token memory allocated
  694 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 8 glue, 4 kern, 1 glyph, 15 attribute, 76 glue_spec
 , 15 attribute_list, 2 write nodes
-   avail lists: 2:1805,3:944,4:60,5:542,6:64,7:8303,8:72,9:687,10:22,11:524
- 45331 multiletter control sequences out of 65536+600000
+   avail lists: 2:1805,3:944,4:60,5:542,6:64,7:8306,8:72,9:687,10:22,11:524
+ 45332 multiletter control sequences out of 65536+600000
  57 fonts using 4546919 bytes
  102i,10n,101p,443b,934s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+warning  (pdf backend): unreferenced destination with name 'subsection.3.3'
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
 lm/lmmonolt10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist
 /fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/2024
@@ -1132,10 +1144,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20
 240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew
 /Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb>
-Output written on docs.pdf (9 pages, 5104316 bytes).
+Output written on docs.pdf (9 pages, 5104425 bytes).
 
-PDF statistics: 274 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 131072)
- 88 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 278 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 131072)
+ 96 words of extra memory for PDF output out of 10000 (max. 100000000)
 

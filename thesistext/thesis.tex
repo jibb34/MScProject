@@ -8,6 +8,7 @@
 \usepackage{setspace}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
+\usepackage{tabularx}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{{assets/}}
@@ -289,7 +290,7 @@ The functional requirements of the system are as follows:
 \begin{enumerate}
 	\item[NF1:] \textbf{Accuracy - } \\
 	      - Every GPX file must be converted into a GeoJson file that has less than 4\% difference in distance
-	      - For a segment to be considered "matching", it must fall within a similarity parameter of 90%.
+	      - For a segment to be considered "matching", it must fall within a similarity parameter of 90\%.
 	\item[NF2:] \textbf{Performance - } The system must be able to process an average of 1,000 GPX points per second.
 	\item[NF3:] \textbf{Extensibility - } The system must be built with scalability in mind, and each major component should be able to be isolated
 	      on a separate system. All components should communicate via API calls to keep this a reality.
@@ -454,69 +455,79 @@ List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g
 % Implementation details.
 
 \section{Component Breakdown}
-This section details the method and process of implementing each component of the system.
+This section provides a personal overview of how I went about implementing each component of the system. Rather than a dry description of what each module does (see Chapter~\ref{chap:methodology} for those details), I recount the major steps I took and the rationale behind them.
 \subsection{Input Pipeline}
-This was the first component written. It started very simple by prototyping isolating GPX files and obtaining their coordinate pairs in a list of duples.
-Initially, it was written as a single file parser, but was later modified to include batch processing.
+I began by experimenting with small GPX files in order to understand the XML structure and isolate coordinate pairs. My first prototype simply read a GPX and produced a list of latitude--longitude tuples. Once I was comfortable with the data, I wrote a Python module to fetch map data from the Overpass API; this involved generating a bounding box from the GPX extents and sending the appropriate HTTP requests.
+
+To support more complex workflows I created a Python virtual environment, installed the required dependencies from \texttt{requirements.txt} and started wrapping individual steps into scripts. After downloading raw \texttt{.osm} files I realised they needed to be converted to Protocolbuffer (\texttt{.pbf}) format for OSRM, so I built a Docker image containing Osmium and wrote a docker-compose configuration to run the conversion. Along the way I wrote helper scripts to merge multiple map tiles and orchestrated them all with a bash script called \texttt{run\_pipeline.sh}.
+
+With the map conversion automated, I spun up OSRM in its own Docker container and tuned its \texttt{profile.lua} to better reflect cycling speeds on different surfaces. This involved a lot of trial and error: I adjusted speed values for roads, gravel and tracks, and even discovered missing road types (e.g., trunks) which required adding to the profile. After several days of tweaking I achieved reliable matching on most of my test rides.
+
+I also developed \texttt{batch\_route\_calc.py} to handle large GPX files. This script chunks long tracks into smaller segments, submits them to OSRM in parallel using \texttt{ThreadPoolExecutor} and then merges the matched fragments. Parallelising the API requests and file operations reduced processing times from minutes to seconds. Finally I integrated visual checks with Folium to verify that the matched routes and original GPX tracks aligned.
+
+Towards the end of building the pipeline I experimented with the OSRM radius parameter and dynamic search windows to strike a balance between robust matching and avoiding spurious routes. Once the matching behaved acceptably, I moved on to enriching the matched GeoJSON with OSM metadata and GPX sensor data (described in the next subsection).
+
+% -------------------------------------------------------
+% Begin new enrichment subsection inserted here
+\subsubsection{GPX Data Enrichment}\label{sec:gpx_enrich}
+After I had reliable map matching in place, I turned my attention to enriching each trackpoint with context and sensor data. I wrote two Python modules, \texttt{gpx\_enrich.py} and \texttt{batch\_enrich.py}, to handle this job. These scripts take the matched GeoJSON and the original GPX files, extract the sensor readings from the \texttt{<extensions>} elements, pull out standard metadata (creator, device model, track name) and normalise all of the fields using a configuration file, \texttt{config/extensions\_map.json}. In practice I followed these steps:
 \begin{enumerate}
-	\item Prototyping: Included learning about GPX file structure, and isolating data values in lists.
-	\item I created a Python module that pulled data from the Overpass API, and tested it by putting in some bounding box (bbox) coordinates.
-	\item I then set up the Python virtual environment, which would gather the required modules from \texttt{requirements.txt}.
-	\item The next logical step was to take the GPX file, and parse it for the coordinates, then extract the min and max latitude and longitudes. I then created
-	      a function that generated a bbox from the GPX file, and used that to get OSM data.
-	\item I researched OpenSourceRoutingMachine (OSRM), which was a framework that had several useful functions, one of which was match GPS points to
-	      an OSM network. Unfortunately, the files downloaded from Overpass were only of the .osm file type, which is essentially just XML. I needed
-	      to convert it to Protocolbuffer Binary Format (.pbf) for OSRM to be able to use it.
-	\item I did more research, and found that Osmium provided the tools necessary to convert to .pbf, as well as other tools such as map merging (which would prove useful later
-	      for batch processing). However, since I wanted to keep all the necessary environments enclosed within the pipeline directory, I couldn't use osmium directly in Python,
-	      since there was no proper module for it, but I decided instead to set up my own Osmium engine, by creating a docker image from Ubuntu, and using a Dockerfile to install and set up
-	      Osmium on the container. I then wrote a Docker Compose file that would set up the necessary volumes in the pipeline directory, and set the entrypoint to "osmium". I also wrote a few scripts
-	      that would merge and then convert every .osm file in the input directory.
-	\item The \texttt{run\_pipeline.sh} bash script was the main file that orchestrated all of the input directions, such as creating and removing directories, and running
-	      Docker. I created the script around this point, after the osmium docker compose, so I could start automating the process as we went along.
-	\item After Osmium, I had successfully created a script that took GPX files and generated a map from them in .pbf format. At this point it was prudent of me to start
-	      actually doing formal testing, so I created a few test functions that would run in the background and collect variable information for me to see. I also created
-	      a test script that would convert the .pbf file into a viewable map, with the .gpx coordinates overlaid. \ref{fig:pbfmap} shows this map:
-	      \begin{figure}
-		      \centering
-		      \includegraphics[width=0.8\textwidth]{pbf_map.png}
-		      \label{fig:pbfmap}
-		      \caption{A visual representation of the Road network used for testing the pipeline. Green roads are the downloaded .pbf map edges, and the blue and yellow
-			      line is the series of GPX points plotted over the top to verify that the bounds had successfuly covered the route}
-	      \end{figure}
-	\item Now I started creating another Docker instance for OSRM. There exists a docker container image "osrm-backend", which I ran in detached mode, and assigned input and output volumes.
-	      In the backend, there are a few functions that were necessary to call before I started the match service. I first had to download a profile.lua file from OSRM's website. This
-	      contained all the settings and optimisations that I could change to adjust the matching algorithm. This worked by giving certain road types different speed limits. I adjusted them to roughly what
-	      I felt I could do on those types of roads on a bike. For example, on a road, I put 35 (units are Km/hr), on gravel I put 25, and I put even less on other types of roads that I felt were unattractive
-	      to cycle on. I set the weight parameter to "duration", which essentially made it so the speed value became a weighting unit. The higher the number, the more likely the match engine would choose to go
-	      on that route. When testing, I ran into an issue where no matter what, I couldn't get the route to go the right way, but it turned out I actually didn't have the right road defined. The road turned out
-	      to be a "trunk" highway, when that type didn't exist by default in the profile.lua. This showed me that the file isn't perfect, and will require tweaking over time. However, after a few days of tweaking,
-	      I came up with a profile that seemed pretty good and could match 95\% of my test routes with 99\% or more accuracy. I feel this is highly individual, but in the future, it could be fun to try to automate
-	      the profile.lua values to hyper-optimise the matching algorithm.
-	\item After running the profile.lua through the OSRM engine, I then created another Python module called \texttt{batch\_route\_calc.py}. This file, as named, was the first attempt
-	      at batch processing files. However, this wasn't at the time because I needed to parse multiple GPX files. It actually came about because at this point I realized that matching an entire GPX file
-	      in one go is a bad idea. Some of my test files had over 10,000 GPX points, and needless to say, sending all 10,000 through a REST API is difficult at the best of times, but because OSRM is slightly outdated,
-	      the only way to process the map data is through GET requests to the /match endpoint, with the data in the URL itself. Sending 10,000 coordinates, each with between 15 and 20 characters would be impossible, so I had to come up with a solution.
-	\item My solution was two-fold. Firstly, I would break the GPX file into chunks. I went back to my first python script, and added a function that would take the gpx files, format into .json files of a smaller length, and batch process them with OSRM.
-	      I was successful in creating the "chunks" as I called them. But the issue I ran into was the fact that I had to still make over 100 GET requests, since the largest reasonable amount of data I could send in 1 go was 100 GPS coordinates.
-	\item I solved this problem by parallelizing the script. I used ThreadPoolExecutor to run multithreaded batch processing on the GPX file. This sped things up significantly, and allowed me to process the GPX file in seconds rather than closer to a minute.
-	\item I started also parallelizing other processes, such as the API calls to Overpass, and the input/output file operations. These are the tasks that benefit the most from multithreading.
-	      %TODO: Talk about the dynamic radius function, as well as any other functions that were not talked about
-	\item Next I had to merge the many route chunks that were generated from OSRM. I was able to optimise this to O(log n) with tree recursion, as well as multithreading within each tree level. To do this, I essentially
-	      just performed merge on every pair, and recursively called the merge function until the base case where there was only 1 value, in which case we were finished. This worked well, although I had a few instances
-	      where the recursion broke because the merge function wasn't working correctly, and I got infinite recursion, which is always fun.
-	\item After merging, I visualised the connected route with Folium, and compared the route to the GPX file. I overlaid both on the same map to check for issues. This is also where I started manipulating the profile.lua file in OSRM directory
-	      to try and get matching as accurate as I could. After a few days I got it to the previously stated accuracy of roughly 99\% for most of my files. The 5\% of files that I could not get that accurate ended up being outliers anyway. Most of them
-	      either had large amounts of GPS noise, or were not on mapped roads, or were going throught junctions or along bike paths that ran with the road I was on. All of these are not huge considerations however,
-	      as the main goal of the system isn't to accurately map routes, but to quantify training suitibility. If there is a bike path nearby, then most of the time, that will end up being
-	      a little bit more suitible than the road, and if not, they're close enough together that anyone out on the road can choose which one they prefer.
-	\item As well as manipulating the profile settings, I also played around with the radius distance. The radius is a parameter fed to OSRM as an array. 1 value per GPS coordinate, and it's meaning
-	      is the distance away from the coordinate to search for a matching route. If the value is too small, GPS noise could push the coordinate away too far from the road. If radius is too large, then
-	      the algorithm may start considering routes that were higher weighting, but strayed too far from the real route.
-	\item The very last step in the pipeline is to enrich the route map with OSM metadata, such as road names, road width, road type, speed limit, etc. This was done with a python script called \texttt{enrich.py}.
-	      The module took the waypoints in the GeoJSON file, and mapped them onto OSM ways using OSMnx's nearest node function. Each node was assigned a "way", and a file was created that stores that way, along with the array of waypoints, in the order they occured.
-	      This basically provides a mapping of GPS coordinates to OSM ways, and also provides the lowest level of granularity for our segmentation algorithm to work with.
+	\item \textbf{Loading the extension rules.} I designed \texttt{extensions\_map.json} to define a set of canonical keys such as \emph{hr\_bpm}, \emph{cad\_rpm}, \emph{power\_w}, \emph{temp\_c}, \emph{speed\_mps}, \emph{alt\_m} and \emph{grade\_pct}. Each entry lists the synonyms I've encountered in GPX files (for example, ``heartrate'', ``hr'' and ``heart\_rate'' all map to \emph{hr\_bpm}) and specifies type conversions and unit transforms. When my enrichment code sees a raw GPX extension it looks up the rule, coerces the value to a number and applies any required unit conversions.
+	\item \textbf{Parsing and extraction.} For each GPX file I iterate through every trackpoint, recording latitude, longitude and timestamp. I also collect any extension fields present, and attach the GPX-level metadata. This stage required careful handling of optional fields because different devices embed different sets of sensors.
+	\item \textbf{Attaching OSM metadata.} Using the previously matched GeoJSON, I map each trackpoint to an OpenStreetMap way identifier via a nearest-node lookup. With this identifier I can fetch attributes like road type, name, speed limit and width from the pre-indexed OSM database described in Section~\ref{sec:wayindex}.
+	\item \textbf{Producing enriched JSON.} For every point I emit an object that records its position and time, a \texttt{gpx\_list} array of canonical field objects (each with \texttt{name}, \texttt{value} and \texttt{unit}), the \texttt{way\_id}, and any associated metadata. This normalised structure became the foundation for my segmentation and training suitability scoring.
 \end{enumerate}
+This process gave me a clean, uniform representation of each ride, ready to be fed into the segmentation engine. Table~\ref{tab:extensionsmap} summarises some of the canonical keys and their common synonyms defined in \texttt{extensions\_map.json}. Only short phrases or keywords are included in the table to avoid overly long entries.
+\begin{table}[H]
+	\centering
+	\caption{Canonical extension keys and example synonyms}
+	\label{tab:extensionsmap}
+	\begin{tabular}{ll}
+		\toprule
+		Canonical key       & Example GPX synonyms                                 \\
+		\midrule
+		\texttt{hr\_bpm}    & heartrate, heart\_rate, hr                           \\
+		\texttt{cad\_rpm}   & cadence, cad\_ence, cad                              \\
+		\texttt{power\_w}   & power, watts, pwr                                    \\
+		\texttt{temp\_c}    & temperature, temp\_f (converted from \textdegree{}F) \\
+		\texttt{speed\_mps} & speed, mph (converted to m/s), kmh                   \\
+		\texttt{alt\_m}     & altitude, ele, elevation                             \\
+		\texttt{grade\_pct} & grade, slope, incline                                \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsubsection{Pre-indexing OpenStreetMap Ways via SQLite}\label{sec:wayindex}
+To efficiently map each trackpoint to its OpenStreetMap way, I build a mini database that indexes every way and its constituent edges in the downloaded map. The script \texttt{build\_way\_index.py} reads the \texttt{.pbf} map produced earlier and populates two SQLite tables:
+\begin{itemize}
+	\item \textbf{ways} --- one row per OSM way. Each row stores the integer \texttt{way\_id} and a JSON-encoded \texttt{tags} column containing attributes such as \texttt{highway}, \texttt{name}, \texttt{surface} and \texttt{maxspeed}. The \texttt{way\_id} column is a primary key to allow fast lookup.
+	\item \textbf{edges} --- one row per directed edge between two nodes of a way. Columns store the \texttt{edge\_id} (primary key), starting node identifier \texttt{u}, ending node identifier \texttt{v}, associated \texttt{way\_id}, \texttt{direction} (1 for forward and -1 for reverse), and the geodesic length of the edge in metres. Indexes on \texttt{u} and \texttt{v} accelerate nearest-neighbour queries.
+\end{itemize}
+During enrichment, the coordinates of each trackpoint are snapped to the nearest OSM node using OSMnx. The resulting node identifier is then used to look up the corresponding \texttt{way\_id} via the \texttt{edges} table. Because the tables are indexed, this lookup is very fast even for large maps. Table~\ref{tab:wayindex} shows an example of a few rows from the \texttt{ways} and \texttt{edges} tables in our prototype database. Note that tags are abbreviated for brevity.
+\begin{table}[h!]
+	\centering
+	\renewcommand{\arraystretch}{1.2} % better spacing
+	\begin{tabularx}{\textwidth}{lXl}
+		\toprule
+		\textbf{Table}                                                     & \textbf{Columns (sample values)}                            & \textbf{Description} \\
+		\midrule
+		\textbf{ways}                                                      &
+		(101, \{``highway'': ``residential'', ``name'': ``Main Street''\}) &
+		Residential road named Main Street                                                                                                                      \\
+		                                                                   & (102, \{``highway'': ``footway'', ``surface'': ``paved''\}) &
+		Paved footway                                                                                                                                           \\
+		\textbf{edges}                                                     &
+		(1, 2, 101, 1, 50.0)                                               &
+		Edge from node 1 to 2 on way 101, length 50 m                                                                                                           \\
+		                                                                   & (2, 3, 101, 1, 45.0)                                        &
+		Edge from node 2 to 3 on way 101, length 45 m                                                                                                           \\
+		                                                                   & (3, 2, 101, -1, 45.0)                                       &
+		Reverse edge from 3 back to 2 on way 101                                                                                                                \\
+		\bottomrule
+	\end{tabularx}
+\end{table}This indexed SQLite database allows the enrichment pipeline to attach road metadata to each trackpoint in milliseconds, which is essential for scaling batch processing to thousands of GPX files.
+% -------------------------------------------------------
+
 \subsubsection{Data Stream}
 The data going in was the GPX file, and the settings.yml that controlled parameters such as chunk size (of the gps chunks), and dynamic radius window, which determined how wide of a window to check for variance to adjust the match search radius.
 % ...
@@ -560,4 +571,3 @@ The data going in was the GPX file, and the settings.yml that controlled paramet
 \bibliography{references}
 
 \end{document}
-
