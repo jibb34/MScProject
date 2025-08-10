@@ -1,0 +1,98 @@
+{
+  "rules": [
+    {
+      "canonical": "hr_bpm",
+      "synonyms": [
+        "hr",
+        "heartrate",
+        "ohr"
+      ],
+      "coerce": "int"
+    },
+    {
+      "canonical": "cad_rpm",
+      "synonyms": [
+        "cad",
+        "cadence"
+      ],
+      "coerce": "int"
+    },
+    {
+      "canonical": "power_w",
+      "synonyms": [
+        "power",
+        "watts",
+        "pwr"
+      ],
+      "coerce": "float"
+    },
+    {
+      "canonical": "temp_c",
+      "synonyms": [
+        "atemp",
+        "temp",
+        "temperature",
+        "airtemp"
+      ],
+      "coerce": "float"
+    },
+    {
+      "canonical": "temp_c",
+      "synonyms": [
+        "temp_f",
+        "temperature_f",
+        "airtemp_f"
+      ],
+      "coerce": "float",
+      "transform": "f_to_c"
+    },
+    {
+      "canonical": "speed_mps",
+      "synonyms": [
+        "speed",
+        "velocity"
+      ],
+      "coerce": "float"
+    },
+    {
+      "canonical": "speed_mps",
+      "synonyms": [
+        "speed_kph",
+        "velocity_kph",
+        "kmh",
+        "kph"
+      ],
+      "coerce": "float",
+      "transform": "kmh_to_mps"
+    },
+    {
+      "canonical": "speed_mps",
+      "synonyms": [
+        "speed_mph",
+        "velocity_mph",
+        "mph"
+      ],
+      "coerce": "float",
+      "transform": "mph_to_mps"
+    },
+    {
+      "canonical": "alt_m",
+      "synonyms": [
+        "alt",
+        "altitude",
+        "elev",
+        "elevation"
+      ],
+      "coerce": "float"
+    },
+    {
+      "canonical": "grade_pct",
+      "synonyms": [
+        "grade",
+        "slope"
+      ],
+      "coerce": "float",
+      "transform": "pct_or_fraction_to_pct"
+    }
+  ]
+}

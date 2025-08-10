@@ -1,0 +1,12 @@
+{
+  "route_id": "example_route_ID",
+  "segments": [
+    {
+      "segment_id": "seg-00000001",
+      "connecting_way_id": 123456789,
+      "dir": 1,
+      "prev_way_id": null,
+      "next_way_id_": "44951983"
+    }
+  ]
+}

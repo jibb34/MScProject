@@ -3,7 +3,13 @@ import sqlite3
 import argparse
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from utils.osm_utils import extract_coords, merge_runs, _overlap_len, _runs_from_chunk, _flatten_nodes
+import copy
+from itertools import groupby
+from utils.osm_utils import (
+    _overlap_len,
+    _flatten_nodes,
+    shortest_connector_nodes_db,
+    _edge_lookup)
 
 
 def parse_args():
@@ -22,126 +28,200 @@ def parse_args():
     return parser.parse_args()
 
 
-def merge_two(route_a, route_b):
-    """Merge logic: Takes two routes, and attempts to merge them into 1"""
+N_OVERLAP = 200  # nodes to check
 
-    if not route_a.get("matchings") or not route_b.get("matchings"):
-        print("[ERROR] One of the matchings lists is empty")
-        return {"code": "Error"}
 
-    match_a = route_a["matchings"][0]
-    match_b = route_b["matchings"][0]
+def _max_waypoint_index(tps):
+    mx = -1
+    for tp in tps or []:
+        if isinstance(tp, dict):
+            w = tp.get("waypoint_index")
+            if w is not None and w > mx:
+                mx = w
+    return mx
 
-    code = "Ok" \
-        if route_a["code"] == "Ok" \
-        and route_b["code"] == "Ok" \
-        else "Error"
 
-    if not route_a.get("matchings") or not route_b.get("matchings"):
-        print("[ERROR] One of the matchings lists is empty")
-        return {"code": "Error"}
+def _normalize_tracepoints_single_matching(tps, waypoint_offset=0):
+    """Return a copy where all non-null tracepoints have matchings_index=0 and
+    waypoint_index += waypoint_offset. Nulls (None) are preserved."""
+    out = []
+    for tp in tps or []:
+        if isinstance(tp, dict):
+            tp2 = dict(tp)  # shallow copy
+            tp2["matchings_index"] = 0
+            if tp2.get("waypoint_index") is not None:
+                tp2["waypoint_index"] = int(
+                    tp2["waypoint_index"]) + int(waypoint_offset)
+            out.append(tp2)
+        else:
+            out.append(None)
+    return out
 
-    if not match_a.get("geometry") or not match_b.get("geometry"):
-        print("[ERROR] One of the matchings has no geometry")
-        return {"code": "Error"}
 
-    coords_a = extract_coords(match_a, "route_a")
-    coords_b = extract_coords(match_b, "route_b")
+def _nodes_to_ways(nodes, cur, with_metrics=False, distances=None):
+    edges = []
+    di = 0
+    for u, v in zip(nodes[:-1], nodes[1:]):
+        if u == v:
+            continue
+        wid, d, db_len = _edge_lookup(cur, int(u), int(v))
+        dist = db_len if with_metrics and db_len is not None else (
+            float(distances[di]) if with_metrics and distances and di < len(
+                distances) else None
+        )
+        edges.append((wid, d, dist))
+        di += 1
+    runs = []
+    for (wid, d), group in groupby(edges, key=lambda e: (e[0], e[1])):
+        g = list(group)
+        run = {"way_id": wid, "dir": d, "edge_count": len(g)}
+        if with_metrics:
+            run["length_m"] = sum((x[2] or 0.0) for x in g)
+        runs.append(run)
+    return runs, max(0, len(nodes) - 1)
 
-    # Avoid duplicates at endpoints:
-    if coords_a and coords_b and coords_a[-1] == coords_b[0]:
-        coords_b = coords_b[1:]
 
-    # Merge coordinates and convert to geometry
-    merged_coords = coords_a + coords_b
-    merged_geometry = {
-        "type": "LineString",
-        "coordinates": [(lon, lat) for lat, lon in merged_coords]
-    }
+def _trim_B_legs_by_nodes(legs_b, k_nodes, cur, with_metrics=False):
+    """Drop the first k_nodes from B across its legs; recompute runs/total_edges per affected leg."""
+    out = []
+    remaining = int(k_nodes)
+    for leg in legs_b:
+        ann = (leg.get("annotation") or {})
+        nodes = [int(x) for x in (ann.get("nodes") or [])]
+        if not nodes:
+            continue
+        if remaining <= 0:
+            out.append(leg)
+            continue
 
-    # Merge all other values
+        # how many nodes to drop from THIS leg
+        drop = min(remaining, len(nodes))
+        remaining -= drop
 
-    # Merge way runs per chunk:
-    # --- Way runs per chunk ---
-    # If 'ways' are already present (from previous round or batch precompute), use them.
-    runs_a = route_a.get("ways")
-    runs_b = route_b.get("ways")
+        if drop == len(nodes):
+            # this leg is entirely overlapped — skip it
+            continue
 
-    nodes_a_full = route_a.get("route_nodes") or _flatten_nodes(
-        match_a.get("legs", []))
-    nodes_b_full = route_b.get("route_nodes") or _flatten_nodes(
-        match_b.get("legs", []))
+        # partially trim this leg
+        new_nodes = nodes[drop:]
+        new_distances = ann.get("distance") or []
+        # drop exactly 'drop' edge distances from the front
+        new_distances = new_distances[drop:] if new_distances else []
 
-    nodes_a_head = route_a.get("nodes_head") or []
-    nodes_a_tail = route_a.get("nodes_tail") or []
-    nodes_b_head = route_b.get("nodes_head") or []
-    nodes_b_tail = route_b.get("nodes_tail") or []
-    k = _overlap_len(nodes_a_full, nodes_b_head)
-    if nodes_a_full and nodes_b_full:
-        route_nodes_merged = nodes_a_full + nodes_b_full[k:]
+        new_leg = copy.deepcopy(leg)
+        new_leg["annotation"] = dict(
+            ann, nodes=new_nodes, distance=new_distances)
+
+        # recompute runs + edge count for this leg
+        runs, k = _nodes_to_ways(
+            new_nodes, cur, with_metrics=with_metrics, distances=new_distances)
+        new_leg["runs"] = runs
+        new_leg["total_edges"] = k
+
+        # (optional) adjust leg.distance from distances array if present
+        if new_distances:
+            new_leg["distance"] = float(sum(new_distances))
+
+        out.append(new_leg)
+
+        # once we’ve trimmed into the first leg, remaining will be 0; rest append as-is
+    # if overlap spilled across many legs, we already skipped them above
+    return out
+
+
+def _merge_coords(coords_a, coords_b):
+    max_check = min(64, len(coords_a), len(coords_b))
+    k = 0
+    # try to find the largest exact overlap (same coordinate pairs)
+    for t in range(max_check, 0, -1):
+        if coords_a[-t:] == coords_b[:t]:
+            k = t
+            break
+    return coords_a + coords_b[k:]
+
+
+def merge_two(a, b, waydb_path, with_metrics=False, stitch_if_needed=False):
+    # pull matchings & legs
+    ma = (a.get("matchings") or [])[0]
+    mb = (b.get("matchings") or [])[0]
+    legs_a = ma.get("legs") or []
+    legs_b = mb.get("legs") or []
+
+    # flatten node spines to detect overlap
+    nodes_a_full = [int(x) for x in _flatten_nodes(legs_a)]
+    nodes_b_full = [int(x) for x in _flatten_nodes(legs_b)]
+
+    k_nodes = _overlap_len(nodes_a_full[-N_OVERLAP:], nodes_b_full[:N_OVERLAP])
+    con = sqlite3.connect(waydb_path)
+    cur = con.cursor()
+
+    if k_nodes == 0 and stitch_if_needed:
+        # optional: create a connector leg between A tail and B head
+        u_last = nodes_a_full[-1]
+        v_first = nodes_b_full[0]
+        connector_nodes = shortest_connector_nodes_db(
+            cur, u_last, v_first, max_expansions=200000)
+        if connector_nodes and len(connector_nodes) >= 2:
+            runs, k = _nodes_to_ways(connector_nodes, cur, with_metrics=False)
+            connector_leg = {
+                # distance optional
+                "annotation": {"nodes": connector_nodes, "distance": []},
+                "steps": [],
+                "distance": 0.0,
+                "duration": 0.0,
+                "summary": "",
+                "weight": 0.0,
+                "runs": runs,
+                "total_edges": k,
+            }
+            legs_merged = legs_a + [connector_leg] + legs_b
+        else:
+            legs_merged = legs_a + legs_b
     else:
-        # last resort — we don’t have full spines; keep A’s head and B’s tail summaries
-        route_nodes_merged = (nodes_a_head or []) + (nodes_b_tail or [])
+        # trim B by the exact node overlap
+        legs_b_trimmed = _trim_B_legs_by_nodes(
+            legs_b, k_nodes, cur, with_metrics=with_metrics)
+        legs_merged = legs_a + legs_b_trimmed
 
-    # If missing, compute from legs (first-round chunks)
-    if runs_a is None or nodes_a_tail == [] or nodes_a_head == []:
-        con = sqlite3.connect(WAY_DB)
-        cur = con.cursor()
-        runs_a, _total_edges_a, nodes_full_a = _runs_from_chunk(
-            match_a, cur, WITH_METRICS)
-        con.close()
-        N = 50
-        nodes_a_head = nodes_a_head or nodes_full_a[:N]
-        nodes_a_tail = nodes_a_tail or nodes_full_a[-N:]
-    if runs_b is None or nodes_b_head == [] or nodes_b_tail == []:
-        con = sqlite3.connect(WAY_DB)
-        cur = con.cursor()
-        runs_b, _total_edges_b, nodes_full_b = _runs_from_chunk(
-            match_b, cur, WITH_METRICS)
-        con.close()
-        N = 50
-        nodes_b_head = nodes_b_head or nodes_full_b[:N]
-        nodes_b_tail = nodes_b_tail or nodes_full_b[-N:]
+    con.close()
 
-    # If both match a and b have nodes, and if the last node of a is the same as first of b
-    # then skip the last node (to avoid duplicates)
+    # merge geometry (LineString coords)
+    coords_a = (ma.get("geometry") or {}).get("coordinates") or []
+    coords_b = (mb.get("geometry") or {}).get("coordinates") or []
+    merged_coords = _merge_coords(coords_a, coords_b)
 
-    k = _overlap_len(nodes_a_tail, nodes_b_head)  # seam based on summaries
-    if k == 0:
-        print("[WARN] No node overlap; assuming k=1 seam.")
-        k = 1
-    overlap_edges = max(0, k-1)
+    # recompute top-level metrics from legs
+    tot_dist = sum(float(leg.get("distance", 0.0)) for leg in legs_merged)
+    tot_dur = sum(float(leg.get("duration", 0.0)) for leg in legs_merged)
+    tot_wt = sum(float(leg.get("weight", 0.0)) for leg in legs_merged)
 
-    merged_runs = merge_runs(runs_a or [], runs_b or [], overlap_edges)
-    # merged node summaries for the next round:
-    # head stays from A, tail stays from B (unless B fully overlapped)
-    nodes_head_merged = nodes_a_head or []
-    nodes_tail_merged = nodes_b_tail or []
+    a_tps = a.get("tracepoints") or []
+    b_tps = b.get("tracepoints") or []
 
-    merged_dist = match_a["distance"] + match_b["distance"]
-    merged_duration = match_a["duration"] + match_b["duration"]
-    merged_weight = match_a["weight"] + match_b["weight"]
-    merged_confidence = (match_a["confidence"] + match_b["confidence"]) / 2
+    a_wmax = _max_waypoint_index(a_tps)          # -1 if A has no non-null
+    offset = (a_wmax + 1) if a_wmax is not None else 0
 
-    # New unified match:
-    unified = {
-        "code": code,
+    tps_a_norm = _normalize_tracepoints_single_matching(
+        a_tps, waypoint_offset=0)
+    tps_b_norm = _normalize_tracepoints_single_matching(
+        b_tps, waypoint_offset=offset)
+
+    tracepoints_merged = tps_a_norm + tps_b_norm
+
+    merged = {
+        "code": "Ok" if a.get("code") == "Ok" and b.get("code") == "Ok" else "Error",
         "matchings": [{
-            "confidence": merged_confidence,
-            "geometry": merged_geometry,
-            "legs": [],  # No legs since we are storing ways
-            "weight_name": "duration",
-            "weight": merged_weight,
-            "duration": merged_duration,
-            "distance": merged_dist
+            "confidence": (ma.get("confidence", 0.0) + mb.get("confidence", 0.0)) / 2.0,
+            "geometry": {"type": "LineString", "coordinates": merged_coords},
+            "legs": legs_merged,
+            "distance": tot_dist,
+            "duration": tot_dur,
+            "weight_name": ma.get("weight_name", "duration"),
+            "weight": tot_wt
         }],
-        "tracepoints": route_a["tracepoints"] + route_b["tracepoints"],
-        "route_nodes": route_nodes_merged,
-        "ways": merged_runs,
-        "nodes_head": nodes_head_merged,
-        "nodes_tail": nodes_tail_merged
+        "tracepoints": tracepoints_merged
     }
-    return unified
+    return merged
 
 
 def tree_merge_routes(matches, executor):
@@ -163,7 +243,8 @@ def tree_merge_routes(matches, executor):
     for i in range(0, len(matches), 2):
         if i + 1 < len(matches):
             # if the value exists in the index range:
-            future = executor.submit(merge_two, matches[i], matches[i+1])
+            future = executor.submit(
+                merge_two, matches[i], matches[i+1], WAY_DB, True, True)
             # Associate each future merge pair with an index
             # for sorting after resync
             future_to_index[future] = i // 2
@@ -208,6 +289,7 @@ def get_json_data(file_path):
 
 def main(input_dir, output_dir, output_name):
     # Threads is the lesser of 32 or the number of files to parse
+
     INPUT_DIR = input_dir
     OUTPUT_DIR = output_dir
     output_json = os.path.join(OUTPUT_DIR, (output_name + ".json"))
@@ -229,7 +311,7 @@ def main(input_dir, output_dir, output_name):
     print(f"[CHECK] Total tracepoints in final merge: {
           len(merged['tracepoints'])}")
     with open(output_json, "w") as f:
-        json.dump(merged, f, indent=2)
+        json.dump(merged, f)
 
     return 0
 

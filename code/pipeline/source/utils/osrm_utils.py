@@ -79,7 +79,7 @@ def points_to_osrm_json(gpx_points, output_dir, basename, radius=5, chunk_size=0
         payload = create_payload(gpx_points, radius)
         path = os.path.join(output_dir, "match.json")
         with open(path, "w") as f:
-            json.dump(payload, f, indent=2)
+            json.dump(payload, f)
         output_files.append(path)
     else:
         # chunk_size elements per chunk
@@ -91,7 +91,7 @@ def points_to_osrm_json(gpx_points, output_dir, basename, radius=5, chunk_size=0
             path = os.path.join(output_dir, f"{basename}_chunk_{
                                 chunk_idx:06d}.json")
             with open(path, "w") as f:
-                json.dump(payload, f, indent=2)
+                json.dump(payload, f)
             output_files.append(path)
     return output_files
 

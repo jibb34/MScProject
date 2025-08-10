@@ -3,4 +3,5 @@ osm_files/
 osrm_map/
 results/
 temp/
+enriched_json/
 

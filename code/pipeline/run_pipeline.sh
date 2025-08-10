@@ -6,7 +6,7 @@
 
 VENV_DIR=".venv"
 REQ_FILE="requirements.txt"
-CONFIG_FILE="settings.yml"
+CONFIG_FILE="./config/settings.yml"
 PROFILE_PATH="docker/osrm/profile.lua"
 OSRM_DATA_DIR="docker/osrm/data"
 export COMPOSE_FILE=docker/docker-compose.yml
@@ -126,7 +126,7 @@ cp ./data/osm_files/merged.pbf ./data/osrm_map/map.pbf
 # Pre-index map files for later:
 # -----------------------------------------------------------------
 touch way_index.sqlite
-python3 source/build_way_index.py
+python3 source/build_way_index.py ./way_index.sqlite
 
 echo "[DOCKER] Launching OSRM Server"
 # docker compose up -d --rm osrm-server #>>/dev/null 2>&1
@@ -168,14 +168,14 @@ for dir in ./data/temp/*/; do
   mkdir -p "$target_subdir"
   python3 source/batch_route_calc.py "$dir" "$target_subdir" "$DYNAMIC_WINDOW"
 done
-
 # ------------------------------------------------------------------
 # 9. Merge chunks
 # ------------------------------------------------------------------
 for dir in ./data/results/*/; do
   [ -d "$dir" ] || continue
-  python3 source/merge_routes.py "$dir" "./data/results"
-  python3 source/check_overlaps.py "$dir"
+  python3 source/merge_routes.py "$dir" "./data/results" --waydb ./way_index.sqlite
+  # python3 source/check_overlaps.py "$dir"
+  # python source/validate_route.py ./data/results/Hilly_endurance_ride_around_Harriman.json way_index.sqlite --pbf ./data/osrm_map/map.pbf --jump_thresh_m 80
 done
 find ./data/results -mindepth 1 -type d -exec rm -rf {} +
 # ------------------------------------------------------------------
@@ -187,9 +187,20 @@ python source/plot_ways.py ./data/results/Hilly_endurance_ride_around_Harriman.j
 python3 source/plot_merged.py
 #OPTIONAL: Add other methods of visualisation...
 
-#
 # ------------------------------------------------------------------
-# 11. Cleanup
+# 11. Data Enrichment
+# ------------------------------------------------------------------
+mkdir -p ./data/enriched_json
+python source/batch_enrich.py \
+  --json-dir "$PWD/data/results" \
+  --gpx-dir "$PWD/data/input" \
+  --out-dir "$PWD/data/enriched_json" \
+  --tol 15 --precision 5 --workers 6 --node-times
+
+python3 source/show_enriched.py ./data/enriched_json/Hilly_endurance_ride_around_Harriman_enriched.json ./test.html
+python3 source/show_enriched.py ./data/enriched_json/Altitude_Day_3_3x8_Ladder_Intervals_on_Woodmen_enriched.json ./test2.html
+# ------------------------------------------------------------------
+# 12. Cleanup
 # ------------------------------------------------------------------
 
 echo "[CLEANUP] Cleaning up JSON chunks..."
@@ -197,6 +208,7 @@ rm -rf ./data/temp/*
 rm -rf data/osm_files/*.pbf
 rm -rf data/osm_files/fragments/*
 rm -rf data/osrm/*
+rm -rf data/results/*
 echo "[CLEANUP] Removing excess map data..."
 
 echo "[CLEANUP] Cleaning up virtual environment..."

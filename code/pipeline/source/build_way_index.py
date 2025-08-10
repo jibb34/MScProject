@@ -1,6 +1,7 @@
 import sqlite3
 import json
 import osmium
+from utils.gpx_utils import haversine_m
 
 
 def build_index(pbf_path, db_path="way_index.sqlite"):
@@ -10,17 +11,27 @@ def build_index(pbf_path, db_path="way_index.sqlite"):
     c = connection.cursor()
 
     c.executescript("""
-        PRAGMA journal_mode=WAL;
-        PRAGMA synchronous=OFF;
-        CREATE TABLE IF NOT EXISTS edges(
-            u INTEGER, v INTEGER, way_id INTEGER, dir INTEGER, seq INTEGER
-        );
-        CREATE INDEX IF NOT EXISTS idx_edges_uv ON edges(u,v);
-        CREATE UNIQUE INDEX IF NOT EXISTS idx_edges_unique ON edges(u,v,way_id,dir,seq);
+            PRAGMA journal_mode=WAL;
+            PRAGMA synchronous=OFF;
 
-        CREATE TABLE IF NOT EXISTS ways(
-            way_id INTEGER PRIMARY KEY, tags TEXT
-        );""")
+            CREATE TABLE IF NOT EXISTS edges(
+                u INTEGER,
+                v INTEGER,
+                way_id INTEGER,
+                dir INTEGER,
+                seq INTEGER,
+                len_m REAL
+            );
+            CREATE INDEX IF NOT EXISTS idx_edges_uv ON edges(u,v);
+            CREATE INDEX IF NOT EXISTS idx_edges_u ON edges(u);
+            CREATE UNIQUE INDEX IF NOT EXISTS idx_edges_unique
+                ON edges(u,v,way_id,dir,seq,len_m);
+
+            CREATE TABLE IF NOT EXISTS ways(
+                way_id INTEGER PRIMARY KEY,
+                tags TEXT
+            );
+        """)
 
     class Handler(osmium.SimpleHandler):
         def way(self, w):
@@ -30,16 +41,24 @@ def build_index(pbf_path, db_path="way_index.sqlite"):
             c.execute(
                 "INSERT OR REPLACE INTO ways(way_id, tags) VALUES (?, ?)",
                 (int(w.id), json.dumps(tags)))
-            refs = [int(n.ref) for n in w.nodes]
+            refs = []
+            for n in w.nodes:
+                if not n.location.valid():
+                    return
+                refs.append((int(n.ref), n.location.lat, n.location.lon))
             rows = []
-            for i, (a, b) in enumerate(zip(refs, refs[1:])):
+            for i in range(len(refs)-1):
+                u, ulat, ulon = refs[i]
+                v, vlat, vlon = refs[i+1]
+                # calculate distance between nodes
+                d = haversine_m(ulat, ulon, vlat, vlon)
                 # store only the forward direction from OSM ordering
-                rows.append((a, b, int(w.id), +1, i))
-                rows.append((b, a, int(w.id), -1, i))
+                rows.append((u, v, int(w.id), +1, i, d))
+                rows.append((v, u, int(w.id), -1, i, d))
             c.executemany(
-                "INSERT OR IGNORE INTO edges VALUES (?,?,?,?,?)", rows)
+                "INSERT OR IGNORE INTO edges(u,v,way_id,dir,seq,len_m) VALUES (?,?,?,?,?,?)", rows)
     connection.execute("BEGIN")
-    Handler().apply_file(pbf_path, locations=False)
+    Handler().apply_file(pbf_path, locations=True)
     connection.commit()
     connection.close()
 

@@ -118,8 +118,7 @@ def main():
 
     # We need the node path to slice by edge_count
     matchings = osrm.get("matchings") or []
-    legs = (matchings[0].get("legs") if matchings else None) or []
-    nodes = flatten_nodes_robust(legs)
+    nodes = osrm.get("route_nodes") or []
     if len(nodes) < 2:
         raise SystemExit(
             "No nodes found in annotations. Did you include annotations=nodes when matching/merging?")

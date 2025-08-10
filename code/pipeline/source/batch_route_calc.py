@@ -36,37 +36,17 @@ def parse_args():
     return parser.parse_args()
 
 
-def chunk_nodes_to_ways(osrm_obj, db="way_index.sqlite", with_metrics=False):
+def _nodes_to_ways(nodes, cur, db="way_index.sqlite", with_metrics=False):
     # Load OSRM JSON and flatten nodes
-    legs = osrm_obj.get("matchings", [{}])[0].get("legs", [])
-    nodes = _flatten_nodes(legs)
-    # Open edge index database
-    con = sqlite3.connect(db)
-    cur = con.cursor()
-
-    # optional align distance per edge
-    distances = []
-    if with_metrics:
-        for leg in osrm_obj["matchings"][0].get("legs", []):
-            ann = leg.get("annotation", {})
-            distances.extend(ann.get("distance") or [])
-
-    # Each node pair is mapped to a directional way from the SQLite database
-
-    edges = []  # list of (way_id, dir, dist)
-    # way_id = numeric ID of OSM way
-    # dir = 1, -1 or 0.
-    # +1 means forward (u->v),
-    # -1 means backwards (v->u),
-    # and 0 means no way found
-    for i, (u, v) in enumerate(zip(nodes[:-1], nodes[1:])):
+    edges = []
+    for u, v in zip(nodes[:-1], nodes[1:]):
         u = int(u)
         v = int(v)
         if u == v:
             continue
-        wid, dir = _edge_lookup(cur, int(u), int(v))
-        dist = distances[i] if with_metrics and i < len(distances) else None
+        wid, dir, dist = _edge_lookup(cur, u, v)
         edges.append((wid, dir, dist))
+    # Each node pair is mapped to a directional way from the SQLite database
 
     # compress by (way_id, dir) into "runs". node to node edges often form only part of a single way
     runs = []
@@ -80,12 +60,7 @@ def chunk_nodes_to_ways(osrm_obj, db="way_index.sqlite", with_metrics=False):
             run.update({"length_m": length_m})
         runs.append(run)
 
-    con.close()
-    return {
-        "runs": runs,
-        # keep these two tiny integers for merge math:
-        "total_edges": max(0, len(nodes)-1)
-    }
+    return runs, max(0, len(nodes)-1)
 
 
 def format_list(values):
@@ -196,16 +171,27 @@ def get_osrm_match(file_path, args):
         if result.get("matchings")
         else os.path.join(gap_dir, output_file)
     )
+    con = sqlite3.connect(args.waydb)
+    cur = con.cursor()
+    matchings = result.get("matchings") or []
+    legs = matchings[0].get("legs", []) if matchings else []
     # Convert Nodes to Ways:
-    if result.get("matchings"):
-        legs = result["matchings"][0].get("legs", [])
-        route_nodes = _flatten_nodes(legs)
-        result["route_nodes"] = route_nodes
-        ways_obj = chunk_nodes_to_ways(result, args.waydb, args.with_metrics)
-        result["ways"] = ways_obj["runs"]
+    for leg in (legs or []):
+        annotation = leg["annotation"]
+        nodes = [int(n) for n in annotation["nodes"]]
+        if not nodes or len(nodes) < 2:
+            leg["runs"] = []
+            leg["total_edges"] = 0
+            continue
+        runs, k = _nodes_to_ways(nodes, cur, with_metrics=args.with_metrics)
+        leg["runs"] = runs
+        leg["total_edges"] = k
+
+    con.close()
+
     # Write result to file
     with open(dest, "w") as out:
-        json.dump(result, out, indent=2)
+        json.dump(result, out)
 
     return (file_path, result)
 
