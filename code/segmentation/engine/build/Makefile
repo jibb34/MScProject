@@ -113,6 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P /home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -128,6 +129,102 @@ segmentation_engine: cmake_check_build_system
 segmentation_engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/build
 .PHONY : segmentation_engine/fast
+
+src/core/segmenter.o: src/core/segmenter.cpp.o
+.PHONY : src/core/segmenter.o
+
+# target to build an object file
+src/core/segmenter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o
+.PHONY : src/core/segmenter.cpp.o
+
+src/core/segmenter.i: src/core/segmenter.cpp.i
+.PHONY : src/core/segmenter.i
+
+# target to preprocess a source file
+src/core/segmenter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.i
+.PHONY : src/core/segmenter.cpp.i
+
+src/core/segmenter.s: src/core/segmenter.cpp.s
+.PHONY : src/core/segmenter.s
+
+# target to generate assembly for a file
+src/core/segmenter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.s
+.PHONY : src/core/segmenter.cpp.s
+
+src/http/http_handler.o: src/http/http_handler.cpp.o
+.PHONY : src/http/http_handler.o
+
+# target to build an object file
+src/http/http_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o
+.PHONY : src/http/http_handler.cpp.o
+
+src/http/http_handler.i: src/http/http_handler.cpp.i
+.PHONY : src/http/http_handler.i
+
+# target to preprocess a source file
+src/http/http_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.i
+.PHONY : src/http/http_handler.cpp.i
+
+src/http/http_handler.s: src/http/http_handler.cpp.s
+.PHONY : src/http/http_handler.s
+
+# target to generate assembly for a file
+src/http/http_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.s
+.PHONY : src/http/http_handler.cpp.s
+
+src/io/json_parser.o: src/io/json_parser.cpp.o
+.PHONY : src/io/json_parser.o
+
+# target to build an object file
+src/io/json_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o
+.PHONY : src/io/json_parser.cpp.o
+
+src/io/json_parser.i: src/io/json_parser.cpp.i
+.PHONY : src/io/json_parser.i
+
+# target to preprocess a source file
+src/io/json_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.i
+.PHONY : src/io/json_parser.cpp.i
+
+src/io/json_parser.s: src/io/json_parser.cpp.s
+.PHONY : src/io/json_parser.s
+
+# target to generate assembly for a file
+src/io/json_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.s
+.PHONY : src/io/json_parser.cpp.s
+
+src/io/json_writer.o: src/io/json_writer.cpp.o
+.PHONY : src/io/json_writer.o
+
+# target to build an object file
+src/io/json_writer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o
+.PHONY : src/io/json_writer.cpp.o
+
+src/io/json_writer.i: src/io/json_writer.cpp.i
+.PHONY : src/io/json_writer.i
+
+# target to preprocess a source file
+src/io/json_writer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.i
+.PHONY : src/io/json_writer.cpp.i
+
+src/io/json_writer.s: src/io/json_writer.cpp.s
+.PHONY : src/io/json_writer.s
+
+# target to generate assembly for a file
+src/io/json_writer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/segmentation_engine.dir/build.make CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.s
+.PHONY : src/io/json_writer.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -162,6 +259,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... segmentation_engine"
+	@echo "... src/core/segmenter.o"
+	@echo "... src/core/segmenter.i"
+	@echo "... src/core/segmenter.s"
+	@echo "... src/http/http_handler.o"
+	@echo "... src/http/http_handler.i"
+	@echo "... src/http/http_handler.s"
+	@echo "... src/io/json_parser.o"
+	@echo "... src/io/json_parser.i"
+	@echo "... src/io/json_parser.s"
+	@echo "... src/io/json_writer.o"
+	@echo "... src/io/json_writer.i"
+	@echo "... src/io/json_writer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -176,6 +285,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

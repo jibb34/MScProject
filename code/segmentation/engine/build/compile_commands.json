@@ -1,7 +1,31 @@
 [
 {
   "directory": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/build",
-  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/main.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/src -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp",
+  "file": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o"
+},
+{
+  "directory": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/src -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp",
+  "file": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o"
+},
+{
+  "directory": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/src -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp",
+  "file": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o"
+},
+{
+  "directory": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/src -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp",
+  "file": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o"
+},
+{
+  "directory": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/src -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/main.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp",
   "file": "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp",
   "output": "CMakeFiles/segmentation_engine.dir/src/main.cpp.o"
 }

@@ -24,6 +24,12 @@ int main() {
 
   // HTTP server setup
   httplib::Server server;
+  // allow big uploads
+  server.set_payload_max_length(1024ull * 1024ull * 512ull); // 512MB
+
+  // optional: longer timeouts for big uploads
+  server.set_read_timeout(60, 0);
+  server.set_write_timeout(60, 0);
   server.set_logger([](const auto &req, const auto &res) {
     std::cout << "[HTTP] " << req.method << " " << req.path << " -> "
               << res.status << std::endl;

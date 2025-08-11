@@ -8,6 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp" "CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o" "gcc" "CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o.d"
+  "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp" "CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o" "gcc" "CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o.d"
+  "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp" "CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o" "gcc" "CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o.d"
+  "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp" "CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o" "gcc" "CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o.d"
   "/home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp" "CMakeFiles/segmentation_engine.dir/src/main.cpp.o" "gcc" "CMakeFiles/segmentation_engine.dir/src/main.cpp.o.d"
   "" "segmentation_engine" "gcc" "CMakeFiles/segmentation_engine.dir/link.d"
   )

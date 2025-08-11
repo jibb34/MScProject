@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include
+CXX_INCLUDES = -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/Projects/MScProject/code/segmentation/engine/src
 
 CXX_FLAGS = -std=gnu++17
 

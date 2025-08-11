@@ -72,10 +72,66 @@ include CMakeFiles/segmentation_engine.dir/flags.make
 CMakeFiles/segmentation_engine.dir/codegen:
 .PHONY : CMakeFiles/segmentation_engine.dir/codegen
 
+CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o: CMakeFiles/segmentation_engine.dir/flags.make
+CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o: /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp
+CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o: CMakeFiles/segmentation_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o -MF CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o.d -o CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp
+
+CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp > CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.i
+
+CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp -o CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.s
+
+CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o: CMakeFiles/segmentation_engine.dir/flags.make
+CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o: /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp
+CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o: CMakeFiles/segmentation_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o -MF CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o.d -o CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp
+
+CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp > CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.i
+
+CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp -o CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.s
+
+CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o: CMakeFiles/segmentation_engine.dir/flags.make
+CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o: /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp
+CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o: CMakeFiles/segmentation_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o -MF CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o.d -o CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp
+
+CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp > CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.i
+
+CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp -o CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.s
+
+CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o: CMakeFiles/segmentation_engine.dir/flags.make
+CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o: /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp
+CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o: CMakeFiles/segmentation_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o -MF CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o.d -o CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp
+
+CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp > CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.i
+
+CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp -o CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.s
+
 CMakeFiles/segmentation_engine.dir/src/main.cpp.o: CMakeFiles/segmentation_engine.dir/flags.make
 CMakeFiles/segmentation_engine.dir/src/main.cpp.o: /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp
 CMakeFiles/segmentation_engine.dir/src/main.cpp.o: CMakeFiles/segmentation_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/segmentation_engine.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/segmentation_engine.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/segmentation_engine.dir/src/main.cpp.o -MF CMakeFiles/segmentation_engine.dir/src/main.cpp.o.d -o CMakeFiles/segmentation_engine.dir/src/main.cpp.o -c /home/jackjibb/Projects/MScProject/code/segmentation/engine/src/main.cpp
 
 CMakeFiles/segmentation_engine.dir/src/main.cpp.i: cmake_force
@@ -88,16 +144,24 @@ CMakeFiles/segmentation_engine.dir/src/main.cpp.s: cmake_force
 
 # Object files for target segmentation_engine
 segmentation_engine_OBJECTS = \
+"CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o" \
+"CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o" \
+"CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o" \
+"CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o" \
 "CMakeFiles/segmentation_engine.dir/src/main.cpp.o"
 
 # External object files for target segmentation_engine
 segmentation_engine_EXTERNAL_OBJECTS =
 
+segmentation_engine: CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o
+segmentation_engine: CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o
+segmentation_engine: CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o
+segmentation_engine: CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o
 segmentation_engine: CMakeFiles/segmentation_engine.dir/src/main.cpp.o
 segmentation_engine: CMakeFiles/segmentation_engine.dir/build.make
 segmentation_engine: CMakeFiles/segmentation_engine.dir/compiler_depend.ts
 segmentation_engine: CMakeFiles/segmentation_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable segmentation_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable segmentation_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/segmentation_engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
