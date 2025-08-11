@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  10 AUG 2025 21:42
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  10 AUG 2025 23:49
  restricted system commands enabled.
 **docs.tex
 (./docs.tex
@@ -827,21 +827,7 @@ File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count323
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box73
-) (./docs.aux
-
-! Package natbib Error: Bibliography not compatible with author-year citations.
-
-(natbib)                Press <return> to continue in numerical citation style.
-
-
-See the natbib package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.65 ...ommand\NAT@force@numbers{}\NAT@force@numbers
-                                                  
-? 
-)
+) (./docs.aux)
 \openout1 = docs.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -940,31 +926,37 @@ Package hyperref Info: Link coloring OFF on input line 32.
 \openout4 = docs.out
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<assets/track1_gpx.png, id=52, 916.42375pt x 666.49pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[][][][]$\TU/lmtt/m/n/9 https://cdn.standards.iteh.ai/samples/77451/e161501288fd
+44f88c6fdd0f6e46b017/
+ []
+
+<assets/track1_gpx.png, id=65, 916.42375pt x 666.49pt>
 File: assets/track1_gpx.png Graphic file (type png)
 <use assets/track1_gpx.png>
-Package luatex.def Info: assets/track1_gpx.png  used on input line 72.
+Package luatex.def Info: assets/track1_gpx.png  used on input line 48.
 (luatex.def)             Requested size: 232.17242pt x 168.84927pt.
-<assets/track1_route.png, id=53, 959.585pt x 724.7075pt>
+<assets/track1_route.png, id=66, 959.585pt x 724.7075pt>
 File: assets/track1_route.png Graphic file (type png)
 <use assets/track1_route.png>
-Package luatex.def Info: assets/track1_route.png  used on input line 79.
+Package luatex.def Info: assets/track1_route.png  used on input line 55.
 (luatex.def)             Requested size: 232.17242pt x 175.33774pt.
-<assets/track2_gpx.png, id=54, 1047.915pt x 599.23875pt>
+<assets/track2_gpx.png, id=67, 1047.915pt x 599.23875pt>
 File: assets/track2_gpx.png Graphic file (type png)
 <use assets/track2_gpx.png>
-Package luatex.def Info: assets/track2_gpx.png  used on input line 89.
+Package luatex.def Info: assets/track2_gpx.png  used on input line 65.
 (luatex.def)             Requested size: 232.17242pt x 132.76558pt.
-<assets/track2_route.png, id=55, 1066.98625pt x 556.0775pt>
+<assets/track2_route.png, id=68, 1066.98625pt x 556.0775pt>
 File: assets/track2_route.png Graphic file (type png)
 <use assets/track2_route.png>
-Package luatex.def Info: assets/track2_route.png  used on input line 96.
+Package luatex.def Info: assets/track2_route.png  used on input line 72.
 (luatex.def)             Requested size: 232.17242pt x 120.99678pt.
- [1
+[1
 
 {/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updma
 p/pdftex.map}]
-Overfull \hbox (36.30693pt too wide) in paragraph at lines 115--120
+Overfull \hbox (36.30693pt too wide) in paragraph at lines 85--86
 []\TU/lmr/bx/n/10.95 Data ex-trac-tion and map down-load\TU/lmr/m/n/10.95 ---The
  shell script[][][] in-vokes the Python mod-ule \TU/lmtt/m/n/10.95 prepare_map.p
 y\TU/lmr/m/n/10.95 .
@@ -972,182 +964,121 @@ y\TU/lmr/m/n/10.95 .
 
 [2<./assets/track1_gpx.png><./assets/track1_route.png><./assets/track2_gpx.png><
 ./assets/track2_route.png>] [3]
-Underfull \hbox (badness 5652) in paragraph at lines 229--233
-\TU/lmtt/m/n/8 python3 
- []
-
-
-Underfull \hbox (badness 5652) in paragraph at lines 229--233
-\TU/lmtt/m/n/8 python3 
- []
-
-
-Underfull \hbox (badness 2932) in paragraph at lines 229--233
-\TU/lmr/m/n/8 and \TU/lmtt/m/n/8 python3 
- []
-
-
-Underfull \hbox (badness 2573) in paragraph at lines 246--247
-[]|\TU/lmtt/m/n/8 merge_two()\TU/lmr/m/n/8 , 
- []
-
-
-Underfull \hbox (badness 3118) in paragraph at lines 253--255
-[]|\TU/lmtt/m/n/8 load_gpx()\TU/lmr/m/n/8 , 
- []
-
-[4]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 270.
-
-
-Package natbib Warning: Citation `gpxpy' on page 5 undefined on input line 276.
-
-
-[5]
-
-Package natbib Warning: Citation `python-json-doc' on page 6 undefined on input
- line 312.
-
-
-Overfull \hbox (15.05223pt too wide) in paragraph at lines 315--316
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 139.
+ [4]
+Overfull \hbox (15.05223pt too wide) in paragraph at lines 182--183
 []\TU/lmr/bx/n/10.95 write_json(points, path)[] \TU/lmr/m/n/10.95 En-sures the 
 tar-get di-rec-tory ex-ists (\TU/lmtt/m/n/10.95 os.makedirs(..., exist_ok=True)\TU/lmr/m/n/10.95 ),
  []
 
 
-Package natbib Warning: Citation `overpass-api-doc' on page 6 undefined on inpu
-t line 321.
-
-
-Package natbib Warning: Citation `python-requests-doc' on page 6 undefined on i
-nput line 321.
-
-
-Overfull \hbox (15.09962pt too wide) in paragraph at lines 318--322
+Overfull \hbox (15.09962pt too wide) in paragraph at lines 185--186
 \TU/lmr/m/n/10.95 form \TU/lmtt/m/n/10.95 https://overpass-api.de/api/map?bbox=w
 est,south,east,north\TU/lmr/m/n/10.95 , fetches via \TU/lmtt/m/n/10.95 requests.
 get()\TU/lmr/m/n/10.95 ,
  []
 
 
-Package natbib Warning: Citation `python-argparse-doc' on page 6 undefined on i
-nput line 331.
-
-
-Package natbib Warning: Citation `python-concurrent-doc' on page 6 undefined on
- input line 340.
-
-
-Package natbib Warning: Citation `gpxpy' on page 6 undefined on input line 343.
-
-
-
-Package natbib Warning: Citation `python-os-doc' on page 6 undefined on input l
-ine 345.
-
-[6]
-Overfull \hbox (4.47227pt too wide) in paragraph at lines 346--348
+Overfull \hbox (4.47227pt too wide) in paragraph at lines 208--209
 []\TU/lmr/bx/n/10.95 Chunk for OSRM: \TU/lmr/m/n/10.95 In-vokes \TU/lmtt/m/n/10
 .95 points_to_osrm_json(points, chunk_dir, gpx_name, radius,
  []
 
-
-Package natbib Warning: Citation `overpass-api-doc' on page 7 undefined on inpu
-t line 353.
-
-
-Overfull \hbox (14.61748pt too wide) in paragraph at lines 355--357
+[5]
+Overfull \hbox (14.61748pt too wide) in paragraph at lines 215--216
 []\TU/lmr/bx/n/10.95 Com-pute bound-ing box: \TU/lmr/m/n/10.95 Uses \TU/lmtt/m/
 n/10.95 bounding_box_from_data(points) \TU/lmr/m/n/10.95 (from \TU/lmtt/m/n/10.
 95 utils/gpx_utils.py\TU/lmr/m/n/10.95 )
  []
 
 
-Package natbib Warning: Citation `python-os-doc' on page 7 undefined on input l
-ine 367.
-
-
-Overfull \hbox (2.83221pt too wide) in paragraph at lines 369--370
+Overfull \hbox (2.83221pt too wide) in paragraph at lines 226--227
 []\TU/lmr/m/n/10.95 Cre-ates a \TU/lmtt/m/n/10.95 ThreadPoolExecutor(max_workers
 =MAX_THREADS) \TU/lmr/m/n/10.95 and sub-mits \TU/lmtt/m/n/10.95 thread_processes
 ()
  []
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 387.
-[7]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 238.
+[6] [7]
+Overfull \hbox (50.93677pt too wide) in paragraph at lines 295--295
+[]  \TU/lmtt/m/n/10.95 }, ... // multiple gpx points per tracepoint. contains po
+ints up until the next tracepoint.[] 
+ []
+
+
+Overfull \hbox (60.3976pt too wide) in paragraph at lines 300--301
+[]\TU/lmtt/m/n/10.95 extensions \TU/lmr/m/n/10.95 is a dic-tio-nary of canon-i-c
+al sen-sor val-ues nor-malised ac-cord-ing to \TU/lmtt/m/n/10.95 config/extensio
+ns_map.json\TU/lmr/m/n/10.95 .
+ []
+
+[8]
+Overfull \hbox (16.44427pt too wide) in paragraph at lines 357--357
+[]  \TU/lmtt/m/n/10.95 "duration":2.3,         // OSRM-calculated travel time fr
+om weightings in profile.lua[] 
+ []
+
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 417.
- [8]
-Overfull \hbox (26.69565pt too wide) in paragraph at lines 455--457
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 369.
+[9]
+Overfull \hbox (26.69565pt too wide) in paragraph at lines 387--388
 []\TU/lmr/m/n/10.95 If the Folium plot-ting script can-not find any match re-sul
 t files, it raises an ex-plicit \TU/lmtt/m/n/10.95 FileNotFoundError\TU/lmr/m/n
 /10.95 . 
  []
 
+(./docs.bbl
+Underfull \hbox (badness 1237) in paragraph at lines 4--7
+[]\TU/lmr/m/n/10.95 Folium De-vel-op-ers (2025), ‘Folium: Python li-brary for in-ter-ac-tive maps
+’, []$\TU/lmtt/m/n/10.95 https://folium.
+ []
 
-Package natbib Warning: There were undefined citations.
-
-[9] (./docs.aux)
+[10]) [11] (./docs.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `docs.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `docs.out':
-(rerunfilecheck)             Before: 21B9BF824409C942A366705685CB637B;2103
-(rerunfilecheck)             After:  F175E8B90F54B7315F51578F1DB54358;1766.
+Package rerunfilecheck Info: File `docs.out' has not changed.
+(rerunfilecheck)             Checksum: FE5E197C6BC7F9F9E934F79F6AAE7938;2350.
 )
 
 Here is how much of LuaTeX's memory you used:
- 23884 strings out of 476447
+ 23938 strings out of 476447
  125027,1977958 words of node,token memory allocated
- 694 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 8 glue, 4 kern, 1 glyph, 15 attribute, 76 glue_spec
-, 15 attribute_list, 2 write nodes
-   avail lists: 2:1805,3:944,4:60,5:542,6:64,7:8306,8:72,9:687,10:22,11:524
- 45332 multiletter control sequences out of 65536+600000
- 57 fonts using 4546919 bytes
- 102i,10n,101p,443b,934s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'subsection.3.3'
+ 744 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 8 glue, 4 kern, 1 glyph, 20 attribute, 76 glue_spec
+, 20 attribute_list, 2 write, 5 pdf_action nodes
+   avail lists: 2:1528,3:861,4:64,5:563,6:72,7:8487,8:104,9:455,10:22,11:513
+ 45366 multiletter control sequences out of 65536+600000
+ 55 fonts using 4289143 bytes
+ 102i,10n,101p,1543b,934s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
 lm/lmmonolt10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist
-/fonts/opentype/public/lm/lmmono8-regular.otf></opt/homebrew/Cellar/texlive/2024
-0312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></opt/homebre
-w/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmmono9-re
-gular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/openty
-pe/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/t
-exmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></opt/homebrew/Cellar/te
-xlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf>
-</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
-lm/lmroman10-italic.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dis
-t/fonts/opentype/public/lm/lmroman8-regular.otf></opt/homebrew/Cellar/texlive/20
-240312_3/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></opt/ho
-mebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmrom
-an10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts
-/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/
-share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></opt/homebrew/C
-ellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman17-reg
-ular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20
-240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew
-/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb>
-Output written on docs.pdf (9 pages, 5104425 bytes).
+/fonts/opentype/public/lm/lmroman10-bold.otf></opt/homebrew/Cellar/texlive/20240
+312_3/share/texmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf></opt/homebr
+ew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman9-
+regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/open
+type/public/lm/lmroman6-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/sha
+re/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></opt/homebrew/Cella
+r/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.
+otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/pub
+lic/lm/lmmono10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf
+-dist/fonts/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texli
+ve/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt
+/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lm
+roman12-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fo
+nts/opentype/public/lm/lmroman17-regular.otf></opt/homebrew/Cellar/texlive/20240
+312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/
+Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
+pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on docs.pdf (11 pages, 5108589 bytes).
 
-PDF statistics: 278 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 131072)
- 96 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 342 PDF objects out of 1000 (max. 8388607)
+ 278 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 131072)
+ 112 words of extra memory for PDF output out of 10000 (max. 100000000)
 

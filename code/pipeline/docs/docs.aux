@@ -3,6 +3,8 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \bibstyle{agsm}
+\citation{gpx-format}
+\citation{Saki2022}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Overview of the pipeline}{1}{section.1}\protected@file@percent }
 \citation{overpass}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
@@ -17,47 +19,58 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Comparison of raw GPX tracks and OSRM-matched routes: (a) GPX Track 1, (b) Route 1, (c) GPX Track 2, (d) Route 2.}}{2}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:gpx_vs_route_grid}{{1}{2}{Comparison of raw GPX tracks and OSRM-matched routes: (a) GPX Track 1, (b) Route 1, (c) GPX Track 2, (d) Route 2}{figure.caption.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Description of pipeline processing steps}{2}{subsection.1.1}\protected@file@percent }
-\gdef \LT@i {\LT@entry 
-    {1}{91.35826pt}\LT@entry 
-    {1}{239.62204pt}\LT@entry 
-    {1}{119.81102pt}}
+\citation{osmium}
+\citation{osrm}
+\citation{Newson2009}
+\citation{folium}
+\citation{gpxpy}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Pipeline flowchart for the GPX to OSRM-matched route processing system.}}{4}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:flowchart}{{2}{4}{Pipeline flowchart for the GPX to OSRM-matched route processing system}{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Component Overview}{4}{section.2}\protected@file@percent }
-\newlabel{tab:modules}{{1}{4}{Component Overview}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \footnotesize  Summary of key modules in the pipeline. The descriptions focus on the primary purpose of each module and list notable functions exposed for reuse.}}{4}{table.1}\protected@file@percent }
-\citation{gpxpy}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Python Module Breakdown}{5}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}GPX Utilities (\texttt  {gpx\_utils.py})}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{load\_gpx(path)}{5}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{extract\_data\_from\_gpx(gpx)}{5}{section*.5}\protected@file@percent }
-\citation{python-json-doc}
-\citation{overpass-api-doc,python-requests-doc}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Python Module Breakdown}{4}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}GPX Utilities (\texttt  {gpx\_utils.py})}{4}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{load\_gpx(path)}{4}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{extract\_data\_from\_gpx(gpx)}{4}{section*.5}\protected@file@percent }
+\citation{overpass}
 \citation{python-argparse-doc}
 \citation{python-concurrent-doc}
 \citation{gpxpy}
 \citation{python-os-doc}
-\@writefile{toc}{\contentsline {paragraph}{bounding\_box\_from\_data(data)}{6}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{bbox\_contains(outer, inner)}{6}{section*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{load\_json(file\_path)}{6}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{write\_json(points, path)}{6}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{download\_osm\_file(bbox, output\_path)}{6}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Data Extraction and Map Download (\texttt  {prepare\_map.py})}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{parse\_args()}{6}{section*.11}\protected@file@percent }
-\citation{overpass-api-doc}
+\@writefile{toc}{\contentsline {paragraph}{bounding\_box\_from\_data(data)}{5}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{bbox\_contains(outer, inner)}{5}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{load\_json(file\_path)}{5}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{write\_json(points, path)}{5}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{download\_osm\_file(bbox, output\_path)}{5}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Extraction and Map Download (\texttt  {prepare\_map.py})}{5}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{parse\_args()}{5}{section*.11}\protected@file@percent }
 \citation{python-os-doc}
-\gdef \LT@ii {\LT@entry 
+\gdef \LT@i {\LT@entry 
     {1}{119.81102pt}\LT@entry 
     {1}{262.0748pt}}
-\@writefile{toc}{\contentsline {paragraph}{thread\_processes(gpx\_file, output\_path, chunk\_dir, radius, chunk\_size)}{7}{section*.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{get\_single\_osm\_from\_gpx(gpx\_file, points, gpx\_name, output\_path)}{7}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{main()}{7}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Configuration options}{7}{section.4}\protected@file@percent }
-\newlabel{tab:settings}{{2}{7}{Configuration options}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Summary of configuration keys in \texttt  {settings.yml}.}}{7}{table.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Running the pipeline}{8}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Error handling and warnings}{8}{section.6}\protected@file@percent }
-\bibcite{overpass}{{1}{}{{}}{{}}}
-\bibcite{iso26514}{{2}{}{{}}{{}}}
-\providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{9}
+\@writefile{toc}{\contentsline {paragraph}{thread\_processes(gpx\_file, output\_path, chunk\_dir, radius, chunk\_size)}{6}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{get\_single\_osm\_from\_gpx(gpx\_file, points, gpx\_name, output\_path)}{6}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{main()}{6}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Configuration options}{6}{section.3}\protected@file@percent }
+\newlabel{tab:settings}{{1}{6}{Configuration options}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of configuration keys in \texttt  {settings.yml}.}}{6}{table.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Output JSON file structure}{7}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Top‑level keys}{7}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Tracepoints and GPX enrichment}{7}{subsection.4.2}\protected@file@percent }
+\citation{sqlite}
+\citation{sqlite}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Matchings and their legs}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Running the pipeline}{9}{section.5}\protected@file@percent }
+\bibdata{references}
+\bibcite{folium}{{1}{2025}{{Folium Developers}}{{}}}
+\bibcite{gpxpy}{{2}{2023}{{Krajina}}{{}}}
+\bibcite{Newson2009}{{3}{2009}{{Newson \&\ Krumm}}{{}}}
+\bibcite{osmium}{{4}{2025}{{Osmium Tool}}{{}}}
+\bibcite{overpass}{{5}{2025}{{Overpass API}}{{}}}
+\bibcite{osrm}{{6}{2025}{{Project OSRM}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Error handling and warnings}{10}{section.6}\protected@file@percent }
+\bibcite{python-argparse-doc}{{7}{2025{\em  a}}{{Python Software Foundation}}{{}}}
+\bibcite{python-concurrent-doc}{{8}{2025{\em  b}}{{Python Software Foundation}}{{}}}
+\bibcite{python-os-doc}{{9}{2025{\em  c}}{{Python Software Foundation}}{{}}}
+\bibcite{Saki2022}{{10}{2022}{{Saki \&\ Hagen}}{{}}}
+\bibcite{sqlite}{{11}{2025}{{SQLite}}{{}}}
+\bibcite{gpx-format}{{12}{2023}{{Topografix}}{{}}}
+\gdef \@abspage@last{11}

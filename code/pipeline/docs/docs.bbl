@@ -1,0 +1,67 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{{Folium Developers}}{2025}{folium}
+{Folium Developers}  \harvardyearleft 2025\harvardyearright , `Folium: Python
+  library for interactive maps', \url{https://folium.readthedocs.io}.
+\newblock Accessed August~2025.
+
+\harvarditem{Krajina}{2023}{gpxpy}
+Krajina, T.  \harvardyearleft 2023\harvardyearright , `{\it gpxpy} (version
+  1.6.2) [python library]', \url{https://pypi.org/project/gpxpy/}.
+\newblock Accessed August~2025.
+
+\harvarditem{Newson \harvardand\ Krumm}{2009}{Newson2009}
+Newson, P. \harvardand\ Krumm, J.  \harvardyearleft 2009\harvardyearright ,
+  Hidden markov map matching through noise and sparseness, {\em in}
+  `Proceedings of the 17th ACM SIGSPATIAL International Conference on Advances
+  in Geographic Information Systems (GIS'09)', Seattle, WA, USA.
+
+\harvarditem{{Osmium Tool}}{2025}{osmium}
+{Osmium Tool}  \harvardyearleft 2025\harvardyearright , `Multi-purpose osm data
+  manipulation toolkit', \url{https://osmcode.org}.
+\newblock Accessed August~2025.
+
+\harvarditem{{Overpass API}}{2025}{overpass}
+{Overpass API}  \harvardyearleft 2025\harvardyearright , `Openstreetmap data
+  extractor', \url{https://overpass-api.de}.
+\newblock Accessed August~2025.
+
+\harvarditem{{Project OSRM}}{2025}{osrm}
+{Project OSRM}  \harvardyearleft 2025\harvardyearright , `Open source routing
+  machine (osrm)', \url{http://project-osrm.org}.
+\newblock Accessed August~2025.
+
+\harvarditem{{Python Software Foundation}}{2025{\em a}}{python-argparse-doc}
+{Python Software Foundation}  \harvardyearleft 2025{\em a}\harvardyearright ,
+  `argparse --- parser for command-line options (python documentation)',
+  \url{https://docs.python.org/3/library/argparse.html}.
+\newblock Accessed August~2025.
+
+\harvarditem{{Python Software Foundation}}{2025{\em b}}{python-concurrent-doc}
+{Python Software Foundation}  \harvardyearleft 2025{\em b}\harvardyearright ,
+  `concurrent.futures --- launching parallel tasks (python documentation)',
+  \url{https://docs.python.org/3/library/concurrent.futures.html }.
+\newblock Accessed August~2025.
+
+\harvarditem{{Python Software Foundation}}{2025{\em c}}{python-os-doc}
+{Python Software Foundation}  \harvardyearleft 2025{\em c}\harvardyearright ,
+  `os --- miscellaneous operating system interfaces (python documentation)',
+  \url{https://docs.python.org/3/library/os.html}.
+\newblock Accessed August~2025.
+
+\harvarditem{Saki \harvardand\ Hagen}{2022}{Saki2022}
+Saki, S. \harvardand\ Hagen, T.  \harvardyearleft 2022\harvardyearright , `A
+  practical guide to an open-source map-matching approach for big gps data',
+  {\em SN Computer Science} {\bf 3}(415).
+
+\harvarditem{{SQLite}}{2025}{sqlite}
+{SQLite}  \harvardyearleft 2025\harvardyearright , `Sqlite home page',
+  \url{https://sqlite.org}.
+\newblock Accessed August~2025.
+
+\harvarditem{{Topografix}}{2023}{gpx-format}
+{Topografix}  \harvardyearleft 2023\harvardyearright , `Gpx: the gps exchange
+  format (version 1.1)', \url{http://www.topografix.com/gpx.asp}.
+\newblock Accessed August~2025.
+
+\end{thebibliography}
