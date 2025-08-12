@@ -8,16 +8,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{enumitem}
+\usepackage{fontspec} % XeLaTeX/LuaLaTeX
+% Set the global monospaced family used by \ttfamily
+\setmonofont{GoMono Nerd Font Mono}[
+  Scale=MatchLowercase
+]
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{tabularx}
 % \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{{assets/}}
+\usepackage{listings}
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{float}
+\usepackage[htt]{hyphenat}
 \usepackage{caption}
 \usepackage{amsmath,amssymb}
 \usepackage{hyperref}
@@ -32,24 +39,34 @@
 \usetikzlibrary{shapes,arrows.meta,positioning,fit}
 \captionsetup[table]{font=footnotesize, labelfont=footnotesize, justification=centering}
 \captionsetup[figure]{font=footnotesize, labelfont=footnotesize, justification=centering}
+\usepackage[nameinlink,noabbrev]{cleveref} % smarter refs
+% Make cleveref know about listings:
+\crefname{listing}{Listing}{Listings}
+\Crefname{listing}{Listing}{Listings}
+
+% Optional: include a “List of Listings” after the ToC
+% \lstlistoflistings % (place in front matter where you want it)
 
 %---------------------------------------------------------------------------
 % Graphics and Listings Setup
 %---------------------------------------------------------------------------
 \captionsetup{font=small,labelfont=bf}
 \lstset{
-  basicstyle=\ttfamily\small,
-  breaklines=true,
-  frame=single,
+  basicstyle=\ttfamily\footnotesize,
   numbers=left,
   numberstyle=\tiny,
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  aboveskip=0.5\baselineskip,
+  belowskip=0.5\baselineskip,
   keywordstyle=\color{blue},
-  commentstyle=\color{gray},
-  stringstyle=\color{teal},
-  showstringspaces=false
+  commentstyle=\color{gray!70},
+  stringstyle=\color{teal!70!black}
 }
-
-%---------------------------------------------------------------------------
+%--------------------------------------------------------------------------
 % Header and Footer
 %---------------------------------------------------------------------------
 \pagestyle{fancy}
@@ -174,13 +191,119 @@ This dissertation investigates whether the \emph{training suitability} of roads 
 \section{Training Suitability and Segmentation Algorithm Design and Analysis}
 
 \subsection{Research Objectives}
+The purpose of creating an algorithmic approach to categorizing and segmenting a GPX route is to be able to rapidly and systematically construct new routes based on the requirements of the rider's training plan.
+It makes sense intuitively to segment a route, so riders does not have to analyse every part of a map to determine where to send their route. Riders are specifically interested in sections of the route such as climbs, descents, busy roads, and gravel.
+The objective of research should be to come up with a suitable method of segmentation, and subsequent categorization of the resulting segments so riders can select ones that suit their training needs.
+\\
+Intuitively, we can segment a route by the roads that it follows, when a route changes roads, we add a segment. However this can prove more difficult to formalize, as
+a road can have many intersections. How can we categorize a segment by road name but also have node values that connect to other road names that may or may not be part of the same segment?
+The following research applies to the problem of Segmentation, and how we may approach defining a route segment formally.
+
 \subsection{Algorithmic Approaches to Segmentation and Categorization}
-\subsection{Applications in Cyclist Route Planning}
 \subsection{Methodological Considerations and Assumptions}
+Firstly we must obtain a GPX file. This is give from either a new or existing activity. It can be downloaded in many ways, either from common fitness websites (Strava, Garmin, MapMyRide, etc.), or directly
+downloaded from a GPS device. Either way, there are some standards we can take advantage of. Each GPX is an XML-style file. Here is a snipped from
+a GPX file used in testing the system:
+\begin{verbatim}
+<trk>
+  <trkseg>
+    <trkpt lat="38.82032" lon="-104.861694">
+      <time>2024-08-06T13:12:58.000Z</time>
+      <ele>1884.8</ele>
+      <extensions>
+        <power>168</power>
+        <tpx1:TrackPointExtension>
+          <tpx1:atemp>20</tpx1:atemp>
+          <tpx1:hr>123</tpx1:hr>
+          <tpx1:cad>65</tpx1:cad>
+        </tpx1:TrackPointExtension>
+      </extensions>
+    </trkpt>
+    ...
+  </trkseg>
+</trk>
+
+\end{verbatim}
+It's clear to see that it is a hierarchical tree structure, with various metadata. Not all of the data is named constantly, so it is important
+to consider variations in naming. This can be normalized along with any other normalization processes.
+\\
+Once downloaded, they must be normalized and processed. This can be done by converting to a standardized JSON structure, where each object contains at least Latitude, Longitude, Elevation, and timing data.
+After this, some processing should be done to remove any erroneous values. Simply detecting 0s or NaN values in the data stream is sufficient, and the missing data can be interpolated with the average of the surrounding present values.
+Next, derived metadata, such as speed or heading, should be calculated mathematically using the Haversine formula and trigonometry, and added as an additional extension in the JSON file.
+
+\subsection{Pulling Map Data}
+A useful library for python called OSMnx exists, which allows easy and efficient pulling of API data from the OpenStreetMap database. This is what we will use to correct the GPS data, and to enrich the data for segmentation and categorization.
+To do this, we use the \texttt{os.graph\_from\_bbox()} function to pull only nearby data (within the bounding box of the route). The approach is as follows:
+\begin{enumerate}
+	\item Find the largest and smallest coordinates in the route
+	\item Generate a bounding box of the extreme coordinates
+	\item Send the bounding box to a function that pulls the data from OSM
+\end{enumerate}
+
 
 \section{Training Suitability Scoring}
 
 \subsection{Research Objectives}
+\subsubsection{Construct and Scale Definition}
+\begin{enumerate}
+	\item \textbf{Define the construct}: Precisely define what TSS measures (segment suitability for endurance, tempo/threshold, VO$_2$max, anaerobic/neuromuscular work).
+	\item \textbf{Score scale and calibration}: Design a bounded scale (e.g., 0--100) with interpretable anchors; ensure monotonicity with increasing segment challenge.
+	\item \textbf{Task taxonomy}: Map segments to training intents; specify how a single segment can be suitable for multiple intents with different scores.
+\end{enumerate}
+
+\subsubsection{Data and Feature Engineering}
+\begin{enumerate}
+	\item \textbf{Core geometry features}: Length, elevation gain/loss, grade distribution (percent time in grade bins), curvature/turn density, stop density, junction density.
+	\item \textbf{Dynamics features}: Speed variance, acceleration peaks per km, cadence/power variability (if available).
+	\item \textbf{Context features}: Surface type, traffic class (if derivable), wind exposure (proxy via openness), time-of-day/week effects (optional).
+	\item \textbf{Directionality}: Treat opposing directions as distinct; verify feature asymmetry (e.g., climb vs. descent).
+	\item \textbf{Sensor fallbacks}: Specify safety fallbacks when power/HR are absent (e.g., speed–grade model, elevation-derived effort proxies).
+\end{enumerate}
+
+\subsubsection{Personalisation vs. Population Baseline}
+\begin{enumerate}
+	\item \textbf{Dual scoring}: Produce both (a) population TSS (sensor-agnostic) and (b) optional rider-adjusted TSS using FTP/HR zones when available.
+	\item \textbf{Normalization}: Ensure comparability across riders and devices (e.g., z-scores by region/segment length, or duration-normalized metrics).
+\end{enumerate}
+
+\subsubsection{Algorithm Design}
+\begin{enumerate}
+	\item \textbf{Model family}: Compare transparent formula-based models (weighted feature sum with calibrated bins) vs. learned models (ordinal regression / pairwise ranking).
+	\item \textbf{Weight learning}: Learn weights from coach labels or pairwise “A more suitable than B” judgments; constrain for interpretability.
+	\item \textbf{Multi-objective scoring}: Support per-intent heads (Endurance/Threshold/Neuromuscular) sharing a common feature backbone.
+	\item \textbf{Uncertainty}: Output a confidence/uncertainty score (e.g., via bootstrap or ensembling) for downstream UI.
+\end{enumerate}
+
+\subsubsection{Validation and Evaluation}
+\begin{enumerate}
+	\item \textbf{Reliability}: Test consistency on repeated rides (ICC, coefficient of variation) under GPS noise and sampling-rate changes.
+	\item \textbf{Criterion validity}: Correlate TSS with expert/coach ratings and with proxy physiology (normalized power, % time in Z4–Z6, HR drift).
+	\item \textbf{Discrimination}: AUC/average precision to separate segments intended for different training zones.
+	\item \textbf{Calibration}: Reliability plots (expected vs. observed difficulty bins).
+	\item \textbf{Generalisation}: Cross-validate across geographies (urban/rural, hilly/flat) and seasons; check domain shift.
+\end{enumerate}
+
+\subsubsection{Robustness and Edge Cases}
+\begin{enumerate}
+	\item \textbf{GPS/Map-matching noise}: Stress-test with perturbed trajectories; target $\leq$5\% score drift.
+	\item \textbf{Segment length effects}: Ensure fairness across short vs. long segments (length-aware normalization).
+	\item \textbf{Outliers}: Downweight extreme rides (e.g., device glitches, group sprints) to protect segment baselines. Can filter out data points above
+	      certain standard deviation value or absolute ceiling (2000+ watts/200rpm/250hr, etc...).
+\end{enumerate}
+
+\subsubsection{Operational Objectives}
+\begin{enumerate}
+	\item \textbf{Versioning}: Define TSS schema \& model versioning.
+	\item \textbf{Explainability}: Provide per-segment feature attributions (e.g., SHAP) for UI tooltips (“score driven by 8\% average grade and high curvature”).
+	\item \textbf{Privacy}: Use only aggregated segment features for public stats; no storage of user-identifiable ride data.
+\end{enumerate}
+
+\subsubsection{Datasets and Ground Truth}
+\begin{enumerate}
+	\item \textbf{Label collection}: Design a small expert-annotated set (coach ratings / pairwise preferences) covering common segment archetypes.
+	\item \textbf{Benchmark split}: Publish/train/val/test splits across regions and segment types; document acquisition and preprocessing.
+\end{enumerate}
+
 \subsection{Approaches to Suitability Scoring}
 \paragraph{Sharifzadeh et al. "Change Detection in Time Series Data Using Wavelet \citep{Sharifzadeh2005} Footprints"}
 An interesting approach to Suitability scoring relates to Fast Fourier Transforms, and a convolution approach comes from Medhi Sharifzadeh et al, from the University of Southern California, introducing a concept known as
@@ -223,8 +346,21 @@ For an input power signal, $P(t)$ over interval $(0,N)$, the formula for Normali
 	\mathrm{NP} = \bigg( \frac{1}{N} \sum_{i=1}^{N}\big(\overline{P}_{r}(i)\big)^{4}\bigg)^{1/4}
 \]
 where $P_r$ is the 30 second rolling average power starting at point i in the power data array.
-\subsection{Applications in Training Suitability Scoring}
 \subsection{Methodological Considerations and Assumptions}
+In order to classify a segment, it is necessary to know what an athlete values in training. As a cyclist, I have used my own experience to compile this list:
+
+\begin{itemize}
+	\item Type: What is the categorization of the road? (A, B, Service, Motorway, Bike path)
+	\item Surface: What is the surface of the road made of? (Tarmac, concrete, gravel, dirt, wood?)
+	\item Behaviour: How does the road act? (Straight, gradual bends, sharp curves, switchbacks)
+	\item Safety: How safe is this route? Are there a lot of accidents, is there a lot of commercial traffic?
+	\item Elevation: Is this route a consistent gradient, is it flat, uphill, downhill, rolling?
+	\item Length: How long is the route in metres.
+\end{itemize}
+
+Implementing a summative score that represents a segment will also benefit from taking rider metrics, such as Power, HR, Cadence, and Speed.
+As a cyclist or group of cyclists ride a specific segment, the better picture we get of the route, as the average values will be a good representation
+of the training suitability of the route.
 \begin{itemize}
 	\item \textbf{Power:} All cyclists have different power thresholds; in other words, two cyclists may be going the same speed up a climb, but one may be going all out, and another just going easy.
 	      They may not even have the same power output. The one going easy could have a higher power output than the person going all out, depending on their weight. As such absolute power is a bad reference
@@ -246,6 +382,14 @@ where $P_r$ is the 30 second rolling average power starting at point i in the po
 	      as a suitibility metric. Every "unsafe" property of a road can add danger points to the segment, and a subjective scoring system could be put in place initially, and in the future, a machine learning approach could be used.
 \end{itemize}
 
+\begin{enumerate}
+	\item Safety (a composite metric defined by various factors, could also be gathered collectively from rider feedback)
+	\item Difference between Average and Normalized Power (in Watts/Kg)
+	\item Length (of segment)
+	\item Elevation Gain (or loss)
+	\item Road Quality
+	\item Absolute Normal Distance Change (aka how twisty the road is)
+\end{enumerate}
 
 \section{LSEPI Analysis}
 \subsection{Legal}
@@ -261,17 +405,38 @@ where $P_r$ is the 30 second rolling average power starting at point i in the po
 \label{sec:srs}
 % ISO/IEC/IEEE 29148 \citep{ISO29148}-compliant structure
 \subsection{Purpose and Scope}
-% Define the purpose of this SRS and the scope of the system.
+\label{sec:purpose}
+The purpose of this Software Requirements Specification is to define the functional and non-functional requirements
+for the GPX-Based Route Segmentation and Analysis System. This system enables end users (primarily cyclists and coaches)
+to upload recorded GPX ride data or draw routes on a web map, automatically segment the route into reusable “segments,”
+match them against a central database of known segments, and compute training-relevant statistics (Training Suitability Score, TSS).
+The SRS covers requirements for both \emph{upload mode} (GPX ingestion, segmentation, database updates) and \emph{query mode}
+(route matching without creation).
 
 \subsection{Intended Audience and Reading Suggestions}
-% Stakeholders and recommendations for reading order.
-
+\begin{itemize}
+	\item \textbf{Developers:} Read entire SRS to understand system scope, functional interfaces, and data models.
+	\item \textbf{Testers:} Focus on Section \ref{sec:specific} (Specific Requirements) for test case derivation.
+	\item \textbf{Stakeholders (coaches, cyclists):} Sections \ref{sec:purpose}–\ref{sec:overview} provide high-level understanding of capabilities.
+\end{itemize}
 \subsection{Overall Description}
+\label{sec:overview}
 \subsubsection{Product Perspective}
-% Context and interfaces with other systems.
+This system is a standalone web service that is built on a LAMP-like technology stack (Linux, Nginx, MySQL, Flask), augmented by Python and Dockerized C++ processing engines.
+It integrates with third party mapping libraries (OpenStreetMap, Overpass, Osmium and OSRM). Conceptually, it acts as a data processor, taking user's GPX files from their GPS-enabled devices,
+and processing them against a central database. The system acts as an ETL (Extract-transform-load) pipeline for incoming GPX files, as well as a query engine
+for user-inputted drawn map routes from a map drawing system.
 
 \subsubsection{Product Functions}
-% Summary of major functions of the system.
+\begin{itemize}
+	\item \textbf{GPX Ingestion:} Accepts GPX 1.1 uploads, applies privacy-filter trimming, and parses into coordinate streams.
+	\item \textbf{Map Data Preparation:} Fetches OSM extracts via Overpass; converts to PBF with Osmium; loads map into OSRM engine.
+	\item \textbf{Map Matching:} Uses OSRM engine to snap GPX/drawn points to the routable network given by the .pbf file, yielding a formatted JSON object.
+	\item \textbf{Segmentation:} Runs a two-pass C++ algorithm that (1) proposes segment boundaries by topological features and (2) matches segments in the database within spatial tolerances.
+	\item \textbf{Database Management:} Inserts new segments (UUID + Route JSON), updates hit counts, and appends TSS values. Prunes segments below frequency thresholds after given amount of time.
+	\item \textbf{Route Querying:} Given a drawn route, returns only the existing segments that fall along it, along with aggregated statistics.
+	\item \textbf{User Interface:} Web pages for upload and drawing; interactive map highlighting segments and showing hover tooltips with TSS and hit count.
+\end{itemize}
 
 \subsubsection{User Characteristics}
 The typical user will be of a reasonable proficiency with other online mapping softwares, such as route
@@ -279,15 +444,30 @@ creation in Strava or MapMyRide. This software is mostly proof of concept, so us
 be considered less important over functionality.
 
 \subsubsection{Operating Environment}
-% Hardware, software, and regulatory environments.
+\begin{itemize}
+	\item \textbf{Server:} Linux (Arch Linux), Docker 20+, Nginx 1.28, Python 3.8+, MySQL 8.0+, C++17 toolchain.
+	\item \textbf{Client:} Modern web browser (Chrome, Firefox, Safari) with JavaScript enabled.
+	\item \textbf{Network:} HTTPS/TLS for all external calls, and internal HTTP calls with GET and POST.
+\end{itemize}
 
 \subsubsection{Design and Implementation Constraints}
-% Standards, languages, and tools that constrain design.
-
+\label{sec:constraints}
+\begin{itemize}
+	\item \textbf{Privacy Trimming:} First 1 km of every GPX trace to be removed before any processing by default, can be overriden by user.
+	\item \textbf{Modularization:} All components of the system must be contained within Docker containers, for easy deployment to most servers.
+	\item \textbf{Data Formats:} GPX 1.1, GeoJSON (LineString), MySQL spatial types.
+	\item \textbf{Standards Compliance:} Must adhere to GDPR and UK Data Protection Act; architecture described per ISO 42010.
+\end{itemize}
 \subsubsection{Assumptions and Dependencies}
-% External factors assumed to be true.
+\begin{itemize}
+	\item Overpass API availability or a local Overpass instance.
+	\item OSM data completeness for user routes’ geographic boundaries (using union of bounding boxes)
+	\item OSRM server pre-loaded with relevant PBF extracts before running matching service.
+	\item Users supply valid GPX conforming to standard schema. Some variance is ok, and a file with metric synonyms is accessable to the user.
+\end{itemize}
 
 \subsection{Specific Requirements}
+\label{sec:specific}
 \subsubsection{External Interface Requirements}
 \paragraph{User Interfaces} Description of UI requirements.\\
 The user interface only requires two features:
@@ -336,22 +516,40 @@ The functional requirements of the system are as follows:
 
 
 \subsubsection{Logical Database Requirements}
-% Data definitions, schemas, and constraints.
+\begin{itemize}
+	\item The 'Segments' table \emph{shall} define a primary key on 'segment\_id', of the UUID form.
+	\item A SPATIAL index \emph{shall} be defined on the 'geometry' column to accelerate spatial lookups.
+	\item The 'tss\_values' array \emph{shall} be horizontally scalable (e.g.\ limit array growth or average older values).
+\end{itemize}
 
 \subsubsection{Software System Attributes}
 \paragraph{Reliability}
-% Availability, MTBF, and error handling.
+System components are individually testable, and hardened for failure with catch blocks for any edge conditions, with the default behaviour defined
+as "ignore" per section. The multi-chunk approach to processing also allows for error, without corrupting the entire dataset. If a chunk is corrupted,
+it can just be ignored.
 
 \paragraph{Availability}
 As a proof-of-concept system, the availability of the system is only when required for testing and presenting.
 
 \paragraph{Security}
-Security isn't as important for the proof of concept, but a lot of standard considerations can be made that relate to LAMP stack web applications.
-% Authentication, authorization, and encryption.
+Security isn't as important for the proof of concept, but a lot of standard considerations can be made that relate to LAMP stack web applications:
+\begin{itemize}
+	\item All HTTP endpoints \emph{must} require HTTPS/TLS.
+	\item Uploaded GPX files \emph{shall} be scanned for XML schema compliance to prevent malicious payloads.
+	\item System is interconnected on a private, secure network. Only accessable by the web host.
+	\item Enforce TLS 1.2+, HSTS, OCSP Stapling, and complex ciphers.
+	\item Use reverse proxy and rate limiting for connecting to the server.
+	\item Disable directory listing, set file permissions.
+	\item Set all security headers in Nginx.
+	\item Input validation, normalisation, and output encoding to prevent SQL-injection and XSS attacks.
+	\item Randomize file input names, sniff content and enforce size limits (<100Mb).
+	\item Separate DB user per application with least privileges (no root user)
+	\item Bind the database to localhost or internal private IP.
+	\item Enforce strict SQL modes
+\end{itemize}
 
 \paragraph{Maintainability}
 Every component of the system will be independent, and input and output formats are documented in the documentation in \ref{chap:appendix}.
-% Modularity and supportability requirements.
 
 \paragraph{Portability}
 The whole project will be made available via GitHub, and possibly a dockerized version of the system will be developed in the future for portability.
@@ -361,7 +559,7 @@ The whole project will be made available via GitHub, and possibly a dockerized v
 % List standards adhered to.
 
 \chapter{Implementation}
-\label{chap:implemention}
+\label{chap:implement}
 % Chronological methodology
 
 \chapter{Design}
@@ -448,13 +646,89 @@ Identify and describe any applied patterns (e.g., MVC, layered) and coding conve
 
 \section{Module-Level Design}
 \label{sec:moduledesign}
-\subsection{Module Decomposition}
-List all system modules, their interfaces, and dependencies. Include a module dependency diagram.
-%TODO: Include design requirements of each python module
+\subsection{GPX-to-Enriched-JSON Pipeline Modules}
+Python Modules for the input pipeline, including dependencies, and interfaces.
 
-\subsection{Module Specifications}
-For each module:
+\subsubsection{Module Dependency Diagram}
+% \ref{fig:moddepdiag} visually shows the dependencies for each module in the input pipeline.
+
+
+\subsubsection{Module Specifications}
+\paragraph{gpx\_utils.py}
 \begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{osrm\_utils.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{osm\_utils.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{extension\_utils.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{prepare\_map.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{batch\_route\_calc.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{merge\_routes.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{build\_way\_index.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{gpx\_enrich.py}
+\begin{description}
+	\small
+	\item[Name:] Purpose and description.
+	\item[Interfaces:] Inputs, outputs, and protocols.
+	\item[Behavior:] Algorithmic overview or pseudocode.
+	\item[Dependencies:] Internal and external module links.
+\end{description}
+\paragraph{batch\_enrich.py}
+\begin{description}
+	\small
 	\item[Name:] Purpose and description.
 	\item[Interfaces:] Inputs, outputs, and protocols.
 	\item[Behavior:] Algorithmic overview or pseudocode.
@@ -484,12 +758,11 @@ Definitions and formats for all data elements used in the system.
 List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g., ISO/IEC 27001 \citep{ISO27001} for security).
 
 \chapter{Methodology}
-%TODO: Step-by-step go through the process of implementing the system, including issues and challenges
 \label{chap:methodology}
 % Implementation details.
 
 \section{Component Breakdown}
-This section provides a personal overview of how I went about implementing each component of the system. Rather than a dry description of what each module does (see Chapter~\ref{chap:implementation} for those details), I recount the major steps I took and the rationale behind them.
+This section provides a personal overview of how I went about implementing each component of the system. Rather than a dry description of what each module does (see Chapter~\ref{chap:implement} for those details), I recount the major steps I took and the rationale behind them.
 \subsection{Input Pipeline}
 I began by experimenting with small GPX files in order to understand the XML structure and isolate coordinate pairs. My first prototype simply read a GPX and produced a list of latitude--longitude tuples. Once I was comfortable with the data, I wrote a Python module to fetch map data from the Overpass API \citep{OverpassAPI}; this involved generating a bounding box from the GPX extents and sending the appropriate HTTP requests.
 
@@ -568,6 +841,91 @@ The data going in was the GPX file, and the settings.yml that controlled paramet
 
 \subsection{Segmentation Engine}
 
+\paragraph{Goal.}
+My goal was to stand up a C++ service that (i) runs in Docker, (ii) exposes HTTP endpoints, and (iii) ingests large, enriched OSRM/GeoJSON inputs reliably as a foundation for segmentation.
+
+\subsubsection*{Step 1 — Scaffold \& build}
+I started by sketching a minimal project layout (src/http, src/core, src/models, etc.) and wiring CMake. After a quick first compile, I hit the classic CMake ordering issue: I had placed \texttt{target\_include\_directories} before \texttt{add\_executable}, so CMake complained the target didn’t exist. I moved \texttt{add\_executable} earlier and the build went through. See Listing~\ref{lst:CMakeLists}.
+
+\begin{itemize}
+	\item \textbf{What worked:} a small, conventional layout kept includes and targets simple.
+	\item \textbf{What didn’t:} target ordering in CMake on the first attempt.
+	\item \textbf{Changes made:} ensured \texttt{add\_executable} appears before all \texttt{target\_*} calls.
+\end{itemize}
+
+I then containerised the build with Ubuntu base and non-interactive \texttt{apt} to avoid tzdata prompts. See Listing~\ref{lst:Dockerfile}.
+
+\begin{itemize}
+	\item \textbf{What worked:} reproducible Docker builds; a short \texttt{build\_and\_deploy.sh}.
+	\item \textbf{What didn’t:} I initially passed Docker flags with bad spacing and got \texttt{invalid containerPort: 5005--name}.
+	\item \textbf{Changes made:} fixed the run script to pass \texttt{-p HOST:CONTAINER} and \texttt{--name} cleanly.
+\end{itemize}
+
+\subsubsection*{Step 2 — HTTP server and dispatcher}
+Next I wrote a minimal server entrypoint that listens on \texttt{0.0.0.0:5005} and added a tiny dispatcher so routes call a single \texttt{callHandler(req,res, action)}. See Listing~\ref{lst:maincpp}. I also created \texttt{/segment} and \texttt{/debug} endpoints.
+
+I briefly broke routing by registering endpoints in a loop with a lambda that captured the \emph{action} string by reference. Every route then called the last handler. I changed it to capture by value, and routing behaved.
+
+\begin{itemize}
+	\item \textbf{What worked:} one dispatcher for multiple endpoints; simple route code.
+	\item \textbf{What didn’t:} lambda capture by reference in route registration.
+	\item \textbf{Changes made:} capture \texttt{action} by value (\texttt{[action, \&handler]\{\ldots\}}).
+\end{itemize}
+
+\subsubsection*{Step 3 — Early debug loop and large uploads}
+To debug end-to-end connection, I made \texttt{/debug} to count coordinates. That gave a nice smoke test before implementing segmentation.
+
+Because my inputs can be large (\(>\)15\,MB), I increased cpp-httplib’s payload cap and timeouts in the server (see Listing~\ref{lst:maincpp}). After that, I ran \texttt{curl --data-binary @file.json} to send the file to the endpoint.
+
+\begin{itemize}
+	\item \textbf{What worked:} a tiny point-counter confirmed HTTP + JSON wiring.
+	\item \textbf{What didn’t:} large bodies were rejected until I raised \texttt{set\_payload\_max\_length}.
+	\item \textbf{Changes made:} enabled larger payloads and longer read/write timeouts.
+\end{itemize}
+
+\subsubsection*{Step 4 — JSON validation with line/column}
+I added \texttt{/debug?validate=<condition>}. If parsing fails, it returns the byte offset, line/column, and a short context snippet, which allowed diagnosing malformed uploads (Listing~\ref{lst:jsonvalid}). This only checks syntax, not schema.
+
+\begin{itemize}
+	\item \textbf{What worked:} immediate pinpoint of syntax errors (exact line/column).
+	\item \textbf{What didn’t:} it doesn’t catch type mismatches (that happens during deserialization).
+	\item \textbf{Changes made:} kept this endpoint strictly for syntax; added defensive deserialization later.
+\end{itemize}
+
+\subsubsection*{Step 5 — Enriched OSRM input model (no steps, null-safe tracepoints)}
+Next I defined the enriched input model. The input is an OSRM \texttt{match} response augmented with GPX points and extensions. I decided:
+(i) keep only the first matching (for now)
+(ii) drop OSRM \texttt{steps}, since it is a useless metric for our use,
+(iii) allow \texttt{tracepoints[]} to be \texttt{null} in places for unmatched gpx values,
+(iv) store GPX \texttt{time} as epoch seconds, and
+(v) accept GPX \texttt{extensions} as either an array of \{\texttt{key},\texttt{value}\} or an object.
+
+I implemented non-intrusive \texttt{from\_json(\dots)} converters (found by ADL), and I made them defensive: every string/number read is guarded with \texttt{contains()}+\texttt{is\_*()} before access. For \texttt{tracepoints}, a null entry becomes a placeholder that preserves indices. The model is shown in Listing~\ref{lst:structshpp}; with examples of deserializers in Listing~\ref{lst:fromjson}.
+
+During this pass I hit two runtime errors and fixed both:
+\begin{enumerate}
+	\item \emph{type\_error.302} (``type must be string, but is number'') whenever a field named \texttt{"type"} wasn’t actually a string in some addon. I replaced naive \texttt{value("type","")} uses with guarded string reads.
+	\item \emph{type\_error.306} (``cannot use value() with null'') whenever I called \texttt{value()} on an object that was actually \texttt{null}. I stopped using \texttt{value()} on uncertain nodes and switched to \texttt{contains()}+\texttt{is\_*()} with safe defaults.
+\end{enumerate}
+
+\begin{itemize}
+	\item \textbf{What worked:} non-intrusive converters; null-safe tracepoints; epoch timestamps.
+	\item \textbf{What didn’t:} assuming types with \texttt{value()} caused 302/306 errors on real data.
+	\item \textbf{Changes made:} defensive guards around every field; placeholder tracepoints to keep index alignment; ``use first matching’’ for consistency.
+\end{itemize}
+
+At this point the service (i) runs in Docker, (ii) exposes \texttt{/segment} and \texttt{/debug}, and (iii) reliably ingests large, enriched OSRM inputs into strong C++ structures with defensive parsing. This is the foundation I use for the segmentation rules in the next section.
+
+% ---------------------------
+% Example listing refs you can adapt:
+% \lstinputlisting[language=CMake,caption={CMake configuration.},label={lst:cmake}]{CMakeLists.txt}
+% \lstinputlisting[language=Docker,caption={Dockerfile for the service.},label={lst:dockerfile}]{Dockerfile}
+% \lstinputlisting[language=C++,caption={Server entrypoint with route registration.},label={lst:server-main}]{src/main.cpp}
+% \lstinputlisting[language=C++,caption={HTTP handler with dispatcher and debug modes.},label={lst:http-handler}]{src/http/http_handler.cpp}
+% \lstinputlisting[language=C++,caption={JSON validation helpers.},label={lst:json-validate}]{src/util/json_debug.hpp}
+% \lstinputlisting[language=C++,caption={Enriched OSRM model (subset).},label={lst:osrm-model}]{src/models/osrm_enriched.hpp}
+% \lstinputlisting[language=C++,caption={Selected from\_json converters (defensive).},label={lst:osrm-fromjson}]{src/models/osrm_enriched.hpp}
+
 \subsection{TSS Engine}
 % ...
 
@@ -584,19 +942,15 @@ The data going in was the GPX file, and the settings.yml that controlled paramet
 % Discussion and gaps.
 
 \appendix
-\chapter{Appendix}
-\label{chap:appendix}
-\section{Further Reading}
-% References for further reading.
+\chapter{Further Reading}
+\label{apx:furtherreading}
+\input{appendix_extracted_listings.tex}
 
-\section{Source Code}
-% Include code listings or reference external files.
+\chapter{Directory Structure}
+\label{apx:dirstruct}
 
-\section{File Structure}
-% Describe directory/file organization.
+\chapter{Application Documentation}
 
-\section{Additional Documentation}
-% Any extra docs.
 
 %---------------------------------------------------------------------------
 % Bibliography
@@ -604,6 +958,9 @@ The data going in was the GPX file, and the settings.yml that controlled paramet
 \bibliographystyle{unsrtnat}
 \bibliography{references}
 
+
+% --- auto inserted: extracted code listings appendix ---
 \end{document}
+
 
 

@@ -165,13 +165,10 @@ void HttpHandler::handleSegment(const httplib::Request &req,
     return;
   }
   // TODO: Implement Statistics function, and send to segmentation machine.
-  //
-  // ex:
-  // OsrmStatistics stats
-  // float tp_count = stats.get_total_tracepoints(osrm_object)
-  //
-  //  get bounding box around gpx traces
-  // Bbox bbox = stats.get_bounds(osrm_object)
+
+  // Example usage of OsrmStatistics:
+  // float tp_count = stats.get_total_tracepoints(osrm_object);
+  // Bbox bbox = stats.get_bounds(osrm_object);
   //
   // Generate segments
   // SegmentEngine sm = new SegmentEngine(args_from_post)
