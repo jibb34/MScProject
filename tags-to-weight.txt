@@ -1,0 +1,54 @@
+barrier: access control barriers are a merge cost of 1 (guaranteed separation), linear barriers are mostly 0 cost
+  > block
+  > bollard
+  > cattle_grid
+  > chain
+  > cycle_barrier
+  > debris
+  > gate
+  > jersey_barrier
+  > log
+  > rope
+  > yes
+
+
+Highway: change of highway type is a default merge cost of 0.5 
+Ranked from lowest to highest car popularity, the difference in the individual weighting of 2 segments is multiplied with the default merge cost, giving a maximum of 1
+  > motorway -> motorway should never be hit since weighting is 0, but will always return a result of 1 since motorway is bad to go on
+  > trunk 1.9
+  > primary 1.8
+  > secondary 1.5
+  > tertiary 1.0
+  > unclassified 1.0
+  > road 1.0
+  > residential 0.5
+  > living street 0
+the following highway types always incur a cost of 1 since link roads almost always mean changing roads
+  > motorway_link
+  > trunk_link
+  > primary_link 
+  > secondary link
+  > tertiary link
+  > any misc road type: {bridleway, footway,service,track,path. etc}
+
+cycleway: changing cycleway type has a merge cost of .2. Changing onto a cycleway (none to some, some to none) has a merge cost of 1
+
+if highway has attribute junction, it has merge cost of 1
+
+maxspeed: merge cost is the difference between 2 section's values * 0.02
+
+mountain_pass = yes means merge cost of 1 (top of mountain)
+
+smoothness: ranking from smoothest to least smooth. Difference * 0.05 for weighting
+  > excellent = 1
+  > good = .9
+  > intermediate = 0.7
+  > bad = 0.5
+  > horrible = 0.4
+  > very horrible = 0.2
+  > impassable -> automatic 1 merge cost
+
+surface: going from paved-unpaved gives a merge score of .6, anything else gives score of .1
+
+
+

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  12 AUG 2025 06:41
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  12 AUG 2025 10:10
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -430,6 +430,20 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box62
 \@float@everytoks=\toks27
 \@floatcapt=\box63
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyphenat/hy
+phenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+\langwohyphens=\language2
+LaTeX Info: Redefining \_ on input line 43.
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 math.sty
@@ -1176,33 +1190,33 @@ Package cleveref Info: no abbreviation of names on input line 7852.
 ) (./thesis.aux)
 \openout1 = thesis.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
-1.
+7.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ts1cmr
 .fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1285,8 +1299,115 @@ aption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 81.
- (./thesis.out) (./thesis.out)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+7.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmtt.f
+d
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/b/scsl' undefined
+(Font)              using `T1/lmtt/b/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/b/sc' undefined
+(Font)              using `T1/lmtt/b/n' instead on input line 87.
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 87.
+
+LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 87.
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/sl' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 87.
+
+LaTeX Font Warning: Font shape `T1/lmtt/bx/scsl' undefined
+(Font)              using `T1/lmtt/bx/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/bx/sc' undefined
+(Font)              using `T1/lmtt/bx/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sbx/sc' undefined
+(Font)              using `T1/lmtt/sb/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sb/n' undefined
+(Font)              using `T1/lmtt/m/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sb/it' undefined
+(Font)              using `T1/lmtt/sb/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sb/sl' undefined
+(Font)              using `T1/lmtt/sb/it' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sb/scit' undefined
+(Font)              using `T1/lmtt/sb/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sb/sc' undefined
+(Font)              using `T1/lmtt/sb/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/sbc/sc' undefined
+(Font)              using `T1/lmtt/c/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/c/n' undefined
+(Font)              using `T1/lmtt/m/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/c/it' undefined
+(Font)              using `T1/lmtt/c/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/c/sl' undefined
+(Font)              using `T1/lmtt/c/it' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/c/scit' undefined
+(Font)              using `T1/lmtt/c/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/c/sc' undefined
+(Font)              using `T1/lmtt/c/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/lc/it' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/lc/sl' tried instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/lc/scsl' undefined
+(Font)              using `T1/lmtt/lc/sc' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/lc/sc' undefined
+(Font)              using `T1/lmtt/lc/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/m/ui' undefined
+(Font)              using `T1/lmtt/m/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/bx/ui' undefined
+(Font)              using `T1/lmtt/bx/n' instead on input line 87.
+
+
+LaTeX Font Warning: Font shape `T1/lmtt/m/In' undefined
+(Font)              using `T1/lmtt/m/n' instead on input line 87.
+
+Package hyperref Info: Link coloring OFF on input line 87.
+(./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 
 \openout4 = thesis.out
@@ -1311,7 +1432,7 @@ Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 ]
-Package hyperref Info: Option `pageanchor' set `false' on input line 102.
+Package hyperref Info: Option `pageanchor' set `false' on input line 108.
  (./thesis.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
 .
@@ -1362,16 +1483,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 
 \openout5 = thesis.toc
- (./thesis.lof [2])
+ (./thesis.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2])
 \tf@lof=\write6
 
 \openout6 = thesis.lof
- (./thesis.lot)
+
+(./thesis.lot)
 \tf@lot=\write7
 
 \openout7 = thesis.lot
  [3]
-Package hyperref Info: Option `pageanchor' set `true' on input line 110.
+Package hyperref Info: Option `pageanchor' set `true' on input line 116.
 
 Chapter 1.
 
@@ -1406,16 +1531,16 @@ Missing character: There is no ” (U+201D) in font ec-lmr10!
 Missing character: There is no “ (U+201C) in font ec-lmr10!
 Missing character: There is no ” (U+201D) in font ec-lmr10!
 ]
-<assets/zones.png, id=430, 301.125pt x 228.855pt>
+<assets/zones.png, id=425, 301.125pt x 228.855pt>
 File: assets/zones.png Graphic file (type png)
 <use assets/zones.png>
-Package luatex.def Info: assets/zones.png  used on input line 321.
+Package luatex.def Info: assets/zones.png  used on input line 327.
 (luatex.def)             Requested size: 283.22162pt x 215.26689pt.
  [9] [10<./assets/zones.png>]
-<assets/jibb_powercurve.png, id=460, 1012.78375pt x 443.6575pt>
+<assets/jibb_powercurve.png, id=455, 1012.78375pt x 443.6575pt>
 File: assets/jibb_powercurve.png Graphic file (type png)
 <use assets/jibb_powercurve.png>
-Package luatex.def Info: assets/jibb_powercurve.png  used on input line 365.
+Package luatex.def Info: assets/jibb_powercurve.png  used on input line 371.
 (luatex.def)             Requested size: 377.62642pt x 165.41663pt.
  [11] [12<./assets/jibb_powercurve.png>]
 Chapter 3.
@@ -1428,25 +1553,30 @@ Missing character: There is no – (U+2013) in font ec-lmr10!
 ] [14] [15
 Missing character: There is no ’ (U+2019) in font ec-lmr10!
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--501
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
-[16] [17] [18]
+[16] [17]
+
+LaTeX Warning: Reference `chap:appendix' on page 18 undefined on input line 552
+.
+
+[18]
 Chapter 4.
 [19
 
 ]
 Chapter 5.
-<assets/archdiagram.png, id=541, 994.71625pt x 479.7925pt>
+<assets/archdiagram.png, id=534, 994.71625pt x 479.7925pt>
 File: assets/archdiagram.png Graphic file (type png)
 <use assets/archdiagram.png>
-Package luatex.def Info: assets/archdiagram.png  used on input line 582.
+Package luatex.def Info: assets/archdiagram.png  used on input line 588.
 (luatex.def)             Requested size: 424.82523pt x 204.91574pt.
 [20
 
@@ -1454,27 +1584,60 @@ Package luatex.def Info: assets/archdiagram.png  used on input line 582.
 Chapter 6.
 [26
 
-]
-Overfull \hbox (32.24512pt too wide) in paragraph at lines 774--776
-\T1/lmr/m/n/10.95 model, track name) and nor-malise all of the fields us-ing a 
-con-fig-u-ra-tion file, \TU/lmtt/m/n/10.95 config/extensions_map.json\T1/lmr/m/
-n/10.95 .
- []
-
-[27]
-Overfull \hbox (5.69551pt too wide) in paragraph at lines 805--806
-\T1/lmr/m/n/10.95 (pri-mary key), start-ing node iden-ti-fier \TU/lmtt/m/n/10.9
-5 u\T1/lmr/m/n/10.95 , end-ing node iden-ti-fier \TU/lmtt/m/n/10.95 v\T1/lmr/m/
-n/10.95 , as-so-ci-ated \TU/lmtt/m/n/10.95 way_id\T1/lmr/m/n/10.95 , \TU/lmtt/m
-/n/10.95 direction
- []
-
-
-Underfull \hbox (badness 6825) in paragraph at lines 828--828
+] [27]
+Underfull \hbox (badness 6825) in paragraph at lines 834--834
 []|\T1/lmr/m/n/10.95 (101, {``high-way'': ``res-i-den-tial'',
  []
 
 [28]
+Overfull \hbox (10.83942pt too wide) in paragraph at lines 860--861
+[]\T1/lmr/bx/n/10.95 What didn’t: \T1/lmr/m/n/10.95 I ini-tially passed Docker
+ flags with bad spac-ing and got \TU/lmtt/m/n/10.95 invalid containerPort:
+ []
+
+[29
+Missing character: There is no — (U+2014) in font ec-lmbx10!
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+Missing character: There is no ’ (U+2019) in font ec-lmbx10!
+Missing character: There is no ’ (U+2019) in font ec-lmbx10!
+Missing character: There is no — (U+2014) in font ec-lmbx10!
+] [30
+Missing character: There is no ’ (U+2019) in font ec-lmbx10!
+Missing character: There is no — (U+2014) in font ec-lmbx10!
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+Missing character: There is no ’ (U+2019) in font ec-lmbx10!
+Missing character: There is no — (U+2014) in font ec-lmbx10!
+Missing character: There is no ’ (U+2019) in font ec-lmbx10!
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+Missing character: There is no — (U+2014) in font ec-lmbx10!
+]
+Overfull \hbox (18.59232pt too wide) in paragraph at lines 908--909
+\T1/lmr/m/n/10.95 was ac-tu-ally \TU/lmtt/m/n/10.95 null\T1/lmr/m/n/10.95 . I st
+opped us-ing \TU/lmtt/m/n/10.95 value() \T1/lmr/m/n/10.95 on un-cer-tain nodes 
+and switched to \TU/lmtt/m/n/10.95 contains()\T1/lmr/m/n/10.95 +\TU/lmtt/m/n/10
+.95 is_-
+ []
+
+[31
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+Missing character: There is no ’ (U+2019) in font ec-lmbx10!
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+]
+Chapter 7.
+[32
+
+]
+Chapter 8.
+[33
+
+]
+Appendix A.
+(./appendix_extracted_listings.tex [34
+
+]
+Appendix B.
+
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
@@ -1482,7 +1645,15 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
-) [29
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 7.
+ [35
+
+
+
+Missing character: There is no ├ (U+251C) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
 Missing character: There is no ├ (U+251C) in font [lmmono9-regular]:!
 Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
 Missing character: There is no ├ (U+251C) in font [lmmono9-regular]:!
@@ -1507,43 +1678,22 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [30]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
-39.
-
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmtt.f
-d
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [31] [32]
-Overfull \hbox (38.97678pt too wide) in paragraph at lines 1031--1032
-[]\T1/lmr/bx/n/10.95 type_er-ror.306 \T1/lmr/m/n/10.95 (call-ing \TU/lmtt/m/n/1
-0.95 value() \T1/lmr/m/n/10.95 on null): fixed by re-plac-ing \TU/lmtt/m/n/10.9
-5 value() \T1/lmr/m/n/10.95 with \TU/lmtt/m/n/10.95 contains()+is_*()
+)
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+[]\T1/lmr/bx/n/10 List-ing B.5: |\TU/lmtt/m/n/10 main.cpp: Main orchestrator of engine, sets up server and defines POST
  []
 
-[33]
-Chapter 7.
-[34
 
-]
-Chapter 8.
-[35
+Underfull \vbox (badness 3601) has occurred while \output is active []
 
-]
-Appendix A.
-[36
-
-]
-Appendix B.
-[37
-
-]
+ [36]
+[37]) [38]
 Appendix C.
-[38
+[39
 
 ]
 Appendix D.
-(./thesis.bbl [39
+(./thesis.bbl [40
 
 ]
 Underfull \hbox (badness 4479) in paragraph at lines 26--32
@@ -1562,81 +1712,68 @@ Underfull \hbox (badness 2644) in paragraph at lines 34--37
 .js maps.  []$\TU/lmtt/m/n/10.95 https://
  []
 
-[40
+[41
 
 
 Missing character: There is no — (U+2014) in font ec-lmr10!
 Missing character: There is no — (U+2014) in font ec-lmr10!
 Missing character: There is no — (U+2014) in font ec-lmr10!
 Missing character: There is no — (U+2014) in font ec-lmr10!
-]) [41] (./thesis.aux)
+]) [42] (./thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-Package rerunfilecheck Warning: File `thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: 0462E611AF5A941738A41B592F0E016A;9638
-(rerunfilecheck)             After:  D58745A064A2BE54E4B5DAA08DE22145;9620.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: E08EC23AFA55F7D18CB5FBD1300550B5;9658.
 )
 
 Here is how much of LuaTeX's memory you used:
- 32919 strings out of 476447
- 477076,1977958 words of node,token memory allocated
+ 33028 strings out of 476447
+ 244249,1977958 words of node,token memory allocated
  776 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 16 attribute, 97 glue_spec
 , 16 attribute_list, 2 write, 4 pdf_action nodes
-   avail lists: 1:4,2:5028,3:355,4:634,5:15008,6:107,7:13422,8:79,9:25305,10:40,
-11:913
- 53777 multiletter control sequences out of 65536+600000
- 64 fonts using 19658975 bytes
- 84i,12n,120p,833b,1167s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'section.A.4'
-
-warning  (pdf backend): unreferenced destination with name 'section.A.3'
-
-warning  (pdf backend): unreferenced destination with name 'section.A.2'
-
-warning  (pdf backend): unreferenced destination with name 'section.A.1'
+   avail lists: 1:2,2:4159,3:365,4:564,5:5764,6:111,7:8704,8:79,9:11154,10:26,11
+:602
+ 53885 multiletter control sequences out of 65536+600000
+ 71 fonts using 20187991 bytes
+ 84i,12n,120p,833b,929s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/lm/lm-
 ts1.enc}</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype
-/public/lm/lmmonolt10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/te
-xmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf>{/opt/homebrew/Cellar/texl
-ive/20240312_3/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/opt/homebrew/Cell
-ar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/opt/ho
-mebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.e
-nc}{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/lm/
-lm-rm.enc}</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/openty
-pe/public/lm/lmmono10-regular.otf>{/opt/homebrew/Cellar/texlive/20240312_3/share
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</opt/homebrew/Cellar/texlive/20240
-312_3/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></opt/homebrew/Cellar/te
-xlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></opt/homebre
-w/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></o
-pt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lme
-x10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/pu
-blic/lm/lmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fon
-ts/type1/public/lm/lmmi8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texm
-f-dist/fonts/type1/public/lm/lmr10.pfb></opt/homebrew/Cellar/texlive/20240312_3/
-share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></opt/homebrew/Cellar/texlive/2
-0240312_3/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></opt/homebrew/Cellar/
-texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></opt/homebre
-w/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></op
-t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri
-10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/pub
-lic/lm/lmsy10.pfb>
-Output written on thesis.pdf (46 pages, 615522 bytes).
+/public/lm/lmmono9-regular.otf>{/opt/homebrew/Cellar/texlive/20240312_3/share/te
+xmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/opt/homebrew/Cellar/texlive/20240312_3/s
+hare/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/opt/homebrew/Cellar/texlive/2
+0240312_3/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/opt/homebrew/Cella
+r/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</opt/homebre
+w/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmmono10-r
+egular.otf>{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/d
+vips/lm/lm-mathsy.enc}</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/
+fonts/type1/public/lm/lmbx10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/
+texmf-dist/fonts/type1/public/lm/lmbx12.pfb></opt/homebrew/Cellar/texlive/202403
+12_3/share/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></opt/homebrew/Cellar/texl
+ive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></opt/homebrew/
+Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></op
+t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmmi
+8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/publ
+ic/lm/lmr10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/
+type1/public/lm/lmr12.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-d
+ist/fonts/type1/public/lm/lmr6.pfb></opt/homebrew/Cellar/texlive/20240312_3/shar
+e/texmf-dist/fonts/type1/public/lm/lmr8.pfb></opt/homebrew/Cellar/texlive/202403
+12_3/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></opt/homebrew/Cellar/texli
+ve/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></opt/homebrew/C
+ellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on thesis.pdf (47 pages, 610759 bytes).
 
-PDF statistics: 937 PDF objects out of 1000 (max. 8388607)
- 852 compressed objects within 9 object streams
- 377 named destinations out of 1000 (max. 131072)
- 480 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 927 PDF objects out of 1000 (max. 8388607)
+ 844 compressed objects within 9 object streams
+ 368 named destinations out of 1000 (max. 131072)
+ 472 words of extra memory for PDF output out of 10000 (max. 100000000)
 

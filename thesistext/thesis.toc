@@ -96,13 +96,12 @@
 \contentsline {subsubsection}{Pre-indexing OpenStreetMap Ways via SQLite}{28}{section*.52}%
 \contentsline {subsubsection}{Data Stream}{29}{section*.54}%
 \contentsline {subsection}{\numberline {6.1.2}Segmentation Engine}{29}{subsection.6.1.2}%
-\contentsline {subsubsection}{Goal}{29}{section*.55}%
-\contentsline {subsubsection}{Step-by-step Work Log}{29}{section*.56}%
-\contentsline {subsection}{\numberline {6.1.3}TSS Engine}{33}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Testing and Results}{33}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Results and Conclusions}{34}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{35}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Further Reading}{36}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Source Code and Structures}{37}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Directory Structure}{38}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Application Documentation}{39}{appendix.D}%
+\contentsline {paragraph}{Goal.}{29}{section*.55}%
+\contentsline {subsection}{\numberline {6.1.3}TSS Engine}{31}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Testing and Results}{31}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Results and Conclusions}{32}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{33}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Further Reading}{34}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{35}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Directory Structure}{39}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Application Documentation}{40}{appendix.D}%
