@@ -209,6 +209,8 @@ rm -rf data/osm_files/*.pbf
 rm -rf data/osm_files/fragments/*
 rm -rf data/osrm/*
 rm -rf data/results/*
+rm -rf data/osm files/*.osm
+
 echo "[CLEANUP] Removing excess map data..."
 
 echo "[CLEANUP] Cleaning up virtual environment..."
