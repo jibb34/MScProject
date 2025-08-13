@@ -12,6 +12,12 @@ struct Geometry {
   std::string type; // e.g., "LineString"
   std::vector<Coord> coordinates;
 };
+// define type: Run = a run of consecutive OSM way IDs, has a way_id and count
+// of the amount of segments in a row
+struct Run {
+  int64_t way_id = 0; // OSM way ID
+  size_t count = 0;   // Number of consecutive segments in this run
+};
 
 // ---------- Legs --------------
 struct Leg {
@@ -19,6 +25,8 @@ struct Leg {
   double weight = 0.0;
   double duration = 0.0;
   double distance = 0.0;
+  std::vector<Run> runs; // List of ID:count pairs, where count
+                         // is number of consecutive OSM way IDs
 };
 
 // ------------ Matching ------------

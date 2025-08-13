@@ -3,7 +3,7 @@
 #include "debug/osrm_inspect.hpp"
 #include "io/json_parser.hpp"
 #include "json.hpp"
-#include "models/osrm_enriched.hpp"
+#include "models/OsrmResponse.hpp"
 #include "models/params.hpp"
 #include <iostream>
 

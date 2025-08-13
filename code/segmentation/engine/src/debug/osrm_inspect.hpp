@@ -1,6 +1,6 @@
 #pragma once
 #include "json.hpp"
-#include "models/osrm_enriched.hpp" // your structs
+#include "models/OsrmResponse.hpp" // your structs
 
 inline nlohmann::json summarize(const OsrmResponse &r,
                                 std::size_t sample_n = 3) {
