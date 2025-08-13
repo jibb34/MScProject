@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2024/Homebrew)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: agsm.bst
+Database file #1: references.bib
+Warning--entry type for "OSRMMatchAPI" isn't style-file defined
+--line 184 of file references.bib
+Warning--entry type for "OSRMApiProfile" isn't style-file defined
+--line 194 of file references.bib
+Warning--entry type for "OSRMDocker" isn't style-file defined
+--line 204 of file references.bib
+Warning--empty author in ISO27001
+Warning--empty author in ISO42010
+You've used 19 entries,
+            2909 wiz_defined-function locations,
+            761 strings with 8962 characters,
+and the built_in function-call counts, 64736 in all, are:
+= -- 10716
+> -- 569
+< -- 3
++ -- 4939
+- -- 168
+* -- 5396
+:= -- 13091
+add.period$ -- 27
+call.type$ -- 19
+change.case$ -- 254
+chr.to.int$ -- 17
+cite$ -- 21
+duplicate$ -- 266
+empty$ -- 545
+format.name$ -- 223
+if$ -- 11661
+int.to.chr$ -- 7
+int.to.str$ -- 0
+missing$ -- 7
+newline$ -- 73
+num.names$ -- 171
+pop$ -- 127
+preamble$ -- 1
+purify$ -- 275
+quote$ -- 0
+skip$ -- 225
+stack$ -- 0
+substring$ -- 14917
+swap$ -- 58
+text.length$ -- 249
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 74
+warning$ -- 2
+while$ -- 373
+width$ -- 0
+write$ -- 262
+(There were 5 warnings)

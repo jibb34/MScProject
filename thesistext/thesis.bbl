@@ -1,77 +1,129 @@
-\begin{thebibliography}{10}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{xx}
 
-\bibitem[Luxen and Vetter(2011)]{Luxen2011}
-Dennis Luxen and Christian Vetter.
-\newblock Real-time routing with {OpenStreetMap} data.
-\newblock In \emph{Proceedings of the 19th {ACM} {SIGSPATIAL} International
-  Conference on Advances in Geographic Information Systems ({GIS}~'11)}, pages
-  513--516, New York, {NY}, {USA}, 2011. {ACM}.
-\newblock \doi{10.1145/2093973.2094062}.
+\harvarditem{Boeing}{2017}{boeing2017osmnx}
+Boeing, G.  \harvardyearleft 2017\harvardyearright , `Osmnx: New methods for
+  acquiring, constructing, analyzing, and visualizing complex street networks',
+  {\em Computers, Environment and Urban Systems} {\bf 65},~126--139.
 
-\bibitem[Sharifzadeh et~al.(2005)Sharifzadeh, Azmoodeh, and
-  Shahabi]{Sharifzadeh2005}
-Mehdi Sharifzadeh, Farnaz Azmoodeh, and Cyrus Shahabi.
-\newblock Change detection in time series data using wavelet footprints.
-\newblock In \emph{Advances in Spatial and Temporal Databases ({SSTD} 2005)},
-  volume 3633 of \emph{Lecture Notes in Computer Science}, pages 127--144,
-  Angra dos Reis, Brazil, 2005. Springer.
-\newblock \doi{10.1007/11535331_8}.
+\harvarditem{Coggan \harvardand\ Allen}{2012}{coggan2012training}
+Coggan, A.~R. \harvardand\ Allen, H.  \harvardyearleft 2012\harvardyearright ,
+  {\em Training and Racing with a Power Meter}, 2 edn, VeloPress, Boulder, CO.
 
-\bibitem[Hurley(2020)]{Hurley2020}
-Sean Hurley.
-\newblock Normalized power\textsuperscript{\textregistered}: What it is and how
-  to use it.
-\newblock TrainerRoad Blog [Online]. Available: \url{
-  https://www.trainerroad.com/blog/normalized-power-what-it-is-and-how-to-use-it/
-  } [Accessed 11-Aug-2025], 2020.
-
-\bibitem[Story and contributors(2023)]{folium}
-Rob Story and contributors.
-\newblock Folium: {Python} data. {Leaflet}.js maps.
-\newblock \url{https://python-visualization.github.io/folium/}, 2023.
-
-\bibitem[{Editors of Bicycling}(2017)]{Bicycling2017}
-{Editors of Bicycling}.
-\newblock A cyclist's guide to speaking strava.
-\newblock \emph{Bicycling Magazine (online)}, 2017.
+\harvarditem{{Editors of Bicycling}}{2017}{Bicycling2017}
+{Editors of Bicycling}  \harvardyearleft 2017\harvardyearright , `A cyclist's
+  guide to speaking strava', {\em Bicycling Magazine (online)} .
 \newblock Published 31 May 2017, available at \url{
   https://www.bicycling.com/news/g20041808/a-cyclists-guide-to-speaking-strava/
   }.
 
-\bibitem[ISO(2011)]{ISO42010}
-Systems and software engineering — architecture description.
-\newblock Standard {{ISO}}/{IEC}/{IEEE} 42010:2011, International Organization
-  for Standardization, Geneva, Switzerland, 2011.
+\harvarditem{Hurley}{2020}{Hurley2020}
+Hurley, S.  \harvardyearleft 2020\harvardyearright , `Normalized
+  power\textsuperscript{\textregistered}: What it is and how to use it',
+  TrainerRoad Blog [Online]. Available: \url{
+  https://www.trainerroad.com/blog/normalized-power-what-it-is-and-how-to-use-it/
+  } [Accessed 11-Aug-2025].
 
-\bibitem[{{OpenStreetMap} community}(2025)]{OverpassAPI}
-{{OpenStreetMap} community}.
-\newblock Overpass {{API}} ({OpenStreetMap} data query service).
-\newblock {OpenStreetMap} Wiki [Online]. Available: \url{
-  https://wiki.openstreetmap.org/wiki/Overpass_API} [Accessed 11-Aug-2025],
-  2025.
+\harvarditem{{Indoor Cycling Association}}{n.d.}{indoorcycling_redzone}
+{Indoor Cycling Association}  \harvardyearleft n.d.\harvardyearright , `Ask the
+  expert: How much time should you spend in the red zone?'.
+\newblock Accessed: 2025-08-12.
+\newline\harvardurl{https://indoorcyclingassociation.com/ask-the-expert-how-much-time-should-you-spend-in-the-red-zone/}
 
-\bibitem[ISO(2013)]{ISO27001}
-Information technology — security techniques — information security
-  management systems — requirements.
-\newblock Standard {{ISO}}/{IEC} 27001:2013, International Organization for
-  Standardization, Geneva, Switzerland, 2013.
+\harvarditem{{\em Information technology — Security techniques —
+  Information security management systems — Requirements}}{2013}{ISO27001}
+{\em Information technology — Security techniques — Information security
+  management systems — Requirements}  \harvardyearleft 2013\harvardyearright
+  , Standard {{ISO}}/{IEC} 27001:2013, International Organization for
+  Standardization, Geneva, Switzerland.
 
-\bibitem[Topf and Contributors(2023)]{Osmium}
-Jochen Topf and Osmium Contributors.
-\newblock Osmium: A multi-purpose toolkit for {OpenStreetMap} data.
-\newblock Osmium/Osmcode Project [Online]. Available: \url{
-  https://osmcode.org/} [Accessed 11-Aug-2025], 2023.
+\harvarditem{Luxen \harvardand\ Vetter}{2011}{Luxen2011}
+Luxen, D. \harvardand\ Vetter, C.  \harvardyearleft 2011\harvardyearright ,
+  Real-time routing with {OpenStreetMap} data, {\em in} `Proceedings of the
+  19th {ACM} {SIGSPATIAL} International Conference on Advances in Geographic
+  Information Systems ({GIS}~ '11)', {ACM}, New York, {NY}, {USA},
+  pp.~513--516.
 
-\bibitem[Boeing(2017)]{boeing2017osmnx}
-Geoffrey Boeing.
-\newblock Osmnx: New methods for acquiring, constructing, analyzing, and
-  visualizing complex street networks.
-\newblock \emph{Computers, Environment and Urban Systems}, 65:\penalty0
-  126--139, 2017.
+\harvarditem{Newson \harvardand\ Krumm}{2009}{NewsonKrumm2009}
+Newson, P. \harvardand\ Krumm, J.  \harvardyearleft 2009\harvardyearright ,
+  Hidden markov map matching through noise and sparseness, {\em in}
+  `Proceedings of the 17th ACM SIGSPATIAL International Conference on Advances
+  in Geographic Information Systems (GIS '09)', Association for Computing
+  Machinery, Seattle, WA, USA.
+\newblock Camera-ready PDF also available from Microsoft Research: \url{
+  https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/map-matching-ACM-GIS-camera-ready.pdf
+  }.
+\newline\harvardurl{https://dl.acm.org/doi/10.1145/1653771.1653818}
+
+\harvarditem{{{OpenStreetMap} community}}{2025}{OverpassAPI}
+{{OpenStreetMap} community}  \harvardyearleft 2025\harvardyearright , `Overpass
+  {{API}} ({OpenStreetMap} data query service)', {OpenStreetMap} Wiki [Online].
+  Available: \url{ https://wiki.openstreetmap.org/wiki/Overpass_API} [Accessed
+  11-Aug-2025].
+
+\harvarditem{{Project {OSRM}}}{2021{\em a}}{OSRMApiProfile}
+{Project {OSRM}}  \harvardyearleft 2021{\em a}\harvardyearright , `Osrm api
+  v5.24.0 --- general service parameters (\texttt{profile})'.
+\newblock Documents that the transport \texttt{profile} is determined by the
+  Lua profile used at \texttt{osrm-extract}.
+\newline\harvardurl{https://project-osrm.org/docs/v5.24.0/api/}
+
+\harvarditem{{Project {OSRM}}}{2021{\em b}}{OSRMMatchAPI}
+{Project {OSRM}}  \harvardyearleft 2021{\em b}\harvardyearright , `Osrm api
+  v5.24.0 --- match service'.
+\newblock Describes the \texttt{/match} service, sub-trace splitting, and
+  options.
+\newline\harvardurl{\url{https://project-osrm.org/docs/v5.24.0/api/\#match-service}}
+
+\harvarditem{{Project {OSRM}}}{2025{\em a}}{OSRMDocker}
+{Project {OSRM}}  \harvardyearleft 2025{\em a}\harvardyearright , `Docker
+  image: \texttt{osrm/osrm-backend}'.
+\newblock Official Docker image and basic run instructions.
+\newline\harvardurl{https://hub.docker.com/r/osrm/osrm-backend/}
+
+\harvarditem{{Project {OSRM}}}{2025{\em b}}{OSRMProfileLua}
+{Project {OSRM}}  \harvardyearleft 2025{\em b}\harvardyearright , `Osrm profile
+  example: \texttt{profiles/bicycle.lua}', \url{
+  https://github.com/Project-OSRM/osrm-backend/blob/master/profiles/bicycle.lua
+  }.
+\newblock Example Lua profile illustrating speed/weighting logic.
+
+\harvarditem{Sage}{2019}{Sage2019}
+Sage, J.  \harvardyearleft 2019\harvardyearright , `Ask the expert: How much
+  time should you spend in the red zone?', Indoor Cycling Association [Online].
+  Available: \url{
+  https://indoorcyclingassociation.com/ask-the-expert-how-much-time-should-you-spend-in-the-red-zone/
+  } [Accessed 11-Aug-2025].
+
+\harvarditem[Sharifzadeh et~al.]{Sharifzadeh, Azmoodeh \harvardand\
+  Shahabi}{2005}{Sharifzadeh2005}
+Sharifzadeh, M., Azmoodeh, F. \harvardand\ Shahabi, C.  \harvardyearleft
+  2005\harvardyearright , Change detection in time series data using wavelet
+  footprints, {\em in} `Advances in Spatial and Temporal Databases ({SSTD}
+  2005)', Vol. 3633 of {\em Lecture Notes in Computer Science}, Springer, Angra
+  dos Reis, Brazil, pp.~127--144.
+
+\harvarditem{Story \harvardand\ contributors}{2023}{folium}
+Story, R. \harvardand\ contributors  \harvardyearleft 2023\harvardyearright ,
+  `Folium: {Python} data. {Leaflet}.js maps',
+  \url{https://python-visualization.github.io/folium/}.
+
+\harvarditem{{\em Systems and software engineering — Architecture
+  description}}{2011}{ISO42010}
+{\em Systems and software engineering — Architecture description}
+  \harvardyearleft 2011\harvardyearright , Standard {{ISO}}/{IEC}/{IEEE}
+  42010:2011, International Organization for Standardization, Geneva,
+  Switzerland.
+
+\harvarditem{{Telenav}}{2018}{TelenavOSRMMapMatching}
+{Telenav}  \harvardyearleft 2018\harvardyearright , `Osrm map matching', \url{
+  https://github.com/Telenav/open-source-spec/blob/master/osrm/doc/osrm_mapmatching.md
+  }.
+\newblock Overview of OSRM map matching with HMM/Viterbi perspective.
+
+\harvarditem{Topf \harvardand\ Contributors}{2023}{Osmium}
+Topf, J. \harvardand\ Contributors, O.  \harvardyearleft 2023\harvardyearright
+  , `Osmium: A multi-purpose toolkit for {OpenStreetMap} data', Osmium/Osmcode
+  Project [Online]. Available: \url{ https://osmcode.org/} [Accessed
+  11-Aug-2025].
 
 \end{thebibliography}

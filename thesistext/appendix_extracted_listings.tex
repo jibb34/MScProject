@@ -4,7 +4,7 @@
 \label{apx:extracted-code}
 
 % from listing #1
-\begin{lstlisting}[language=bash, caption={{\ttfamily Code directory for Segmentation Engine}}, label={lst:directory}]
+\begin{lstlisting}[language=bash, caption={{Code directory for Segmentation Engine}}, label={lst:directory}]
 segmentation-engine/
 ├─ src/ (http/, io/, core/, models/)
 ├─ include/        # single-header deps: httplib, nlohmann/json
@@ -18,7 +18,7 @@ segmentation-engine/
 \end{lstlisting}
 
 % from listing #2
-\begin{lstlisting}[caption={{\ttfamily \texttt{CMakeLists.txt} CMake file for Segmentation Engine}}, label={lst:CMakeLists}]
+\begin{lstlisting}[caption={{\texttt{CMakeLists.txt} CMake file for Segmentation Engine}}, label={lst:CMakeLists}]
 cmake_minimum_required(VERSION 3.10)
 project(segmentation_engine)
 set(CMAKE_CXX_STANDARD 17)
@@ -38,7 +38,7 @@ target_link_libraries(segmentation_engine PRIVATE pthread)
 \end{lstlisting}
 
 % from listing #3
-\begin{lstlisting}[caption={{\ttfamily \texttt{Dockerfile}: builds and deploys the Dockerized Segmentation Engine}}, label={lst:Dockerfile}]
+\begin{lstlisting}[caption={{\texttt{Dockerfile}: builds and deploys the Dockerized Segmentation Engine}}, label={lst:Dockerfile}]
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
@@ -59,7 +59,7 @@ ENTRYPOINT ["/app/build/segmentation_engine"]
 \end{lstlisting}
 
 % from listing #4
-\begin{lstlisting}[language=bash, caption={{\ttfamily \texttt{build\_and\_deploy.sh}: Runs the build process and launches the Engine}}, label={lst:buildanddeploy}]
+\begin{lstlisting}[language=bash, caption={{\texttt{build\_and\_deploy.sh}: Runs the build process and launches the Engine}}, label={lst:buildanddeploy}]
 #!/usr/bin/env bash
 set -e
 IMG=segmentation_engine:latest
@@ -76,7 +76,7 @@ echo "http://localhost:$HOST_PORT"
 \end{lstlisting}
 
 % from listing #5
-\begin{lstlisting}[language=C++, caption={{\ttfamily \texttt{main.cpp}: Main orchestrator of engine, sets up server and defines POST endpoints}}, label={lst:maincpp}]
+\begin{lstlisting}[language=C++, caption={{\texttt{main.cpp}: Main orchestrator of engine, sets up server and defines POST endpoints}}, label={lst:maincpp}]
 /* main.cpp: register routes by capturing `action` BY VALUE */
 httplib::Server server;
 server.set_payload_max_length(512ull * 1024ull * 1024ull); // large uploads
@@ -94,7 +94,7 @@ server.listen("0.0.0.0", 8080);
 \end{lstlisting}
 
 % from listing #6
-\begin{lstlisting}[language=C++, caption={{\ttfamily \texttt {http\_handler.cpp}: Checks for parsing error of JSON body}}, label={lst:jsonvalid}]
+\begin{lstlisting}[language=C++, caption={{\texttt{http\_handler.cpp}: Checks for parsing error of JSON body}}, label={lst:jsonvalid}]
 // On parse_error: compute byte->(line,col) and return a snippet with a caret.
 auto [line, col] = calc_line_col(req.body, e.byte);
 nlohmann::json err = {{"ok",false}, {"line",line}, {"column",col},
@@ -105,7 +105,7 @@ res.status = 400; res.set_content(err.dump(2), "application/json");
 \end{lstlisting}
 
 % from listing #7
-\begin{lstlisting}[language=C++, caption={{\ttfamily \texttt{osrm\_enriched.hpp}: In the header, defines all structs for holding route data}}, label={lst:structshpp}]
+\begin{lstlisting}[language=C++, caption={{\texttt{osrm\_enriched.hpp}: In the header, defines all structs for holding route data}}, label={lst:structshpp}]
 // models (subset): no OSRM steps; tolerate null tracepoints; epoch times in GPX.
 struct Geometry {
   std::string type; // "LineString"
@@ -150,7 +150,7 @@ struct OsrmMatchResponse {
 \end{lstlisting}
 
 % from listing #8
-\begin{lstlisting}[language=C++, caption={{\ttfamily \texttt{osrm\_enriched.hpp} Also in header, define function overloads for from\_json(), which replaces same function in json.get()}}, label={lst:fromjson}]
+\begin{lstlisting}[language=C++, caption={{\texttt{osrm\_enriched.hpp} Also in header, define function overloads for from\_json(), which replaces same function in json.get()}}, label={lst:fromjson}]
 // Example: robust Geometry::from_json (no throws on null/wrong types)
 inline void from_json(const nlohmann::json& j, Geometry& g) {
   if (j.contains("type") && j["type"].is_string()) g.type = j["type"].get<std::string>();
@@ -173,5 +173,131 @@ inline void from_json(const nlohmann::json& j, Tracepoint& t) {
   // ... (similar guards for other fields; parse gpx_list if array)
 }
     
+\end{lstlisting}
 
+\begin{lstlisting}[language=XML, caption={\texttt{gpx\_example.gpx}: Example GPX file showing an example track point and extensions}, label={lst:gpx-example}]
+
+<trk>
+  <trkseg>
+    <trkpt lat="38.82032" lon="-104.861694">
+      <time>2024-08-06T13:12:58.000Z</time>
+      <ele>1884.8</ele>
+      <extensions>
+        <power>168</power>
+        <tpx1:TrackPointExtension>
+          <tpx1:atemp>20</tpx1:atemp>
+          <tpx1:hr>123</tpx1:hr>
+          <tpx1:cad>65</tpx1:cad>
+        </tpx1:TrackPointExtension>
+      </extensions>
+    </trkpt>
+    ...
+  </trkseg>
+</trk>
+
+\end{lstlisting}
+
+% New listing: merge algorithm pseudocode
+\begin{lstlisting}[language=C++, caption={Two-pass segmentation: greedy recursive merge (pseudocode reflecting current implementation)}, label={lst:mergealg}]
+struct Section {
+  WayTags tags;              // OSM-derived attributes for this section
+  Range  range;              // [start_idx, end_idx) in the matched trace
+};
+
+double merge_cost(const Section& a, const Section& b) {
+  double cost = 0.0;
+
+  // Example heuristics (see weights example):
+  if (a.tags.junction || b.tags.junction) return 1.0;
+  if (a.tags.barrier || b.tags.barrier)   return 1.0;
+
+  cost += highway_cost(a.tags.highway, b.tags.highway);        // scaled difference
+  cost += cycleway_cost(a.tags.cycleway, b.tags.cycleway);     // type change / on->off
+  cost += surface_cost(a.tags.surface, b.tags.surface);        // paved <-> unpaved
+  cost += smoothness_cost(a.tags.smoothness, b.tags.smoothness);
+  cost += 0.02 * std::abs(a.tags.maxspeed - b.tags.maxspeed);  // speed diff contribution
+
+  // Clamp to [0,1]
+  return std::min(1.0, std::max(0.0, cost));
+}
+
+std::vector<Section> two_pass_merge(std::vector<Section> sections, double threshold) {
+  // Pass 1: sections already defined by initial boundary proposal
+  // Pass 2: compute boundary costs between neighbors
+  auto boundary_cost = [&](size_t i){ return merge_cost(sections[i], sections[i+1]); };
+
+  // Greedy recursive merging until no boundary under threshold
+  while (sections.size() > 1) {
+    // Find the cheapest boundary
+    double best = 1.1; size_t k = sections.size();  // invalid by default
+    for (size_t i = 0; i+1 < sections.size(); ++i) {
+      double c = boundary_cost(i);
+      if (c < best) { best = c; k = i; }
+    }
+    if (best >= threshold || k >= sections.size()-1) break;
+
+    // Merge sections[k] and sections[k+1]
+    sections[k].range.end = sections[k+1].range.end;
+    sections[k].tags = merge_tags(sections[k].tags, sections[k+1].tags); // e.g., keep majority or last
+    sections.erase(sections.begin() + (k+1));
+
+    // Loop continues; boundary costs adapt implicitly via merge_cost()
+  }
+  return sections;
+}
+\end{lstlisting}
+
+% New listing: illustrative weights used to compute merge costs
+\begin{lstlisting}[language={}, caption={Example merge-cost weighting rules (illustrative, not final)}, label={lst:weights-example}]
+barrier: access control barriers are a merge cost of 1 (guaranteed separation), linear barriers are mostly 0 cost
+  > block
+  > bollard
+  > cattle_grid
+  > chain
+  > cycle_barrier
+  > debris
+  > gate
+  > jersey_barrier
+  > log
+  > rope
+  > yes
+
+
+Highway: change of highway type is a default merge cost of 0.5 
+Ranked from lowest to highest car popularity, the difference in the individual weighting of 2 segments is multiplied with the default merge cost, giving a maximum of 1
+  > motorway -> motorway should never be hit since weighting is 0, but will always return a result of 1 since motorway is bad to go on
+  > trunk 1.9
+  > primary 1.8
+  > secondary 1.5
+  > tertiary 1.0
+  > unclassified 1.0
+  > road 1.0
+  > residential 0.5
+  > living street 0
+the following highway types always incur a cost of 1 since link roads almost always mean changing roads
+  > motorway_link
+  > trunk_link
+  > primary_link 
+  > secondary link
+  > tertiary link
+  > any misc road type: {bridleway, footway,service,track,path. etc}
+
+cycleway: changing cycleway type has a merge cost of .2. Changing onto a cycleway (none to some, some to none) has a merge cost of 1
+
+if highway has attribute junction, it has merge cost of 1
+
+maxspeed: merge cost is the difference between 2 section's values * 0.02
+
+mountain_pass = yes means merge cost of 1 (top of mountain)
+
+smoothness: ranking from smoothest to least smooth. Difference * 0.05 for weighting
+  > excellent = 1
+  > good = .9
+  > intermediate = 0.7
+  > bad = 0.5
+  > horrible = 0.4
+  > very horrible = 0.2
+  > impassable -> automatic 1 merge cost
+
+surface: going from paved-unpaved gives a merge score of .6, anything else gives score of .1
 \end{lstlisting}
