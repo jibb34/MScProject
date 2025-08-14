@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------------
 class Segment {
 public:
-  std::vector<std::pair<Leg, Tracepoint>> leg_trace;
+  std::vector<std::pair<Tracepoint>> leg_trace_pair;
   std::vector<int64_t> way_list; // List of OSM way IDs
 
   // Constructors

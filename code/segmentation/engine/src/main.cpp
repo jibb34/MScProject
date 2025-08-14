@@ -1,4 +1,3 @@
-// #include "httplib.h" // single‑header HTTP library
 #include "http/http_handler.hpp"
 #include "json.hpp" // nlohmann/json
 #include <fstream>
