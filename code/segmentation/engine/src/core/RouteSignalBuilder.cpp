@@ -22,7 +22,7 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
     const auto &tp = osrm.tracepoints[tp_idx];
     for (const auto &gpx : tp.gpx_list) {
       DataPoint &dp = signal.points[point_counter++];
-      dp.coord = {gpx.lat, gpx.lon};
+      dp.coord = {gpx.lat, gpx.lon, gpx.elv};
       dp.tracepoint_idx = tp_idx;
       dp.time_rel = gpx.time - start_time; // get time offset
     }

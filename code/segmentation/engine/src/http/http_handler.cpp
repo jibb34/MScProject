@@ -11,6 +11,7 @@
 #include <chrono>     // timestamps for filenames
 #include <filesystem> // std::filesystem::create_directories
 #include <fstream>    // std::ifstream, std::ofstream
+#include <iomanip>
 #include <iostream>
 #include <random> // rng for filenames
 
@@ -47,7 +48,6 @@ void HttpHandler::callGetHandler(std::string action,
                                  httplib::Response &res) {
   if (action == "view") {
     handleView(req, res);
-
   }
 
   else {
@@ -269,7 +269,7 @@ void HttpHandler::handleView(const httplib::Request &req,
     return;
   }
 
-  // Load file
+  // Load JSON file
   nlohmann::json body;
   try {
     std::ifstream in(path);
@@ -285,86 +285,164 @@ void HttpHandler::handleView(const httplib::Request &req,
     return;
   }
 
-  // Try to parse & build your RouteSignal
   std::ostringstream js;
-  bool have_signal = false;
+  js.setf(std::ios::fixed);
+  js << std::setprecision(7);
+
+  // We’ll emit both sources for the map, plus elevation from RS
+  js << "var coords_osrm = [];\n";
+  js << "var coords_rs = [];\n";
+  js << "var elev_rs = [];\n"; // elevation array matching coords_rs
+
+  bool have_osrm = false, have_rs = false;
   std::string parse_error;
 
+  // 1) OSRM GeoJSON geometry: matchings[0].geometry.coordinates
   try {
-    OsrmResponse osrm = body.get<OsrmResponse>();
-    RouteSignalBuilder builder;
-    RouteSignal rs = builder.build(
-        osrm); // or osrm.matchings.front(), per your builder signature
-
-    // Build JS arrays from the signal
-    js << "var coords = [";
-    for (const auto &dp : rs.points) {
-      js << "[" << dp.coord.lat << "," << dp.coord.lon << "],";
+    if (body.contains("matchings") && body["matchings"].is_array() &&
+        !body["matchings"].empty()) {
+      const auto &geom = body["matchings"][0]["geometry"];
+      if (geom.is_object() && geom.contains("coordinates") &&
+          geom["coordinates"].is_array()) {
+        const auto &coords = geom["coordinates"];
+        if (!coords.empty()) {
+          js << "coords_osrm = [";
+          for (const auto &p : coords) {
+            // GeoJSON [lon,lat] -> Leaflet [lat,lon]
+            js << "[" << p[1].get<double>() << "," << p[0].get<double>()
+               << "],";
+          }
+          js << "];\n";
+          have_osrm = true;
+        }
+      }
     }
-    js << "];\n";
-
-    // Optional: curvature vs distance (adapt names to your DataPoint fields)
-    js << "var dist = [";
-    for (const auto &dp : rs.points)
-      js << dp.cum_dist << ",";
-    js << "];\nvar curvature = [";
-    for (const auto &dp : rs.points)
-      js << dp.curvature << ",";
-    js << "];\n";
-
-    have_signal = !rs.points.empty();
   } catch (const std::exception &e) {
     parse_error = e.what();
   }
 
-  // If building failed, try fallback to geometry->coordinates
-  if (!have_signal) {
-    try {
-      const auto &coords = body["matchings"][0]["geometry"]["coordinates"];
-      js << "var coords = [";
-      for (const auto &p : coords) {
-        // GeoJSON is [lon, lat]; Leaflet expects [lat, lon]
-        js << "[" << p[1].get<double>() << "," << p[0].get<double>() << "],";
+  // 2) RouteSignal overlay + elevation
+  try {
+    OsrmResponse osrm = body.get<OsrmResponse>();
+    RouteSignalBuilder builder;
+    RouteSignal rs = builder.build(osrm);
+    if (!rs.points.empty()) {
+      js << "coords_rs = [";
+      for (const auto &dp : rs.points) {
+        js << "[" << dp.coord.lat << "," << dp.coord.lon << "],";
       }
       js << "];\n";
-      // leave dist/curvature undefined; we'll plot only the map
-    } catch (...) {
-      res.status = 400;
-      res.set_content("Could not build signal or read geometry; last error: " +
-                          parse_error,
-                      "text/plain");
-      return;
+      // Elevation array aligned with coords_rs
+      js << "elev_rs = [";
+      for (const auto &dp : rs.points) {
+        // Adjust field name if your struct uses something like dp.coord.alt or
+        // dp.ele
+        js << dp.coord.elv << ","; // <—— uses dp.coord.elv as you described
+      }
+      js << "];\n";
+      have_rs = true;
     }
+  } catch (const std::exception &e) {
+    if (parse_error.empty())
+      parse_error = e.what();
   }
 
-  // HTML: Leaflet map + (if arrays exist) Plotly curvature chart
+  if (!have_osrm && !have_rs) {
+    res.status = 400;
+    res.set_content("No coordinates to draw (no OSRM geometry and no "
+                    "RouteSignal). Last error: " +
+                        parse_error,
+                    "text/plain");
+    return;
+  }
+
+  // HTML: map + elevation chart (Plotly), with in-page distance compute
   std::string html = R"(
 <!doctype html><html><head>
 <meta charset="utf-8"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<style>body{margin:0;font-family:sans-serif} #map{height:60vh;} #plot{height:35vh;}</style>
+<style>
+  body{margin:0;font-family:sans-serif}
+  #map{height:60vh;} #plot{height:35vh;}
+  #diag{padding:10px; font:12px/1.4 monospace;}
+</style>
 </head><body>
-<h3 style="margin:8px">Route Viewer</h3>
+<h3 style="margin:8px">Route Viewer (OSRM vs RouteSignal) + Elevation</h3>
 <div id="map"></div>
 <div id="plot"></div>
+<pre id="diag"></pre>
 <script>
 )" + js.str() + R"(
-  var map = L.map('map');
-  var tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19});
-  tile.addTo(map);
-  var poly = L.polyline(coords, {weight:4}).addTo(map);
-  map.fitBounds(poly.getBounds());
 
-  // Only draw curvature if data exists
-  if (typeof dist !== 'undefined' && typeof curvature !== 'undefined') {
-    Plotly.newPlot('plot', [{x: dist, y: curvature, mode: 'lines', name: 'Curvature'}],
-                   {title: 'Curvature vs Distance', margin: {t:30}});
+  // Helpers
+  function haversine(a,b){
+    const R=6371000, toRad=d=>d*Math.PI/180;
+    const dφ=toRad(b[0]-a[0]), dλ=toRad(b[1]-a[1]);
+    const φ1=toRad(a[0]), φ2=toRad(b[0]);
+    const s=Math.sin(dφ/2)**2 + Math.cos(φ1)*Math.cos(φ2)*Math.sin(dλ/2)**2;
+    return 2*R*Math.asin(Math.sqrt(s));
+  }
+  function cumdist(coords){
+    const d=[0]; let acc=0;
+    for (let i=1;i<coords.length;i++){ acc += haversine(coords[i-1], coords[i]); d.push(acc); }
+    return d;
+  }
+
+  var map = L.map('map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);
+
+  function addPolyline(coords, opts) {
+    if (!coords || coords.length < 2) return null;
+    return L.polyline(coords, Object.assign({weight:4, smoothFactor:0}, opts)).addTo(map);
+  }
+
+  var bounds=null;
+  var osrmLine = (coords_osrm && coords_osrm.length>1) ? addPolyline(coords_osrm, {color:'#1f77b4'}) : null;
+  if (osrmLine) bounds = osrmLine.getBounds();
+  var rsLine   = (coords_rs   && coords_rs.length>1)   ? addPolyline(coords_rs,   {color:'#d62728', dashArray:'4 4'}) : null;
+  if (rsLine)  bounds = bounds ? bounds.extend(rsLine.getBounds()) : rsLine.getBounds();
+  if (bounds) map.fitBounds(bounds);
+
+  const minElv = Math.min.apply(null, elev_rs);
+  const maxElv = Math.max.apply(null, elev_rs);
+  console.log('elev_rs stats:', { n: elev_rs.length, minElv, maxElv });
+  // Elevation plot (from RS). We compute distance from coords_rs.
+  if (coords_rs && coords_rs.length>1 && elev_rs && elev_rs.length===coords_rs.length) {
+    const dist_m = cumdist(coords_rs);
+    const dist_km = dist_m.map(x => x/1000.0);
+
+    Plotly.newPlot('plot', [{
+      x: dist_km,
+      y: elev_rs,
+      mode: 'lines',
+      name: 'Elevation',
+      line: {shape:'linear'}
+    }], {
+      title: 'Elevation vs Distance',
+      xaxis: {title: 'Distance (km)'},
+      yaxis: {title: 'Elevation (m)'},
+      margin: {t: 30}
+    });
   } else {
     document.getElementById('plot').innerHTML =
-      '<div style="padding:12px;color:#666">No curvature data available (showing map only).</div>';
+      '<div style="padding:12px;color:#666">No elevation data available for RouteSignal.</div>';
   }
+
+  // Diagnostics
+  function stepStats(coords){
+    if (!coords || coords.length<2) return null;
+    const steps=[]; for (let i=1;i<coords.length;i++) steps.push(haversine(coords[i-1], coords[i]));
+    const s=[...steps].sort((a,b)=>a-b), q=p=>s[Math.floor((s.length-1)*p)];
+    const avg=steps.reduce((a,b)=>a+b,0)/steps.length;
+    return {n:steps.length, min:s[0], p50:q(0.5), p95:q(0.95), max:s[s.length-1], avg};
+  }
+  const os = stepStats(coords_osrm) || {n:0,min:0,p50:0,p95:0,max:0,avg:0};
+  const rs = stepStats(coords_rs)   || {n:0,min:0,p50:0,p95:0,max:0,avg:0};
+  document.getElementById('diag').textContent =
+`OSRM: pts=${coords_osrm.length} steps=${os.n}  min=${os.min.toFixed(2)}m p50=${os.p50.toFixed(2)}m p95=${os.p95.toFixed(2)}m max=${os.max.toFixed(2)}m avg=${os.avg.toFixed(2)}m
+RS  : pts=${coords_rs.length}   steps=${rs.n}  min=${rs.min.toFixed(2)}m p50=${rs.p50.toFixed(2)}m p95=${rs.p95.toFixed(2)}m max=${rs.max.toFixed(2)}m avg=${rs.avg.toFixed(2)}m`;
 </script>
 </body></html>)";
 

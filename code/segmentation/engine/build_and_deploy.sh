@@ -4,7 +4,6 @@ set -euo pipefail
 IMAGE_NAME=segmentation_engine:latest
 CONTAINER_NAME=segmentation_container
 HOST_PORT=5005
-CONTAINER_PORT=5005
 
 # 1) Build
 docker build -t "$IMAGE_NAME" .
