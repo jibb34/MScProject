@@ -1,0 +1,15 @@
+Mapping of Tracepoint->
+GPX Point:
+
+
+Tracepoint:
+  int waypoint_index = 0 -> Leg index
+  Coord location{0.0, 0.0} -> match with gpx_list[0]
+  std::string name -> hash of names in segment
+  std::vector<GpxPoint> gpx_list:
+      double lat = 0.0;
+      double lon = 0.0;
+      double elv = 0.0;
+      int time = 0;
+      std::string time_iso; Json extensions -> extention-derived stats
+

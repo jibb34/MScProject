@@ -5,8 +5,10 @@ class HttpHandler {
 public:
   HttpHandler() = default;
   void registerRoutes(httplib::Server &server);
-  void callHandler(std::string action, const httplib::Request &req,
-                   httplib::Response &res);
+  void callPostHandler(std::string action, const httplib::Request &req,
+                       httplib::Response &res);
+  void callGetHandler(std::string action, const httplib::Request &req,
+                      httplib::Response &res);
 
 private:
   std::string endpoint_;
@@ -14,4 +16,6 @@ private:
   // though
   void handleSegment(const httplib::Request &req, httplib::Response &res);
   void handleDebug(const httplib::Request &req, httplib::Response &res);
+  void handleUpload(const httplib::Request &req, httplib::Response &res);
+  void handleView(const httplib::Request &req, httplib::Response &res);
 };

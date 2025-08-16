@@ -1,0 +1,35 @@
+local plugins = {
+    "jackMort/ChatGPT.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+        "MunifTanjim/nui.nvim",
+    },
+    config = function()
+        require("chatgpt").setup({
+            api_key_cmd = "pass show dev/openai",
+            openai_params = {
+                model = "gpt-5",
+            },
+            keymaps = {
+                submit = "<C-Enter>",
+                close = "<C-c>",
+                yank_last = "<C-y>",
+                yank_last_code = "<C-k>",
+                new_session = "<C-n>",
+            },
+            popup_input = {
+                submit = "<C-Enter>",
+                close = "<C-c>",
+            },
+            popup_layout = {
+                default = "center",
+            },
+            popup_window = {
+                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            },
+        })
+    end,
+}
+
+return plugins

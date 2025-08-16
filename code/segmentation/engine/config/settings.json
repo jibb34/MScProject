@@ -3,7 +3,8 @@
     "port": 5005,
     "endpoints": [
       "/segment",
-      "/debug"
+      "/debug",
+      "/upload"
     ]
   },
   "segmentation": {

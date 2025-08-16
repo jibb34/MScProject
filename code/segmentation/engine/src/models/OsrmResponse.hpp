@@ -15,12 +15,15 @@ struct Geometry {
 // define type: Run = a run of consecutive OSM way IDs, has a way_id and count
 // of the amount of segments in a row
 struct Run {
-  int64_t way_id = 0; // OSM way ID
-  size_t count = 0;   // Number of consecutive segments in this run
+  int64_t way_id = 0;    // OSM way ID
+  size_t edge_count = 0; // Number of consecutive edges in this run
+  int dir = 0;
+  double length_m = 0;
 };
 
 // ---------- Legs --------------
 struct Leg {
+  int index = 0;
   Json annotation;
   double weight = 0.0;
   double duration = 0.0;
@@ -82,6 +85,13 @@ inline void from_json(const Json &j, Geometry &g) {
     }
   }
 }
+// ---- Run ----
+inline void from_json(const Json &j, Run &r) {
+  r.way_id = j.value("way_id", 0);
+  r.dir = j.value("dir", 0);
+  r.edge_count = j.value("edge_count", 0);
+  r.length_m = j.value("length_m", 0.0);
+}
 
 // --- Legs ----
 inline void from_json(const Json &j, Leg &l) {
@@ -89,6 +99,12 @@ inline void from_json(const Json &j, Leg &l) {
   l.weight = j.value("weight", 0.0);
   l.duration = j.value("duration", 0.0);
   l.distance = j.value("distance", 0.0);
+  // add runs
+  l.runs.clear();
+  if (j.contains("runs") && j["runs"].is_array()) {
+    for (const auto &R : j["runs"])
+      l.runs.push_back(R.get<Run>());
+  }
 }
 
 // --- Matching ----
