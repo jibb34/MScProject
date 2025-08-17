@@ -1,5 +1,7 @@
-#include "OsrmResponse.hpp"
+#include <inttypes.h>
 #include <sys/types.h>
+#include <vector>
+
 struct Coordinate {
   double lat;
   double lon;
@@ -32,6 +34,9 @@ struct DataPoint {
 
   // Derived
   double heading_radians;
+  double heading_delta;
+  double speed = 0;
+  double gradient;
   double curvature; // in rads per metre
   // For obtaining future values double cum_dist;
   int tracepoint_idx = 0;

@@ -1,5 +1,6 @@
 #pragma once
 #include "json.hpp"
+#include "models/CoreTypes.hpp"
 #include <array>
 #include <string>
 #include <vector>
@@ -130,6 +131,24 @@ inline void from_json(const Json &j, GpxPoint &p) {
   p.lat = j.value("lat", 0.0);
   p.lon = j.value("lon", 0.0);
   p.elv = j.value("elv", 0.0);
+  auto parse_double = [](const Json &x) -> double {
+    if (x.is_number())
+      return x.get<double>();
+    if (x.is_string()) {
+      try {
+        return std::stod(x.get<std::string>());
+      } catch (...) {
+      }
+    }
+    return 0.0;
+  };
+  if (j.contains("elv"))
+    p.elv = parse_double(j["elv"]);
+  else if (j.contains("elevation"))
+    p.elv = parse_double(j["elevation"]);
+  else if (j.contains("ele"))
+    p.elv = parse_double(j["ele"]);
+
   p.time = j.value("time", 0);
   p.time_iso = j.value("time_iso", "");
   p.extensions = j.value("extensions", Json::object());
@@ -171,7 +190,8 @@ inline void from_json(const Json &j, OsrmResponse &r) {
   if (arr.empty())
     throw std::runtime_error("No matchings in OSRM response");
   r.matching = arr.front().get<Matching>(); // Get first matching by default
-  if (j.contains("matchings") && j["matchings"].is_array()) {
+  r.tracepoints.clear();
+  if (j.contains("tracepoints") && j["tracepoints"].is_array()) {
     for (const auto &tp : j["tracepoints"])
       r.tracepoints.push_back(tp.get<Tracepoint>());
   }

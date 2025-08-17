@@ -1,56 +1,42 @@
 import argparse
-import json
-import os
-from typing import List, Optional, Tuple
-from collections import defaultdict, deque
+from typing import List, Tuple
 
 from utils.gpx_utils import (
-    load_gpx,
-    load_json,
-    haversine_m,
     iso_utc,
-    extract_data_from_gpx,
-    to_unix)
+    to_unix,
+)
 
 
 def parse_args():
     ap = argparse.ArgumentParser(
-        description="Enrich OSRM /match JSON with GPX metadata by coordinate matching.")
+        description="Enrich OSRM /match JSON with GPX metadata by coordinate matching."
+    )
     ap.add_argument("osrm_json", help="Path to OSRM match result JSON")
+    ap.add_argument("gpx_file", help="Path to GPX file used to create the match")
     ap.add_argument(
-        "gpx_file", help="Path to GPX file used to create the match")
-    ap.add_argument("-o", "--out", default=None,
-                    help="Output JSON path (default: <input>_enriched.json)")
-    ap.add_argument("--tol", type=float, default=15.0,
-                    help="Match tolerance in meters (default 15)")
-    ap.add_argument("--precision", type=int, default=5,
-                    help="Grid precision for coordinate bucketing (default 5 ~ 1e-5)")
-    ap.add_argument("--no-leg-times", action="store_true",
-                    help="Do not add per-leg time windows")
-    ap.add_argument("--node-times", action="store_false",
-                    help="Also add per-node interpolated timestamps")
+        "-o",
+        "--out",
+        default=None,
+        help="Output JSON path (default: <input>_enriched.json)",
+    )
+    ap.add_argument(
+        "--tol", type=float, default=15.0, help="Match tolerance in meters (default 15)"
+    )
+    ap.add_argument(
+        "--precision",
+        type=int,
+        default=5,
+        help="Grid precision for coordinate bucketing (default 5 ~ 1e-5)",
+    )
+    ap.add_argument(
+        "--no-leg-times", action="store_true", help="Do not add per-leg time windows"
+    )
+    ap.add_argument(
+        "--node-times",
+        action="store_false",
+        help="Also add per-node interpolated timestamps",
+    )
     return ap.parse_args()
-
-
-def _enforce_monotonic_pairs(pairs, max_gpx_idx):
-    """
-    pairs: list of (tp_idx, gpx_idx) for tracepoints that got a match (None filtered out)
-    Ensures gpx_idx is strictly non-decreasing in tp order.
-    """
-    if not pairs:
-        return []
-    out = [list(pairs[0])]
-    for i in range(1, len(pairs)):
-        tp_i, gi = pairs[i]
-        prev_tp, prev_gi = out[-1]
-        if gi is None:
-            gi = prev_gi
-        if gi <= prev_gi:
-            gi = prev_gi + 1
-        if gi > max_gpx_idx:
-            gi = max_gpx_idx
-        out.append([tp_i, gi])
-    return [(tp, gi) for tp, gi in out]
 
 
 def _adjacent_waypoint_pairs(tracepoints) -> List[Tuple[int, int, int]]:
@@ -83,14 +69,14 @@ def _interpolate_node_times(leg, t0: int, t1: int) -> List[int]:
         return [t0] * len(nodes)
 
     dist = ann.get("distance") or []
-    total = float(sum((d or 0.0) for d in dist[:len(nodes)-1]))
+    total = float(sum((d or 0.0) for d in dist[: len(nodes) - 1]))
     if total <= 0:
         step = (t1 - t0) / max(1, len(nodes) - 1)
         return [int(t0 + i * step) for i in range(len(nodes))]
 
     cum = [0.0]
     s = 0.0
-    for d in dist[:len(nodes)-1]:
+    for d in dist[: len(nodes) - 1]:
         s += float(d or 0.0)
         cum.append(s)
     return [int(t0 + (c / total) * (t1 - t0)) for c in cum]
@@ -106,7 +92,9 @@ def _write_gpx_list_to_tracepoints(tracepoints, gpx_points):
     n_tp = len(tracepoints)
     n_gpx = len(gpx_points)
     if n_tp != n_gpx:
-        print("[WARN] Length mismatch between Tracepoints and GPX trackpoints; falling back to min length.")
+        print(
+            "[WARN] Length mismatch between Tracepoints and GPX trackpoints; falling back to min length."
+        )
     N = min(n_tp, n_gpx)
 
     # collect indices of non-null tracepoints
@@ -124,23 +112,30 @@ def _write_gpx_list_to_tracepoints(tracepoints, gpx_points):
         gpx_list = []
         for idx in range(start, end):
             gp = gpx_points[idx]
-            t_unix = to_unix(gp.get("time")) if gp.get(
-                "time") is not None else None
-            gpx_list.append({
-                "index": idx,
-                "lat": gp.get("lat"),
-                "lon": gp.get("lon"),
-                "time": t_unix,
-                "time_iso": (iso_utc(t_unix) if t_unix is not None else None),
-                "elv": gp.get("elv"),
-                "extensions": gp.get("extensions"),
-            })
+            t_unix = to_unix(gp.get("time")) if gp.get("time") is not None else None
+            gpx_list.append(
+                {
+                    "index": idx,
+                    "lat": gp.get("lat"),
+                    "lon": gp.get("lon"),
+                    "time": t_unix,
+                    "time_iso": (iso_utc(t_unix) if t_unix is not None else None),
+                    "elv": gp.get("elv"),
+                    "extensions": gp.get("extensions"),
+                }
+            )
 
         tp["gpx_list"] = gpx_list
 
 
-def attach_to_tracepoints(osrm, gpx_points, tol_m=15.0, precision=5,
-                          add_leg_time_windows=True, interpolate_node_times=False):
+def attach_to_tracepoints(
+    osrm,
+    gpx_points,
+    tol_m=15.0,
+    precision=5,
+    add_leg_time_windows=True,
+    interpolate_node_times=False,
+):
     """
     Mutates OSRM JSON in place:
       - adds tracepoints[i]["gpx"] with matched GPX metadata

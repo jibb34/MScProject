@@ -1,5 +1,4 @@
 #pragma once
-#include "models/CoreTypes.hpp"
 #include "models/OsrmResponse.hpp"
 
 class RouteSignalBuilder {

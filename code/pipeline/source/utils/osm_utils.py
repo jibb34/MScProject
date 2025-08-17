@@ -80,13 +80,15 @@ def _edge_lookup(cur, u, v):
     v = int(v)
     # try forward
     row = cur.execute(
-        "SELECT way_id, len_m FROM edges WHERE u=? AND v=? LIMIT 1", (u, v)).fetchone()
+        "SELECT way_id, len_m FROM edges WHERE u=? AND v=? LIMIT 1", (u, v)
+    ).fetchone()
     if row:
         wid, dlen = int(row[0]), (None if row[1] is None else float(row[1]))
         return wid, +1, dlen
     # try reverse
     row = cur.execute(
-        "SELECT way_id, len_m FROM edges WHERE u=? AND v=? LIMIT 1", (v, u)).fetchone()
+        "SELECT way_id, len_m FROM edges WHERE u=? AND v=? LIMIT 1", (v, u)
+    ).fetchone()
     if row:
         wid, dlen = int(row[0]), (None if row[1] is None else float(row[1]))
         return wid, -1, dlen
@@ -122,9 +124,11 @@ def _runs_from_chunk(match_obj, cur, with_metrics=False):
         run = {"way_id": wid, "dir": d, "edge_count": len(g)}
         if with_metrics:
             length_m = sum((x[2] or 0.0) for x in g)
-            run.update({
-                "length_m": length_m,
-            })
+            run.update(
+                {
+                    "length_m": length_m,
+                }
+            )
         runs.append(run)
 
     return runs, total_edges, nodes  # nodes returned for overlap calc
@@ -165,8 +169,9 @@ def merge_runs(A, B, overlap_edges):
     if last["way_id"] == first["way_id"] and last["dir"] == first["dir"]:
         last["edge_count"] += first["edge_count"]
         if "length_m" in last and "length_m" in first:
-            last["length_m"] = (last.get("length_m") or 0) + \
-                (first.get("length_m") or 0)
+            last["length_m"] = (last.get("length_m") or 0) + (
+                first.get("length_m") or 0
+            )
         B = B[1:]
 
     return A + B
@@ -180,15 +185,12 @@ def _neighbors(cur, u, use_len):
     try:
         if use_len:
             rows = cur.execute(
-                "SELECT v, way_id, COALESCE(len_m,1.0) FROM edges WHERE u=?",
-                (u,)
+                "SELECT v, way_id, COALESCE(len_m,1.0) FROM edges WHERE u=?", (u,)
             ).fetchall()
             return [(int(v), int(wid), float(w)) for (v, wid, w) in rows]
         else:
             rows = cur.execute(
-                "SELECT v, way_id FROM edges WHERE u=?",
-                (u,)
-            ).fetchall()
+                "SELECT v, way_id FROM edges WHERE u=?", (u,)).fetchall()
             return [(int(v), int(wid), 1.0) for (v, wid) in rows]
     except sqlite3.Error:
         # Graceful fallback: no neighbors rather than None
@@ -235,8 +237,7 @@ def shortest_connector_nodes_db(cur, start_u, goal_v, max_expansions=50000):
 
 
 def nodes_to_runs_for_slice(
-    nodes, cur, edge_lookup_fn,
-    with_metrics=False, distances=None, prefer_db_len=True
+    nodes, cur, edge_lookup_fn, with_metrics=False, distances=None, prefer_db_len=True
 ):
     """
     Map a small connector node list to (way_id, dir) runs.
@@ -272,7 +273,10 @@ def nodes_to_runs_for_slice(
         di += 1
 
     runs = []
-    for (wid, d), group in groupby(edges, key=lambda e: (e[0], e[1])):
+    for (
+        wid,
+        d,
+    ), group in groupby(edges, key=lambda e: (e[0], e[1])):
         g = list(group)
         run = {"way_id": wid, "dir": d, "edge_count": len(g)}
         if with_metrics:

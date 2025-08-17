@@ -30,6 +30,45 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
   assignWayIDs(osrm.matching.legs, osrm.tracepoints, signal);
   // TODO: implement curvature, heading, and gradient/variation
 
+  // Curvature: Decide on a window size, or make it dynamic
+  //
+  // heading:
+  for (size_t dp_idx = 0; dp_idx < signal.points.size() - 1; ++dp_idx) {
+    DataPoint &dp1 = signal.points[dp_idx];
+    DataPoint &dp2 = signal.points[dp_idx + 1];
+    signal.points[dp_idx].heading_radians =
+        SegmentUtils::calculateHeadingDegToRad(dp1.coord, dp2.coord);
+    // calculate heading delta
+    if (dp_idx > 0) {
+      signal.points[dp_idx].heading_delta =
+          SegmentUtils::ang_diff(signal.points[dp_idx - 1].heading_radians,
+                                 signal.points[dp_idx].heading_radians);
+    }
+  }
+  if (!signal.points.empty()) { // Guard
+    // Assigns last heading to be same as second-to-last since we have no
+    // further reference (close enough)
+    signal.points.back().heading_radians =
+        std::prev(signal.points.end(), 2)->heading_radians;
+  }
+  // Normalize heading delta by speed:
+
+  // instantaneous speed:
+  if (!signal.points.empty()) {
+    signal.points[0].speed = 0.0;
+    for (size_t i = 1; i < signal.points.size(); ++i) {
+      const DataPoint &A = signal.points[i - 1];
+      const DataPoint &B = signal.points[i];
+      const double dt = std::max( // max is to avoid divide by 0 errors
+          1e-3, double(B.time_rel) - double(A.time_rel)); // should be 1 second
+      const double ds = SegmentUtils::haversine(A.coord, B.coord);
+      signal.points[i].speed = ds / dt;
+    }
+  }
+  // gradient:
+
+  SegmentUtils::compute_windowed_gradients(signal.points, 20.0, 20.0);
+
   return signal;
 }
 
@@ -40,51 +79,56 @@ void RouteSignalBuilder::assignWayIDs(const std::vector<Leg> &legs,
   // as we go, when distance gets over the length of the current way_run,
   // subtract next way_run's distance from gpx distance accumulated, and reset
 
-  Coordinate ref;
-  bool ref_set = false;
-  double total_dist = 0;
+  double total_dist = 0.0;
   size_t point_counter = 0;
-  // Iterate over tracepoints
+
   for (size_t tp_idx = 0; tp_idx < tps.size(); ++tp_idx) {
     const Tracepoint &tp = tps[tp_idx];
+    const auto &gpx_list = tp.gpx_list;
+
     if (!tp.matched) {
+      // still advance to keep point_counter aligned with build()
+      point_counter += gpx_list.size();
       continue;
     }
-    const std::vector<GpxPoint> &gpx_list = tp.gpx_list;
-    int leg_idx = tp.waypoint_index;
 
-    const std::vector<Run> &runs = legs[leg_idx].runs;
+    // Map this tracepoint to its leg/runs (guard indices)
+    int leg_idx = tp.waypoint_index;
+    const std::vector<Run> *runs_ptr = nullptr;
+    if (leg_idx >= 0 && static_cast<size_t>(leg_idx) < legs.size()) {
+      runs_ptr = &legs[leg_idx].runs;
+    }
+    const auto &runs = runs_ptr ? *runs_ptr : std::vector<Run>{};
+
     size_t run_idx = 0;
-    // if no runs, distance is infinity so we always add current waypoint until
-    // next tracepoint
     double run_dist_remaining = runs.empty()
                                     ? std::numeric_limits<double>::infinity()
                                     : runs[0].length_m;
-    // set reference for distance
-    if (!ref_set && !gpx_list.empty()) {
-      ref = {gpx_list.front().lat, gpx_list.front().lon};
-      ref_set = true;
-    }
-    rs.points[tp_idx].cum_dist = total_dist;
-    // iterate over gpx points in tracepoint
+
     for (size_t gpx_idx = 0; gpx_idx < gpx_list.size();
          ++gpx_idx, ++point_counter) {
       DataPoint &dp = rs.points[point_counter];
-      dp.coord = {gpx_list[gpx_idx].lat, gpx_list[gpx_idx].lon};
-      dp.tracepoint_idx = tp_idx;
-      // assign way id at current run index
-      dp.way_id = runs.empty() ? -1 : runs[run_idx].way_id;
 
-      // check distances
-      if (gpx_idx + 1 < gpx_list.size() && !runs.empty()) {
+      // DO NOT overwrite dp.coord with a 2D value; if you want to refresh,
+      // include elv: dp.coord = {gpx_list[gpx_idx].lat, gpx_list[gpx_idx].lon,
+      // gpx_list[gpx_idx].elv};
+
+      dp.tracepoint_idx = tp_idx;
+      dp.way_id = runs.empty() ? -1 : runs[run_idx].way_id;
+      dp.cum_dist = total_dist;
+
+      // advance distance and run position
+      if (gpx_idx + 1 < gpx_list.size()) {
         double edge_len =
             SegmentUtils::haversine(gpx_list[gpx_idx], gpx_list[gpx_idx + 1]);
         total_dist += edge_len;
-        run_dist_remaining -= edge_len; // subtract from run dist remaining;
-        // if run remaining is less than 0, add next run length onto remaining.
-        while (run_dist_remaining <= 0 && run_idx + 1 < runs.size()) {
-          run_idx++;
-          run_dist_remaining += runs[run_idx].length_m;
+
+        if (!runs.empty()) {
+          run_dist_remaining -= edge_len;
+          while (run_dist_remaining <= 0 && run_idx + 1 < runs.size()) {
+            run_idx++;
+            run_dist_remaining += runs[run_idx].length_m;
+          }
         }
       }
     }
