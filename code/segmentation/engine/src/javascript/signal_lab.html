@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Segmentation Engine Dashboard</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/static/signal_lab.css" />
+
+  <!-- Plotly (for time-series + histogram) -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Leaflet (for map in Route tab) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+</head>
+
+<body>
+  <!-- Top bar: picker controls + run button -->
+  <header class="bar">
+    <div><strong>Segmentation Engine Dashboard</strong></div>
+
+    <div class="right">
+      <label>Map:
+        <select id="mapSelect"></select>
+      </label>
+
+      <label style="margin-left:12px;">Var:
+        <select id="varSelect">
+          <option value="elev">elevation (m)</option>
+          <option value="speed">speed (km/h)</option>
+          <option value="grad">gradient (%)</option>
+          <option value="heading_delta_norm">heading Δ (rad)</option>
+        </select>
+      </label>
+
+      <label style="margin-left:12px;">Δs (m):
+        <input id="dsInput" type="number" min="0.1" step="0.1" value="5" style="width:70px;" />
+      </label>
+
+      <label style="margin-left:12px;">kind:
+        <select id="kindSelect">
+          <option value="scalar">Scalar</option>
+          <option value="angle">Angle (unwrap)</option>
+        </select>
+      </label>
+
+      <button id="runBtn" style="margin-left:12px;">Resample &amp; Plot</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Upload section -->
+    <section class="uploader">
+      <input id="uploadFile" type="file" accept="application/json" />
+      <button id="uploadBtn">Upload JSON</button>
+      <span id="uploadMsg" class="upload-msg"></span>
+    </section>
+
+    <!-- Primary time-series plot -->
+    <div id="plotUni" class="panel"></div>
+
+    <!-- Tabs: Stats + placeholders + Route Map -->
+    <div id="labTabs" class="tabs">
+      <button data-tab="stats" class="active">Stats</button>
+      <button data-tab="wavelet">Wavelets</button>
+      <button data-tab="segments" disabled>Segments (soon)</button>
+      <button data-tab="route">Route Map</button>
+    </div>
+
+    <!-- Panels -->
+    <div id="labPanels">
+      <!-- Stats panel -->
+      <div id="panel-stats" class="panel active">
+        <div id="statsSummary" class="stats-summary"></div>
+        <div id="histPlot" style="height:240px;"></div>
+      </div>
+
+      <!-- Route tab panel (Leaflet map) -->
+      <div id="panel-route" class="panel" hidden>
+        <div class="map-toolbar">
+          <div class="map-title">Route vs Match</div>
+          <a id="openViewLink" class="map-link" href="#" target="_blank" rel="noopener">Open /view</a>
+        </div>
+        <div id="routeMap"></div>
+      </div>
+
+      <!-- Wavelets panel -->
+      <div id="panel-wavelet" class="panel" hidden>
+        <div class="wavelet-controls">
+          <div class="wavelet-form">
+            <div class="row">
+              <label>Function</label>
+              <div class="inputs">
+                <button id="wfTerrainBtn" class="wf-run">Compute: Haar trend</button>
+                <button id="wfClearBtn" class="wf-run wf-secondary">Clear overlay</button>
+              </div>
+            </div>
+
+            <div class="row">
+              <label>Sampling Δs a(m)</label>
+              <div class="inputs">
+                <input id="wf_ds" type="number" step="0.1" value="5" />
+                <span class="hint">Uniform resample step</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <label>Trend scale L<sub>T</sub> (m)</label>
+              <div class="inputs">
+                <input id="wf_LT" type="number" step="1" value="150" />
+                <span class="hint">Haar trend scale</span>
+              </div>
+            </div>
+            <div class="row">
+              <label>Energy window L<sub>E</sub> (m)</label>
+              <div class="inputs">
+                <input id="wf_LE" type="number" step="1" value="120" />
+                <span class="hint">STFT window length</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <label>Rolling band λ (m)</label>
+              <div class="inputs">
+                <input id="wf_lam_min" type="number" step="1" value="8" />
+                <span>to</span>
+                <input id="wf_lam_max" type="number" step="1" value="60" />
+                <span class="hint">wavelength range</span>
+              </div>
+            </div>
+            <div class="row">
+              <label>Hysteresis</label>
+              <div class="inputs">
+                <input id="wf_hyst_en" type="checkbox" checked />
+                <span>enable</span>
+              </div>
+            </div>
+
+            <div class="row" data-hyst-row>
+              <label>Hysteresis (MAD)</label>
+              <div class="inputs">
+                <input id="wf_E_hi" type="number" step="0.1" value="2.0" />
+                <span>hi</span>
+                <input id="wf_E_lo" type="number" step="0.1" value="1.0" />
+              </div>
+            </div>
+
+            <div class="row" data-hyst-row>
+              <label>Gap close / Min run (m)</label>
+              <div class="inputs">
+                <input id="wf_E_gap" type="number" step="1" value="30" />
+                <span>/</span>
+                <input id="wf_E_min" type="number" step="1" value="80" />
+              </div>
+            </div>
+
+            <div class="row">
+              <label>Energy envelope E_env (m)</label>
+              <div class="inputs">
+                <input id="wf_E_env" type="number" step="1" value="200" />
+                <span class="hint">triangular MA window</span>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <label>Overlay energy</label>
+              <div class="inputs">
+                <input id="wf_showE" type="checkbox" />
+                <span class="hint">Plot E[i] on right axis</span>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <label>Color fill</label>
+              <div class="inputs">
+                <input id="wf_fill" type="checkbox" />
+                <span class="hint">Toggle terrain color fill (when available)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wavelet-legend">
+            <div><span class="chip chip-flat"></span> Flat</div>
+            <div><span class="chip chip-up"></span> Uphill</div>
+            <div><span class="chip chip-down"></span> Downhill</div>
+            <div><span class="chip chip-roll"></span> Rolling</div>
+          </div>
+        </div>
+
+        <div class="wavelet-note">
+          Haar trend is overlaid as a second line (right axis). Enable “Color fill” to paint terrain states when the
+          classifier is available.
+        </div>
+
+
+        <div class="wavelet-note">
+          Result colorizes under the elevation curve above. Adjust thresholds and re-run to tune segmentation.
+        </div>
+      </div>
+
+      <!-- Placeholders for future tabs -->
+      <div id="panel-segments" class="panel" hidden></div>
+    </div>
+
+    <!-- Debug / log window -->
+    <pre id="log" class="log"></pre>
+  </main>
+
+  <!-- App logic -->
+  <script src="/static/signal_lab.js"></script>
+</body>
+
+</html>
+:wq

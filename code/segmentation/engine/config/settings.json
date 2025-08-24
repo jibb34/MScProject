@@ -5,7 +5,9 @@
       "/segment",
       "/debug",
       "/upload",
-      "/view"
+      "/view",
+      "/lab/resample",
+      "/wavelet"
     ]
   },
   "segmentation": {

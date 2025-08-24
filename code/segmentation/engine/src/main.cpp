@@ -4,6 +4,7 @@
 #include <iostream>
 
 using json = nlohmann::json;
+inline json list_uploads_json(const std::string &dir = "uploads");
 
 int main() {
   // Load configuration
@@ -21,7 +22,12 @@ int main() {
 
   // HTTP server setup
   httplib::Server server;
+  server.set_mount_point("/static",
+                         "./public"); // serves files in ./public at /static/*
+  server.set_file_extension_and_mimetype_mapping("js",
+                                                 "application/javascript");
 
+  server.set_file_extension_and_mimetype_mapping("css", "text/css");
   // Optional configuration – comment these out initially
   server.set_payload_max_length(1024ull * 1024ull * 512ull); // 512MB
   server.set_read_timeout(60, 0);
@@ -66,13 +72,52 @@ int main() {
   }
   std::string action = "view";
   server.Get("/view", [action, &handler](const auto &req, auto &res) {
-    handler.callGetHandler(action, req, res);
+    handler.callGetHandler("view", req, res);
+  });
+  server.Get("/viewLab", [action, &handler](const auto &req, auto &res) {
+    handler.callGetHandler("viewLab", req, res);
+  });
+  server.Get("/lab/meta", [&handler](const auto &req, auto &res) {
+    handler.callGetHandler("labMeta", req, res);
   });
 
-  server.Get("/ping", [](const httplib::Request &, httplib::Response &res) {
-    res.set_content("pong", "text/plain");
+  server.Get("/lab/list", [](const httplib::Request &, httplib::Response &res) {
+    const auto arr = list_uploads_json();
+    nlohmann::json out = {{"files", arr}}; // <-- wrap it
+    res.set_content(out.dump(), "application/json");
   });
+
   // Start listening – this blocks until the server stops
   server.listen("0.0.0.0", port);
   return 0;
+}
+
+namespace fs = std::filesystem;
+
+inline nlohmann::json list_uploads_json(const std::string &dir) {
+  nlohmann::json arr = nlohmann::json::array();
+  if (!fs::exists(dir))
+    return arr;
+
+  // newest first
+  std::vector<fs::directory_entry> entries;
+  for (auto &de : fs::directory_iterator(dir)) {
+    if (de.is_regular_file())
+      entries.push_back(de);
+  }
+  std::sort(entries.begin(), entries.end(), [](auto &a, auto &b) {
+    return fs::last_write_time(a) > fs::last_write_time(b);
+  });
+
+  for (auto &de : entries) {
+    const auto p = de.path();
+    const auto bytes = (uint64_t)fs::file_size(p);
+    const auto rel = (fs::path(dir) / p.filename())
+                         .generic_string(); // e.g. "uploads/map_....json"
+    nlohmann::json j{{"file", rel},         // <- value to POST back as "map"
+                     {"name", p.filename().string()}, // for display
+                     {"bytes", bytes}};
+    arr.push_back(j);
+  }
+  return arr;
 }

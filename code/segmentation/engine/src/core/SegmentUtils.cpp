@@ -181,7 +181,7 @@ Curvature SegmentUtils::calculateCurvature(const std::vector<DataPoint> &points,
   double excess_integral = 0.0;
 
   // calcluate differential of each point: |dθ| / ds
-  for (size_t i; i + 1 < n; ++i) {
+  for (size_t i = 0; i + 1 < n; ++i) {
     // angle differential
     double theta_1 = heading_ENU(pts[i - 1], pts[i]);
     double theta_2 = heading_ENU(pts[i], pts[i + 1]);
@@ -227,4 +227,156 @@ double SegmentUtils::calculateHeadingDegToRad(const Coordinate &point_from,
 double SegmentUtils::ang_diff(double a, double b) {
   const double d = b - a;
   return std::atan2(std::sin(d), std::cos(d)); // returns (−π, π]
+}
+static inline double safe_dt(double dt) {
+  return (dt > 1e-3 && std::isfinite(dt)) ? dt : 1e-3;
+}
+// Small helper: median of a tiny vector (copy; window is small)
+static double median_small(std::vector<double> v) {
+  if (v.empty())
+    return 0.0;
+  size_t m = v.size() / 2;
+  std::nth_element(v.begin(), v.begin() + m, v.end());
+  double med = v[m];
+  if ((v.size() & 1) == 0) {
+    // even → average two middles
+    auto it = std::max_element(v.begin(), v.begin() + m);
+    med = 0.5 * (med + *it);
+  }
+  return med;
+}
+static void ema_forward_backward(const std::vector<double> &t,
+                                 const std::vector<double> &x,
+                                 std::vector<double> &y, double tau_s) {
+  const size_t n = x.size();
+  if (n == 0)
+    return;
+  y.resize(n);
+  y[0] = x[0];
+  for (size_t i = 1; i < n; ++i) {
+    const double dt = safe_dt(t[i] - t[i - 1]);
+    const double alpha = 1.0 - std::exp(-dt / std::max(1e-6, tau_s));
+    y[i] = y[i - 1] + alpha * (x[i] - y[i - 1]);
+  }
+  // backward pass to reduce lag (zero-phase)
+  for (size_t i = n - 1; i-- > 0;) {
+    const double dt = safe_dt(t[i + 1] - t[i]);
+    const double alpha = 1.0 - std::exp(-dt / std::max(1e-6, tau_s));
+    y[i] = y[i + 1] + alpha * (y[i] - y[i + 1]); // filter the filtered series
+  }
+}
+// Enforce |dv| <= a_max * dt (both directions)
+static void enforce_accel_cap(const std::vector<double> &t,
+                              std::vector<double> &v, double a_max) {
+  const size_t n = v.size();
+  if (n == 0)
+    return;
+  // forward
+  for (size_t i = 1; i < n; ++i) {
+    const double dt = safe_dt(t[i] - t[i - 1]);
+    const double vmax = v[i - 1] + a_max * dt;
+    const double vmin = v[i - 1] - a_max * dt;
+    v[i] = std::min(std::max(v[i], vmin), vmax);
+  }
+  // backward
+  for (size_t i = n - 1; i-- > 0;) {
+    const double dt = safe_dt(t[i + 1] - t[i]);
+    const double vmax = v[i + 1] + a_max * dt;
+    const double vmin = v[i + 1] - a_max * dt;
+    v[i] = std::min(std::max(v[i], vmin), vmax);
+  }
+}
+
+void SegmentUtils::compute_and_smooth_speed(std::vector<DataPoint> &pts,
+                                            double tau_s, int med_win,
+                                            double a_max) {
+  const size_t n = pts.size();
+  if (n == 0)
+    return;
+
+  // 1) RAW speed (m/s)
+  pts[0].speed = 0.0;
+  for (size_t i = 1; i < n; ++i) {
+    const double dt =
+        safe_dt(double(pts[i].time_rel) - double(pts[i - 1].time_rel));
+    const double ds =
+        SegmentUtils::haversine(pts[i - 1].coord.lon, pts[i].coord.lon,
+                                pts[i - 1].coord.lat, pts[i].coord.lat);
+    pts[i].speed = (std::isfinite(ds) ? ds : 0.0) / dt;
+  }
+  if (n >= 2)
+    pts[0].speed = pts[1].speed;
+
+  // 2) SMOOTH
+  SegmentUtils::smooth_speed(pts, tau_s, med_win, a_max);
+}
+
+void SegmentUtils::smooth_speed(std::vector<DataPoint> &pts, double tau_s,
+                                int med_win, double a_max) {
+  const size_t n = pts.size();
+  if (n == 0)
+    return;
+
+  // Collect time and a working copy of raw speeds
+  std::vector<double> t(n), v(n);
+  for (size_t i = 0; i < n; ++i) {
+    t[i] = double(pts[i].time_rel);
+    v[i] = pts[i].speed;
+  }
+
+  // 2a) Median pre-filter (odd window length; clamp to available)
+  if (med_win < 1)
+    med_win = 1;
+  if ((med_win & 1) == 0)
+    med_win += 1;
+  const int half = med_win / 2;
+  std::vector<double> v_med(n);
+  for (int i = 0; i < (int)n; ++i) {
+    const int a = std::max(0, i - half);
+    const int b = std::min<int>(n - 1, i + half);
+    std::vector<double> w;
+    w.reserve(b - a + 1);
+    for (int k = a; k <= b; ++k)
+      w.push_back(v[k]);
+    v_med[i] = median_small(std::move(w));
+  }
+
+  // 2b) Forward-backward EMA (adaptive by dt)
+  std::vector<double> v_filt;
+  ema_forward_backward(t, v_med, v_filt, tau_s);
+
+  // 2c) Acceleration cap (physically plausible)
+  enforce_accel_cap(t, v_filt, a_max);
+
+  // 2d) Non-negativity + write back
+  for (size_t i = 0; i < n; ++i) {
+    pts[i].speed_smoothed = std::max(0.0, v_filt[i]);
+  }
+}
+
+void SegmentUtils::normalize_heading_to_speed(std::vector<DataPoint> &pts,
+                                              double v0,  // knee (~9 km/h)
+                                              double vhi, // falloff (~20 km/h)
+                                              double p, double q) {
+  // NOTE:
+  // For each sample, we need to calculate the normalized heading delta to
+  // speed, as speed grows above 10kph, the normalization decreases, and really
+  // falls off avove 20kph
+
+  // X(v) * delta_theta would equal our weighted heading delta
+  // X(v) = v^p / (v^p + v_l^p) * 1/(1+(v/v_h)^q)
+  // v = smoothed speed at current point
+  // v0 = 2.5m/s (10kph)
+  // vhi = 5.5m/s (20kph)
+  // p = 2 smoothing factor for low speed
+  // q = 2 smoothing factor for high speed
+  for (auto &pt : pts) {
+    double v = pt.speed_smoothed;
+
+    double low_bound = pow(v, p) / (pow(v, p) + pow(v0, p));
+    double up_bound = 1 / (1 + pow(v / vhi, q));
+
+    double Xv = low_bound * up_bound;
+    pt.heading_delta_norm = pt.heading_delta * Xv;
+  }
 }
