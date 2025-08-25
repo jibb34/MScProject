@@ -32,8 +32,6 @@
       wf_ds:       'Sample spacing ds (m). Smaller = more detail, noisier.',
       wf_LT:       'Trend window L_T (m). Larger = smoother blue trend; smaller = faster response.',
       wf_LE:       'Energy window L_E (m). Larger = less spiky energy; smaller = sharper bursts.',
-      wf_lam_min:  'Rolling band λ_min (m). Lower = include faster bumps; higher = ignore very short ones.',
-      wf_lam_max:  'Rolling band λ_max (m). Lower = focus on short rollers; higher = include longer undulations.',
       wf_E_env:    'Envelope window (m). Larger merges nearby spikes into one plateau.',
       wf_hyst_en:  'Enable hysteresis grouping. Off = raw envelope only.',
       wf_E_hi:     'Start threshold (MAD). Higher = fewer starts; lower = starts easier.',
@@ -93,23 +91,32 @@
     const hyst = bool('wf_hyst_en');
 
     return {
+      // sampling + scales
       ds_m:  num('wf_ds', 5, [0.1, 10000]),
       L_T:   num('wf_LT', 150, [2, 100000]),
-      fill:  bool('wf_fill'),
-      L_E: num('wf_LE', 120, [4, 100000]),
-      lambda_min: num('wf_lam_min', 50, [1, 1e6]),
-      lambda_max: num('wf_lam_max', 200, [1, 1e6]),
-      energy_mode: 0, // 0=FFT, 1=HAAR when server supports HAAR
-      E_env_m:       num('wf_E_env', 200, [0, 5000]),
-      E_use_hysteresis: hyst,
-      // only read numbers when enabled (undefined drops from JSON)
-      E_hyst_hi:     hyst ? num('wf_E_hi',  2.0, [0,10]) : undefined,
-      E_hyst_lo:     hyst ? num('wf_E_lo',  1.0, [0,10]) : undefined,
-      E_gap_close_m: hyst ? num('wf_E_gap', 30,  [0,2000]) : undefined,
-      E_min_run_m:   hyst ? num('wf_E_min', 80,  [0,5000]) : undefined,
+      L_E:   num('wf_LE', 120, [4, 100000]),
 
+      // NEW: thresholds
+      k_g:   num('wf_k_g', 3.0, [0, 100]),
+      k_E:   num('wf_k_E', 3.0, [0, 100]),
+      tau_p: num('wf_tau_p', 1.5, [0, 100]),
+
+      // energy method: tell the server we’re in RMS mode
+      energy_mode: 'rms',   // server accepts 0/1 or "fft"/"haar"/"wavelet"/"rms"
+
+      // envelope + hysteresis / cleanup
+      E_env_m:         num('wf_E_env', 200, [0, 5000]),
+      E_use_hysteresis: hyst,
+      E_hyst_hi:       hyst ? num('wf_E_hi',  2.0, [0,10]) : undefined,
+      E_hyst_lo:       hyst ? num('wf_E_lo',  1.0, [0,10]) : undefined,
+      E_gap_close_m:   hyst ? num('wf_E_gap', 30,  [0,2000]) : undefined,
+      E_min_run_m:     hyst ? num('wf_E_min', 80,  [0,5000]) : undefined,
+
+      // UI only (not used by server)
+      fill: bool('wf_fill'),
     };
   }
+
 
 
   function normalizeTerrainCodes(arr) {
@@ -618,6 +625,7 @@
         1: '#d33',    // Uphill
         2: '#38f',    // Downhill
         3: '#ff8c00', // Rolling
+        4: '#8e44ad', // Unknown
       };
 
       // Clip to plot area so we fill only under the curve

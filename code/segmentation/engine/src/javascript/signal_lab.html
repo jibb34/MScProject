@@ -117,19 +117,35 @@
               <label>Energy window L<sub>E</sub> (m)</label>
               <div class="inputs">
                 <input id="wf_LE" type="number" step="1" value="120" />
-                <span class="hint">STFT window length</span>
+                <span class="hint">RMS window length</span>
+              </div>
+            </div>
+            <!-- NEW: threshold multipliers and prominence -->
+            <div class="row">
+              <label>Slope factor k<sub>g</sub> (MAD)</label>
+              <div class="inputs">
+                <input id="wf_k_g" type="number" step="0.1" value="3.0" />
+                <span class="hint">|g| &lt; k<sub>g</sub>·MAD(g) → “flat-ish” slope</span>
               </div>
             </div>
 
             <div class="row">
-              <label>Rolling band λ (m)</label>
+              <label>Energy factor k<sub>E</sub> (MAD)</label>
               <div class="inputs">
-                <input id="wf_lam_min" type="number" step="1" value="8" />
-                <span>to</span>
-                <input id="wf_lam_max" type="number" step="1" value="60" />
-                <span class="hint">wavelength range</span>
+                <input id="wf_k_E" type="number" step="0.1" value="3.0" />
+                <span class="hint">E &lt; k<sub>E</sub>·MAD(E) → “low energy”</span>
               </div>
             </div>
+
+            <div class="row">
+              <label>Prominence τ<sub>p</sub></label>
+              <div class="inputs">
+                <input id="wf_tau_p" type="number" step="0.1" value="1.5" />
+                <span class="hint">E / (|g|+ε) ≥ τ<sub>p</sub> → rolling</span>
+              </div>
+            </div>
+
+
             <div class="row">
               <label>Hysteresis</label>
               <div class="inputs">

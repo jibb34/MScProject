@@ -200,8 +200,8 @@ python source/batch_enrich.py \
   --out-dir "$PWD/data/enriched_json" \
   --tol 15 --precision 5 --workers 6 --node-times
 
-python3 source/show_enriched.py ./data/enriched_json/Hilly_endurance_ride_around_Harriman_enriched.json ./test.html
-python3 source/show_enriched.py ./data/enriched_json/Altitude_Day_3_3x8_Ladder_Intervals_on_Woodmen_enriched.json ./test2.html
+# python3 source/show_enriched.py ./data/enriched_json/Hilly_endurance_ride_around_Harriman_enriched.json ./test.html
+# python3 source/show_enriched.py ./data/enriched_json/Altitude_Day_3_3x8_Ladder_Intervals_on_Woodmen_enriched.json ./test2.html
 # ------------------------------------------------------------------
 # 12. Cleanup
 # ------------------------------------------------------------------

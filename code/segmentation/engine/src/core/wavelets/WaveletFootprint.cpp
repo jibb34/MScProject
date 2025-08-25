@@ -8,6 +8,10 @@
 #include <iostream>
 #include <limits>
 
+std::vector<WaveletFootprintEngine::TerrainState>
+WaveletFootprintEngine::get_states() const {
+  return states_;
+}
 WaveletSignal WaveletFootprintEngine::make_wavelet_signal(
     const RouteSignal &rs, const GetterFn &getter, SeriesKind kind,
     double min_step_m) const {
@@ -457,34 +461,10 @@ void hysteresis(std::vector<double> &E, const UniformSignal &U,
 // ============= Main function =================
 
 UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
-    const RouteSignal &rs, const TerrainParams &p, std::vector<double> &E_out,
-    std::vector<double> &pseries_out) const {
+    const RouteSignal &rs, const TerrainParams &p,
+    std::vector<double> &E_out) const {
 
   /* TODO:
-   * Alternative:
-   * For simple computation (and faster compute times), we can approximate the
-   * energy with the sqrt of the sum of the squares of all scale differentials
-   * for each scale in L_H.
-   * ===========================================================================
-   * next we need to compute the thresholds using Median Absolute Deviation:
-   * Trend Threshold: τ_g = k_g * MAD(g[i]) = median(|g[i]-median(g)|)
-   * Rolling Threshold: τ_E = k_E * MAD(E[i]) = median(|E[i]-median(E)|)
-   * Trend-Rolling guard: ρ[i] = E[i] / |g[i]| + ε -> compares to τ_p
-   * k_g and k_E are input values:
-   * k_g controls at what threshold a window is considered "uphill"
-   * k_E controls how much energy is required before something is rolling
-   * ρ acts as a decider that determines if some local energy is enough to
-   * "overpower" the up/downhill trend. epislon is a small value to guard
-   * against div by 0 errors. scaled to data scale:
-   *=======================================================================
-   * Using thesholds, we logically decide upon which bin each signal sample
-   * falls under:
-    > Flat if: |g[i]| < τ_p and E[i] < τ_E
-    > Rolling if: |g[i]| < τ_g and E[i] >= τ_E and ρ[i] >= τ_p;
-    > Uphill if: g[i] >= τ_g and ρ[i] < τ_p;
-    > Uphill if: g[i] <= -τ_g and ρ[i] < τ_p;
-    optionally, can add guardrail on rolling to check if there is a gentle climb
-    that has some rolling values.
    */ std::cerr << "Generating Wavelet Signal\n";
   // 1) Build Wavelet Signal from elevation
   const GetterFn get_elev = [](const DataPoint &d) { return d.coord.elv; };
@@ -533,7 +513,7 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
 
   std::vector<double> E(g.size(), 0.0);
   const int N_E = std::max(4, (int)std::lround(p.L_E / std::max(U.ds, 1e-12)));
-  wf::RollingEnergyCalculator stft(N_E, U.ds, p.lambda_min, p.lambda_max);
+  wf::RollingEnergyCalculator stft(N_E, U.ds);
   stft.compute_RMS(U, E);
   if (n >= 3) {
     // 1) curvature ≈ second derivative of elevation
@@ -575,48 +555,7 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
       z[i] = v / 3.0; // 0..1
     }
 
-    // 3) asymmetric density: earlier rise, slower decay
-    const double lam_c = 0.5 * (p.lambda_min + p.lambda_max);
-    const int wf =
-        std::max(1, (int)std::lround(0.5 * lam_c / U.ds)); // look-ahead
-    const int wb =
-        std::max(1, (int)std::lround(1.0 * lam_c / U.ds)); // look-back
-
-    std::vector<double> pref(n + 1, 0.0);
-    for (int i = 0; i < n; ++i)
-      pref[i + 1] = pref[i] + z[i];
-    auto mean_range = [&](int a, int b) {
-      if (b < a)
-        std::swap(a, b);
-      a = std::max(0, a);
-      b = std::min(n - 1, b);
-      int m = b - a + 1;
-      return m > 0 ? (pref[b + 1] - pref[a]) / (double)m : 0.0;
-    };
-
-    std::vector<double> D(n, 0.0);
-    for (int i = 0; i < n; ++i) {
-      double df = mean_range(i, i + wf); // forward density -> early rise
-      double db = mean_range(i - wb, i); // backward density -> slow decay
-      D[i] = std::max(df, db);
-    }
-
     // 4) light smoothing for plateaus
-    const int ws = std::max(1, (int)std::lround(0.25 * lam_c / U.ds));
-    if (ws > 1) {
-      std::vector<double> c(n + 1, 0.0), y(n);
-      for (int i = 0; i < n; ++i)
-        c[i + 1] = c[i] + D[i];
-      for (int i = 0; i < n; ++i) {
-        int a = std::max(0, i - ws), b = std::min(n - 1, i + ws);
-        y[i] = (c[b + 1] - c[a]) / (double)(b - a + 1);
-      }
-      E_out = std::move(y);
-    } else {
-      E_out = std::move(D);
-    }
-  } else {
-    E_out.assign(U.y.size(), 0.0);
   }
   // precompute for O(n) sliding windows
   const int w2 = std::max(1, (int)std::round(0.5 * p.L_E / U.ds));
@@ -666,30 +605,29 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
 
   //=======================================================
   // comparison:
-  std::vector<TerrainState> terrain;
+  std::vector<WaveletFootprintEngine::TerrainState> terrain;
+  std::cerr << "Threshold values (tau_g, tau_E, tau_p): " << tau_g << ", "
+            << tau_E << ", " << tau_p << ".\n";
   for (int i = 0; i < U.y.size(); ++i) {
     // Is flat
-    if (g[i] < tau_g && E[i] < tau_E) {
-      terrain.push_back(TerrainState::Flat);
-      // is rolling
-    } else if (abs(g[i]) < tau_g && E[i] >= tau_E && rho[i] >= tau_p) {
+    if (std::abs(g[i]) < tau_g && E[i] >= tau_E && rho[i] >= tau_p) {
       terrain.push_back(TerrainState::Rolling);
-      // is uphill
     } else if (g[i] >= tau_g && rho[i] < tau_p) {
       terrain.push_back(TerrainState::Uphill);
-      // is downhill
     } else if (g[i] <= -tau_g && rho[i] < tau_p) {
       terrain.push_back(TerrainState::Downhill);
-      // cannot determine
+    } else if (std::abs(g[i]) < tau_g && E[i] < tau_E) {
+      terrain.push_back(TerrainState::Flat);
     } else {
       terrain.push_back(TerrainState::Unknown);
     }
   }
+  states_ = terrain;
 
   UniformSignal X;
-
   X.s = U.s;
-  X.y = std::move(E);
+  X.y = std::move(g);
+
   X.ds = U.ds;
   return X;
 }

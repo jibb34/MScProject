@@ -761,10 +761,8 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     upd("L_T", tpar.L_T);
     upd("k_g", tpar.k_g);
     upd("L_E", tpar.L_E);
-
-    upd("lambda_min", tpar.lambda_min);
-    upd("lambda_max", tpar.lambda_max);
-    upd("energy_mode", tpar.energy_mode);
+    upd("k_E", tpar.k_E);
+    upd("tau_p", tpar.tau_p);
 
     upd("E_env_m", tpar.E_env_m);
 
@@ -775,12 +773,35 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     upd("E_min_run_m", tpar.E_min_run_m);
 
     std::vector<double> E;
-    std::vector<double> pseries;
-    auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E, pseries);
-    E = pseries;
+    std::vector<WaveletFootprintEngine::TerrainState> state_codes;
+    auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
+    state_codes = eng.get_states();
+    int c0 = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0;
+    for (auto &t : state_codes) {
+      switch (t) {
+      case WaveletFootprintEngine::TerrainState::Flat:
+        ++c0;
+        break;
+      case WaveletFootprintEngine::TerrainState::Uphill:
+        ++c1;
+        break;
+      case WaveletFootprintEngine::TerrainState::Downhill:
+        ++c2;
+        break;
+      case WaveletFootprintEngine::TerrainState::Rolling:
+        ++c3;
+        break;
+      case WaveletFootprintEngine::TerrainState::Unknown:
+        ++c4;
+        break;
+      }
+    }
+    std::cerr << "[wf] counts flat=" << c0 << " up=" << c1 << " down=" << c2
+              << " roll=" << c3 << " unk=" << c4 << "\n";
 
     // Axis for uniform result (for precise alignment)
     std::vector<double> s_km_u;
+
     s_km_u.reserve(terrainUS.s.size());
     for (double sm : terrainUS.s)
       s_km_u.push_back(sm / 1000.0);
@@ -792,7 +813,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     series["haar_trend"] = terrainUS.y;
 
     series["energy"] = E;
-    // TODO: series["terrain"] = state_codes;
+    series["terrain"] = state_codes;
 
   } else {
     // Unknown function name

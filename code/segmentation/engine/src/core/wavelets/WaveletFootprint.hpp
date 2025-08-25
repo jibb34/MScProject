@@ -102,9 +102,9 @@ public:
 
     EnergyAlgorithm energy_mode = EnergyAlgorithm::FFT;
     // FFT Params for Rolling-energy calculation
-    double lambda_min = 200.0;  // band pass lower bound
-    double lambda_max = 1000.0; // band pass upper bound
-    double L_E = 2400.0;        // window length for FFT
+    // double lambda_min = 200.0;  // band pass lower bound
+    // double lambda_max = 1000.0; // band pass upper bound
+    double L_E = 2400.0; // window length for FFT
 
     // HAAR Params for rolling energy calcs
     std::vector<double> L_H = {10, 20, 40, 80};
@@ -126,12 +126,12 @@ public:
   };
 
   UniformSignal terrain_states_from_elevation(const RouteSignal &rs,
-                                              const TerrainParams &p) const;
-  // Temp
-  UniformSignal
-  terrain_states_from_elevation(const RouteSignal &rs, const TerrainParams &p,
-                                std::vector<double> &E_out,
-                                std::vector<double> &pseries_out) const;
+                                              const TerrainParams &p,
+                                              std::vector<double> &E_out) const;
+  std::vector<WaveletFootprintEngine::TerrainState> get_states() const;
+
+private:
+  mutable std::vector<TerrainState> states_;
   /*
    * NOTE: Uses Haar wavelets in a dual-channel (known as wavelet footprints)
    * in order to calculate logical change-points for distance series of
