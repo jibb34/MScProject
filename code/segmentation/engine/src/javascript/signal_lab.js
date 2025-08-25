@@ -104,16 +104,21 @@
       // energy method: tell the server we’re in RMS mode
       energy_mode: 'rms',   // server accepts 0/1 or "fft"/"haar"/"wavelet"/"rms"
 
-      // envelope + hysteresis / cleanup
+      // envelope + hysteresis
       E_env_m:         num('wf_E_env', 200, [0, 5000]),
       E_use_hysteresis: hyst,
       E_hyst_hi:       hyst ? num('wf_E_hi',  2.0, [0,10]) : undefined,
       E_hyst_lo:       hyst ? num('wf_E_lo',  1.0, [0,10]) : undefined,
       E_gap_close_m:   hyst ? num('wf_E_gap', 30,  [0,2000]) : undefined,
       E_min_run_m:     hyst ? num('wf_E_min', 80,  [0,5000]) : undefined,
+      // cleanup
+      min_segment_length_m: num('wf_seg_min', 80, [0, 5000]),
+      merge_side: (document.getElementById('wf_merge_side')?.value === 'right'),
+
 
       // UI only (not used by server)
       fill: bool('wf_fill'),
+
     };
   }
 

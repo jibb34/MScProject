@@ -28,7 +28,7 @@ enum class ValueKind {
   Vector               // duple pair of value and direction
 };
 enum class SeriesKind { Scalar, Angle, Categorical };
-
+enum class MergeSide { Left, Right };
 struct NamedUniform {
   std::string name;
   SeriesKind kind;
@@ -123,12 +123,20 @@ public:
     double E_hyst_lo = 1.0;      // low threshold in MADs
     double E_gap_close_m = 5000; // close holes shorter than this
     double E_min_run_m = 80;     // discard short bursts
+
+    double min_segment_length_m = 500.0; // UI: “Min segment (m)”
+    bool merge_side_right = false;       // false=left, true=right
   };
 
   UniformSignal terrain_states_from_elevation(const RouteSignal &rs,
                                               const TerrainParams &p,
                                               std::vector<double> &E_out) const;
   std::vector<WaveletFootprintEngine::TerrainState> get_states() const;
+
+  std::vector<WaveletFootprintEngine::TerrainState> smoothSegments(
+      const std::vector<WaveletFootprintEngine::TerrainState> &states,
+      const std::vector<double> &lengths, // same size as states
+      double min_length, MergeSide side) const;
 
 private:
   mutable std::vector<TerrainState> states_;

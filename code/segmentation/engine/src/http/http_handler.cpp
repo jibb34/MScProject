@@ -771,6 +771,8 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     upd("E_hyst_lo", tpar.E_hyst_lo);
     upd("E_gap_close_m", tpar.E_gap_close_m);
     upd("E_min_run_m", tpar.E_min_run_m);
+    upd("min_segment_length_m", tpar.min_segment_length_m);
+    upd("merge_side", tpar.merge_side_right);
 
     std::vector<double> E;
     std::vector<WaveletFootprintEngine::TerrainState> state_codes;

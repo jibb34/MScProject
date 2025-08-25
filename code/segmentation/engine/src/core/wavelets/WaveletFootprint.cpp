@@ -622,12 +622,77 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
       terrain.push_back(TerrainState::Unknown);
     }
   }
-  states_ = terrain;
 
+  struct Run {
+    int i0, i1;
+    WaveletFootprintEngine::TerrainState st;
+  };
+  std::vector<Run> runs;
+  for (int i = 0, n = (int)terrain.size(); i < n;) {
+    int j = i + 1;
+    while (j < n && terrain[j] == terrain[i])
+      ++j;
+    runs.push_back({i, j - 1, terrain[i]});
+    i = j;
+  }
+
+  std::vector<double> lengths;
+  lengths.reserve(runs.size());
+  for (auto &r : runs) {
+    // prefer exact distance from the grid:
+    double len = U.s[r.i1] - U.s[r.i0]; // uses s[k] = k*ds
+    // or fallback: double len = (r.i1 - r.i0) * U.ds;
+    lengths.push_back(len);
+  }
+  double min_length = p.min_segment_length_m;
+  MergeSide side = (p.merge_side_right) ? MergeSide::Right : MergeSide::Left;
+  states_ = smoothSegments(terrain, lengths, min_length, side);
   UniformSignal X;
   X.s = U.s;
   X.y = std::move(g);
 
   X.ds = U.ds;
   return X;
+}
+
+std::vector<WaveletFootprintEngine::TerrainState>
+WaveletFootprintEngine::smoothSegments(
+    const std::vector<WaveletFootprintEngine::TerrainState> &states,
+    const std::vector<double> &lengths, // same size as states
+    double min_length, MergeSide side) const {
+  std::vector<WaveletFootprintEngine::TerrainState> smoothed = states;
+  std::vector<double> seg_lengths = lengths;
+
+  for (size_t i = 0; i < smoothed.size();) {
+    if (seg_lengths[i] < min_length) {
+      auto left = (i > 0) ? smoothed[i - 1] : smoothed[i];
+      auto right = (i + 1 < smoothed.size()) ? smoothed[i + 1] : smoothed[i];
+
+      if (i > 0 && i + 1 < smoothed.size() && left == right) {
+        // merge with both
+        seg_lengths[i - 1] += seg_lengths[i] + seg_lengths[i + 1];
+        smoothed.erase(smoothed.begin() + i, smoothed.begin() + i + 2);
+        seg_lengths.erase(seg_lengths.begin() + i, seg_lengths.begin() + i + 2);
+        --i; // step back
+      } else if (i > 0 &&
+                 (side == MergeSide::Left || i + 1 == smoothed.size())) {
+        // merge into left
+        seg_lengths[i - 1] += seg_lengths[i];
+        smoothed.erase(smoothed.begin() + i);
+        seg_lengths.erase(seg_lengths.begin() + i);
+        --i;
+      } else if (i + 1 < smoothed.size()) {
+        // merge into right
+        seg_lengths[i + 1] += seg_lengths[i];
+        smoothed.erase(smoothed.begin() + i);
+        seg_lengths.erase(seg_lengths.begin() + i);
+      } else {
+        ++i; // nothing to merge
+      }
+    } else {
+      ++i;
+    }
+  }
+
+  return smoothed;
 }

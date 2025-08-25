@@ -1,12 +1,38 @@
 #include "http/http_handler.hpp"
 #include "json.hpp" // nlohmann/json
+#include <execinfo.h>
 #include <fstream>
 #include <iostream>
+#include <signal.h>
+#include <unistd.h>
 
 using json = nlohmann::json;
 inline json list_uploads_json(const std::string &dir = "uploads");
 
+static void bt_handler(int sig) {
+  void *bt[64];
+  int n = backtrace(bt, 64);
+  dprintf(2, "\n=== FATAL SIG %d ===\n", sig);
+  backtrace_symbols_fd(bt, n, 2);
+  _exit(128 + sig);
+}
+static void install_bt_handlers() {
+  signal(SIGSEGV, bt_handler);
+  signal(SIGABRT, bt_handler);
+  signal(SIGFPE, bt_handler);
+  signal(SIGILL, bt_handler);
+  signal(SIGBUS, bt_handler);
+}
+static void bt(int sig) {
+  void *a[64];
+  int n = backtrace(a, 64);
+  dprintf(2, "\nSIG %d\n", sig);
+  backtrace_symbols_fd(a, n, 2);
+  _exit(128 + sig);
+}
+
 int main() {
+  install_bt_handlers();
   // Load configuration
   std::ifstream cfg("config/settings.json");
   if (!cfg) {

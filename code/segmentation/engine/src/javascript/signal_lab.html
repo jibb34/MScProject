@@ -198,32 +198,58 @@
               </div>
             </div>
           </div>
+          <!-- RIGHT COLUMN -->
+          <div class="wavelet-right">
+            <div class="wavelet-legend">
+              <div><span class="chip chip-flat"></span> Flat</div>
+              <div><span class="chip chip-up"></span> Uphill</div>
+              <div><span class="chip chip-down"></span> Downhill</div>
+              <div><span class="chip chip-roll"></span> Rolling</div>
+            </div>
 
-          <div class="wavelet-legend">
-            <div><span class="chip chip-flat"></span> Flat</div>
-            <div><span class="chip chip-up"></span> Uphill</div>
-            <div><span class="chip chip-down"></span> Downhill</div>
-            <div><span class="chip chip-roll"></span> Rolling</div>
+            <div class="smooth-box">
+              <div class="row">
+                <label>Min segment (m)</label>
+                <div class="inputs">
+                  <input id="wf_seg_min" type="number" step="1" value="80" />
+                </div>
+              </div>
+              <div class="row">
+                <label>Merge side</label>
+                <div class="inputs">
+                  <select id="wf_merge_side">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="wavelet-legend">
+              <div><span class="chip chip-flat"></span> Flat</div>
+              <div><span class="chip chip-up"></span> Uphill</div>
+              <div><span class="chip chip-down"></span> Downhill</div>
+              <div><span class="chip chip-roll"></span> Rolling</div>
+            </div>
+          </div>
+
+          <div class="wavelet-note">
+            Haar trend is overlaid as a second line (right axis). Enable “Color fill” to paint terrain states when the
+            classifier is available.
+          </div>
+
+
+          <div class="wavelet-note">
+            Result colorizes under the elevation curve above. Adjust thresholds and re-run to tune segmentation.
           </div>
         </div>
 
-        <div class="wavelet-note">
-          Haar trend is overlaid as a second line (right axis). Enable “Color fill” to paint terrain states when the
-          classifier is available.
-        </div>
-
-
-        <div class="wavelet-note">
-          Result colorizes under the elevation curve above. Adjust thresholds and re-run to tune segmentation.
-        </div>
+        <!-- Placeholders for future tabs -->
+        <div id="panel-segments" class="panel" hidden></div>
       </div>
 
-      <!-- Placeholders for future tabs -->
-      <div id="panel-segments" class="panel" hidden></div>
-    </div>
-
-    <!-- Debug / log window -->
-    <pre id="log" class="log"></pre>
+      <!-- Debug / log window -->
+      <pre id="log" class="log"></pre>
   </main>
 
   <!-- App logic -->

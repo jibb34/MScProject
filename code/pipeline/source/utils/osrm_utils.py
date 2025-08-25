@@ -56,19 +56,19 @@ def points_to_osrm_json(gpx_points, output_dir, basename, radius=5, chunk_size=0
                 else:
                     timestamps.append(int(ts.timestamp()))
 
-            payload = {"coordinates": coords, "radiuses": radiuses}
             if any(t is None for t in timestamps):
                 raise ValueError(
                     "Missing or invalid timestamps in GPX data. Attempting to interpolate..."
                 )
-                for i, t in enumerate(timestamps):
-                    if t is None:
-                        try:
-                            t = timestamps[i - 1] + 1
-                        except Exception:
-                            t = timestamps[i + 1] - 1
+            for i, t in enumerate(timestamps):
+                if t is None:
+                    try:
+                        t = timestamps[i - 1] + 1
+                    except Exception:
+                        t = timestamps[i + 1] - 1
 
-            payload["timestamps"] = timestamps
+        payload = {"coordinates": coords, "radiuses": radiuses}
+        payload["timestamps"] = timestamps
 
         return payload
 
@@ -238,7 +238,7 @@ def diagnose_points(OSRM, coords, radius=100):
 
 def read_osm_bounds(osm_path):
     """Parse the <bounds> element from an OSM XML file"""
-    for even, elem in ET.iterparse(osm_path, events=("start,")):
+    for even, elem in ET.iterparse(osm_path, events=("start",)):
         if elem.tag == "bounds":
             minlat = float(elem.attrib["minlat"])
             minlon = float(elem.attrib["minlon"])

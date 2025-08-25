@@ -172,3 +172,10 @@ main { padding: 10px; }
 
 .row[data-hyst-row].disabled { opacity: 0.5; }
 
+.wavelet-right { display:flex; flex-direction:column; gap:10px; margin-left:auto; }
+.smooth-box {
+  background:#111; border:1px solid #333; border-radius:8px; padding:8px; color:#ddd;
+}
+.smooth-box label { color:#bbb; font-size:12px; }
+.smooth-box input, .smooth-box select { width:84px; padding:2px 6px; }
+
