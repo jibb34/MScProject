@@ -90,6 +90,10 @@
     const bool = (id) => !!(document.getElementById(id)?.checked);
     const hyst = bool('wf_hyst_en');
 
+    const segMin = Number(document.getElementById('wf_seg_min').value) || 0;
+    const mergeRight = document.getElementById('wf_merge_side')?.value === 'right';
+
+  // ...existing params...
     return {
       // sampling + scales
       ds_m:  num('wf_ds', 5, [0.1, 10000]),
@@ -104,6 +108,7 @@
       // energy method: tell the server we’re in RMS mode
       energy_mode: 'rms',   // server accepts 0/1 or "fft"/"haar"/"wavelet"/"rms"
 
+
       // envelope + hysteresis
       E_env_m:         num('wf_E_env', 200, [0, 5000]),
       E_use_hysteresis: hyst,
@@ -112,8 +117,8 @@
       E_gap_close_m:   hyst ? num('wf_E_gap', 30,  [0,2000]) : undefined,
       E_min_run_m:     hyst ? num('wf_E_min', 80,  [0,5000]) : undefined,
       // cleanup
-      min_segment_length_m: num('wf_seg_min', 80, [0, 5000]),
-      merge_side: (document.getElementById('wf_merge_side')?.value === 'right'),
+      min_segment_length_m: segMin,     // number
+      merge_side_right: mergeRight,     // boolean (preferred key)
 
 
       // UI only (not used by server)
@@ -916,6 +921,110 @@
         renderLineChart(base.x, base.y, base.title || 'Elevation');
       }
     });
+
+    // ---- Settings Save/Load ----
+    const SETTINGS_KEY = 'signalLab.settings.v1';
+    const FIELDS = [
+      'mapSelect','varSelect','dsInput','kindSelect',
+      'wf_ds','wf_LT','wf_LE','wf_k_g','wf_k_E','wf_tau_p',
+      'wf_hyst_en','wf_E_hi','wf_E_lo','wf_E_gap','wf_E_min','wf_E_env',
+      'wf_showE','wf_fill','wf_seg_min','wf_merge_side'
+    ];
+
+    function collectSettings() {
+      const data = {};
+      for (const id of FIELDS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.type === 'checkbox') data[id] = !!el.checked;
+        else if (el.type === 'number') data[id] = Number(el.value);
+        else data[id] = el.value;
+      }
+      return data;
+    }
+
+    function applySettings(data) {
+      if (!data) return;
+      for (const [id, val] of Object.entries(data)) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.type === 'checkbox') el.checked = !!val;
+        else el.value = val;
+      }
+      // keep hysteresis rows in sync
+      const syncHyst = () => {
+        const en = document.getElementById('wf_hyst_en')?.checked;
+        document.querySelectorAll('[data-hyst-row]')
+          .forEach(r => r.classList.toggle('disabled', !en));
+      };
+      syncHyst();
+    }
+
+    document.getElementById('btnSave')?.addEventListener('click', () => {
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(collectSettings()));
+      console.log('[settings] saved');
+    });
+
+    document.getElementById('btnLoad')?.addEventListener('click', () => {
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      if (!raw) return;
+      applySettings(JSON.parse(raw));
+      console.log('[settings] loaded');
+    });
+
+    // optional: auto-load on page open
+    (() => {
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      if (raw) applySettings(JSON.parse(raw));
+    })();
+
+    // ---- File save/load for settings ----
+    (function () {
+      const fileInput = document.getElementById('fileImport');
+
+      // Save current UI settings to a .json file
+      document.getElementById('btnExport')?.addEventListener('click', () => {
+        const data = collectSettings();                   // your existing function
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `signalLab-settings-${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.json`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+
+      // Open file picker
+      document.getElementById('btnImport')?.addEventListener('click', () => {
+        fileInput?.click();
+      });
+
+      // Read selected JSON and apply to UI
+      fileInput?.addEventListener('change', async (e) => {
+        const f = e.target.files?.[0];
+        if (!f) return;
+        try {
+          const text = await f.text();
+          let obj = JSON.parse(text);
+          // allow either {settings:{...}} or direct {...}
+          const settings = (obj && obj.settings && typeof obj.settings === 'object') ? obj.settings : obj;
+
+          // Optionally: keep only known fields
+          // const allowed = new Set(FIELDS); const filtered = {};
+          // for (const k in settings) if (allowed.has(k)) filtered[k] = settings[k];
+          // applySettings(filtered);
+
+          applySettings(settings);                        // your existing function
+          // (optional) persist to localStorage too:
+          // localStorage.setItem('signalLab.settings.v1', JSON.stringify(settings));
+          console.log('[settings] loaded from file:', f.name);
+        } catch (err) {
+          console.error('Failed to load settings file:', err);
+          alert('Invalid settings file (must be JSON).');
+        } finally {
+          e.target.value = ''; // reset so same file can be picked again
+        }
+      });
+    })();
 
 
 

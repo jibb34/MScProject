@@ -132,9 +132,6 @@ RollingEnergyCalculator::RollingEnergyCalculator(int N, double ds) : ds_(ds) {
 //   // perform the FFT on the particular window
 //   if (U.y.empty() || ds_ <= 0 || U.y.size() != E.size()) {
 //     std::fill(E.begin(), E.end(), 0);
-//     std::cerr << "[ERROR] Shape error on computing Rolling Energy array: "
-//               << U.y.size() << " vs " << E.size() << "\n"
-//               << "ds_" << ds_ << "\n";
 //   }
 //   // our hann taper normalisation
 //   const double norm = 1.0 / std::max(h2sum_ * (double)N_, 1e-12);

@@ -36,6 +36,4 @@ target_link_libraries(segmentation_engine PRIVATE
 
 # Any extra FFTW CFLAGS (e.g. -fopenmp)
 target_compile_options(segmentation_engine PRIVATE ${FFTW3_CFLAGS_OTHER})
-add_compile_options(-O1 -g -fno-omit-frame-pointer -fsanitize=address,undefined -D_GLIBCXX_ASSERTIONS)
-add_link_options(-fsanitize=address,undefined)
 

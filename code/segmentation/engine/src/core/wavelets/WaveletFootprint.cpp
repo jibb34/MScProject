@@ -460,18 +460,18 @@ void hysteresis(std::vector<double> &E, const UniformSignal &U,
 }
 // ============= Main function =================
 
+// NOTE: Terrain Main
 UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
     const RouteSignal &rs, const TerrainParams &p,
     std::vector<double> &E_out) const {
 
   /* TODO:
-   */ std::cerr << "Generating Wavelet Signal\n";
+   */
   // 1) Build Wavelet Signal from elevation
   const GetterFn get_elev = [](const DataPoint &d) { return d.coord.elv; };
   WaveletSignal w = this->make_wavelet_signal(rs, get_elev, SeriesKind::Scalar);
 
   // 2) Resample to uniform spacing
-  std::cerr << "[Wavelet] Resampling to " << p.dx << " meter intervals.\n";
   double dx = (p.dx > 0 ? p.dx : 5.0);
   UniformSignal U =
       this->resample_uniform_scalar(w, dx); // Returns Distance series U[n]
@@ -606,8 +606,6 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
   //=======================================================
   // comparison:
   std::vector<WaveletFootprintEngine::TerrainState> terrain;
-  std::cerr << "Threshold values (tau_g, tau_E, tau_p): " << tau_g << ", "
-            << tau_E << ", " << tau_p << ".\n";
   for (int i = 0; i < U.y.size(); ++i) {
     // Is flat
     if (std::abs(g[i]) < tau_g && E[i] >= tau_E && rho[i] >= tau_p) {
@@ -622,31 +620,17 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
       terrain.push_back(TerrainState::Unknown);
     }
   }
-
-  struct Run {
-    int i0, i1;
-    WaveletFootprintEngine::TerrainState st;
-  };
-  std::vector<Run> runs;
-  for (int i = 0, n = (int)terrain.size(); i < n;) {
-    int j = i + 1;
-    while (j < n && terrain[j] == terrain[i])
-      ++j;
-    runs.push_back({i, j - 1, terrain[i]});
-    i = j;
-  }
-
-  std::vector<double> lengths;
-  lengths.reserve(runs.size());
-  for (auto &r : runs) {
-    // prefer exact distance from the grid:
-    double len = U.s[r.i1] - U.s[r.i0]; // uses s[k] = k*ds
-    // or fallback: double len = (r.i1 - r.i0) * U.ds;
-    lengths.push_back(len);
-  }
   double min_length = p.min_segment_length_m;
   MergeSide side = (p.merge_side_right) ? MergeSide::Right : MergeSide::Left;
-  states_ = smoothSegments(terrain, lengths, min_length, side);
+  smoothSegments(terrain, U, min_length, side);
+
+  states_ = terrain;
+
+  std::vector<double> changepoint_dists =
+      indices_to_distances(U, find_changepoint_indices(states_));
+  // convert states changepoints to
+
+  changepoints_ = mapChangepointsToRouteIndices(rs, changepoint_dists);
   UniformSignal X;
   X.s = U.s;
   X.y = std::move(g);
@@ -655,44 +639,123 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
   return X;
 }
 
-std::vector<WaveletFootprintEngine::TerrainState>
-WaveletFootprintEngine::smoothSegments(
-    const std::vector<WaveletFootprintEngine::TerrainState> &states,
-    const std::vector<double> &lengths, // same size as states
-    double min_length, MergeSide side) const {
-  std::vector<WaveletFootprintEngine::TerrainState> smoothed = states;
-  std::vector<double> seg_lengths = lengths;
+std::vector<int> WaveletFootprintEngine::mapChangepointsToRouteIndices(
+    const RouteSignal &rs, const std::vector<double> &changepoint_dists) const {
 
-  for (size_t i = 0; i < smoothed.size();) {
-    if (seg_lengths[i] < min_length) {
-      auto left = (i > 0) ? smoothed[i - 1] : smoothed[i];
-      auto right = (i + 1 < smoothed.size()) ? smoothed[i + 1] : smoothed[i];
+  std::vector<double> S;
+  S.reserve(rs.points.size());
+  for (const auto &p : rs.points)
+    S.push_back(p.cum_dist);
 
-      if (i > 0 && i + 1 < smoothed.size() && left == right) {
-        // merge with both
-        seg_lengths[i - 1] += seg_lengths[i] + seg_lengths[i + 1];
-        smoothed.erase(smoothed.begin() + i, smoothed.begin() + i + 2);
-        seg_lengths.erase(seg_lengths.begin() + i, seg_lengths.begin() + i + 2);
-        --i; // step back
-      } else if (i > 0 &&
-                 (side == MergeSide::Left || i + 1 == smoothed.size())) {
-        // merge into left
-        seg_lengths[i - 1] += seg_lengths[i];
-        smoothed.erase(smoothed.begin() + i);
-        seg_lengths.erase(seg_lengths.begin() + i);
-        --i;
-      } else if (i + 1 < smoothed.size()) {
-        // merge into right
-        seg_lengths[i + 1] += seg_lengths[i];
-        smoothed.erase(smoothed.begin() + i);
-        seg_lengths.erase(seg_lengths.begin() + i);
-      } else {
-        ++i; // nothing to merge
-      }
+  std::vector<int> out;
+  out.reserve(changepoint_dists.size());
+  for (double d : changepoint_dists) {
+    auto it = std::lower_bound(S.begin(), S.end(), d);
+
+    if (it == S.begin()) {
+      out.push_back(0);
+    } else if (it == S.end()) {
+      out.push_back(static_cast<int>(S.size() - 1));
     } else {
-      ++i;
+      size_t hi = static_cast<size_t>(it - S.begin());
+      size_t lo = hi - 1;
+      // push closest of the two points
+      out.push_back((d - S[lo] <= S[hi] - d) ? static_cast<int>(lo)
+                                             : static_cast<int>(hi));
+    }
+  }
+  return out;
+}
+std::vector<int> WaveletFootprintEngine::find_changepoint_indices(
+    const std::vector<WaveletFootprintEngine::TerrainState> &st) {
+  std::vector<int> idx;
+  if (st.empty())
+    return idx;
+  for (int i = 1, n = (int)st.size(); i < n; ++i) {
+    if (st[i] != st[i - 1]) {
+      idx.push_back(i);
+    }
+  }
+  return idx;
+}
+
+std::vector<double>
+WaveletFootprintEngine::indices_to_distances(const UniformSignal &U,
+                                             const std::vector<int> &idx) {
+  std::vector<double> out;
+  out.reserve(idx.size());
+  const bool have_s = (U.s.size() == U.y.size() && !U.s.empty());
+  for (int i : idx)
+    out.push_back(have_s ? U.s[i] : i * std::max(U.ds, 0.0));
+  return out;
+}
+
+void WaveletFootprintEngine::smoothSegments(
+    std::vector<WaveletFootprintEngine::TerrainState> &states,
+    const UniformSignal &U, double min_len_m, MergeSide side) const {
+  if (states.empty())
+    return;
+  const size_t n = states.size();
+
+  // 1) Build runs from per-sample states
+  struct Run {
+    int i0, i1;
+    WaveletFootprintEngine::TerrainState t;
+  };
+  std::vector<Run> runs;
+  runs.reserve(n);
+  for (size_t i = 0; i < n;) {
+    size_t j = i + 1;
+    while (j < n && states[j] == states[i])
+      ++j;
+    runs.push_back({(int)i, (int)j - 1, states[i]});
+    i = j;
+  }
+
+  // 2) Per-run lengths (use U.s if available, else counts*ds)
+  auto run_len = [&](const Run &r) -> double {
+    if (!U.s.empty() && U.s.size() == n)
+      return std::max(0.0, U.s[r.i1] - U.s[r.i0]);
+    return std::max(0, r.i1 - r.i0) * std::max(U.ds, 0.0);
+  };
+  std::vector<double> lens(runs.size());
+  for (size_t r = 0; r < runs.size(); ++r)
+    lens[r] = run_len(runs[r]);
+
+  // 3) Merge loop on RUN arrays (sizes stay in sync)
+  for (size_t r = 0; r < runs.size();) {
+    if (lens[r] >= min_len_m) {
+      ++r;
+      continue;
+    }
+    const bool hasL = r > 0, hasR = r + 1 < runs.size();
+
+    if (hasL && hasR && runs[r - 1].t == runs[r + 1].t) {
+      runs[r - 1].i1 = runs[r + 1].i1;
+      lens[r - 1] += lens[r] + lens[r + 1];
+      runs.erase(runs.begin() + r, runs.begin() + r + 2);
+      lens.erase(lens.begin() + r, lens.begin() + r + 2);
+      if (r > 0)
+        --r;
+    } else if (hasL && (side == MergeSide::Left || !hasR)) {
+      runs[r - 1].i1 = runs[r].i1;
+      lens[r - 1] += lens[r];
+      runs.erase(runs.begin() + r);
+      lens.erase(lens.begin() + r);
+      if (r > 0)
+        --r;
+    } else if (hasR) {
+      runs[r + 1].i0 = runs[r].i0;
+      lens[r + 1] += lens[r];
+      runs.erase(runs.begin() + r);
+      lens.erase(lens.begin() + r);
+      // r stays at same index
+    } else {
+      ++r;
     }
   }
 
-  return smoothed;
+  // 4) Expand back to per-sample states
+  for (const auto &run : runs)
+    std::fill(states.begin() + run.i0, states.begin() + run.i1 + 1, run.t);
 }

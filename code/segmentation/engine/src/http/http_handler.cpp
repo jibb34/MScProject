@@ -46,7 +46,6 @@ static double pick_value(const DataPoint &d, const std::string &var) {
 void HttpHandler::callPostHandler(std::string action,
                                   const httplib::Request &req,
                                   httplib::Response &res) {
-  std::cerr << "[Handler] Received handler request... action:" + action + ".\n";
   if (action == "segment") {
     handleSegment(req, res);
   } else if (action == "debug") {
@@ -252,7 +251,6 @@ void HttpHandler::handleUpload(const httplib::Request &req,
     res.set_content(std::string("Invalid JSON: ") + e.what(), "text/plain");
     return;
   }
-  std::cerr << "[HTTP] Receiving JSON payload..." << std::endl;
 
   std::error_code ec;
   std::filesystem::create_directories("uploads", ec);
@@ -515,7 +513,6 @@ void HttpHandler::handleLabMeta(const httplib::Request &req,
 // POST /lab/resample : build & resample requested series
 void HttpHandler::handleLabResample(const httplib::Request &req,
                                     httplib::Response &res) {
-  std::cerr << "Hit Hanlde Lab Resample";
   nlohmann::json in;
   try {
     in = nlohmann::json::parse(req.body);
@@ -526,7 +523,6 @@ void HttpHandler::handleLabResample(const httplib::Request &req,
     return;
   }
   // etc.
-  std::cerr << "[lab/resample] parsed input\n";
   const std::string map = in.value("map", "");
   const double ds_m = in.value("ds_m", 5.0);
   const auto req_vars = in.value("vars", nlohmann::json::array());
@@ -537,7 +533,6 @@ void HttpHandler::handleLabResample(const httplib::Request &req,
                     "application/json");
     return;
   }
-  std::cerr << "[lab/resample] loaded map\n";
 
   nlohmann::json body;
   try {
@@ -562,10 +557,8 @@ void HttpHandler::handleLabResample(const httplib::Request &req,
   }
 
   RouteSignalBuilder b;
-  std::cerr << "Define route builder" << std::endl;
   RouteSignal rs = b.build(osrm);
 
-  std::cerr << "[lab/resample] built route signal\n";
   WaveletFootprintEngine eng;
 
   nlohmann::json out;
@@ -576,7 +569,6 @@ void HttpHandler::handleLabResample(const httplib::Request &req,
   auto push_series = [&](const std::string &name, SeriesKind kind,
                          auto getter) {
     auto w = eng.make_wavelet_signal(rs, getter, kind, 0.0);
-    std::cerr << "pushing series: " << name << std::endl;
     UniformSignal u;
     switch (kind) {
     case SeriesKind::Scalar:
@@ -610,7 +602,6 @@ void HttpHandler::handleLabResample(const httplib::Request &req,
     }
     series[name] = y;
   };
-  std::cerr << "[lab/resample] push_series(elev)\n";
 
   std::set<std::string> want;
   for (auto &v : req_vars)
@@ -631,7 +622,6 @@ void HttpHandler::handleLabResample(const httplib::Request &req,
                 [](const DataPoint &d) { return d.heading_delta_norm; });
 
   out["series"] = series;
-  std::cerr << "[lab/resample] Created series array response";
   res.set_content(out.dump(), "application/json");
 }
 
@@ -642,7 +632,6 @@ static inline bool starts_with(const std::string &s, const std::string &p) {
 
 void HttpHandler::handleWavelet(const httplib::Request &req,
                                 httplib::Response &res) {
-  std::cerr << "[wavelet] received request\n";
 
   // --- Parse JSON body ---
   json in;
@@ -654,7 +643,6 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
                     "application/json");
     return;
   }
-  std::cerr << "[wavelet] parsed input\n";
 
   // Required: map path (same contract as /lab/resample)
   const std::string map = in.value("map", "");
@@ -664,7 +652,6 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
                     "application/json");
     return;
   }
-  std::cerr << "[wavelet] loaded map path\n";
 
   // Optional: which wavelet function to compute (default: "terrain")
   const std::string fn = in.value("fn", std::string("terrain"));
@@ -696,13 +683,10 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     res.set_content(out.dump(), "application/json");
     return;
   }
-  std::cerr << "[wavelet] parsed OsrmResponse\n";
 
   // --- Build RouteSignal the same way as in /lab/resample ---
   RouteSignalBuilder b;
-  std::cerr << "Define route builder" << std::endl;
   RouteSignal rs = b.build(osrm);
-  std::cerr << "[wavelet] built route signal\n";
 
   // --- Prepare response ---
   json out;
@@ -772,12 +756,13 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     upd("E_gap_close_m", tpar.E_gap_close_m);
     upd("E_min_run_m", tpar.E_min_run_m);
     upd("min_segment_length_m", tpar.min_segment_length_m);
-    upd("merge_side", tpar.merge_side_right);
+    upd("merge_side_right", tpar.merge_side_right);
 
     std::vector<double> E;
     std::vector<WaveletFootprintEngine::TerrainState> state_codes;
     auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
     state_codes = eng.get_states();
+    // TEST:
     int c0 = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0;
     for (auto &t : state_codes) {
       switch (t) {
@@ -800,6 +785,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     }
     std::cerr << "[wf] counts flat=" << c0 << " up=" << c1 << " down=" << c2
               << " roll=" << c3 << " unk=" << c4 << "\n";
+    // TEST: END
 
     // Axis for uniform result (for precise alignment)
     std::vector<double> s_km_u;
@@ -829,10 +815,6 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   out["series"] = series;
 
   // DEBUG list keys
-  std::cerr << "[wavelet] returning series keys:";
-  for (auto it = series.begin(); it != series.end(); ++it)
-    std::cerr << " " << it.key();
-  std::cerr << "\n";
 
   res.set_content(out.dump(), "application/json");
 }

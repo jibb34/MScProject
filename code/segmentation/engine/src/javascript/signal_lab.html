@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -17,16 +17,16 @@
 </head>
 
 <body>
-  <!-- Top bar: picker controls + run button -->
+  <!-- Top bar -->
   <header class="bar">
-    <div><strong>Segmentation Engine Dashboard</strong></div>
+    <div class="brand"><strong>Segmentation Engine Dashboard</strong></div>
 
     <div class="right">
       <label>Map:
         <select id="mapSelect"></select>
       </label>
 
-      <label style="margin-left:12px;">Var:
+      <label class="sp">Var:
         <select id="varSelect">
           <option value="elev">elevation (m)</option>
           <option value="speed">speed (km/h)</option>
@@ -35,33 +35,28 @@
         </select>
       </label>
 
-      <label style="margin-left:12px;">Δs (m):
-        <input id="dsInput" type="number" min="0.1" step="0.1" value="5" style="width:70px;" />
+      <label class="sp">Δs (m):
+        <input id="dsInput" type="number" min="0.1" step="0.1" value="5" />
       </label>
 
-      <label style="margin-left:12px;">kind:
-        <select id="kindSelect">
-          <option value="scalar">Scalar</option>
-          <option value="angle">Angle (unwrap)</option>
-        </select>
-      </label>
+      <button id="themeToggle" type="button" title="Toggle theme">🌓</button>
 
-      <button id="runBtn" style="margin-left:12px;">Resample &amp; Plot</button>
+      <button id="runBtn" class="sp">Resample &amp; Plot</button>
     </div>
   </header>
 
   <main>
-    <!-- Upload section -->
+    <!-- Upload -->
     <section class="uploader">
       <input id="uploadFile" type="file" accept="application/json" />
       <button id="uploadBtn">Upload JSON</button>
       <span id="uploadMsg" class="upload-msg"></span>
     </section>
 
-    <!-- Primary time-series plot -->
+    <!-- Primary plot -->
     <div id="plotUni" class="panel"></div>
 
-    <!-- Tabs: Stats + placeholders + Route Map -->
+    <!-- Tabs -->
     <div id="labTabs" class="tabs">
       <button data-tab="stats" class="active">Stats</button>
       <button data-tab="wavelet">Wavelets</button>
@@ -71,13 +66,13 @@
 
     <!-- Panels -->
     <div id="labPanels">
-      <!-- Stats panel -->
+      <!-- Stats -->
       <div id="panel-stats" class="panel active">
         <div id="statsSummary" class="stats-summary"></div>
         <div id="histPlot" style="height:240px;"></div>
       </div>
 
-      <!-- Route tab panel (Leaflet map) -->
+      <!-- Route -->
       <div id="panel-route" class="panel" hidden>
         <div class="map-toolbar">
           <div class="map-title">Route vs Match</div>
@@ -86,135 +81,134 @@
         <div id="routeMap"></div>
       </div>
 
-      <!-- Wavelets panel -->
+      <!-- Wavelets -->
       <div id="panel-wavelet" class="panel" hidden>
-        <div class="wavelet-controls">
-          <div class="wavelet-form">
-            <div class="row">
+        <div class="wavelet-grid" id="wfGrid">
+          <!-- LEFT: parameters -->
+          <section class="wavelet-form">
+            <div class="field">
               <label>Function</label>
               <div class="inputs">
-                <button id="wfTerrainBtn" class="wf-run">Compute: Haar trend</button>
-                <button id="wfClearBtn" class="wf-run wf-secondary">Clear overlay</button>
+                <button id="wfTerrainBtn" class="btn">Compute: Haar trend</button>
+                <button id="wfClearBtn" class="btn btn-ghost">Clear overlay</button>
               </div>
             </div>
 
-            <div class="row">
-              <label>Sampling Δs a(m)</label>
+            <div class="field">
+              <label>Sampling Δs (m)</label>
               <div class="inputs">
                 <input id="wf_ds" type="number" step="0.1" value="5" />
                 <span class="hint">Uniform resample step</span>
               </div>
             </div>
 
-            <div class="row">
+            <div class="field">
               <label>Trend scale L<sub>T</sub> (m)</label>
               <div class="inputs">
                 <input id="wf_LT" type="number" step="1" value="150" />
                 <span class="hint">Haar trend scale</span>
               </div>
             </div>
-            <div class="row">
+
+            <div class="field">
               <label>Energy window L<sub>E</sub> (m)</label>
               <div class="inputs">
                 <input id="wf_LE" type="number" step="1" value="120" />
                 <span class="hint">RMS window length</span>
               </div>
             </div>
-            <!-- NEW: threshold multipliers and prominence -->
-            <div class="row">
+
+            <div class="field">
               <label>Slope factor k<sub>g</sub> (MAD)</label>
               <div class="inputs">
                 <input id="wf_k_g" type="number" step="0.1" value="3.0" />
-                <span class="hint">|g| &lt; k<sub>g</sub>·MAD(g) → “flat-ish” slope</span>
+                <span class="hint">|g| &lt; k<sub>g</sub>·MAD(g)</span>
               </div>
             </div>
 
-            <div class="row">
+            <div class="field">
               <label>Energy factor k<sub>E</sub> (MAD)</label>
               <div class="inputs">
                 <input id="wf_k_E" type="number" step="0.1" value="3.0" />
-                <span class="hint">E &lt; k<sub>E</sub>·MAD(E) → “low energy”</span>
+                <span class="hint">E &lt; k<sub>E</sub>·MAD(E)</span>
               </div>
             </div>
 
-            <div class="row">
+            <div class="field">
               <label>Prominence τ<sub>p</sub></label>
               <div class="inputs">
                 <input id="wf_tau_p" type="number" step="0.1" value="1.5" />
-                <span class="hint">E / (|g|+ε) ≥ τ<sub>p</sub> → rolling</span>
               </div>
             </div>
 
+            <div class="divider">Hysteresis</div>
 
-            <div class="row">
-              <label>Hysteresis</label>
+            <div class="field">
+              <label>Enable</label>
               <div class="inputs">
                 <input id="wf_hyst_en" type="checkbox" checked />
-                <span>enable</span>
               </div>
             </div>
 
-            <div class="row" data-hyst-row>
+            <div class="field" data-hyst-row>
               <label>Hysteresis (MAD)</label>
               <div class="inputs">
-                <input id="wf_E_hi" type="number" step="0.1" value="2.0" />
-                <span>hi</span>
+                <input id="wf_E_hi" type="number" step="0.1" value="2.0" /><span>hi</span>
                 <input id="wf_E_lo" type="number" step="0.1" value="1.0" />
               </div>
             </div>
 
-            <div class="row" data-hyst-row>
-              <label>Gap close / Min run (m)</label>
+            <div class="field" data-hyst-row>
+              <label>Gap / Min run (m)</label>
               <div class="inputs">
-                <input id="wf_E_gap" type="number" step="1" value="30" />
-                <span>/</span>
+                <input id="wf_E_gap" type="number" step="1" value="30" /><span>/</span>
                 <input id="wf_E_min" type="number" step="1" value="80" />
               </div>
             </div>
 
-            <div class="row">
-              <label>Energy envelope E_env (m)</label>
+            <div class="field">
+              <label>Energy env E_env (m)</label>
               <div class="inputs">
                 <input id="wf_E_env" type="number" step="1" value="200" />
                 <span class="hint">triangular MA window</span>
               </div>
             </div>
 
+            <div class="divider">Overlay</div>
 
-            <div class="row">
-              <label>Overlay energy</label>
+            <div class="field">
+              <label>Energy</label>
               <div class="inputs">
                 <input id="wf_showE" type="checkbox" />
                 <span class="hint">Plot E[i] on right axis</span>
               </div>
             </div>
 
-
-            <div class="row">
+            <div class="field">
               <label>Color fill</label>
               <div class="inputs">
                 <input id="wf_fill" type="checkbox" />
-                <span class="hint">Toggle terrain color fill (when available)</span>
+                <span class="hint">Paint terrain states</span>
               </div>
             </div>
-          </div>
-          <!-- RIGHT COLUMN -->
-          <div class="wavelet-right">
-            <div class="wavelet-legend">
+          </section>
+
+          <!-- RIGHT: legend + smoothing + settings -->
+          <aside class="wavelet-side">
+            <div class="legend card">
               <div><span class="chip chip-flat"></span> Flat</div>
               <div><span class="chip chip-up"></span> Uphill</div>
               <div><span class="chip chip-down"></span> Downhill</div>
               <div><span class="chip chip-roll"></span> Rolling</div>
             </div>
 
-            <div class="smooth-box">
-              <div class="row">
+            <div class="card">
+              <div class="card-title">Smoothing</div>
+              <div class="field">
                 <label>Min segment (m)</label>
-                <div class="inputs">
-                  <input id="wf_seg_min" type="number" step="1" value="80" />
-                </div>
+                <div class="inputs"><input id="wf_seg_min" type="number" step="1" value="80" /></div>
               </div>
-              <div class="row">
+              <div class="field">
                 <label>Merge side</label>
                 <div class="inputs">
                   <select id="wf_merge_side">
@@ -225,36 +219,47 @@
               </div>
             </div>
 
-            <div class="wavelet-legend">
-              <div><span class="chip chip-flat"></span> Flat</div>
-              <div><span class="chip chip-up"></span> Uphill</div>
-              <div><span class="chip chip-down"></span> Downhill</div>
-              <div><span class="chip chip-roll"></span> Rolling</div>
+            <div class="card">
+              <div class="card-title">Settings</div>
+              <div class="row">
+                <button id="btnExport" type="button" class="btn">Save to file</button>
+                <button id="btnImport" type="button" class="btn btn-ghost">Load from file…</button>
+                <input id="fileImport" type="file" accept="application/json" hidden />
+              </div>
             </div>
-          </div>
-
-          <div class="wavelet-note">
-            Haar trend is overlaid as a second line (right axis). Enable “Color fill” to paint terrain states when the
-            classifier is available.
-          </div>
-
-
-          <div class="wavelet-note">
-            Result colorizes under the elevation curve above. Adjust thresholds and re-run to tune segmentation.
-          </div>
+          </aside>
         </div>
 
-        <!-- Placeholders for future tabs -->
-        <div id="panel-segments" class="panel" hidden></div>
+        <p class="wavelet-note">Haar trend overlaid as a second line (right axis). Enable “Color fill” to paint terrain
+          states.</p>
       </div>
 
-      <!-- Debug / log window -->
-      <pre id="log" class="log"></pre>
+      <!-- Placeholder -->
+      <div id="panel-segments" class="panel" hidden></div>
+    </div>
+
+    <!-- Log -->
+    <pre id="log" class="log"></pre>
   </main>
 
   <!-- App logic -->
   <script src="/static/signal_lab.js"></script>
+
+  <!-- Theme toggle (persist) -->
+  <script>
+    (() => {
+      const KEY = 'signalLab.theme';
+      const setTheme = (t) => {
+        document.body.classList.toggle('light', t === 'light');
+        localStorage.setItem(KEY, t);
+      };
+      setTheme(localStorage.getItem(KEY) || 'dark');
+      document.getElementById('themeToggle')?.addEventListener('click', () => {
+        const cur = document.body.classList.contains('light') ? 'light' : 'dark';
+        setTheme(cur === 'light' ? 'dark' : 'light');
+      });
+    })();
+  </script>
 </body>
 
 </html>
-:wq

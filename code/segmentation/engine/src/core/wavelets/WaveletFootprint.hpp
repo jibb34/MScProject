@@ -6,7 +6,6 @@
 #include <vector>
 
 struct RouteSignal;
-struct DataPoint;
 
 struct UniformSignal {
   std::vector<double> s; // distances [m], uniform
@@ -133,13 +132,29 @@ public:
                                               std::vector<double> &E_out) const;
   std::vector<WaveletFootprintEngine::TerrainState> get_states() const;
 
-  std::vector<WaveletFootprintEngine::TerrainState> smoothSegments(
-      const std::vector<WaveletFootprintEngine::TerrainState> &states,
-      const std::vector<double> &lengths, // same size as states
-      double min_length, MergeSide side) const;
+  void smoothSegments(std::vector<WaveletFootprintEngine::TerrainState> &states,
+                      const UniformSignal &U, double min_len_m,
+                      MergeSide side) const;
+
+  const std::vector<DataPoint>
+  get_changepoint_points(const RouteSignal &rs) const {
+    std::vector<DataPoint> points;
+    for (auto &i : changepoints_)
+      points.push_back(rs.points[i]);
+    return points;
+  };
 
 private:
+  mutable std::vector<int> changepoints_;
   mutable std::vector<TerrainState> states_;
+  static std::vector<int> find_changepoint_indices(
+      const std::vector<WaveletFootprintEngine::TerrainState> &st);
+  static std::vector<double> indices_to_distances(const UniformSignal &U,
+                                                  const std::vector<int> &idx);
+  std::vector<int> mapChangepointsToRouteIndices(
+      const RouteSignal &rs,
+      const std::vector<double> &changepoint_dists) const;
+
   /*
    * NOTE: Uses Haar wavelets in a dual-channel (known as wavelet footprints)
    * in order to calculate logical change-points for distance series of

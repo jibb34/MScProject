@@ -1,16 +1,11 @@
-#include <algorithm>
 #include <cctype>
 #include <fstream>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <vector>
 
-#include "core/RouteSignalBuilder.hpp"
 #include "core/wavelets/WaveletFootprint.hpp"
-#include "debug/SignalLab.hpp"
 #include "json.hpp"
-#include "models/OsrmResponse.hpp"
 
 using json = nlohmann::json;
 

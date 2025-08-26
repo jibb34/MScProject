@@ -7,7 +7,6 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
   RouteSignal signal;
   try {
     if (osrm.matching.legs.empty()) {
-      std::cerr << "[RouteSignalBuilder] OSRM response is empty.\n";
       return signal;
     }
     size_t total_points = 0;
@@ -19,12 +18,9 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
     // pre-size vector to correct size
     signal.points.resize(total_points);
     if (signal.points.size() < 2) {
-      std::cerr << "[RouteSignalBuilder] Not enough points ("
-                << signal.points.size() << ")\n";
       return signal; // empty -> caller can decide how to respond
     }
 
-    std::cerr << "Populating coordinates...\n";
     // Populate Coordinates
     size_t point_counter = 0;
     for (size_t tp_idx = 0; tp_idx < osrm.tracepoints.size(); ++tp_idx) {
@@ -36,10 +32,8 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
         dp.time_rel = gpx.time - start_time; // get time offset
       }
     }
-    std::cerr << "Assigning Way ID's\n";
     assignWayIDs(osrm.matching.legs, osrm.tracepoints, signal);
 
-    std::cerr << "Computing Cumulative distance...\n";
     // compute cumulative distance
     double acc_m = 0.0;
     for (size_t i = 0; i < signal.points.size(); ++i) {
@@ -57,7 +51,6 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
     // Curvature: Decide on a window size, or make it dynamic
     //
     // heading:
-    std::cerr << "calulating heading...\n";
     for (size_t dp_idx = 0; dp_idx < signal.points.size() - 1; ++dp_idx) {
       DataPoint &dp1 = signal.points[dp_idx];
       DataPoint &dp2 = signal.points[dp_idx + 1];
@@ -87,7 +80,6 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
     SegmentUtils::compute_windowed_gradients(signal.points, 20.0, 20.0);
 
   } catch (std::exception e) {
-    std::cerr << "Route Signal Build Failure: " << e.what() << std::endl;
     signal = {};
   }
   return signal;

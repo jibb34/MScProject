@@ -1,181 +1,118 @@
-/* ========== Base ========== */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+/* ===== Theme variables ===== */
+:root{
+  --bg:#0f1115; --bg-2:#161a22; --bg-3:#1e2430;
+  --fg:#e6e9ef; --muted:#a8b0bf; --border:#2a2f3a;
+  --accent:#2ad;
+  --chip-flat:#9aa0a6; --chip-up:#e24d4d; --chip-down:#4ba3ff; --chip-roll:#ff8c00;
+}
+body.light{
+  --bg:#f7f8fb; --bg-2:#ffffff; --bg-3:#f1f3f8;
+  --fg:#0e1116; --muted:#5b6577; --border:#dfe3ea;
+  --accent:#0aa;
 }
 
-button { cursor: pointer; }
-label { font-size: 0.92rem; }
+/* ===== Base ===== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+button{cursor:pointer}
+label{font-size:.92rem;color:var(--muted)}
+input,select{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;color:var(--fg);padding:.35rem .5rem;min-width:80px}
+input[type="number"]{width:90px}
 
-/* ========== Header Bar ========== */
-.bar {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  background: #111;
-  color: #fff;
+/* ===== Header Bar ===== */
+.bar{display:flex;align-items:center;padding:8px 12px;background:var(--bg-2);border-bottom:1px solid var(--border)}
+.bar .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.bar .sp{margin-left:12px}
+#themeToggle{border:1px solid var(--border);background:var(--bg-3);color:var(--fg);border-radius:8px;padding:.35rem .6rem}
+#themeToggle:hover{border-color:#3a4354}
+
+/* ===== Main / Panels ===== */
+main{padding:10px}
+.panel{padding:8px;border:1px solid var(--border);border-radius:10px;background:var(--bg-2);margin-bottom:12px}
+.log{background:var(--bg-3);border:1px dashed var(--border);padding:8px;border-radius:8px;height:140px;overflow:auto}
+
+/* Uploader */
+.uploader{margin:10px 0;display:flex;gap:12px;align-items:center}
+.upload-msg{font-size:.9rem;color:var(--muted)}
+.upload-msg.is-ok{color:#2da44e}
+.upload-msg.is-err{color:#d33}
+
+/* Tabs */
+.tabs{display:flex;gap:.5rem;margin:.75rem 0;flex-wrap:wrap}
+.tabs button{padding:.35rem .65rem;border:1px solid var(--border);background:var(--bg-3);color:var(--fg);border-radius:.5rem}
+.tabs button.active{background:var(--accent);border-color:var(--accent);color:#111}
+
+/* Stats */
+.stats-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem .75rem;margin-bottom:.5rem}
+.stats-summary .badge{background:var(--bg-3);border:1px solid var(--border);padding:.35rem .5rem;border-radius:.5rem}
+.stats-summary .label{color:var(--muted);display:block;font-size:11px;margin-bottom:2px}
+.stats-summary .value{font-weight:600;font-size:12px}
+
+/* Route Map */
+#routeMap{height:360px;border:1px solid var(--border);border-radius:10px}
+.map-toolbar{display:flex;align-items:center;justify-content:space-between;margin:.25rem 0 .5rem}
+.map-title{font-weight:600}
+.map-link{font-size:12px;padding:.25rem .5rem;border:1px solid var(--border);border-radius:6px;color:var(--fg);text-decoration:none}
+.map-link:hover{background:var(--bg-3);border-color:#3a4354}
+
+/* Buttons */
+.btn{padding:.4rem .7rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-3);color:var(--fg)}
+.btn:hover{border-color:#3a4354}
+.btn-ghost{background:transparent}
+
+/* ===== Wavelet UI ===== */
+#wfGrid{display:grid;grid-template-columns:minmax(360px,1fr) 320px;gap:16px;align-items:start}
+.wavelet-form{display:grid;grid-template-columns:1fr;gap:8px}
+.field{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:10px}
+.inputs{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.hint{color:var(--muted);font-size:.8rem}
+.divider{margin:6px 0;padding:6px 0;border-top:1px dashed var(--border);color:var(--muted);font-size:.85rem}
+
+.wavelet-side{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--bg-3);border:1px solid var(--border);border-radius:10px;padding:10px}
+.card-title{font-weight:600;margin-bottom:6px}
+
+.legend{display:grid;gap:6px;font-size:.95rem}
+.chip{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.chip-flat{background:var(--chip-flat)}
+.chip-up{background:var(--chip-up)}
+.chip-down{background:var(--chip-down)}
+.chip-roll{background:var(--chip-roll)}
+
+.wavelet-note{color:var(--muted);font-size:.9rem;margin-top:8px}
+
+/* Kill any legacy one-column wrapper if present */
+#panel-wavelet .wavelet-controls{display:contents !important}
+
+/* Responsive collapse */
+@media (max-width: 900px){
+  #wfGrid{grid-template-columns:1fr}
 }
 
-.bar .right {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* --- Stabilize Plotly canvas in #plotUni --- */
+#plotUni{
+  position: relative;
+  height: 380px;          /* fixed, predictable */
+  overflow: hidden;       /* hide anything extra */
 }
 
-/* ========== Main layout ========== */
-main { padding: 10px; }
-
-.panel {
-  height: 38vh;            /* enough room for Plotly/Leaflet */
-  min-height: 200px;
-  margin-bottom: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+/* make the first Plotly child fill the panel */
+#plotUni > div{
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.log {
-  background: #f7f7f7;
-  border: 1px dashed #ccc;
-  padding: 8px;
-  border-radius: 6px;
-  height: 140px;
-  overflow: auto;
+/* if JS appends another Plotly div, hide it to prevent growth */
+#plotUni > div:not(:first-child){
+  display: none !important;
 }
 
-/* uploader row */
-.uploader {
-  margin: 10px 0;
-  display: flex;
-  gap: 12px;
-  align-items: center;
+/* help Plotly’s internal wrappers respect the fixed height */
+#plotUni .plot-container,
+#plotUni .svg-container{
+  height: 100% !important;
 }
-
-.upload-msg {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-/* ========== Tabs + Panels ========== */
-.tabs {
-  display: flex;
-  gap: .5rem;
-  margin: .75rem 0;
-  flex-wrap: wrap;
-}
-
-.tabs button {
-  padding: .35rem .65rem;
-  border: 1px solid #444;
-  background: #222;
-  color: #ddd;
-  border-radius: .4rem;
-}
-
-.tabs button.active {
-  background: #2ad;
-  border-color: #2ad;
-  color: #111;
-}
-
-#labPanels .panel {
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-/* Stats cards */
-.stats-summary {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: .5rem .75rem;
-  margin-bottom: .5rem;
-}
-
-.stats-summary .badge {
-  background: #111;
-  border: 1px solid #333;
-  padding: .35rem .5rem;
-  border-radius: .35rem;
-  color: #ddd;
-}
-
-.stats-summary .label {
-  color: #aaa;
-  display: block;
-  font-size: 11px;
-  margin-bottom: 2px;
-}
-
-.stats-summary .value {
-  font-weight: 600;
-  font-size: 12px;
-  color: #fff;
-}
-
-/* ========== Route Map ========== */
-#routeMap {
-  height: 360px;
-  border: 1px solid #333;
-  border-radius: 8px;
-}
-
-.map-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: .25rem 0 .5rem;
-}
-
-.map-title { font-weight: 600; color: #ddd; }
-
-.map-link {
-  font-size: 12px;
-  padding: .25rem .5rem;
-  border: 1px solid #444;
-  border-radius: 6px;
-  color: #ddd;
-  text-decoration: none;
-}
-
-.map-link:hover {
-  background: #222;
-  border-color: #666;
-}
-
-/* Upload status colors */
-.upload-msg.is-info { color: #555; }
-.upload-msg.is-ok   { color: #2da44e; }  /* green */
-.upload-msg.is-err  { color: #d33; }     /* red */
-
-
-/* Wavelet UI */
-.wavelet-controls {
-  display: flex; gap: 16px; align-items: flex-start; margin-bottom: 8px;
-}
-.wavelet-form .row { display: grid; grid-template-columns: 140px 1fr; align-items: center; margin: 6px 0; }
-.wavelet-form label { color: #bbb; font-size: 12px; }
-.wavelet-form .inputs { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.wavelet-form input { width: 84px; padding: 2px 6px; }
-.wavelet-form .hint { color: #888; font-size: 11px; }
-
-.wf-run { padding: .35rem .65rem; border: 1px solid #444; background: #282828; color: #ddd; border-radius: 6px; }
-.wf-run:hover { background: #333; }
-
-.wavelet-legend { display: grid; gap: 4px; font-size: 12px; color: #ddd; }
-.chip { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -2px; }
-.chip-flat { background: #9aa0a6; }
-.chip-up   { background: #d33; }
-.chip-down { background: #38f; }
-.chip-roll { background: #ff8c00; }
-
-.wavelet-note { color: #aaa; font-size: 12px; }
-
-.row[data-hyst-row].disabled { opacity: 0.5; }
-
-.wavelet-right { display:flex; flex-direction:column; gap:10px; margin-left:auto; }
-.smooth-box {
-  background:#111; border:1px solid #333; border-radius:8px; padding:8px; color:#ddd;
-}
-.smooth-box label { color:#bbb; font-size:12px; }
-.smooth-box input, .smooth-box select { width:84px; padding:2px 6px; }
 
