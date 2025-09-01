@@ -3,18 +3,18 @@ import osmnx as ox
 import json
 import os
 from datetime import datetime, timezone
-from utils.osrm_utils import read_osm_bounds
 from utils.extension_utils import normalize_extensions_kv, load_extension_rules
 
 
 def haversine_m(lat1, lon1, lat2, lon2):
     R = 6371000.0
     from math import radians, sin, cos, asin, sqrt
+
     lat1, lon1, lat2, lon2 = map(radians, (lat1, lon1, lat2, lon2))
-    dlat = lat2-lat1
-    dlon = lon2-lon1
-    a = sin(dlat/2)**2+cos(lat1)*cos(lat2)*sin(dlon/2)**2
-    return 2*R*asin(sqrt(a))
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+    return 2 * R * asin(sqrt(a))
 
 
 def load_gpx(path):
@@ -54,10 +54,10 @@ def bbox_contains(outer, inner):
     minlat_o, minlon_o, maxlat_o, maxlon_o = outer
     minlat_i, minlon_i, maxlat_i, maxlon_i = inner
     return (
-        minlat_i >= minlat_o and
-        minlon_i >= minlon_o and
-        maxlat_i <= maxlat_o and
-        maxlon_i <= maxlon_o
+        minlat_i >= minlat_o
+        and minlon_i >= minlon_o
+        and maxlat_i <= maxlat_o
+        and maxlon_i <= maxlon_o
     )
 
 
@@ -71,9 +71,10 @@ def download_osm_file(bbox, output_path):
     url = f"https://overpass-api.de/api/map?bbox={bbox_str}"
 
     def overpass_query(query_url):
-        response = requests.get(url)
-        with open(output_path, 'wb') as f:
+        response = requests.get(query_url)
+        with open(output_path, "wb") as f:
             f.write(response.content)
+
     overpass_query(url)
 
     # Overpass API request:
@@ -103,16 +104,18 @@ def parse_time_iso(s):
         return None
     try:
         if s.endswith("Z"):
-            return int(datetime.fromisoformat(
-                s.replace("Z", "+00:00")).timestamp())
+            return int(datetime.fromisoformat(s.replace("Z", "+00:00")).timestamp())
         return int(datetime.fromisoformat(s).timestamp())
     except Exception:
         return None
 
 
 def iso_utc(ts: int) -> str:
-    return datetime.fromtimestamp(
-        int(ts), tz=timezone.utc).isoformat().replace("+00:00", "Z")
+    return (
+        datetime.fromtimestamp(int(ts), tz=timezone.utc)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
 
 
 def to_unix(ts):
@@ -234,18 +237,21 @@ def extract_data_from_gpx(gpx):
                         if isinstance(d, dict):
                             if key in ext_blob:
                                 prev = ext_blob[key]
-                                ext_blob[key] = [prev, d] if not isinstance(
-                                    prev, list) else prev + [d]
+                                ext_blob[key] = (
+                                    [prev, d]
+                                    if not isinstance(prev, list)
+                                    else prev + [d]
+                                )
                             else:
                                 ext_blob[key] = d
                         else:
                             ext_blob[key] = d
                     # store as a FLAT list of {"key","value"} pairs
-                    items = _flatten_extensions_kv(
-                        ext_blob, joiner=".")
+                    items = _flatten_extensions_kv(ext_blob, joiner=".")
                     canon = normalize_extensions_kv(items, rules)
-                    point["extensions"] = [{"key": k, "value": v}
-                                           for k, v in canon.items()]
+                    point["extensions"] = [
+                        {"key": k, "value": v} for k, v in canon.items()
+                    ]
 
                 points.append(point)
     return points

@@ -1,5 +1,6 @@
 #pragma once
 #include "json.hpp"
+#include "models/CoreTypes.hpp"
 #include <array>
 #include <string>
 #include <vector>
@@ -15,12 +16,15 @@ struct Geometry {
 // define type: Run = a run of consecutive OSM way IDs, has a way_id and count
 // of the amount of segments in a row
 struct Run {
-  int64_t way_id = 0; // OSM way ID
-  size_t count = 0;   // Number of consecutive segments in this run
+  int64_t way_id = 0;    // OSM way ID
+  size_t edge_count = 0; // Number of consecutive edges in this run
+  int dir = 0;
+  double length_m = 0;
 };
 
 // ---------- Legs --------------
 struct Leg {
+  int index = 0;
   Json annotation;
   double weight = 0.0;
   double duration = 0.0;
@@ -82,6 +86,13 @@ inline void from_json(const Json &j, Geometry &g) {
     }
   }
 }
+// ---- Run ----
+inline void from_json(const Json &j, Run &r) {
+  r.way_id = j.value("way_id", 0);
+  r.dir = j.value("dir", 0);
+  r.edge_count = j.value("edge_count", 0);
+  r.length_m = j.value("length_m", 0.0);
+}
 
 // --- Legs ----
 inline void from_json(const Json &j, Leg &l) {
@@ -89,6 +100,12 @@ inline void from_json(const Json &j, Leg &l) {
   l.weight = j.value("weight", 0.0);
   l.duration = j.value("duration", 0.0);
   l.distance = j.value("distance", 0.0);
+  // add runs
+  l.runs.clear();
+  if (j.contains("runs") && j["runs"].is_array()) {
+    for (const auto &R : j["runs"])
+      l.runs.push_back(R.get<Run>());
+  }
 }
 
 // --- Matching ----
@@ -114,6 +131,24 @@ inline void from_json(const Json &j, GpxPoint &p) {
   p.lat = j.value("lat", 0.0);
   p.lon = j.value("lon", 0.0);
   p.elv = j.value("elv", 0.0);
+  auto parse_double = [](const Json &x) -> double {
+    if (x.is_number())
+      return x.get<double>();
+    if (x.is_string()) {
+      try {
+        return std::stod(x.get<std::string>());
+      } catch (...) {
+      }
+    }
+    return 0.0;
+  };
+  if (j.contains("elv"))
+    p.elv = parse_double(j["elv"]);
+  else if (j.contains("elevation"))
+    p.elv = parse_double(j["elevation"]);
+  else if (j.contains("ele"))
+    p.elv = parse_double(j["ele"]);
+
   p.time = j.value("time", 0);
   p.time_iso = j.value("time_iso", "");
   p.extensions = j.value("extensions", Json::object());
@@ -155,7 +190,8 @@ inline void from_json(const Json &j, OsrmResponse &r) {
   if (arr.empty())
     throw std::runtime_error("No matchings in OSRM response");
   r.matching = arr.front().get<Matching>(); // Get first matching by default
-  if (j.contains("matchings") && j["matchings"].is_array()) {
+  r.tracepoints.clear();
+  if (j.contains("tracepoints") && j["tracepoints"].is_array()) {
     for (const auto &tp : j["tracepoints"])
       r.tracepoints.push_back(tp.get<Tracepoint>());
   }

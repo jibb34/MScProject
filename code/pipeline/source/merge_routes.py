@@ -9,7 +9,8 @@ from utils.osm_utils import (
     _overlap_len,
     _flatten_nodes,
     shortest_connector_nodes_db,
-    _edge_lookup)
+    _edge_lookup,
+)
 
 
 def parse_args():
@@ -21,10 +22,16 @@ def parse_args():
     )
     parser.add_argument(
         "output_dir", help="Directory that the match file is sent to")
-    parser.add_argument("--waydb", default="way_index.sqlite",
-                        help="Path to way_index.sqlite (directed edge index)")
-    parser.add_argument("--with-metrics", action="store_true",
-                        help="Sum distance/duration into way runs if present")
+    parser.add_argument(
+        "--waydb",
+        default="way_index.sqlite",
+        help="Path to way_index.sqlite (directed edge index)",
+    )
+    parser.add_argument(
+        "--with-metrics",
+        action="store_true",
+        help="Sum distance/duration into way runs if present",
+    )
     return parser.parse_args()
 
 
@@ -50,31 +57,37 @@ def _normalize_tracepoints_single_matching(tps, waypoint_offset=0):
             tp2 = dict(tp)  # shallow copy
             tp2["matchings_index"] = 0
             if tp2.get("waypoint_index") is not None:
-                tp2["waypoint_index"] = int(
-                    tp2["waypoint_index"]) + int(waypoint_offset)
+                tp2["waypoint_index"] = int(tp2["waypoint_index"]) + int(
+                    waypoint_offset
+                )
             out.append(tp2)
         else:
             out.append(None)
     return out
 
 
-def _nodes_to_ways(nodes, cur, with_metrics=False, distances=None):
+def _nodes_to_ways(nodes, cur, with_metrics=True, distances=None):
     edges = []
     di = 0
     for u, v in zip(nodes[:-1], nodes[1:]):
         if u == v:
             continue
         wid, d, db_len = _edge_lookup(cur, int(u), int(v))
-        dist = db_len if with_metrics and db_len is not None else (
-            float(distances[di]) if with_metrics and distances and di < len(
-                distances) else None
+        dist = (
+            db_len
+            if with_metrics and db_len is not None
+            else (
+                float(distances[di])
+                if with_metrics and distances and di < len(distances)
+                else None
+            )
         )
         edges.append((wid, d, dist))
         di += 1
     runs = []
-    for (wid, d), group in groupby(edges, key=lambda e: (e[0], e[1])):
+    for (wid, d, dis), group in groupby(edges, key=lambda e: (e[0], e[1], e[2])):
         g = list(group)
-        run = {"way_id": wid, "dir": d, "edge_count": len(g)}
+        run = {"way_id": wid, "dir": d, "dis": dis, "edge_count": len(g)}
         if with_metrics:
             run["length_m"] = sum((x[2] or 0.0) for x in g)
         runs.append(run)
@@ -86,7 +99,7 @@ def _trim_B_legs_by_nodes(legs_b, k_nodes, cur, with_metrics=False):
     out = []
     remaining = int(k_nodes)
     for leg in legs_b:
-        ann = (leg.get("annotation") or {})
+        ann = leg.get("annotation") or {}
         nodes = [int(x) for x in (ann.get("nodes") or [])]
         if not nodes:
             continue
@@ -114,7 +127,8 @@ def _trim_B_legs_by_nodes(legs_b, k_nodes, cur, with_metrics=False):
 
         # recompute runs + edge count for this leg
         runs, k = _nodes_to_ways(
-            new_nodes, cur, with_metrics=with_metrics, distances=new_distances)
+            new_nodes, cur, with_metrics=with_metrics, distances=new_distances
+        )
         new_leg["runs"] = runs
         new_leg["total_edges"] = k
 
@@ -160,7 +174,8 @@ def merge_two(a, b, waydb_path, with_metrics=False, stitch_if_needed=False):
         u_last = nodes_a_full[-1]
         v_first = nodes_b_full[0]
         connector_nodes = shortest_connector_nodes_db(
-            cur, u_last, v_first, max_expansions=200000)
+            cur, u_last, v_first, max_expansions=200000
+        )
         if connector_nodes and len(connector_nodes) >= 2:
             runs, k = _nodes_to_ways(connector_nodes, cur, with_metrics=False)
             connector_leg = {
@@ -180,7 +195,8 @@ def merge_two(a, b, waydb_path, with_metrics=False, stitch_if_needed=False):
     else:
         # trim B by the exact node overlap
         legs_b_trimmed = _trim_B_legs_by_nodes(
-            legs_b, k_nodes, cur, with_metrics=with_metrics)
+            legs_b, k_nodes, cur, with_metrics=with_metrics
+        )
         legs_merged = legs_a + legs_b_trimmed
 
     con.close()
@@ -198,7 +214,7 @@ def merge_two(a, b, waydb_path, with_metrics=False, stitch_if_needed=False):
     a_tps = a.get("tracepoints") or []
     b_tps = b.get("tracepoints") or []
 
-    a_wmax = _max_waypoint_index(a_tps)          # -1 if A has no non-null
+    a_wmax = _max_waypoint_index(a_tps)  # -1 if A has no non-null
     offset = (a_wmax + 1) if a_wmax is not None else 0
 
     tps_a_norm = _normalize_tracepoints_single_matching(
@@ -210,16 +226,19 @@ def merge_two(a, b, waydb_path, with_metrics=False, stitch_if_needed=False):
 
     merged = {
         "code": "Ok" if a.get("code") == "Ok" and b.get("code") == "Ok" else "Error",
-        "matchings": [{
-            "confidence": (ma.get("confidence", 0.0) + mb.get("confidence", 0.0)) / 2.0,
-            "geometry": {"type": "LineString", "coordinates": merged_coords},
-            "legs": legs_merged,
-            "distance": tot_dist,
-            "duration": tot_dur,
-            "weight_name": ma.get("weight_name", "duration"),
-            "weight": tot_wt
-        }],
-        "tracepoints": tracepoints_merged
+        "matchings": [
+            {
+                "confidence": (ma.get("confidence", 0.0) + mb.get("confidence", 0.0))
+                / 2.0,
+                "geometry": {"type": "LineString", "coordinates": merged_coords},
+                "legs": legs_merged,
+                "distance": tot_dist,
+                "duration": tot_dur,
+                "weight_name": ma.get("weight_name", "duration"),
+                "weight": tot_wt,
+            }
+        ],
+        "tracepoints": tracepoints_merged,
     }
     return merged
 
@@ -229,7 +248,7 @@ def tree_merge_routes(matches, executor):
     until there is only 1
     - sorted_input: A list of json objects, in order of occurance in the route
     - executor: ThreadPoolExecutor instance to submit work to
-      """
+    """
     # === BASE CASE ===
     if len(matches) == 1:
         return matches[0]
@@ -244,7 +263,8 @@ def tree_merge_routes(matches, executor):
         if i + 1 < len(matches):
             # if the value exists in the index range:
             future = executor.submit(
-                merge_two, matches[i], matches[i+1], WAY_DB, True, True)
+                merge_two, matches[i], matches[i + 1], WAY_DB, True, True
+            )
             # Associate each future merge pair with an index
             # for sorting after resync
             future_to_index[future] = i // 2
@@ -265,7 +285,7 @@ def tree_merge_routes(matches, executor):
 
 
 def get_json_data(file_path):
-    """ Get the code, matchings and tracepoints from the json objects"""
+    """Get the code, matchings and tracepoints from the json objects"""
     with open(file_path, "r") as f:
         data = json.load(f)
 
@@ -282,8 +302,7 @@ def get_json_data(file_path):
         "route_nodes": route_nodes,
         "ways": data.get("ways", []),
         "nodes_head": [],
-        "nodes_tail": []
-
+        "nodes_tail": [],
     }
 
 
@@ -295,10 +314,13 @@ def main(input_dir, output_dir, output_name):
     output_json = os.path.join(OUTPUT_DIR, (output_name + ".json"))
     num_threads = min(32, sum(1 for name in os.listdir(INPUT_DIR)))
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    json_files = sorted([
-        os.path.join(INPUT_DIR, f) for f in os.listdir(INPUT_DIR)
-        if f.endswith(".json")
-    ])
+    json_files = sorted(
+        [
+            os.path.join(INPUT_DIR, f)
+            for f in os.listdir(INPUT_DIR)
+            if f.endswith(".json")
+        ]
+    )
     # Start thread executor
     with ThreadPoolExecutor(max_workers=num_threads) as executor:
         print(f"[INFO] Loading {len(json_files)} match files...")

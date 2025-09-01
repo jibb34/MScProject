@@ -80,6 +80,9 @@ pip install --quiet -r "$REQ_FILE"
 # ------------------------------------------------------------------
 # 3. Prepare maps & split GPX files
 # ------------------------------------------------------------------
+rm -rf ./data/enriched_json/*
+rm -rf ./data/osm_files/*
+rm -rf ./data/osrm_map/*
 
 echo "[PYTHON] Parsing GPX file and getting OSM map file"
 python3 source/prepare_map.py \
@@ -166,7 +169,7 @@ for dir in ./data/temp/*/; do
   dirname=$(basename "$dir")
   target_subdir="./data/results/$dirname"
   mkdir -p "$target_subdir"
-  python3 source/batch_route_calc.py "$dir" "$target_subdir" "$DYNAMIC_WINDOW"
+  python3 source/batch_route_calc.py "$dir" "$target_subdir" "$DYNAMIC_WINDOW" --with-metrics
 done
 # ------------------------------------------------------------------
 # 9. Merge chunks
