@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  13 AUG 2025 14:38
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  28 AUG 2025 14:00
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -1634,19 +1634,22 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 
 
 Missing character: There is no ‑ (U+2011) in font ec-lmr10!
-] [2] [3]
+] [2
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+] [3]
 Chapter 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 201.
+(Font)              <9> on input line 210.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 201.
+(Font)              <5> on input line 210.
 [4
 
 ] [5]
-<assets/hmm_transition.png, id=406, 386.44376pt x 226.8475pt>
+<assets/hmm_transition.png, id=423, 386.44376pt x 226.8475pt>
 File: assets/hmm_transition.png Graphic file (type png)
 <use assets/hmm_transition.png>
-Package luatex.def Info: assets/hmm_transition.png  used on input line 262.
+Package luatex.def Info: assets/hmm_transition.png  used on input line 271.
 (luatex.def)             Requested size: 212.41261pt x 124.69035pt.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
@@ -1674,362 +1677,362 @@ tlang2.sty
 File: lstlang2.sty 2024/02/21 1.10 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 269.
+nput line 278.
  [6<./assets/hmm_transition.png>] [7] [8
 Missing character: There is no ” (U+201D) in font ec-lmr10!
 ]
-<assets/zones.png, id=479, 301.125pt x 228.855pt>
+<assets/zones.png, id=496, 301.125pt x 228.855pt>
 File: assets/zones.png Graphic file (type png)
 <use assets/zones.png>
-Package luatex.def Info: assets/zones.png  used on input line 399.
+Package luatex.def Info: assets/zones.png  used on input line 408.
 (luatex.def)             Requested size: 283.22162pt x 215.26689pt.
  [9] [10<./assets/zones.png>]
 
 Package tabularx Warning: X Columns too narrow (table too wide)
-(tabularx)                 on input line 449.
+(tabularx)                 on input line 458.
 
 
-Overfull \hbox (7.92331pt too wide) in paragraph at lines 449--449
+Overfull \hbox (7.92331pt too wide) in paragraph at lines 458--458
 []|\T1/lmr/bx/n/10 De-
  []
 
 
-Overfull \hbox (17.7998pt too wide) in paragraph at lines 449--449
+Overfull \hbox (17.7998pt too wide) in paragraph at lines 458--458
 \T1/lmr/bx/n/10 scrip-
  []
 
 
-Overfull \hbox (19.3888pt too wide) in paragraph at lines 449--449
+Overfull \hbox (19.3888pt too wide) in paragraph at lines 458--458
 \T1/lmr/bx/n/10 tion/-
  []
 
 
-Overfull \hbox (18.18018pt too wide) in paragraph at lines 449--449
+Overfull \hbox (18.18018pt too wide) in paragraph at lines 458--458
 \T1/lmr/bx/n/10 Value| 
  []
 
 
-Overfull \hbox (14.72249pt too wide) in paragraph at lines 449--449
+Overfull \hbox (14.72249pt too wide) in paragraph at lines 458--458
 []|\T1/lmr/m/n/10 What
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 is
  []
 
 
-Overfull \hbox (3.889pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.889pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 the
  []
 
 
-Overfull \hbox (6.66684pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.66684pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 cat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 e-
  []
 
 
-Overfull \hbox (3.33333pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.33333pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 go-
  []
 
 
-Overfull \hbox (9.47226pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.47226pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 riza-
  []
 
 
-Overfull \hbox (7.22226pt too wide) in paragraph at lines 449--449
+Overfull \hbox (7.22226pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 of
  []
 
 
-Overfull \hbox (3.889pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.889pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 the
  []
 
 
-Overfull \hbox (14.19417pt too wide) in paragraph at lines 449--449
+Overfull \hbox (14.19417pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 road?| 
  []
 
 
-Overfull \hbox (14.72249pt too wide) in paragraph at lines 449--449
+Overfull \hbox (14.72249pt too wide) in paragraph at lines 458--458
 []|\T1/lmr/m/n/10 What
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 is
  []
 
 
-Overfull \hbox (3.889pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.889pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 the
  []
 
 
-Overfull \hbox (6.74998pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.74998pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 sur-
  []
 
 
-Overfull \hbox (6.9445pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.9445pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 face
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 of
  []
 
 
-Overfull \hbox (3.889pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.889pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 the
  []
 
 
-Overfull \hbox (9.47217pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.47217pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 road
  []
 
 
-Overfull \hbox (13.333pt too wide) in paragraph at lines 449--449
+Overfull \hbox (13.333pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 made
  []
 
 
-Overfull \hbox (3.05528pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.05528pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 of?| 
  []
 
 
-Overfull \hbox (9.44421pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.44421pt too wide) in paragraph at lines 458--458
 []|\T1/lmr/m/n/10 How
  []
 
 
-Overfull \hbox (9.22227pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.22227pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 does
  []
 
 
-Overfull \hbox (3.889pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.889pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 the
  []
 
 
-Overfull \hbox (9.47217pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.47217pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 road
  []
 
 
-Overfull \hbox (8.05551pt too wide) in paragraph at lines 449--449
+Overfull \hbox (8.05551pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 act?| 
  []
 
 
-Overfull \hbox (9.44421pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.44421pt too wide) in paragraph at lines 458--458
 []|\T1/lmr/m/n/10 How
  []
 
 
-Overfull \hbox (6.44449pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.44449pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 safe
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 is
  []
 
 
-Overfull \hbox (6.16675pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.16675pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 this
  []
 
 
-Overfull \hbox (17.52768pt too wide) in paragraph at lines 449--449
+Overfull \hbox (17.52768pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 route?
  []
 
 
-Overfull \hbox (5.86118pt too wide) in paragraph at lines 449--449
+Overfull \hbox (5.86118pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 Are
  []
 
 
-Overfull \hbox (12.25018pt too wide) in paragraph at lines 449--449
+Overfull \hbox (12.25018pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 there
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 a
  []
 
 
-Overfull \hbox (1.66676pt too wide) in paragraph at lines 449--449
+Overfull \hbox (1.66676pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 lot
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 of
  []
 
 
-Overfull \hbox (2.77783pt too wide) in paragraph at lines 449--449
+Overfull \hbox (2.77783pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 ac-
  []
 
 
-Overfull \hbox (0.55559pt too wide) in paragraph at lines 449--449
+Overfull \hbox (0.55559pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 ci-
  []
 
 
-Overfull \hbox (15.88896pt too wide) in paragraph at lines 449--449
+Overfull \hbox (15.88896pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 dents,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 or
  []
 
 
-Overfull \hbox (11.11082pt too wide) in paragraph at lines 449--449
+Overfull \hbox (11.11082pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 com-
  []
 
 
-Overfull \hbox (10.0275pt too wide) in paragraph at lines 449--449
+Overfull \hbox (10.0275pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 mer-
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 449--449
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 cial
  []
 
 
-Overfull \hbox (9.1945pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.1945pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 traf-
  []
 
 
-Overfull \hbox (4.722pt too wide) in paragraph at lines 449--449
+Overfull \hbox (4.722pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 fic?| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 []|\T1/lmr/m/n/10 Is
  []
 
 
-Overfull \hbox (6.16675pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.16675pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 this
  []
 
 
-Overfull \hbox (12.80568pt too wide) in paragraph at lines 449--449
+Overfull \hbox (12.80568pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 route
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 a
  []
 
 
-Overfull \hbox (8.33333pt too wide) in paragraph at lines 449--449
+Overfull \hbox (8.33333pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 con-
  []
 
 
-Overfull \hbox (4.00006pt too wide) in paragraph at lines 449--449
+Overfull \hbox (4.00006pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 sis-
  []
 
 
-Overfull \hbox (7.50023pt too wide) in paragraph at lines 449--449
+Overfull \hbox (7.50023pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 tent
  []
 
 
-Overfull \hbox (7.25pt too wide) in paragraph at lines 449--449
+Overfull \hbox (7.25pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 gra-
  []
 
 
-Overfull \hbox (1.66658pt too wide) in paragraph at lines 449--449
+Overfull \hbox (1.66658pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 di-
  []
 
 
-Overfull \hbox (8.33322pt too wide) in paragraph at lines 449--449
+Overfull \hbox (8.33322pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 ent?| 
  []
 
 
-Overfull \hbox (9.44421pt too wide) in paragraph at lines 449--449
+Overfull \hbox (9.44421pt too wide) in paragraph at lines 458--458
 []|\T1/lmr/m/n/10 How
  []
 
 
-Overfull \hbox (8.33325pt too wide) in paragraph at lines 449--449
+Overfull \hbox (8.33325pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 long
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 is
  []
 
 
-Overfull \hbox (3.889pt too wide) in paragraph at lines 449--449
+Overfull \hbox (3.889pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 the
  []
 
 
-Overfull \hbox (6.72232pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.72232pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 seg-
  []
 
 
-Overfull \hbox (11.94421pt too wide) in paragraph at lines 449--449
+Overfull \hbox (11.94421pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 ment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
+Underfull \hbox (badness 10000) in paragraph at lines 458--458
 \T1/lmr/m/n/10 in
  []
 
 
-Overfull \hbox (6.11082pt too wide) in paragraph at lines 449--449
+Overfull \hbox (6.11082pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 me-
  []
 
 
-Overfull \hbox (8.97243pt too wide) in paragraph at lines 449--449
+Overfull \hbox (8.97243pt too wide) in paragraph at lines 458--458
 \T1/lmr/m/n/10 tres.| 
  []
 
 
-Overfull \hbox (26.60934pt too wide) in alignment at lines 449--449
+Overfull \hbox (26.60934pt too wide) in alignment at lines 458--458
 [][][]
  []
 
@@ -2041,137 +2044,169 @@ Overfull \vbox (370.29945pt too high) has occurred while \output is active []
 
 
 [12]
-<assets/jibb_powercurve.png, id=518, 1012.78375pt x 443.6575pt>
+<assets/jibb_powercurve.png, id=534, 1012.78375pt x 443.6575pt>
 File: assets/jibb_powercurve.png Graphic file (type png)
 <use assets/jibb_powercurve.png>
-Package luatex.def Info: assets/jibb_powercurve.png  used on input line 466.
+Package luatex.def Info: assets/jibb_powercurve.png  used on input line 475.
 (luatex.def)             Requested size: 377.62642pt x 165.41663pt.
- [13<./assets/jibb_powercurve.png>] [14]
+ [13<./assets/jibb_powercurve.png>] [14
+Missing character: There is no – (U+2013) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no – (U+2013) in font ec-lmr10!
+] [15
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no “ (U+201C) in font ec-lmr10!
+Missing character: There is no ” (U+201D) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+]
 Chapter 3.
-[15
+[16
 
 
 Missing character: There is no ” (U+201D) in font ec-lmr10!
-] [16]
-Underfull \hbox (badness 1043) in paragraph at lines 637--637
+] [17]
+Underfull \hbox (badness 1043) in paragraph at lines 672--672
 []|\T1/lmr/m/n/9 De-fault pri-vacy pro-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+Underfull \hbox (badness 10000) in paragraph at lines 672--672
 []|\T1/lmr/m/n/9 Unit test on im-port;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+Underfull \hbox (badness 10000) in paragraph at lines 672--672
 []|\T1/lmr/m/n/9 De-fines sup-ported in-put
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 637--637
+Underfull \hbox (badness 1215) in paragraph at lines 672--672
 \T1/lmr/m/n/9 for-mat; re-jec-t/flag un-sup-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+Underfull \hbox (badness 10000) in paragraph at lines 672--672
 []|\T1/lmr/m/n/9 CI builds and runs
  []
 
 
-Underfull \hbox (badness 6842) in paragraph at lines 637--637
+Underfull \hbox (badness 6842) in paragraph at lines 672--672
 \T1/lmr/m/n/9 docker-compose; health
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+Underfull \hbox (badness 10000) in paragraph at lines 672--672
 []|\T1/lmr/m/n/9 Legal/reg-u-la-tory re-quire-
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 637--637
+Underfull \hbox (badness 4647) in paragraph at lines 672--672
 []|\T1/lmr/m/n/9 Se-cu-rity re-view; doc-u-
  []
 
-[17]
-Underfull \hbox (badness 8132) in paragraph at lines 667--667
+[18]
+Underfull \hbox (badness 8132) in paragraph at lines 702--702
 []|\T1/lmr/m/n/9 Fa-cil-i-tates fu-ture fea-ture
  []
 
 
-Underfull \hbox (badness 5696) in paragraph at lines 667--667
+Underfull \hbox (badness 5696) in paragraph at lines 702--702
 []|\T1/lmr/m/n/9 Im-proves user ex-pe-ri-ence
  []
 
 
-Overfull \hbox (57.08511pt too wide) in paragraph at lines 674--679
+Overfull \hbox (57.08511pt too wide) in paragraph at lines 709--714
  [][] 
  []
 
-[18
-Missing character: There is no — (U+2014) in font ec-lmr9!
-Missing character: There is no — (U+2014) in font ec-lmr9!
-] [19]
+[19] [20]
 Chapter 4.
-<assets/archdiagram.png, id=593, 994.71625pt x 479.7925pt>
+[21
+
+]
+Chapter 5.
+<assets/archdiagram.png, id=616, 994.71625pt x 479.7925pt>
 File: assets/archdiagram.png Graphic file (type png)
 <use assets/archdiagram.png>
-Package luatex.def Info: assets/archdiagram.png  used on input line 744.
+Package luatex.def Info: assets/archdiagram.png  used on input line 779.
 (luatex.def)             Requested size: 424.82523pt x 204.91574pt.
-[20
+[22
 
 
 Missing character: There is no — (U+2014) in font ec-lmri10!
-] [21<./assets/archdiagram.png>] [22
-Missing character: There is no — (U+2014) in font ec-lmr9!
-] [23] [24
+] [23<./assets/archdiagram.png>] [24] [25
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no “ (U+201C) in font ec-lmr10!
+Missing character: There is no ” (U+201D) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+] [26
 Missing character: There is no — (U+2014) in font ec-lmri10!
 Missing character: There is no — (U+2014) in font ec-lmri10!
 Missing character: There is no — (U+2014) in font ec-lmri10!
 ]
-Chapter 5.
+Chapter 6.
+[27
 
-LaTeX Warning: Reference `chap:implement' on page 25 undefined on input line 87
-3.
 
-[25
-
-] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 972--972
-[]|\T1/lmr/m/n/10.95 (101, {'high-way': ``res-i-den-tial'',
+Missing character: There is no “ (U+201C) in font ec-lmr10!
+Missing character: There is no ” (U+201D) in font ec-lmr10!
+Missing character: There is no “ (U+201C) in font ec-lmr10!
+Missing character: There is no ” (U+201D) in font ec-lmr10!
+Missing character: There is no — (U+2014) in font ec-lmr10!
+] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1019
+[]|\T1/lmr/m/n/10.95 (101, {'high-way': 'res-i-den-tial',
  []
 
-[27]
-Overfull \hbox (14.33739pt too wide) in paragraph at lines 1003--1004
+[29]
+Overfull \hbox (14.33739pt too wide) in paragraph at lines 1050--1051
 []\T1/lmr/bx/n/10.95 What didn't: \T1/lmr/m/n/10.95 I ini-tially passed Docker 
 flags with bad spac-ing and got \TU/lmtt/m/n/10.95 invalid containerPort:
  []
 
-[28
-Missing character: There is no — (U+2014) in font ec-lmbx10!
-Missing character: There is no — (U+2014) in font ec-lmbx10!
-] [29
-Missing character: There is no — (U+2014) in font ec-lmbx10!
-Missing character: There is no — (U+2014) in font ec-lmbx10!
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-Missing character: There is no — (U+2014) in font ec-lmbx10!
-]
-Overfull \hbox (18.59232pt too wide) in paragraph at lines 1060--1062
+[30] [31]
+Overfull \hbox (18.59232pt too wide) in paragraph at lines 1107--1109
 \T1/lmr/m/n/10.95 was ac-tu-ally \TU/lmtt/m/n/10.95 null\T1/lmr/m/n/10.95 . I st
 opped us-ing \TU/lmtt/m/n/10.95 value() \T1/lmr/m/n/10.95 on un-cer-tain nodes 
 and switched to \TU/lmtt/m/n/10.95 contains()\T1/lmr/m/n/10.95 +\TU/lmtt/m/n/10
 .95 is_-
  []
 
-[30
-Missing character: There is no ’ (U+2019) in font ec-lmr10!
-] [31]
-Chapter 6.
-[32
-
+[32] [33
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+] [34
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
 ]
 Chapter 7.
-[33
+[35
 
+
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no – (U+2013) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+]
+Chapter 8.
+[36
+
+
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no ‑ (U+2011) in font ec-lmr10!
+Missing character: There is no — (U+2014) in font ec-lmr10!
 ] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 20--25
 []\T1/lmr/m/n/10.95 Hur-ley, S. (2020), `Nor-mal-ized power$[][]$: What it is an
@@ -2184,7 +2219,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--25
 5 https://www.trainerroad.com/blog/
  []
 
-[34
+[37
 
 
 Missing character: There is no — (U+2014) in font ec-lmri10!
@@ -2207,11 +2242,11 @@ Underfull \hbox (badness 1043) in paragraph at lines 118--122
 erview of OSRM map match-ing with HM-
  []
 
-) [35
+) [38
 Missing character: There is no — (U+2014) in font ec-lmri10!
 ]
 Appendix A.
-(./appendix_extracted_listings.tex [36
+(./appendix_extracted_listings.tex [39
 
 ]
 Appendix B.
@@ -2223,7 +2258,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
-) [37
+) [40
 
 
 
@@ -2253,7 +2288,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [38] [39]
+) [41] [42]
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
@@ -2261,17 +2296,17 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [40] [41]
+) [43] [44]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42])
-[43]
+ [45])
+[46]
 Appendix C.
-[44
+[47
 
 ]
 Appendix D.
-[45
+[48
 
 ] (./thesis.aux)
  ***********
@@ -2283,36 +2318,23 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: FCE14C29BE70B654E18A6C7D2A85E18B;9415.
+(rerunfilecheck)             Checksum: 061076024B032D01DA57ED4AD4A626DE;9788.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44646 strings out of 476447
- 381656,1977958 words of node,token memory allocated
+ 44649 strings out of 476447
+ 381640,1977958 words of node,token memory allocated
  872 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 26 attribute, 97 glue_spec
 , 26 attribute_list, 2 write, 11 pdf_action nodes
-   avail lists: 1:2,2:8076,3:4431,4:1284,5:10603,6:121,7:9998,8:105,9:19815,10:2
-8,11:633
- 65066 multiletter control sequences out of 65536+600000
+   avail lists: 1:3,2:8082,3:4431,4:1289,5:10607,6:120,7:9998,8:105,9:19815,10:2
+8,11:639
+ 65069 multiletter control sequences out of 65536+600000
  92 fonts using 21639103 bytes
- 99i,12n,120p,726b,2149s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'section*.46'
-
-warning  (pdf backend): unreferenced destination with name 'chapter*.59'
-
-warning  (pdf backend): unreferenced destination with name 'table.caption.45'
-
-warning  (pdf backend): unreferenced destination with name 'table.caption.38'
-
-warning  (pdf backend): unreferenced destination with name 'figure.caption.35'
+ 99i,12n,120p,752b,2149s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
 lm/lmmono10-italic.otf>{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist
 /fonts/enc/dvips/lm/lm-ts1.enc}{/opt/homebrew/Cellar/texlive/20240312_3/share/te
@@ -2340,10 +2362,10 @@ t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri
 10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/font
 s/type1/public/lm/lmsy9.pfb>
-Output written on thesis.pdf (51 pages, 705097 bytes).
+Output written on thesis.pdf (54 pages, 719720 bytes).
 
-PDF statistics: 1155 PDF objects out of 1200 (max. 8388607)
- 1060 compressed objects within 11 object streams
+PDF statistics: 1177 PDF objects out of 1200 (max. 8388607)
+ 1079 compressed objects within 11 object streams
  517 named destinations out of 1000 (max. 131072)
- 456 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 472 words of extra memory for PDF output out of 10000 (max. 100000000)
 
