@@ -75,8 +75,10 @@ source "$VENV_DIR/bin/activate"
 
 echo "[INIT] Installing Python dependencies (if needed)..."
 pip install --upgrade pip
-pip install --quiet -r "$REQ_FILE"
+echo "Installing requirements"
+python -m pip install --quiet -r "$REQ_FILE" -vvv
 
+echo "DONE installing virtual environment."
 # ------------------------------------------------------------------
 # 3. Prepare maps & split GPX files
 # ------------------------------------------------------------------
