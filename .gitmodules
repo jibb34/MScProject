@@ -10,3 +10,6 @@
 [submodule "code/segmentation/engine/external/json"]
 	path = code/segmentation/engine/external/json
 	url = https://github.com/nlohmann/json.git
+[submodule "code/segmentation/engine/thirdparty/json"]
+	path = code/segmentation/engine/thirdparty/json
+	url = https://github.com/nlohmann/json.git
