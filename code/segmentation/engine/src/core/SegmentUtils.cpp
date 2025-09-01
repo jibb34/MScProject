@@ -1,5 +1,5 @@
 #include "core/SegmentUtils.hpp"
-#include <json.hpp>
+#include <nlohmann/json.hpp>
 
 #include "models/OsrmResponse.hpp"
 #include "models/SegmentModel.hpp"
@@ -9,7 +9,7 @@
 #include <openssl/sha.h>
 #include <sstream>
 #include <vector>
-// using json = nlohmann::json;
+using json = nlohmann::json;
 
 double checkForJunction() {
   // TODO: implement function to find the location of the junction as a

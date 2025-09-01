@@ -8,6 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Eigen (header-only)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(OpenSSL REQUIRED)
+set(OPENSSL_USE_STATIC_LIBS TRUE)
 
 # FFTW via pkg-config (no find_package(FFTW3) at all)
 find_package(PkgConfig REQUIRED)
@@ -18,12 +19,15 @@ find_package(Threads REQUIRED)
 
 # Sources
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS src/*.cpp)
+
 add_executable(segmentation_engine ${SRC_FILES})
 
+add_subdirectory(thirdparty/json EXCLUDE_FROM_ALL)
 # Include paths
 target_include_directories(segmentation_engine PRIVATE
   include
   src
+  # external/json/single_include
   ${FFTW3_INCLUDE_DIRS}
   ${OPENSSL_INCUDE_DIR}
 )
@@ -35,6 +39,7 @@ target_link_libraries(segmentation_engine PRIVATE
   Threads::Threads        # pthread
   m                       # math lib
   OpenSSL::Crypto
+  nlohmann_json::nlohmann_json
 )
 
 # Any extra FFTW CFLAGS (e.g. -fopenmp)

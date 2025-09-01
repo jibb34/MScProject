@@ -12,6 +12,7 @@ RUN apt-get update && \
   apt-get install -y --no-install-recommends \
   cmake \
   libssl-dev \
+  libssl1.1 \
   build-essential \
   libfftw3-dev \
   libeigen3-dev \
@@ -43,6 +44,7 @@ RUN apt-get update && \
   dpkg-reconfigure -f noninteractive tzdata && \
   apt-get install -y --no-install-recommends \
   libfftw3-3 \
+  libssl1.1 \
   && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/build/segmentation_engine /usr/local/bin/segmentation_engine

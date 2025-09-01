@@ -688,6 +688,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   RouteSignalBuilder b;
   RouteSignal rs = b.build(osrm);
   // === SEGMENT GENERATION (from change_points) ===
+  WaveletFootprintEngine eng;
   std::vector<int> change_points = eng.get_changepoint_points(rs);
   const int N = (int)rs.points.size();
   auto spans = SegmentUtils::make_segments_from_change_points(change_points, N);
@@ -820,8 +821,8 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     std::vector<WaveletFootprintEngine::TerrainState> state_codes;
     auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
     state_codes = eng.get_states();
-    + // include raw indices (clients can render cuts)
-        out["change_points"] = change_points;
+    // include raw indices (clients can render cuts)
+    out["change_points"] = change_points;
     // include segments summary for immediate use
     json jsegs = json::array();
     for (const auto &s : segs) {

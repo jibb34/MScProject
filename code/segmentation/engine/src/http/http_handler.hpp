@@ -3,7 +3,7 @@
 #include "core/SegmentDB.hpp"          // for SegmentInstance, SegmentDef, etc.
 #include "core/SegmentUtils.hpp"       // for SegmentUtils
 #include "httplib.h"
-#include <json.hpp>
+#include <nlohmann/json.hpp>
 
 class HttpHandler {
 public:
