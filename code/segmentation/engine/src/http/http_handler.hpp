@@ -1,5 +1,9 @@
 #pragma once
+#include "core/RouteSignalBuilder.hpp" // for RouteSignalBuilder
+#include "core/SegmentDB.hpp"          // for SegmentInstance, SegmentDef, etc.
+#include "core/SegmentUtils.hpp"       // for SegmentUtils
 #include "httplib.h"
+#include <json.hpp>
 
 class HttpHandler {
 public:

@@ -7,6 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Eigen (header-only)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+find_package(OpenSSL REQUIRED)
 
 # FFTW via pkg-config (no find_package(FFTW3) at all)
 find_package(PkgConfig REQUIRED)
@@ -24,6 +25,7 @@ target_include_directories(segmentation_engine PRIVATE
   include
   src
   ${FFTW3_INCLUDE_DIRS}
+  ${OPENSSL_INCUDE_DIR}
 )
 
 # Link libraries
@@ -32,6 +34,7 @@ target_link_libraries(segmentation_engine PRIVATE
   ${FFTW3_LIBRARIES}      # FFTW3 via pkg-config
   Threads::Threads        # pthread
   m                       # math lib
+  OpenSSL::Crypto
 )
 
 # Any extra FFTW CFLAGS (e.g. -fopenmp)

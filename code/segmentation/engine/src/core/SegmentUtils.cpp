@@ -1,8 +1,15 @@
 #include "core/SegmentUtils.hpp"
+#include <json.hpp>
+
 #include "models/OsrmResponse.hpp"
+#include "models/SegmentModel.hpp"
+#include <iomanip>
 #include <math.h>
 #include <numeric>
+#include <openssl/sha.h>
+#include <sstream>
 #include <vector>
+// using json = nlohmann::json;
 
 double checkForJunction() {
   // TODO: implement function to find the location of the junction as a
@@ -379,4 +386,123 @@ void SegmentUtils::normalize_heading_to_speed(std::vector<DataPoint> &pts,
     double Xv = low_bound * up_bound;
     pt.heading_delta_norm = pt.heading_delta * Xv;
   }
+}
+
+static std::string to_hex(const uint8_t *p, size_t n) {
+  std::ostringstream oss;
+  oss << std::hex << std::setfill('0');
+  for (size_t i = 0; i < n; ++i)
+    oss << std::setw(2) << (int)p[i];
+  return oss.str();
+}
+
+static inline bool near_eq(double a, double b, double eps = 1e-7) {
+  return std::abs(a - b) <= eps;
+}
+
+std::vector<std::pair<int, int>>
+SegmentUtils::make_segments_from_change_points(std::vector<int> cp, int N) {
+  if (cp.empty() || cp.front() != 0)
+    cp.insert(cp.begin(), 0);
+  if (cp.back() != N)
+    cp.push_back(N);
+  std::sort(cp.begin(), cp.end());
+  cp.erase(std::unique(cp.begin(), cp.end()), cp.end());
+  std::vector<std::pair<int, int>> segs;
+  for (size_t i = 0; i + 1 < cp.size(); ++i) {
+    const int a = std::max(0, std::min(N, cp[i]));
+    const int b = std::max(0, std::min(N, cp[i + 1]));
+    if (a < b)
+      segs.emplace_back(a, b);
+  }
+  return segs;
+}
+
+std::vector<SegmentRun>
+SegmentUtils::way_runs_in_slice(const std::vector<long long> &way_ids, int a,
+                                int b) {
+  std::vector<SegmentRun> runs;
+  if (a >= b)
+    return runs;
+  int i = a;
+  while (i < b) {
+    long long w = (i < (int)way_ids.size() ? way_ids[i] : 0LL);
+    int j = i + 1;
+    while (j < b) {
+      long long wj = (j < (int)way_ids.size() ? way_ids[j] : 0LL);
+      if (wj != w)
+        break;
+      ++j;
+    }
+    runs.push_back(SegmentRun{w, i, j});
+    i = j;
+  }
+  return runs;
+}
+
+SegmentDef
+SegmentUtils::build_segment_def_forward(const std::vector<DataPoint> &pts,
+                                        int a, int b) {
+  // 1) normalize geometry in forward order
+  std::vector<Coordinate> norm;
+  norm.reserve(std::max(0, b - a));
+  auto push_norm = [&](double lat, double lon) {
+    double rlat = std::round(lat * 1e6) / 1e6;
+    double rlon = std::round(lon * 1e6) / 1e6;
+    if (norm.empty() || !near_eq(norm.back().lat, rlat) ||
+        !near_eq(norm.back().lon, rlon))
+      norm.push_back({rlat, rlon, 0.0});
+  };
+  for (int i = a; i < b; ++i)
+    push_norm(pts[i].coord.lat, pts[i].coord.lon);
+
+  // guard: at least 2 points for length; still fingerprint singletons
+  double minLat = +1e9, minLon = +1e9, maxLat = -1e9, maxLon = -1e9, len = 0.0;
+  for (size_t i = 0; i < norm.size(); ++i) {
+    minLat = std::min(minLat, norm[i].lat);
+    minLon = std::min(minLon, norm[i].lon);
+    maxLat = std::max(maxLat, norm[i].lat);
+    maxLon = std::max(maxLon, norm[i].lon);
+    if (i)
+      len += SegmentUtils::haversine(norm[i - 1], norm[i]); // meters
+  }
+
+  // 2) materialize fingerprint payload: "v1|EPSG:4326|F|lat,lon;lat,lon;..."
+  std::string csv;
+  csv.reserve(norm.size() * 24);
+  for (size_t i = 0; i < norm.size(); ++i) {
+    if (i)
+      csv.push_back(';');
+    csv += std::to_string(norm[i].lat);
+    csv.push_back(',');
+    csv += std::to_string(norm[i].lon);
+  }
+  std::string material = "v1|EPSG:4326|F|" + csv;
+
+  // 3) SHA-256
+  std::array<uint8_t, 32> uid{};
+  SHA256(reinterpret_cast<const unsigned char *>(material.data()),
+         material.size(), uid.data());
+
+  // 4) encode normalized points (use your existing encoder if present)
+  // Here we fallback to a trivial "csv" — replace with your polyline encoder
+  std::string enc = csv;
+  // build a nlohmann::json array first…
+  nlohmann::json tmp = nlohmann::json::array();
+  for (auto &c : norm) {
+    tmp.push_back({{"lat", c.lat}, {"lon", c.lon}});
+  }
+  // then serialize into your string field
+
+  SegmentDef def;
+  def.uid = uid;
+  def.uid_hex = to_hex(uid.data(), uid.size());
+  def.coords_json = tmp.dump();
+  def.point_count = (int)norm.size();
+  def.bbox_min_lat = minLat;
+  def.bbox_min_lon = minLon;
+  def.bbox_max_lat = maxLat;
+  def.bbox_max_lon = maxLon;
+  def.length_m = len;
+  return def;
 }

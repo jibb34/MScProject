@@ -136,11 +136,11 @@ public:
                       const UniformSignal &U, double min_len_m,
                       MergeSide side) const;
 
-  const std::vector<DataPoint>
+  const std::vector<int>
   get_changepoint_points(const RouteSignal &rs) const {
-    std::vector<DataPoint> points;
+    std::vector<int> points;
     for (auto &i : changepoints_)
-      points.push_back(rs.points[i]);
+      points.push_back(rs.points[i].tracepoint_idx);
     return points;
   };
 

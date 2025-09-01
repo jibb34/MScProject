@@ -687,8 +687,66 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   // --- Build RouteSignal the same way as in /lab/resample ---
   RouteSignalBuilder b;
   RouteSignal rs = b.build(osrm);
+  // === SEGMENT GENERATION (from change_points) ===
+  std::vector<int> change_points = eng.get_changepoint_points(rs);
+  const int N = (int)rs.points.size();
+  auto spans = SegmentUtils::make_segments_from_change_points(change_points, N);
+
+  // Optional: route_id + persist flag supplied by client
+  long long route_id = 0;
+  bool persist = false;
+  if (in.contains("route_id")) {
+    try {
+      route_id = in["route_id"].get<long long>();
+    } catch (...) {
+    }
+  }
+  if (in.contains("persist")) {
+    try {
+      persist = in["persist"].get<bool>();
+    } catch (...) {
+    }
+  }
+
+  // Build segment instances in memory (always)
+  std::vector<SegmentInstance> segs;
+  segs.reserve(spans.size());
+  for (auto [a, b] : spans) {
+    SegmentInstance si;
+    si.def = SegmentUtils::build_segment_def_forward(rs.points, a, b);
+    si.route_id = route_id;
+    si.start_idx = a;
+    si.end_idx = b;
+    // parallel way_ids vector exists on rs.points
+    std::vector<long long> way_ids;
+    way_ids.reserve(N);
+    for (const auto &p : rs.points)
+      way_ids.push_back(p.way_id);
+    si.runs = SegmentUtils::way_runs_in_slice(way_ids, a, b);
+    segs.push_back(std::move(si));
+  }
+
+  // === Optional DB persist ===
+  if (persist && route_id > 0) {
+    // TODO: inject via your DI/container; for now we construct locally
+    // MySQLSegmentDB db("tcp://127.0.0.1:3306","user","pass","schema");
+    // db.begin();
+    // try {
+    //   for (const auto& s : segs) {
+    //     db.upsert_segment_def(s.def);
+    //     auto seg_id = db.insert_route_segment(s);
+    //     db.insert_segment_runs(seg_id, s.runs);
+    //   }
+    //   db.commit();
+    // } catch (...) {
+    //   db.rollback();
+    //   // don’t fail the whole wavelet response; report error field
+    //   // or set res.status accordingly if you prefer hard fail
+    // }
+  }
 
   // --- Prepare response ---
+
   json out;
   out["ok"] = true;
 
@@ -762,6 +820,30 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     std::vector<WaveletFootprintEngine::TerrainState> state_codes;
     auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
     state_codes = eng.get_states();
+    + // include raw indices (clients can render cuts)
+        out["change_points"] = change_points;
+    // include segments summary for immediate use
+    json jsegs = json::array();
+    for (const auto &s : segs) {
+      json jr;
+      jr["segment_uid"] = s.def.uid_hex;
+      jr["start_idx"] = s.start_idx;
+      jr["end_idx"] = s.end_idx;
+      jr["length_m"] = s.def.length_m;
+      jr["point_count"] = s.def.point_count;
+      // compact way runs (omit if too chatty)
+      json runs = json::array();
+      for (size_t i = 0; i < s.runs.size(); ++i) {
+        runs.push_back({{"seq", (int)i},
+                        {"way_id", s.runs[i].way_id},
+                        {"from", s.runs[i].from_idx},
+                        {"to", s.runs[i].to_idx}});
+      }
+      jr["runs"] = std::move(runs);
+      jsegs.push_back(std::move(jr));
+    }
+    out["segments"] = std::move(jsegs);
+
     // TEST:
     int c0 = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0;
     for (auto &t : state_codes) {
@@ -802,6 +884,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
 
     series["energy"] = E;
     series["terrain"] = state_codes;
+    out["change_points"] = change_points;
 
   } else {
     // Unknown function name
@@ -860,5 +943,6 @@ void HttpHandler::handleSegment(const httplib::Request &req,
   }
 
   // TODO: segmentation engine
+
   res.set_content(R"({"ok":true})", "application/json");
 }

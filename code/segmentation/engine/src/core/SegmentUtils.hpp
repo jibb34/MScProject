@@ -1,5 +1,11 @@
 #pragma once
 #include "models/OsrmResponse.hpp"
+#include "SegmentDB.hpp"
+
+// If SegmentRun is a struct, forward declare it:
+struct SegmentRun;
+struct SegmentDef;
+
 
 struct ENU {
   double x;
@@ -44,6 +50,19 @@ public:
   // If you already computed raw speed elsewhere, you can call:
   static void smooth_speed(std::vector<DataPoint> &pts, double tau_s = 2.0,
                            int med_win = 5, double a_max = 2.5);
+  // Segment helpers (indices are [start,end) half-open over rs.points):
+  // normalize change_points: ensure 0 and N sentinels, dedup, sort
+  static std::vector<std::pair<int,int>>
+  make_segments_from_change_points(std::vector<int> cp, int N);
+
+  // Build contiguous runs of identical way_id within [a,b)
+  static std::vector<SegmentRun>
+  way_runs_in_slice(const std::vector<long long>& way_ids, int a, int b);
+
+  // Build reproducible SegmentDef from normalized, directed polyline
+  static SegmentDef
+  build_segment_def_forward(const std::vector<DataPoint>& pts,
+                            int a, int b);
 
   static void
   normalize_heading_to_speed(std::vector<DataPoint> &pts,

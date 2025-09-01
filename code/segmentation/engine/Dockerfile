@@ -11,6 +11,7 @@ RUN apt-get update && \
   dpkg-reconfigure -f noninteractive tzdata && \
   apt-get install -y --no-install-recommends \
   cmake \
+  libssl-dev \
   build-essential \
   libfftw3-dev \
   libeigen3-dev \
