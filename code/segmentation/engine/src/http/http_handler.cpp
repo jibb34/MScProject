@@ -632,8 +632,7 @@ static inline bool starts_with(const std::string &s, const std::string &p) {
 
 void HttpHandler::handleWavelet(const httplib::Request &req,
                                 httplib::Response &res) {
-
-  // --- Parse JSON body ---
+  // Parse JSON body
   json in;
   try {
     in = json::parse(req.body);
@@ -644,26 +643,32 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     return;
   }
 
-  // Required: map path (same contract as /lab/resample)
-  const std::string map = in.value("map", "");
-  if (map.empty() || !std::filesystem::exists(map)) {
+  // Required: map path
+  const std::string mapPath = in.value("map", "");
+  if (mapPath.empty() || !std::filesystem::exists(mapPath)) {
     res.status = 400;
     res.set_content(R"({"ok":false,"error":"missing or bad 'map' path"})",
                     "application/json");
     return;
   }
 
-  // Optional: which wavelet function to compute (default: "terrain")
-  const std::string fn = in.value("fn", std::string("terrain"));
+  // Only terrain mode supported
+  const std::string fn = in.value("fn", "terrain");
+  if (fn != "terrain") {
+    res.status = 400;
+    res.set_content(
+        R"({"ok":false,"error":"only fn==\"terrain\" is supported"})",
+        "application/json");
+    return;
+  }
 
-  // Optional: params object (we look for params.terrain.* for terrain function)
-  const json params = in.value("params", json::object());
-  const json &tp = params.contains("terrain") ? params["terrain"] : params;
+  // Persist flag
+  bool persist = in.value("persist", false);
 
-  // --- Read the uploaded map JSON ---
+  // Read map JSON
   json body;
   try {
-    std::ifstream f(map);
+    std::ifstream f(mapPath);
     f >> body;
   } catch (...) {
     res.status = 400;
@@ -672,234 +677,143 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     return;
   }
 
-  // --- Parse OSRM response ---
+  // Parse OSRM response
   OsrmResponse osrm;
   try {
     osrm = body.get<OsrmResponse>();
   } catch (const std::exception &e) {
+    res.status = 400;
     json out = {{"ok", false},
                 {"error", std::string("parse OsrmResponse: ") + e.what()}};
-    res.status = 400;
     res.set_content(out.dump(), "application/json");
     return;
   }
 
-  // --- Build RouteSignal the same way as in /lab/resample ---
-  RouteSignalBuilder b;
-  RouteSignal rs = b.build(osrm);
-  // === SEGMENT GENERATION (from change_points) ===
+  // Build RouteSignal
+  RouteSignalBuilder builder;
+  RouteSignal rs = builder.build(osrm);
+
+  // Prepare output
+  json out;
+  out["ok"] = true;
+
+  // Raw distance axis
+  {
+    std::vector<double> s_km;
+    s_km.reserve(rs.points.size());
+    for (auto &dp : rs.points)
+      s_km.push_back(dp.cum_dist / 1000.0);
+    out["s_km"] = std::move(s_km);
+  }
+
+  // Get terrain params object
+  json params = in.value("params", json::object());
+  const json &tp = params.contains("terrain") ? params["terrain"] : params;
+
+  // Run terrain segmentation
   WaveletFootprintEngine eng;
+  WaveletFootprintEngine::TerrainParams tpar; // defaults
+
+  // Apply overrides
+  auto upd = [&](const char *key, auto &field) {
+    if (tp.contains(key))
+      field = tp[key].get<std::decay_t<decltype(field)>>();
+  };
+  upd("ds_m", tpar.dx);
+  upd("L_T", tpar.L_T);
+  upd("k_g", tpar.k_g);
+  upd("L_E", tpar.L_E);
+  upd("k_E", tpar.k_E);
+  upd("tau_p", tpar.tau_p);
+  upd("E_env_m", tpar.E_env_m);
+  upd("E_use_hysteresis", tpar.E_use_hysteresis);
+  upd("E_hyst_hi", tpar.E_hyst_hi);
+  upd("E_hyst_lo", tpar.E_hyst_lo);
+  upd("E_gap_close_m", tpar.E_gap_close_m);
+  upd("E_min_run_m", tpar.E_min_run_m);
+  upd("min_segment_length_m", tpar.min_segment_length_m);
+  upd("merge_side_right", tpar.merge_side_right);
+
+  // Compute
+  std::vector<double> E;
+  auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
+  auto state_codes = eng.get_states();
+
+  // Change points
   std::vector<int> change_points = eng.get_changepoint_points(rs);
-  const int N = (int)rs.points.size();
+  out["change_points"] = change_points;
+
+  // Build spans
+  int N = (int)rs.points.size();
   auto spans = SegmentUtils::make_segments_from_change_points(change_points, N);
 
-  // Optional: route_id + persist flag supplied by client
-  long long route_id = 0;
-  bool persist = false;
-  if (in.contains("route_id")) {
-    try {
-      route_id = in["route_id"].get<long long>();
-    } catch (...) {
-    }
-  }
-  if (in.contains("persist")) {
-    try {
-      persist = in["persist"].get<bool>();
-    } catch (...) {
-    }
-  }
+  // Collect way_ids once
+  std::vector<long long> way_ids;
+  way_ids.reserve(N);
+  for (auto &p : rs.points)
+    way_ids.push_back(p.way_id);
 
-  // Build segment instances in memory (always)
+  // Build segments
   std::vector<SegmentInstance> segs;
   segs.reserve(spans.size());
   for (auto [a, b] : spans) {
     SegmentInstance si;
     si.def = SegmentUtils::build_segment_def_forward(rs.points, a, b);
-    si.route_id = route_id;
     si.start_idx = a;
     si.end_idx = b;
-    // parallel way_ids vector exists on rs.points
-    std::vector<long long> way_ids;
-    way_ids.reserve(N);
-    for (const auto &p : rs.points)
-      way_ids.push_back(p.way_id);
     si.runs = SegmentUtils::way_runs_in_slice(way_ids, a, b);
     segs.push_back(std::move(si));
   }
 
-  // === Optional DB persist ===
-  if (persist && route_id > 0) {
-    // TODO: inject via your DI/container; for now we construct locally
-    // MySQLSegmentDB db("tcp://127.0.0.1:3306","user","pass","schema");
-    // db.begin();
-    // try {
-    //   for (const auto& s : segs) {
-    //     db.upsert_segment_def(s.def);
-    //     auto seg_id = db.insert_route_segment(s);
-    //     db.insert_segment_runs(seg_id, s.runs);
-    //   }
-    //   db.commit();
-    // } catch (...) {
-    //   db.rollback();
-    //   // don’t fail the whole wavelet response; report error field
-    //   // or set res.status accordingly if you prefer hard fail
-    // }
-  }
-
-  // --- Prepare response ---
-
-  json out;
-  out["ok"] = true;
-
-  // For convenience we include the raw (non-uniform) axis too
-  {
-    std::vector<double> s_km;
-    s_km.reserve(rs.points.size());
-    for (const auto &dp : rs.points)
-      s_km.push_back(dp.cum_dist / 1000.0);
-    out["s_km"] = s_km;
-  }
-
-  json series = json::object();
-
-  // --- Dispatch on function name ---
-  if (fn == "terrain") {
-    WaveletFootprintEngine eng;
-    WaveletFootprintEngine::TerrainParams tpar; // defaults
-
-    auto upd = [&](const char *key, auto &field) {
-      if (!tp.contains(key))
-        return;
-      const auto &v = tp[key];
-      using T = std::decay_t<decltype(field)>;
-
-      if constexpr (std::is_enum_v<T>) {
-        // accept int or string
-        if (v.is_number_integer()) {
-          int x = v.get<int>();
-          switch (x) {
-          case 0:
-            field = WaveletFootprintEngine::EnergyAlgorithm::FFT;
-            break;
-          case 1:
-            field = WaveletFootprintEngine::EnergyAlgorithm::RMS;
-            break;
-          default: /* ignore bad value */
-            break;
-          }
-        } else if (v.is_string()) {
-          std::string s = v.get<std::string>();
-          std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-          if (s == "fft" || s == "fftw")
-            field = WaveletFootprintEngine::EnergyAlgorithm::FFT;
-          else if (s == "haar" || s == "wavelet")
-            field = WaveletFootprintEngine::EnergyAlgorithm::RMS;
-        }
-      } else {
-        // doubles/ints/etc
-        field = v.get<T>();
-      }
-    };
-    upd("ds_m", tpar.dx);
-    upd("L_T", tpar.L_T);
-    upd("k_g", tpar.k_g);
-    upd("L_E", tpar.L_E);
-    upd("k_E", tpar.k_E);
-    upd("tau_p", tpar.tau_p);
-
-    upd("E_env_m", tpar.E_env_m);
-
-    upd("E_use_hysteresis", tpar.E_use_hysteresis);
-    upd("E_hyst_hi", tpar.E_hyst_hi);
-    upd("E_hyst_lo", tpar.E_hyst_lo);
-    upd("E_gap_close_m", tpar.E_gap_close_m);
-    upd("E_min_run_m", tpar.E_min_run_m);
-    upd("min_segment_length_m", tpar.min_segment_length_m);
-    upd("merge_side_right", tpar.merge_side_right);
-
-    std::vector<double> E;
-    std::vector<WaveletFootprintEngine::TerrainState> state_codes;
-    auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
-    state_codes = eng.get_states();
-    // include raw indices (clients can render cuts)
-    out["change_points"] = change_points;
-    // include segments summary for immediate use
-    json jsegs = json::array();
-    for (const auto &s : segs) {
-      json jr;
-      jr["segment_uid"] = s.def.uid_hex;
-      jr["start_idx"] = s.start_idx;
-      jr["end_idx"] = s.end_idx;
-      jr["length_m"] = s.def.length_m;
-      jr["point_count"] = s.def.point_count;
-      // compact way runs (omit if too chatty)
-      json runs = json::array();
-      for (size_t i = 0; i < s.runs.size(); ++i) {
-        runs.push_back({{"seq", (int)i},
-                        {"way_id", s.runs[i].way_id},
-                        {"from", s.runs[i].from_idx},
-                        {"to", s.runs[i].to_idx}});
-      }
-      jr["runs"] = std::move(runs);
-      jsegs.push_back(std::move(jr));
+  // Serialize segments
+  json jsegs = json::array();
+  for (auto &s : segs) {
+    json jr;
+    jr["segment_uid"] = s.def.uid_hex;
+    jr["start_idx"] = s.start_idx;
+    jr["end_idx"] = s.end_idx;
+    jr["length_m"] = s.def.length_m;
+    jr["point_count"] = s.def.point_count;
+    jr["coordinates"] = json::parse(s.def.coords_json);
+    jr["runs"] = json::array();
+    for (size_t i = 0; i < s.runs.size(); ++i) {
+      const auto &r = s.runs[i];
+      jr["runs"].push_back({{"seq", int(i)},
+                            {"way_id", r.way_id},
+                            {"from", r.from_idx},
+                            {"to", r.to_idx}});
     }
-    out["segments"] = std::move(jsegs);
-
-    // TEST:
-    int c0 = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0;
-    for (auto &t : state_codes) {
-      switch (t) {
-      case WaveletFootprintEngine::TerrainState::Flat:
-        ++c0;
-        break;
-      case WaveletFootprintEngine::TerrainState::Uphill:
-        ++c1;
-        break;
-      case WaveletFootprintEngine::TerrainState::Downhill:
-        ++c2;
-        break;
-      case WaveletFootprintEngine::TerrainState::Rolling:
-        ++c3;
-        break;
-      case WaveletFootprintEngine::TerrainState::Unknown:
-        ++c4;
-        break;
-      }
-    }
-    std::cerr << "[wf] counts flat=" << c0 << " up=" << c1 << " down=" << c2
-              << " roll=" << c3 << " unk=" << c4 << "\n";
-    // TEST: END
-
-    // Axis for uniform result (for precise alignment)
-    std::vector<double> s_km_u;
-
-    s_km_u.reserve(terrainUS.s.size());
-    for (double sm : terrainUS.s)
-      s_km_u.push_back(sm / 1000.0);
-
-    out["s_km_uniform"] = s_km_u;
-    out["ds_m"] = terrainUS.ds;
-
-    // Series: 0..3 codes
-    series["haar_trend"] = terrainUS.y;
-
-    series["energy"] = E;
-    series["terrain"] = state_codes;
-    out["change_points"] = change_points;
-
-  } else {
-    // Unknown function name
-    res.status = 400;
-    res.set_content(std::string(R"({"ok":false,"error":"unknown fn: )") + fn +
-                        R"("})",
-                    "application/json");
-    return;
+    jsegs.push_back(std::move(jr));
   }
+  // Axis for uniform result (for precise alignment)
+  std::vector<double> s_km_u;
 
-  out["series"] = series;
+  s_km_u.reserve(terrainUS.s.size());
+  for (double sm : terrainUS.s)
+    s_km_u.push_back(sm / 1000.0);
+  json series;
+  series["haar_trend"] = terrainUS.y;
+  series["energy"] = E;
+  series["terrain"] = state_codes;
 
-  // DEBUG list keys
+  out["segments"] = std::move(jsegs);
+  out["series"] = std::move(series);
+  out["s_km_uniform"] = s_km_u;
+  out["ds_m"] = terrainUS.ds;
 
+  // Optional persist
+  // if (persist) {
+  //   MySQLSegmentDB db("tcp://127.0.0.1:3306", "user", "pass", "routeseg");
+  //   db.begin();
+  //   for (auto &s : segs) {
+  //     db.upsert_segment_def(s.def);
+  //     auto seg_id = db.insert_route_segment(s);
+  //     db.insert_segment_runs(seg_id, s.runs);
+  //   }
+  //   db.commit();
+  // }
+
+  // Send response
   res.set_content(out.dump(), "application/json");
 }
 

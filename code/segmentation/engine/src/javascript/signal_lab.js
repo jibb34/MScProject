@@ -18,7 +18,7 @@
     uploadFile: document.getElementById('uploadFile'),
     uploadBtn:  document.getElementById('uploadBtn'),
     uploadMsg:  document.getElementById('uploadMsg'),
-    plotUni:    document.getElementById('plotUni'),   // Canvas chart drawn here
+    plotUni:    document.getElementById('plotUni'),
     tabs:       document.getElementById('labTabs'),
     panels:     document.getElementById('labPanels'),
     statsBox:   document.getElementById('statsSummary'),
@@ -748,6 +748,7 @@
 /** Call /lab/resample for the wavelet terrain and overlay it on the elevation plot. */
 
   async function runWaveletTerrain() {
+    console.log("runWaveletTerrain() start");
     const sel = els.mapSelect?.value;
     if (!sel) { alert('Please select a file first.'); return; }
 
@@ -758,15 +759,36 @@
     const r = await fetch('/wavelet', {
       method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
     });
-    const txt = await r.text();
-    if (!r.ok) { appendLog(`[wavelet] HTTP ${r.status}: ${txt}`); alert(`Wavelet request failed: ${txt}`); return; }
-    let j; try { j = JSON.parse(txt); } catch { appendLog('[wavelet] invalid JSON'); alert('Wavelet response was not JSON'); return; }
+    if (!r.ok) {
+      const errTxt = await r.text();
+      appendLog(`[wavelet] HTTP ${r.status}: ${errTxt}`);
+      alert(`Wavelet request failed: ${errTxt}`);
+      return;
+    }
+
+    let j;
+    try {
+      // parse directly, and measure its size
+      j = await r.json();
+      console.log(`[wavelet] parsed JSON object, keys: ${Object.keys(j).length}`);
+    } catch (e) {
+      console.error('[wavelet] response.json() threw:', e);
+      const textDump = await r.clone().text();
+      console.log('[wavelet] raw response length:', textDump.length);
+      alert('Failed to parse wavelet JSON—see console for details');
+      return;
+    }
+
+
+    if (window.onWaveletResponse) window.onWaveletResponse(j);
 
     const xWave = Array.isArray(j.s_km_uniform) && j.s_km_uniform.length ? j.s_km_uniform
                 : (Array.isArray(j.s_km) ? j.s_km : []);
     const base = window.__lastElevation || { x: xWave, y: new Array(xWave.length).fill(0), title: 'Elevation' };
 
     const series = j.series || {};
+    console.log('[wavelet] series keys:', Object.keys(series));
+    console.log('[wavelet] terrain array sample:', series.terrain && series.terrain.slice(0,10));
     const trend  = series.haar_trend;
     const energy = series.energy || series.energy_fft; // backend key either name
     const showE  = document.getElementById('wf_showE')?.checked;
@@ -809,10 +831,20 @@
         p.hidden = !active;
         p.classList.toggle('active', active);
       });
-
+      if (name === 'segments') {
+        renderSegments(segments);
+        initSegMap();
+        if (segments.length) selectSegment(0);
+      }
       // Route tab activation: ensure map renders
-      if (name === 'route' && els.mapSelect?.value) {
+      else if (name === 'route' && els.mapSelect?.value) {
         loadRouteLeaflet(els.mapSelect.value);
+      }
+      else if (name === 'wavelet') {
+      // If we've already got elevation data, kick off the wavelet terrain call
+        if (window.__lastElevation) {
+          runWaveletTerrain().catch(e => appendLog(`[wavelet] ${e.message||e}`));
+        }
       }
     });
   }
@@ -1071,5 +1103,73 @@
 
     initTabs();
   });
+    // ====== Segments Tab Logic ======
+  // replace all of the old duplicate IIFEs + stubs above with this block:
+
+  // State for segments and their mini–map
+  let segments = [];
+  let segMap = null;
+
+  // Called by wavelet response
+  window.onWaveletResponse = function(out) {
+    segments = Array.isArray(out.segments) ? out.segments : [];
+    const btn = document.querySelector('[data-tab="segments"]');
+    if (btn) btn.disabled = segments.length === 0;
+  };
+
+  // Tab click handler already set up in initTabs; inject here:
+  document.getElementById('labTabs').addEventListener('click', e => {
+    const tab = e.target.dataset.tab;
+    if (!tab) return;
+  });
+
+  // Populate the segments list
+  function renderSegments(segs) {
+    const container = document.querySelector('.segments-container');
+    if (!container) return;
+    container.innerHTML = '';
+    segs.forEach((seg, i) => {
+      const label = seg.label || `Segment ${i+1}`;
+      const len = seg.length != null ? `${seg.length}m` : '';
+      const btn = document.createElement('button');
+      btn.className = 'segment-btn';
+      btn.dataset.seg = i;
+      btn.textContent = len ? `${label} (${len})` : label;
+      btn.addEventListener('click', () => selectSegment(i));
+      container.appendChild(btn);
+    });
+  }
+
+  // Lazy–init the mini-map
+  function initSegMap() {
+    if (segMap) return;
+    segMap = L.map('seg-map', { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+      .addTo(segMap);
+  }
+
+  // Draw a single segment on the mini-map
+  function selectSegment(i) {
+    const seg = segments[i];
+    if (!seg || !Array.isArray(seg.coordinates)) return;
+
+    if (!segMap) initSegMap();
+    if (segMap._poly) segMap.removeLayer(segMap._poly);
+    segMap._poly = L.polyline(seg.coordinates, { weight: 4, color: '#2ad' })
+                    .addTo(segMap);
+    segMap.fitBounds(segMap._poly.getBounds(), { padding: [10,10] });
+
+    const container = document.querySelector('.segments-container');
+    container.querySelectorAll('.segment-btn').forEach(b => {
+      b.classList.toggle('active', +b.dataset.seg === i);
+    });
+    const btn = container.querySelector(`.segment-btn[data-seg="${i}"]`);
+    if (btn) {
+      btn.scrollIntoView({ inline: 'center', block: 'nearest' });
+    }
+  }
+
+
 })();
+
 

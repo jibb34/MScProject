@@ -60,7 +60,7 @@
     <div id="labTabs" class="tabs">
       <button data-tab="stats" class="active">Stats</button>
       <button data-tab="wavelet">Wavelets</button>
-      <button data-tab="segments" disabled>Segments (soon)</button>
+      <button data-tab="segments">Segments</button>
       <button data-tab="route">Route Map</button>
     </div>
 
@@ -234,8 +234,18 @@
           states.</p>
       </div>
 
-      <!-- Placeholder -->
-      <div id="panel-segments" class="panel" hidden></div>
+        <div id="panel-segments" class="panel" hidden>
+      <div class="segments-scroll-wrapper">
+        <div class="segments-container">
+          <!-- Buttons injected here -->
+        </div>
+      </div>
+      <!-- Mini-map for the selected segment -->
+      <div id="seg-map" class="segments-map"></div>
+    </div>
+
+</div>
+
     </div>
 
     <!-- Log -->
@@ -243,7 +253,7 @@
   </main>
 
   <!-- App logic -->
-  <script src="/static/signal_lab.js"></script>
+  <script src="/static/signal_lab.js" defer></script>
 
   <!-- Theme toggle (persist) -->
   <script>

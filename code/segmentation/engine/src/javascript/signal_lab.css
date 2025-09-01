@@ -116,3 +116,87 @@ main{padding:10px}
   height: 100% !important;
 }
 
+/* === Segments scrolling strip & fade overlays === */
+
+.segments-scroll-wrapper {
+  position: relative;      /* for fade overlays */
+  overflow: hidden;        /* clip at edges */
+  padding: 0.5rem 0;       /* breathing room top/bottom */
+}
+
+.segments-container {
+  display: flex;                     /* row of buttons */
+  gap: 0.5rem;                       /* space between */
+  overflow-x: auto;                  /* scroll horizontally */
+  scroll-behavior: smooth;           /* smooth manual & JS scrolls */
+  scroll-snap-type: x mandatory;     /* snap to buttons */
+  padding: 0 1rem;
+}
+
+/* fade-out gradients at the ends */
+.segments-scroll-wrapper::before,
+.segments-scroll-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2rem;
+  pointer-events: none;
+  z-index: 1;
+}
+.segments-scroll-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-2), transparent);
+}
+.segments-scroll-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-2), transparent);
+}
+
+/* scrollbar styling */
+.segments-container::-webkit-scrollbar {
+  height: 8px;
+}
+.segments-container::-webkit-scrollbar-track {
+  background: var(--bg-3);
+  border-radius: 4px;
+}
+.segments-container::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* Base button styles (follow theme via CSS vars) */
+.segment-btn {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-3);
+  color: var(--fg);
+  scroll-snap-align: center;           /* snap center */
+  transition: background 0.3s ease,     /* smooth bg change */
+              transform 0.2s ease;      /* smooth hover zoom */
+}
+
+/* Hover state */
+.segment-btn:hover {
+  background: var(--accent);
+  color: var(--fg);
+  transform: scale(1.05);
+}
+
+/* Active state */
+.segment-btn.active {
+  background: var(--accent);
+  color: var(--fg);
+}
+
+
+/* container for the Leaflet segment mini-map */
+#seg-map {
+  height: 240px;                 /* adjust as you like */
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
