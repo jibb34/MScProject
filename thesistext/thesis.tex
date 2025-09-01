@@ -912,7 +912,12 @@ List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g
 % Implementation details.
 %────────────────────────────────────────────────────────────────────────────────
 \section{Critical Reflection on Methodology}
-In developing this methodology, several compromises were made. Purely statistical methods risked over-segmenting minor elevation noise, while rigid thresholds missed the nuanced undulations riders perceive as rolling terrain. We therefore adopted a hybrid of central-difference slope and moving-average deviation metrics, then cross-validated our “expected” algorithmic labels against “observed” rider feedback on a set of test routes. Discrepancies-such as segments tagged as \emph{flat} that riders described as \emph{challenging}—fed back into an iterative calibration loop, ensuring our computational definitions stay grounded in real-world cycling experience rather than abstract mathematical constructs.
+In developing this methodology, several compromises were made. Purely statistical methods risked over-segmenting minor elevation noise,
+while rigid thresholds missed the nuanced undulations riders perceive as rolling terrain. I therefore adopted a hybrid of central difference
+slope and moving average deviation metrics, then cross-validated our “expected” algorithmic labels against “observed” rider feedback on a set of
+test routes. Discrepancies such as segments tagged as \emph{flat} that riders described as \emph{challenging}—fed back into an iterative
+calibration loop, ensuring our computational definitions stay grounded in real-world cycling experience rather than abstract mathematical
+constructs.
 %────────────────────────────────────────────────────────────────────────────────
 
 \section{Component Implementation}
