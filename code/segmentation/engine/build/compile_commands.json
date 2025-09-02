@@ -1,61 +1,68 @@
 [
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/RouteSignalBuilder.cpp.o -c /app/src/core/RouteSignalBuilder.cpp",
-  "file": "/app/src/core/RouteSignalBuilder.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/RouteSignalBuilder.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/RouteSignalBuilder.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/RouteSignalBuilder.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/core/RouteSignalBuilder.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/SegmentUtils.cpp.o -c /app/src/core/SegmentUtils.cpp",
-  "file": "/app/src/core/SegmentUtils.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/SegmentUtils.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/SegmentUtils.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/SegmentUtils.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/core/SegmentUtils.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o -c /app/src/core/segmenter.cpp",
-  "file": "/app/src/core/segmenter.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/segmenter.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/core/segmenter.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/wavelets/RollingEnergyFFT.cpp.o -c /app/src/core/wavelets/RollingEnergyFFT.cpp",
-  "file": "/app/src/core/wavelets/RollingEnergyFFT.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/wavelets/RollingEnergyFFT.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/wavelets/RollingEnergyFFT.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/wavelets/RollingEnergyFFT.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/core/wavelets/RollingEnergyFFT.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/wavelets/WaveletFootprint.cpp.o -c /app/src/core/wavelets/WaveletFootprint.cpp",
-  "file": "/app/src/core/wavelets/WaveletFootprint.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/core/wavelets/WaveletFootprint.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/wavelets/WaveletFootprint.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/core/wavelets/WaveletFootprint.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/core/wavelets/WaveletFootprint.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/debug/SignalLab.cpp.o -c /app/src/debug/SignalLab.cpp",
-  "file": "/app/src/debug/SignalLab.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/debug/SignalLab.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/debug/SignalLab.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/debug/SignalLab.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/debug/SignalLab.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o -c /app/src/http/http_handler.cpp",
-  "file": "/app/src/http/http_handler.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/http/http_handler.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/http/http_handler.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o -c /app/src/io/json_parser.cpp",
-  "file": "/app/src/io/json_parser.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/infra/MySQLSegmentDB.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/infra/MySQLSegmentDB.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/infra/MySQLSegmentDB.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/infra/MySQLSegmentDB.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o -c /app/src/io/json_writer.cpp",
-  "file": "/app/src/io/json_writer.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/io/json_parser.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/io/json_parser.cpp.o"
 },
-
 {
-  "directory": "/app/build",
-  "command": "/usr/bin/c++   -I../include -I../src -isystem /usr/include/eigen3  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/main.cpp.o -c /app/src/main.cpp",
-  "file": "/app/src/main.cpp"
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/io/json_writer.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/io/json_writer.cpp.o"
+},
+{
+  "directory": "/home/jackjibb/projects/MScProject/code/segmentation/engine/build",
+  "command": "/usr/bin/c++  -I/home/jackjibb/projects/MScProject/code/segmentation/engine/include -I/home/jackjibb/projects/MScProject/code/segmentation/engine/src -I/usr/include/mysql -I/home/jackjibb/projects/MScProject/code/segmentation/engine/thirdparty/json/include -isystem /usr/include/eigen3 -std=gnu++17 -o CMakeFiles/segmentation_engine.dir/src/main.cpp.o -c /home/jackjibb/projects/MScProject/code/segmentation/engine/src/main.cpp",
+  "file": "/home/jackjibb/projects/MScProject/code/segmentation/engine/src/main.cpp",
+  "output": "CMakeFiles/segmentation_engine.dir/src/main.cpp.o"
 }
 ]

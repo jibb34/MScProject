@@ -15,6 +15,8 @@ RUN apt-get update && \
   libssl1.1 \
   build-essential \
   libfftw3-dev \
+  libmariadb-dev       \
+  libmariadb-dev-compat \
   libeigen3-dev \
   pkg-config \
   clangd \
@@ -44,6 +46,7 @@ RUN apt-get update && \
   dpkg-reconfigure -f noninteractive tzdata && \
   apt-get install -y --no-install-recommends \
   libfftw3-3 \
+  libmariadb3 \
   libssl1.1 \
   && rm -rf /var/lib/apt/lists/*
 

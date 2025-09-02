@@ -14,6 +14,12 @@ docker rm -f "$CONTAINER_NAME" >/dev/null 2>&1 || true
 # 3) Run
 docker run -d \
   --name "$CONTAINER_NAME" \
+  --network host \
+  -e DB_HOST=127.0.0.1 \
+  -e DB_PORT=3306 \
+  -e DB_USER=routeseg_user \
+  -e DB_PASS=changeme-user \
+  -e DB_NAME=routeseg \
   -p 5005:5005 \
   "$IMAGE_NAME"
 

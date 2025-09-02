@@ -12,7 +12,10 @@ set(OPENSSL_USE_STATIC_LIBS TRUE)
 
 # FFTW via pkg-config (no find_package(FFTW3) at all)
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(FFTW3 REQUIRED fftw3)
+pkg_check_modules(FFTW3 REQUIRED
+fftw3
+mariadb
+)
 
 # Threads
 find_package(Threads REQUIRED)
@@ -26,10 +29,11 @@ add_subdirectory(thirdparty/json EXCLUDE_FROM_ALL)
 # Include paths
 target_include_directories(segmentation_engine PRIVATE
   include
-  src
+  ${CMAKE_CURRENT_SOURCE_DIR}/src
   # external/json/single_include
   ${FFTW3_INCLUDE_DIRS}
   ${OPENSSL_INCUDE_DIR}
+  ${MARIADB_INCLUDE_DIRS}
 )
 
 # Link libraries
@@ -39,6 +43,7 @@ target_link_libraries(segmentation_engine PRIVATE
   Threads::Threads        # pthread
   m                       # math lib
   OpenSSL::Crypto
+  ${MARIADB_LIBRARIES}
   nlohmann_json::nlohmann_json
 )
 

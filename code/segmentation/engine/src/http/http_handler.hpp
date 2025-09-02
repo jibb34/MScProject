@@ -3,6 +3,7 @@
 #include "core/SegmentDB.hpp"          // for SegmentInstance, SegmentDef, etc.
 #include "core/SegmentUtils.hpp"       // for SegmentUtils
 #include "httplib.h"
+#include <mysql/mysql.h>
 #include <nlohmann/json.hpp>
 
 class HttpHandler {
@@ -29,4 +30,5 @@ private:
   void handleSignalLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabResample(const httplib::Request &req, httplib::Response &res);
+  void handleDBPing(const httplib::Request &req, httplib::Response &res);
 };

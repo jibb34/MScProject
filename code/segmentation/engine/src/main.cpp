@@ -106,6 +106,9 @@ int main() {
   server.Get("/lab/meta", [&handler](const auto &req, auto &res) {
     handler.callGetHandler("labMeta", req, res);
   });
+  server.Get("/dbping", [&handler](const auto &req, auto &res) {
+    handler.callGetHandler("dbping", req, res);
+  });
 
   server.Get("/lab/list", [](const httplib::Request &, httplib::Response &res) {
     const auto arr = list_uploads_json();

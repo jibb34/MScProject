@@ -1,3 +1,5 @@
-/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles/segmentation_engine.dir
-/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles/edit_cache.dir
-/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/CMakeFiles/rebuild_cache.dir
+/home/jackjibb/projects/MScProject/code/segmentation/engine/build/CMakeFiles/segmentation_engine.dir
+/home/jackjibb/projects/MScProject/code/segmentation/engine/build/CMakeFiles/edit_cache.dir
+/home/jackjibb/projects/MScProject/code/segmentation/engine/build/CMakeFiles/rebuild_cache.dir
+/home/jackjibb/projects/MScProject/code/segmentation/engine/build/thirdparty/json/CMakeFiles/edit_cache.dir
+/home/jackjibb/projects/MScProject/code/segmentation/engine/build/thirdparty/json/CMakeFiles/rebuild_cache.dir

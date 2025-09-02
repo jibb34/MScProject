@@ -1,7 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/jackjibb/Projects/MScProject/code/segmentation/engine/build/cmake_install.cmake"
+		"/home/jackjibb/projects/MScProject/code/segmentation/engine/build/cmake_install.cmake",
+		"/home/jackjibb/projects/MScProject/code/segmentation/engine/build/thirdparty/json/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

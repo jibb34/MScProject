@@ -752,8 +752,9 @@
     const sel = els.mapSelect?.value;
     if (!sel) { alert('Please select a file first.'); return; }
 
+    const persist = document.getElementById('persistToggle').checked;
     const p = getTerrainParams();
-    const payload = { map: sel, fn: "terrain", params: { terrain: p } };
+    const payload = { map: sel, fn: "terrain", params: { terrain: p }, persist };
     appendLog(`[wavelet] POST /wavelet fn=terrain map=${sel}`);
 
     const r = await fetch('/wavelet', {
@@ -1169,7 +1170,41 @@
     }
   }
 
-
+  // when the “DB” tab is shown, or on button click…
+  document.getElementById('btnDbPing').addEventListener('click', () => {
+    const statusEl = document.getElementById('dbStatus');
+    statusEl.textContent = 'Pinging database…';
+fetch('/dbping')
+  .then(r => {
+    console.log('[dbping] raw response:', r.status, r.headers.get('content-type'));
+    return r.text();
+  })
+  .then(txt => {
+    console.log('[dbping] body text:', txt);
+    let j;
+    try {
+      j = JSON.parse(txt);
+    } catch(e) {
+      console.error('[dbping] JSON parse failed', e);
+      document.getElementById('dbStatus').innerHTML =
+        '❌ Invalid JSON: ' + txt.substring(0,100);
+      return;
+    }
+    // now handle j
+    if (j.ok) {
+      document.getElementById('dbStatus').textContent =
+        '✅ ' + (j.message||'Connected');
+    } else {
+      document.getElementById('dbStatus').innerHTML =
+        '❌ ' + j.error;
+    }
+  })
+  .catch(err => {
+    console.error('[dbping] fetch error', err);
+    document.getElementById('dbStatus').innerHTML =
+      '❌ Fetch failed: ' + err;
+  });
+  });
 })();
 
 

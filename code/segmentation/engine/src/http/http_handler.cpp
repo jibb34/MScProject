@@ -5,9 +5,10 @@
 #include "debug/osrm_inspect.hpp"
 #include "httplib.h"
 #include "io/json_parser.hpp"
-#include "json.hpp"
 #include "models/params.hpp"
+#include "nlohmann/json.hpp"
 
+#include "infra/MySQLSegmentDB.hpp"
 #include <algorithm> // sort
 #include <cctype>
 #include <chrono>
@@ -61,7 +62,6 @@ void HttpHandler::callPostHandler(std::string action,
     res.set_content("Unknown action: " + action, "text/plain");
   }
 }
-
 void HttpHandler::callGetHandler(std::string action,
                                  const httplib::Request &req,
                                  httplib::Response &res) {
@@ -71,7 +71,12 @@ void HttpHandler::callGetHandler(std::string action,
     handleSignalLabUI(req, res);
   } else if (action == "labMeta") {
     handleLabMeta(req, res);
-  } else {
+  } else if (action == "dbping") {
+    handleDBPing(req, res);
+
+  }
+  // default
+  else {
     res.status = 404;
     res.set_content("Unknown action: " + action, "text/plain");
   }
@@ -801,17 +806,37 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   out["s_km_uniform"] = s_km_u;
   out["ds_m"] = terrainUS.ds;
 
-  // Optional persist
-  // if (persist) {
-  //   MySQLSegmentDB db("tcp://127.0.0.1:3306", "user", "pass", "routeseg");
-  //   db.begin();
-  //   for (auto &s : segs) {
-  //     db.upsert_segment_def(s.def);
-  //     auto seg_id = db.insert_route_segment(s);
-  //     db.insert_segment_runs(seg_id, s.runs);
-  //   }
-  //   db.commit();
-  // }
+  if (persist) {
+    std::cerr << "Sending segments to database" << "\n";
+    // Load DB connection info from environment (with defaults)
+    const char *db_host = std::getenv("DB_HOST") ?: "127.0.0.1";
+    const char *db_user = std::getenv("DB_USER") ?: "routeseg_user";
+    const char *db_pass = std::getenv("DB_PASS") ?: "changeme-user";
+    const char *db_name = std::getenv("DB_NAME") ?: "routeseg";
+    unsigned int db_port =
+        std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
+
+    MySQLSegmentDB db(std::string("tcp://") + db_host + ":" +
+                          std::to_string(db_port),
+                      db_user, db_pass, db_name);
+    try {
+      db.begin();
+      for (auto &s : segs) {
+        db.upsert_segment_def(s.def);
+        auto seg_id = db.insert_route_segment(s);
+        db.insert_segment_runs(seg_id, s.runs);
+      }
+      db.commit();
+    } catch (const std::exception &e) {
+      std::cerr << "[DB ERROR] " << e.what() << "\n";
+      // rollback on error, but don’t fail the entire request
+      try {
+        db.rollback();
+      } catch (...) {
+      }
+      out["db_error"] = e.what();
+    }
+  }
 
   // Send response
   res.set_content(out.dump(), "application/json");
@@ -860,4 +885,38 @@ void HttpHandler::handleSegment(const httplib::Request &req,
   // TODO: segmentation engine
 
   res.set_content(R"({"ok":true})", "application/json");
+}
+
+void HttpHandler::handleDBPing(const httplib::Request &req,
+                               httplib::Response &res) {
+  // read credentials from ENV or config
+  std::cerr << "hit ping" << "\n";
+  const char *host = std::getenv("DB_HOST") ?: "127.0.0.1";
+  const char *user = std::getenv("DB_USER") ?: "routeseg_user";
+  const char *pass = std::getenv("DB_PASS") ?: "changeme-user";
+  const char *db = std::getenv("DB_NAME") ?: "routeseg";
+  unsigned int port =
+      std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
+
+  MYSQL *conn = mysql_init(nullptr);
+  if (!conn) {
+    res.status = 500;
+    res.set_content(R"({"ok":false,"error":"mysql_init failed"})",
+                    "application/json");
+    return;
+  }
+
+  if (!mysql_real_connect(conn, host, user, pass, db, port, nullptr, 0)) {
+    std::string err = mysql_error(conn);
+    mysql_close(conn);
+    res.status = 500;
+    res.set_content(
+        json{{"ok", false}, {"error", "connect failed: " + err}}.dump(),
+        "application/json");
+    return;
+  }
+
+  mysql_close(conn);
+  res.set_content(R"({"ok":true,"message":"DB connection successful"})",
+                  "application/json");
 }
