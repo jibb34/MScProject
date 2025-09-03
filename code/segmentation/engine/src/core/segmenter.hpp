@@ -7,6 +7,8 @@
 //------------------------------------------------------------------------------
 struct RouteSignal;
 struct DataPoint;
+class SegmentDB;
+class ExistingSegmentMatcher;
 
 class SegmentEngine {
   struct Params {};
@@ -27,7 +29,8 @@ class SegmentEngine {
   void initialize();
 
   // Function to process the segmentation
-  void processSegmentation(RouteSignal &signal) const;
+  std::vector<SegmentInstance> processSegmentation(RouteSignal &signal,
+                                                   SegmentDB &db) const;
 
   void reset() noexcept; // for clearing cache later
 
@@ -36,4 +39,5 @@ class SegmentEngine {
 
 private:
   Params P;
+  std::vector<Coordinate> buildPolyline(const RouteSignal &s) const;
 };

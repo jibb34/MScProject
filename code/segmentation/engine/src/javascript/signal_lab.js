@@ -717,6 +717,7 @@
 
     const x = Array.isArray(j.s_km) ? j.s_km : [];
     const y = (j.series && Array.isArray(j.series[vname])) ? j.series[vname] : [];
+    
 
     // Stats (text only)
     renderStats(y, vname, els.kindSelect?.value);
@@ -834,8 +835,23 @@
       });
       if (name === 'segments') {
         renderSegments(segments);
-        initSegMap();
-        if (segments.length) selectSegment(0);
+        // If 3D is available, render first segment directly on Mapbox
+        if (window.render3DSegment && window.MAPBOX_TOKEN && segments.length) {
+          // Unhide the segment panel to ensure container is visible
+          document.getElementById('panel-segments').hidden = false;
+
+          // Now render Mapbox in visible container
+          window.render3DSegment(segments[0]);
+
+          // Force resize after frame paint
+          requestAnimationFrame(() => {
+            if (window.map3d) window.map3d.resize();
+          });
+        } else {
+          // Fallback to Leaflet mini-map
+          initSegMap();
+          if (segments.length) selectSegment(0);
+        }
       }
       // Route tab activation: ensure map renders
       else if (name === 'route' && els.mapSelect?.value) {
@@ -1143,6 +1159,8 @@
 
   // Lazy–init the mini-map
   function initSegMap() {
+    // If 3D map will own #seg-map, do nothing here to avoid container clash
+    if (window.MAPBOX_TOKEN && typeof window.render3DSegment === 'function') return;
     if (segMap) return;
     segMap = L.map('seg-map', { scrollWheelZoom: false });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
@@ -1154,11 +1172,16 @@
     const seg = segments[i];
     if (!seg || !Array.isArray(seg.coordinates)) return;
 
-    if (!segMap) initSegMap();
-    if (segMap._poly) segMap.removeLayer(segMap._poly);
-    segMap._poly = L.polyline(seg.coordinates, { weight: 4, color: '#2ad' })
-                    .addTo(segMap);
-    segMap.fitBounds(segMap._poly.getBounds(), { padding: [10,10] });
+      // Prefer 3D renderer when present
+    if (window.MAPBOX_TOKEN && typeof window.render3DSegment === 'function') {
+      window.render3DSegment(seg);
+    } else {
+      if (!segMap) initSegMap();
+      if (segMap._poly) segMap.removeLayer(segMap._poly);
+      segMap._poly = L.polyline(seg.coordinates, { weight: 4, color: '#2ad' })
+                      .addTo(segMap);
+      segMap.fitBounds(segMap._poly.getBounds(), { padding: [10,10] });
+    }
 
     const container = document.querySelector('.segments-container');
     container.querySelectorAll('.segment-btn').forEach(b => {

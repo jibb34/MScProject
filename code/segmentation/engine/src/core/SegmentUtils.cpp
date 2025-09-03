@@ -506,3 +506,92 @@ SegmentUtils::build_segment_def_forward(const std::vector<DataPoint> &pts,
   def.length_m = len;
   return def;
 }
+SegmentUtils::BBox
+SegmentUtils::compute_bbox(const std::vector<Coordinate> &pts) {
+  SegmentUtils::BBox b{+90, +180, -90, -180};
+  for (auto &c : pts) {
+    b.min_lat = std::min(b.min_lat, c.lat);
+    b.max_lat = std::max(b.max_lat, c.lat);
+    b.min_lon = std::min(b.min_lon, c.lon);
+    b.max_lon = std::max(b.max_lon, c.lon);
+  }
+  return b;
+}
+
+static inline double approx_m_per_deg_lat() { return 111132.954; }
+static inline double approx_m_per_deg_lon(double lat_rad) {
+  return 111132.954 * std::cos(lat_rad);
+}
+
+SegmentUtils::BBox SegmentUtils::inflate_bbox(const SegmentUtils::BBox &b,
+                                              double pad_m) {
+  const double lat0 = ((b.min_lat + b.max_lat) * 0.5) * M_PI / 180.0;
+  const double dlat = pad_m / approx_m_per_deg_lat();
+  const double dlon = pad_m / approx_m_per_deg_lon(lat0);
+  return {b.min_lat - dlat, b.min_lon - dlon, b.max_lat + dlat,
+          b.max_lon + dlon};
+}
+
+std::vector<Coordinate>
+SegmentUtils::parse_coords_json(const std::string &coords_json) {
+  std::vector<Coordinate> out;
+  if (coords_json.empty())
+    return out;
+  auto arr = json::parse(coords_json);
+  out.reserve(arr.size());
+  for (auto &v : arr) {
+    // expect [lon, lat] (OSRM/GeoJSON)
+    double lon = v[0].get<double>();
+    double lat = v[1].get<double>();
+    out.push_back({lat, lon, 0.0});
+  }
+  return out;
+}
+
+double SegmentUtils::avg_directed_distance_m(const std::vector<Coordinate> &A,
+                                             const std::vector<Coordinate> &B) {
+  if (A.empty() || B.empty())
+    return std::numeric_limits<double>::infinity();
+  double acc = 0.0;
+  for (auto &a : A) {
+    double best = std::numeric_limits<double>::infinity();
+    for (auto &b : B)
+      best = std::min(best, SegmentUtils::haversine(a, b));
+    acc += best;
+  }
+  return acc / static_cast<double>(A.size());
+}
+
+double SegmentUtils::symmetric_distance_m(const std::vector<Coordinate> &A,
+                                          const std::vector<Coordinate> &B) {
+  double d1 = SegmentUtils::avg_directed_distance_m(A, B);
+  double d2 = SegmentUtils::avg_directed_distance_m(B, A);
+  return std::max(d1, d2);
+}
+
+SegmentUtils::Alignment
+SegmentUtils::best_window_alignment(const std::vector<Coordinate> &route,
+                                    const std::vector<Coordinate> &seg,
+                                    double thr_m, int min_pts) {
+  if (route.size() < static_cast<size_t>(min_pts) || seg.size() < 2) {
+    return {-1, -1, std::numeric_limits<double>::infinity()};
+  }
+  // sliding window over route with same length (by point count) as seg,
+  // using average directed distance route_window -> seg
+  const int W = static_cast<int>(seg.size());
+  const int N = static_cast<int>(route.size());
+  int best_i = -1;
+  double best_d = std::numeric_limits<double>::infinity();
+  for (int i = 0; i + W <= N; ++i) {
+    std::vector<Coordinate> sub(route.begin() + i, route.begin() + i + W);
+    double d = SegmentUtils::avg_directed_distance_m(sub, seg);
+    if (d < best_d) {
+      best_d = d;
+      best_i = i;
+    }
+  }
+  if (best_i >= 0 && best_d <= thr_m) {
+    return {best_i, best_i + W, best_d};
+  }
+  return {-1, -1, best_d};
+}

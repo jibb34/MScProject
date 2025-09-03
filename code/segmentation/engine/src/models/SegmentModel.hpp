@@ -9,6 +9,13 @@ struct SegmentRun {
   int from_idx;     // inclusive (global route index)
   int to_idx;       // exclusive
 };
+enum class SegmentKind : uint8_t {
+  Existing = 0, // matched from DB (draw green)
+  Flat,
+  Uphill,
+  Downhill,
+  Rolling
+};
 
 struct SegmentDef {
   std::array<uint8_t, 32> uid; // SHA-256 bytes
@@ -28,4 +35,5 @@ struct SegmentInstance {
   int end_idx = 0;        // exclusive
   // ordered list of way runs composing this span
   std::vector<SegmentRun> runs;
+  SegmentKind kind = SegmentKind::Existing; // default for DB matches
 };

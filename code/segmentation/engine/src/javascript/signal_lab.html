@@ -14,6 +14,11 @@
   <!-- Leaflet (for map in Route tab) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <!-- Mapbox GL JS (for 3D terrain in the segments tab) -->
+    <link rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" />
+    <script
+      src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js" defer></script>
 </head>
 
 <body>
@@ -246,7 +251,7 @@
         </div>
       </div>
       <!-- Mini-map for the selected segment -->
-      <div id="seg-map" class="segments-map"></div>
+      <div id="seg-map" class="segments-map" style="min-height: 320px;"></div>
     </div>
     <div id="panel-db" class="panel" hidden>
       <button id="btnDbPing">Check DB Connection</button>
@@ -255,15 +260,24 @@
 
 </div>
 
-    </div>
 
     <!-- Log -->
     <pre id="log" class="log"></pre>
   </main>
 
   <!-- App logic -->
-  <script src="/static/signal_lab.js" defer></script>
 
+    <!-- Mapbox token and 3D segment overlay -->
+      <script>
+        // TODO: set your Mapbox token here (required for 3D terrain).
+        // Example: window.MAPBOX_TOKEN = 'pk.eyJ...';
+        window.MAPBOX_TOKEN = 'pk.eyJ1IjoiamliYjM0IiwiYSI6ImNtZjMwamJ1cjEyNm0yanNiNHY3bjN4anMifQ.p2YdL-2mCHZBag_IrXCN9Q';
+        window.MAPBOX_TOKEN = window.MAPBOX_TOKEN || '';
+      </script>
+      <!-- seg3d.js must be served via your /static/ route -->
+      <script src="/static/seg3d.js" defer></script>
+
+  <script src="/static/signal_lab.js" defer></script>
   <!-- Theme toggle (persist) -->
   <script>
     (() => {
