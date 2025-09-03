@@ -1,5 +1,6 @@
 #pragma once
 #include "models/CoreTypes.hpp"
+#include "models/SegmentModel.hpp"
 // Main Function within the segmenter engine
 //
 //

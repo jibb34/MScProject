@@ -15,10 +15,6 @@ public:
   long long insert_route_segment(const SegmentInstance &inst) override;
   void insert_segment_runs(long long segment_id,
                            const std::vector<SegmentRun> &runs) override;
-  std::vector<SegmentDef> query_defs_in_bbox(double bbox_min_lat,
-                                             double bbox_min_lon,
-                                             double bbox_max_lat,
-                                             double bbox_max_lon) override;
 
 private:
   // hold your connection/session here
