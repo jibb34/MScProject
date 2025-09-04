@@ -36,16 +36,59 @@
 </div>
 <div id="map"></div>
 
+  <div style="margin-top:8px; display:flex; gap:16px; align-items:center;">
+    <label><input type="checkbox" id="debugToggle"> Debug</label>
+    <div id="legend" style="font-family:system-ui, sans-serif; font-size:12px;">
+      <strong>Kind colors:</strong>
+      <span style="display:inline-block;width:10px;height:10px;background:#000;vertical-align:middle;"></span> 0
+      <span style="display:inline-block;width:10px;height:10px;background:#808080;vertical-align:middle;margin-left:8px;"></span> 1
+      <span style="display:inline-block;width:10px;height:10px;background:#f00;vertical-align:middle;margin-left:8px;"></span> 2
+      <span style="display:inline-block;width:10px;height:10px;background:#00f;vertical-align:middle;margin-left:8px;"></span> 3
+      <span style="display:inline-block;width:10px;height:10px;background:#ff8c00;vertical-align:middle;margin-left:8px;"></span> 4
+      <span style="display:inline-block;border:1px dashed #000;width:10px;height:10px;vertical-align:middle;margin-left:8px;"></span> unknown
+    </div>
+  </div>
+
+
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+        // -- Debug switch via URL (?debug=1) or checkbox
+    const urlDebug = new URLSearchParams(location.search).get('debug') === '1';
+    let DEBUG = urlDebug;
+    window.addEventListener('DOMContentLoaded', () => {
+      const chk = document.getElementById('debugToggle');
+      if (chk) { chk.checked = DEBUG; chk.addEventListener('change', () => DEBUG = chk.checked); }
+    });
+
   const map = L.map('map').setView([37.5, -105], 6);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
+
+    // logOnce: avoid console spam
+    const _once = new Set();
+    function logOnce(key, ...args) {
+      if (_once.has(key)) return;
+      _once.add(key);
+      console.warn(...args);
+    }
+
+    // mapping
+    function colorForKind(kRaw) {
+      const n = Number(kRaw);
+      switch (n) {
+        case 0: return '#000000';
+        case 1: return '#808080';
+        case 2: return '#ff0000';
+        case 3: return '#0000ff';
+        case 4: return '#ff8c00';
+        default: return '#000000';
+      }
+    }
 
   let segmentLayer = null;
 
@@ -66,21 +109,79 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
+      if (DEBUG) {
+        console.groupCollapsed('[route-mapper] Raw response snapshot');
+        console.log('Top-level keys:', Object.keys(data));
+        const feats = Array.isArray(data.features) ? data.features : [];
+        console.log('features.length =', feats.length);
+        console.log('feature[0]?.properties =', feats[0]?.properties);
+        console.log('feature[1]?.properties =', feats[1]?.properties);
+        console.groupEnd();
+      }
+
       if (segmentLayer) map.removeLayer(segmentLayer);
 
+          // map "kind" -> stroke color
+      function colorForKind(k) {
+        const n = Number(k);
+        switch (n) {
+          case 0: return '#000000'; // black
+          case 1: return '#808080'; // grey
+          case 2: return '#ff0000'; // red
+          case 3: return '#0000ff'; // blue
+          case 4: return '#ff8c00'; // orange
+          default: return '#000000'; // fallback
+        }
+      }
+
       const cleaned = validateGeoJSONFeatures(data);
+
+      // Build a quick histogram of kind values
+      const counts = {};
+      const distinctKinds = new Set();
+      (cleaned.features || []).forEach(f => {
+        const k = f?.properties?.kind;
+        const key = (k === null || k === undefined) ? 'MISSING' : String(k);
+        counts[key] = (counts[key] || 0) + 1;
+        distinctKinds.add(key);
+      });
+      if (DEBUG) {
+        console.groupCollapsed('[route-mapper] kind histogram');
+        console.table(counts);
+        console.groupEnd();
+      }
+
       segmentLayer = L.geoJSON(cleaned, {
-        style: {
-          color: 'red',
-          weight: 3
+        style: (feature) => {
+          const k = feature?.properties?.kind;
+          const valid = k !== undefined && k !== null && !Number.isNaN(Number(k));
+          if (!valid && DEBUG) {
+            logOnce('kind-missing-' + JSON.stringify(feature?.properties ?? {}),
+              '[route-mapper] Feature missing/invalid "kind". properties=', feature?.properties);
+          }
+          return {
+            color: colorForKind(k),
+            weight: 3,
+            // visually mark unknown/missing kinds
+            dashArray: valid ? null : '6 4',
+            opacity: 1
+          };
         },
         onEachFeature: (feature, layer) => {
           const p = feature.properties || {};
           const uid = p.uid || "unknown";
           const dir = p.direction || "undirected";
           const len = p.length_m || "N/A";
-
-          layer.bindPopup(`<strong>UID:</strong> ${uid}<br><strong>Direction:</strong> ${dir}<br><strong>Length:</strong> ${len} m`);
+          const kind = (p.kind ?? 'unknown');
+          layer.bindPopup(
+            `<strong>UID:</strong> ${uid}` +
+            `<br><strong>Direction:</strong> ${dir}` +
+            `<br><strong>Length:</strong> ${len} m` +
+            `<br><strong>Kind:</strong> ${kind}`
+          );
+          if (DEBUG) {
+            layer.on('mouseover', () => console.debug('[route-mapper] hover feature props:', p));
+          }
         }
       }).addTo(map);
     } catch (err) {
@@ -127,6 +228,8 @@
 
 
   document.getElementById('loadBtn').addEventListener('click', loadSegments);
+
+  if (DEBUG) console.info('[route-mapper] Debug mode ON. Use ?debug=1 to auto-enable.');
 </script>
 
 </body>
