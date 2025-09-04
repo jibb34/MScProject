@@ -135,7 +135,7 @@
     for (let i = 0; i < arr.length; i++) {
       const v = Number(arr[i]);
       const c = Math.round(Number.isFinite(v) ? v : 0);
-      out[i] = (c < 0) ? 0 : (c > 3 ? 3 : c);
+      out[i] = (c < 0) ? 0 : (c > 4 ? 4 : c);
     }
     return out;
   }

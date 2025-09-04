@@ -617,7 +617,7 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
     } else if (std::abs(g[i]) < tau_g && E[i] < tau_E) {
       terrain.push_back(TerrainState::Flat);
     } else {
-      terrain.push_back(TerrainState::Unknown);
+      terrain.push_back(TerrainState::Rolling);
     }
   }
   double min_length = p.min_segment_length_m;
