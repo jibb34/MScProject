@@ -17,6 +17,7 @@
 #include <iomanip>
 #include <iostream>
 #include <limits> // numeric_limits
+#include <map>
 #include <random>
 #include <set> // set
 
@@ -858,6 +859,50 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
                             {"way_id", r.way_id},
                             {"from", r.from_idx},
                             {"to", r.to_idx}});
+    }
+    // Collect GPX extension data for this segment
+    json extS = json::array();
+    std::map<std::string, json> extVals; // key -> array of values
+    if (s.start_idx >= 0 && s.end_idx <= (int)rs.points.size()) {
+      double base = rs.points[s.start_idx].cum_dist;
+      for (int idx = s.start_idx;
+           idx < s.end_idx && idx < (int)rs.points.size(); ++idx) {
+        const auto &dp = rs.points[idx];
+        extS.push_back((dp.cum_dist - base) / 1000.0);
+        for (auto &kv : extVals)
+          kv.second.push_back(json(nullptr));
+        if (dp.extensions.is_object()) {
+          for (auto it = dp.extensions.begin(); it != dp.extensions.end();
+               ++it) {
+            auto &arr = extVals[it.key()];
+            // Ensure JSON value is an array and pad to extS length
+            if (!arr.is_array())
+              arr = json::array();
+            while (arr.size() < extS.size())
+              arr.push_back(json(nullptr));
+            arr.back() = it.value();
+          }
+        }
+      }
+    }
+    json ext;
+    ext["s_km"] = extS;
+    bool anyExt = false;
+    for (auto &[k, arr] : extVals) {
+      bool hasVal = false;
+      for (auto &v : arr) {
+        if (!v.is_null()) {
+          hasVal = true;
+          break;
+        }
+      }
+      if (hasVal) {
+        ext[k] = arr;
+        anyExt = true;
+      }
+    }
+    if (anyExt) {
+      jr["extensions"] = std::move(ext);
     }
     jsegs.push_back(std::move(jr));
   }

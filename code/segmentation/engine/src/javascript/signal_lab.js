@@ -24,7 +24,8 @@
     statsBox:   document.getElementById('statsSummary'),
     routeMap:   document.getElementById('routeMap'),
     openView:   document.getElementById('openViewLink'),
-    log:        document.getElementById('log')
+    log:        document.getElementById('log'),
+    extPlot: document.getElementById('extPlot')
   };
 
   function initTooltips() {
@@ -863,6 +864,12 @@
           runWaveletTerrain().catch(e => appendLog(`[wavelet] ${e.message||e}`));
         }
       }
+      else if (name === 'extensions') {
+        if (currentSegment >= 0 && segments[currentSegment])
+          renderSegmentExtensions(segments[currentSegment]);
+      }
+
+
     });
   }
 
@@ -1126,12 +1133,16 @@
   // State for segments and their mini–map
   let segments = [];
   let segMap = null;
+  let currentSegment = -1;
 
   // Called by wavelet response
   window.onWaveletResponse = function(out) {
     segments = Array.isArray(out.segments) ? out.segments : [];
+    currentSegment = -1;
     const btn = document.querySelector('[data-tab="segments"]');
     if (btn) btn.disabled = segments.length === 0;
+  const btnExt = document.querySelector('[data-tab="extensions"]');
+    if (btnExt) btnExt.disabled = segments.every(s => !s.extensions);
   };
 
   // Tab click handler already set up in initTabs; inject here:
@@ -1156,6 +1167,26 @@
       container.appendChild(btn);
     });
   }
+  function renderSegmentExtensions(seg) {
+    if (!els.extPlot) return;
+    if (!seg || !seg.extensions) {
+      els.extPlot.innerHTML = '<em>No extension data</em>';
+      return;
+    }
+    const ext = seg.extensions;
+    const x = Array.isArray(ext.s_km) ? ext.s_km : [];
+    const traces = [];
+    Object.entries(ext).forEach(([k, arr]) => {
+      if (k === 's_km' || !Array.isArray(arr)) return;
+      traces.push({ x, y: arr, name: k, mode: 'lines' });
+    });
+    if (!traces.length) {
+      els.extPlot.innerHTML = '<em>No extension data</em>';
+      return;
+    }
+    Plotly.newPlot(els.extPlot, traces, { margin: { t: 20 }, xaxis: { title: 'Distance (km)' } });
+  }
+
 
   // Lazy–init the mini-map
   function initSegMap() {
@@ -1171,6 +1202,7 @@
   function selectSegment(i) {
     const seg = segments[i];
     if (!seg || !Array.isArray(seg.coordinates)) return;
+    currentSegment = i;
 
       // Prefer 3D renderer when present
     if (window.MAPBOX_TOKEN && typeof window.render3DSegment === 'function') {
@@ -1191,6 +1223,8 @@
     if (btn) {
       btn.scrollIntoView({ inline: 'center', block: 'nearest' });
     }
+    const extPanel = document.getElementById('panel-extensions');
+    if (extPanel && !extPanel.hidden) renderSegmentExtensions(seg);
   }
 
   // when the “DB” tab is shown, or on button click…

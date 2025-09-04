@@ -370,6 +370,9 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
         dp.coord = {gpx.lat, gpx.lon, gpx.elv};
         dp.tracepoint_idx = tp_idx;
         dp.time_rel = gpx.time - start_time;
+        if (gpx.extensions.is_object()) {
+          dp.extensions = gpx.extensions;
+        }
       }
     }
 

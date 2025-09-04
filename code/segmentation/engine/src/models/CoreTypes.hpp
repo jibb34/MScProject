@@ -1,7 +1,11 @@
 #pragma once
 #include <inttypes.h>
+#include <limits>
+#include <nlohmann/json.hpp>
 #include <sys/types.h>
 #include <vector>
+
+using Json = nlohmann::json;
 
 struct Coordinate {
   double lat;
@@ -44,6 +48,8 @@ struct DataPoint {
   // For obtaining future values double cum_dist;
   int tracepoint_idx = 0;
   double cum_dist = 0;
+  // GPX extensions
+  Json extensions = Json::object();
 };
 
 struct RouteSignal {
