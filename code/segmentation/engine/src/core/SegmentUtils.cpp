@@ -642,7 +642,6 @@ void SegmentUtils::overlay_db_segments(
     si.end_idx = al.end_idx;
     si.runs =
         SegmentUtils::way_runs_in_slice(way_ids, si.start_idx, si.end_idx);
-    si.def.kind = SegmentKind::Unknown;
     segs.push_back(std::move(si));
   }
 }

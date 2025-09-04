@@ -993,6 +993,7 @@ void HttpHandler::handleSegments(const httplib::Request &req,
       segment_uid,
       direction,
       length_m,
+      kind,
       coords_json
     FROM segment_defs
     WHERE bbox_min_lon <= ?
@@ -1055,12 +1056,13 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   }
 
   // 4) Bind result columns and fetch into GeoJSON FeatureCollection
-  MYSQL_BIND rbind[4];
+  MYSQL_BIND rbind[5];
   memset(rbind, 0, sizeof(rbind));
   unsigned char uid_buf[32]; // BINARY(32)
   char dir_buf[8];
   unsigned long dir_len = 0;
   double length_m = 0;
+  unsigned char kind_val = 0;
   // coords_json: assume <64KB, adjust if necessary
   std::vector<char> json_buf(1 << 16);
   unsigned long json_len = 0;
@@ -1078,11 +1080,15 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   // length_m
   rbind[2].buffer_type = MYSQL_TYPE_DOUBLE;
   rbind[2].buffer = &length_m;
+  // kind
+  rbind[3].buffer_type = MYSQL_TYPE_TINY;
+  rbind[3].buffer = &kind_val;
+  rbind[3].is_unsigned = true;
   // coords_json
-  rbind[3].buffer_type = MYSQL_TYPE_STRING;
-  rbind[3].buffer = json_buf.data();
-  rbind[3].buffer_length = json_buf.size();
-  rbind[3].length = &json_len;
+  rbind[4].buffer_type = MYSQL_TYPE_STRING;
+  rbind[4].buffer = json_buf.data();
+  rbind[4].buffer_length = json_buf.size();
+  rbind[4].length = &json_len;
 
   if (mysql_stmt_bind_result(stmt, rbind) != 0 ||
       mysql_stmt_store_result(stmt) != 0) {
@@ -1117,7 +1123,8 @@ void HttpHandler::handleSegments(const httplib::Request &req,
     // properties
     nlohmann::json props = {{"uid", to_hex(uid_buf, sizeof(uid_buf))},
                             {"direction", std::string(dir_buf, dir_len)},
-                            {"length_m", length_m}};
+                            {"length_m", length_m},
+                            {"kind", static_cast<unsigned int>(kind_val)}};
     feat["properties"] = std::move(props);
     // geometry
     feat["geometry"] = {{"type", "LineString"},

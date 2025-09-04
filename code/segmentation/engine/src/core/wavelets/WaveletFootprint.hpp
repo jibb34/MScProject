@@ -83,11 +83,11 @@ public:
   // Wavelet Objects
   //============= Elevation Wavelet Analysis ====================
   enum class TerrainState : uint8_t { // Categories for Elevation behaviour
-    Flat = 0,
-    Uphill = 1,
-    Downhill = 2,
-    Rolling = 3,
-    Unknown = 4
+    Unknown = 0,
+    Flat = 1,
+    Uphill = 2,
+    Downhill = 3,
+    Rolling = 4
   };
   enum class EnergyAlgorithm { FFT = 0, RMS = 1 };
 
@@ -136,8 +136,7 @@ public:
                       const UniformSignal &U, double min_len_m,
                       MergeSide side) const;
 
-  const std::vector<int>
-  get_changepoint_points(const RouteSignal &rs) const {
+  const std::vector<int> get_changepoint_points(const RouteSignal &rs) const {
     std::vector<int> points;
     for (auto &i : changepoints_)
       points.push_back(rs.points[i].tracepoint_idx);

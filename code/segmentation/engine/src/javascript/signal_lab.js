@@ -631,11 +631,11 @@
       const yBase = padT + plotH;
 
       const COLORS = {
-        0: '#9aa0a6', // Flat
-        1: '#d33',    // Uphill
-        2: '#38f',    // Downhill
-        3: '#ff8c00', // Rolling
-        4: '#8e44ad', // Unknown
+        1: '#9aa0a6', // Flat
+        2: '#d33',    // Uphill
+        3: '#38f',    // Downhill
+        4: '#ff8c00', // Rolling
+        0: '#8e44ad', // Unknown
       };
 
       // Clip to plot area so we fill only under the curve

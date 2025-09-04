@@ -111,7 +111,7 @@ void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
   b[7].buffer = (void *)&d.length_m;
 
   // kind (enum -> tinyint)
-  b[8].buffer_type = MYSQL_TYPE_LONG;
+  b[8].buffer_type = MYSQL_TYPE_TINY;
   int kind_code = static_cast<int>(d.kind);
   b[8].buffer = &kind_code;
 
