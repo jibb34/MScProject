@@ -490,7 +490,7 @@ SegmentUtils::build_segment_def_forward(const std::vector<DataPoint> &pts,
   // build a nlohmann::json array first…
   nlohmann::json tmp = nlohmann::json::array();
   for (auto &c : norm) {
-    tmp.push_back({{"lat", c.lat}, {"lon", c.lon}});
+    tmp.push_back({c.lon, c.lat}); // GeoJSON: [lon, lat]
   }
   // then serialize into your string field
 

@@ -188,8 +188,8 @@ find ./data/results -mindepth 1 -type d -exec rm -rf {} +
 # ------------------------------------------------------------------
 # python3 source/plot_map.py
 
-python source/plot_ways.py ./data/results/Hilly_endurance_ride_around_Harriman.json ./data/osrm_map/map.pbf ways_map.html
-python3 source/plot_merged.py
+# python source/plot_ways.py ./data/results/Hilly_endurance_ride_around_Harriman.json ./data/osrm_map/map.pbf ways_map.html
+# python3 source/plot_merged.py
 #OPTIONAL: Add other methods of visualisation...
 
 # ------------------------------------------------------------------

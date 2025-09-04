@@ -1,0 +1,46 @@
+version: "3.9"
+
+# This docker‑compose file provisions a single MySQL 8 container for
+# development and testing.  It reads credentials from .env, mounts
+# persistent storage, and executes any SQL files in the ./init
+# directory on first startup.
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: routeseg-mysql
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+    command: >
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_0900_ai_ci
+      --innodb_file_per_table=ON
+      --skip-log-bin=ON
+    volumes:
+      # Persist MySQL data between container restarts.  The host path
+      # is relative to the location of this compose file.
+      - ${HOST_DB_DIR}:/var/lib/mysql
+      # Initialization scripts are executed on first container start.
+      - ${HOST_INIT_DIR}:/docker-entrypoint-initdb.d:ro
+      # Extra MySQL configuration.
+      - ${HOST_CONFIG}:/etc/mysql/conf.d/my.cnf:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h localhost -u$${MYSQL_USER} -p$${MYSQL_PASSWORD} --silent",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    environment:
+      PMA_HOST: routeseg-mysql
