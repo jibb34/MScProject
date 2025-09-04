@@ -1,10 +1,10 @@
 #include "core/SegmentUtils.hpp"
-#include <nlohmann/json.hpp>
-
+#include "infra/MySQLSegmentDB.hpp"
 #include "models/OsrmResponse.hpp"
 #include "models/SegmentModel.hpp"
 #include <iomanip>
 #include <math.h>
+#include <nlohmann/json.hpp>
 #include <numeric>
 #include <openssl/sha.h>
 #include <sstream>
@@ -594,4 +594,55 @@ SegmentUtils::best_window_alignment(const std::vector<Coordinate> &route,
     return {best_i, best_i + W, best_d};
   }
   return {-1, -1, best_d};
+}
+
+// Replace spans with DB-matched segments
+void SegmentUtils::overlay_db_segments(
+    std::vector<SegmentInstance> &segs,
+    const std::vector<Coordinate> &route_coords,
+    const std::vector<long long> &way_ids) {
+  // 1. Compute padded bbox
+  auto bbox = SegmentUtils::compute_bbox(route_coords);
+  auto padded = SegmentUtils::inflate_bbox(bbox, 50.0);
+
+  // 2. Connect DB
+  MySQLSegmentDB db("tcp://127.0.0.1:3306", "routeseg_user", "changeme-user",
+                    "routeseg");
+
+  auto candidates = db.query_defs_in_bbox(padded.min_lat, padded.min_lon,
+                                          padded.max_lat, padded.max_lon);
+
+  for (auto &def : candidates) {
+    // 3. Parse coords
+    std::vector<Coordinate> seg_coords;
+    auto arr = nlohmann::json::parse(def.coords_json);
+    for (auto &el : arr) {
+      seg_coords.push_back(
+          {el[0].template get<double>(), el[1].template get<double>(), 0.0});
+    }
+
+    // 4. Align
+    auto al =
+        SegmentUtils::best_window_alignment(route_coords, seg_coords, 50.0, 30);
+    if (al.start_idx < 0)
+      continue;
+
+    // 5. Wipe out overlapping spans in segs
+    segs.erase(std::remove_if(segs.begin(), segs.end(),
+                              [&](const SegmentInstance &si) {
+                                return si.start_idx >= al.start_idx &&
+                                       si.end_idx <= al.end_idx;
+                              }),
+               segs.end());
+
+    // 6. Insert DB instance
+    SegmentInstance si;
+    si.def = def;
+    si.start_idx = al.start_idx;
+    si.end_idx = al.end_idx;
+    si.runs =
+        SegmentUtils::way_runs_in_slice(way_ids, si.start_idx, si.end_idx);
+    si.kind = SegmentKind::Existing;
+    segs.push_back(std::move(si));
+  }
 }

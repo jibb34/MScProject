@@ -24,6 +24,7 @@ struct SegmentDef {
   int point_count = 0;
   double bbox_min_lat = 0, bbox_min_lon = 0, bbox_max_lat = 0, bbox_max_lon = 0;
   double length_m = 0.0;
+  bool isSnapped = true;
 };
 
 struct SegmentInstance {

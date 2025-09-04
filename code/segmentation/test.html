@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Segment Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #map {
+      height: 100%;
+    }
+    #controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <button id="loadBtn">Load Segments</button>
+</div>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  const map = L.map('map').setView([37.5, -105], 6);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  let segmentLayer = null;
+
+  async function loadSegments() {
+    const bounds = map.getBounds();
+    const bbox = [
+      bounds.getWest().toFixed(6),
+      bounds.getSouth().toFixed(6),
+      bounds.getEast().toFixed(6),
+      bounds.getNorth().toFixed(6)
+    ].join(',');
+
+    const url = `http://localhost:5005/segments?bbox=${bbox}`;
+    console.log("Fetching:", url);
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+
+      if (segmentLayer) map.removeLayer(segmentLayer);
+
+      const cleaned = validateGeoJSONFeatures(data);
+      segmentLayer = L.geoJSON(cleaned, {
+        style: {
+          color: 'red',
+          weight: 3
+        },
+        onEachFeature: (feature, layer) => {
+          const p = feature.properties || {};
+          const uid = p.uid || "unknown";
+          const dir = p.direction || "undirected";
+          const len = p.length_m || "N/A";
+
+          layer.bindPopup(`<strong>UID:</strong> ${uid}<br><strong>Direction:</strong> ${dir}<br><strong>Length:</strong> ${len} m`);
+        }
+      }).addTo(map);
+    } catch (err) {
+      alert("Failed to load segments:\n" + err.message);
+      console.error(err);
+    }
+  }
+  function validateGeoJSONFeatures(data) {
+  let validFeatures = [];
+  let invalidCount = 0;
+
+  data.features.forEach((feature, idx) => {
+    const coords = feature?.geometry?.coordinates;
+
+    if (
+      !coords ||
+      !Array.isArray(coords) ||
+      coords.length < 2 ||
+      coords.some(
+        (c, i) =>
+          !Array.isArray(c) ||
+          c.length !== 2 ||
+          typeof c[0] !== 'number' ||
+          typeof c[1] !== 'number' ||
+          !isFinite(c[0]) ||
+          !isFinite(c[1])
+      )
+    ) {
+      console.warn(`❌ Invalid feature at index ${idx}:`, feature);
+      invalidCount++;
+    } else {
+      validFeatures.push(feature);
+    }
+  });
+
+  console.info(`✅ Valid features: ${validFeatures.length}`);
+  if (invalidCount > 0) console.warn(`⚠️ Invalid features skipped: ${invalidCount}`);
+
+  return {
+    type: "FeatureCollection",
+    features: validFeatures,
+  };
+}
+
+
+  document.getElementById('loadBtn').addEventListener('click', loadSegments);
+</script>
+
+</body>
+</html>
+

@@ -75,7 +75,24 @@ int main() {
   });
 
   // Instantiate HttpHandler and register endpoints – comment out initially
-  HttpHandler handler;
+  MYSQL *db = mysql_init(nullptr);
+  if (!db) {
+    std::cerr << "[main] mysql_init failed\n";
+    return 1;
+  }
+
+  const char *host = "127.0.0.1";
+  const char *user = "routeseg_user";
+  const char *password = "changeme-user";
+  const char *database = "routeseg";
+
+  if (!mysql_real_connect(db, host, user, password, database, 3306, nullptr,
+                          0)) {
+    std::cerr << "[main] mysql_real_connect failed: " << mysql_error(db)
+              << "\n";
+    return 1;
+  }
+  HttpHandler handler(db);
 
   for (const auto &ep : settings["server"]["endpoints"]) {
     std::string path = ep.get<std::string>();
@@ -108,6 +125,9 @@ int main() {
   });
   server.Get("/dbping", [&handler](const auto &req, auto &res) {
     handler.callGetHandler("dbping", req, res);
+  });
+  server.Get("/segments", [&handler](const auto &req, auto &res) {
+    handler.callGetHandler("segments", req, res);
   });
 
   server.Get("/lab/list", [](const httplib::Request &, httplib::Response &res) {

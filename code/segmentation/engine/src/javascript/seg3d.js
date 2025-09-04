@@ -284,7 +284,7 @@ for (const l of map3d.getStyle().layers) {
     map3d.addLayer({
       id:'segment-line', type:'line', source:'segment',
       layout:{ 'line-join':'round', 'line-cap':'round' },
-      paint:{ 'line-width':4, 'line-color':'#FF6600' }
+      paint:{ 'line-width':4, 'line-color':'#00FF00' }
     });
 
     const bounds = coords.reduce(

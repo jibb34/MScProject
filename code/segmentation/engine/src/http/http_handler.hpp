@@ -8,7 +8,7 @@
 
 class HttpHandler {
 public:
-  HttpHandler() = default;
+  HttpHandler(MYSQL *db) : db_(db) {}
 
   void registerRoutes(httplib::Server &server);
   void callPostHandler(std::string action, const httplib::Request &req,
@@ -18,6 +18,7 @@ public:
 
 private:
   std::string endpoint_;
+  MYSQL *db_;
   // Add handlers here as we create them. /segment should be the only main one
   // though
   void handleSegment(const httplib::Request &req, httplib::Response &res);
@@ -31,4 +32,5 @@ private:
   void handleLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabResample(const httplib::Request &req, httplib::Response &res);
   void handleDBPing(const httplib::Request &req, httplib::Response &res);
+  void handleSegments(const httplib::Request &req, httplib::Response &res);
 };

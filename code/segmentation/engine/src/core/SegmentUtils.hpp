@@ -42,15 +42,15 @@ public:
   struct BBox {
     double min_lat, min_lon, max_lat, max_lon;
   };
-  BBox compute_bbox(const std::vector<Coordinate> &pts);
-  BBox inflate_bbox(const BBox &b, double pad_m);
+  static BBox compute_bbox(const std::vector<Coordinate> &pts);
+  static BBox inflate_bbox(const BBox &b, double pad_m);
 
   // coords_json -> vector<Coordinate> (expects [[lon,lat], ...])
   std::vector<Coordinate> parse_coords_json(const std::string &coords_json);
 
   // Directed average nearest-neighbour distance A->B
-  double avg_directed_distance_m(const std::vector<Coordinate> &A,
-                                 const std::vector<Coordinate> &B);
+  static double avg_directed_distance_m(const std::vector<Coordinate> &A,
+                                        const std::vector<Coordinate> &B);
 
   // Symmetric (max of directed) a.k.a. Hausdorff-like (averaged)
   double symmetric_distance_m(const std::vector<Coordinate> &A,
@@ -64,9 +64,9 @@ public:
     int end_idx;
     double mean_dist;
   };
-  Alignment best_window_alignment(const std::vector<Coordinate> &route,
-                                  const std::vector<Coordinate> &seg,
-                                  double thr_m, int min_pts = 30);
+  static Alignment best_window_alignment(const std::vector<Coordinate> &route,
+                                         const std::vector<Coordinate> &seg,
+                                         double thr_m, int min_pts = 30);
   static double ang_diff(double a, double b);
 
   // Compute + smooth speed in-place for rs.points
@@ -97,5 +97,9 @@ public:
                              double v0 = 2.5,   // knee (~9 km/h)
                              double vhi = 5.56, // falloff (~20 km/h)
                              double p = 2.0, double q = 2.0);
+  static void overlay_db_segments(std::vector<SegmentInstance> &segs,
+                                  const std::vector<Coordinate> &route_coords,
+                                  const std::vector<long long> &way_ids);
+
   // private:
 };

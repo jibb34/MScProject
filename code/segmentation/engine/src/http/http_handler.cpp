@@ -48,7 +48,7 @@ void HttpHandler::callPostHandler(std::string action,
                                   const httplib::Request &req,
                                   httplib::Response &res) {
   if (action == "segment") {
-    handleSegment(req, res);
+    // handleSegment(req, res);
   } else if (action == "debug") {
     handleDebug(req, res);
   } else if (action == "upload") {
@@ -57,6 +57,7 @@ void HttpHandler::callPostHandler(std::string action,
     handleLabResample(req, res);
   } else if (action == "wavelet") {
     handleWavelet(req, res);
+
   } else {
     res.status = 404;
     res.set_content("Unknown action: " + action, "text/plain");
@@ -73,7 +74,8 @@ void HttpHandler::callGetHandler(std::string action,
     handleLabMeta(req, res);
   } else if (action == "dbping") {
     handleDBPing(req, res);
-
+  } else if (action == "segments") {
+    handleSegments(req, res);
   }
   // default
   else {
@@ -770,6 +772,13 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     segs.push_back(std::move(si));
   }
 
+  std::vector<Coordinate> route_coords;
+  route_coords.reserve(rs.points.size());
+  for (auto &p : rs.points) {
+    route_coords.push_back(p.coord);
+  }
+  SegmentUtils::overlay_db_segments(segs, route_coords, way_ids);
+
   // Serialize segments
   json jsegs = json::array();
   for (auto &s : segs) {
@@ -844,51 +853,228 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
 
 // ===== segmentation (placeholder) =====
 
-void HttpHandler::handleSegment(const httplib::Request &req,
-                                httplib::Response &res) {
-  SegmentationParams params;
+// helper: parse bbox from query string
+static bool parse_bbox(const httplib::Request &req, double &west, double &south,
+                       double &east, double &north) {
+  // option A: bbox=west,south,east,north
+  if (auto it = req.get_param_value("bbox", 0); !it.empty()) {
+    std::string s = it;
+    std::stringstream ss(s);
+    std::string tok;
+    std::vector<double> vals;
+    while (std::getline(ss, tok, ',')) {
+      try {
+        vals.push_back(std::stod(tok));
+      } catch (...) {
+        return false;
+      }
+    }
+    if (vals.size() != 4)
+      return false;
+    west = vals[0];
+    south = vals[1];
+    east = vals[2];
+    north = vals[3];
+    return true;
+  }
+  // option B: minLon, minLat, maxLon, maxLat
   try {
-    if (req.has_param("min_segment_length_m"))
-      params.min_segment_length_m =
-          std::stod(req.get_param_value("min_segment_length_m"));
-    if (req.has_param("split_on_highway_change"))
-      params.split_on_highway_change =
-          (req.get_param_value("split_on_highway_change") == "true");
-    if (req.has_param("max_points"))
-      params.max_points = std::stoi(req.get_param_value("max_points"));
-    if (req.has_param("job_id"))
-      params.job_id = req.get_param_value("job_id");
+    std::string sWest = req.get_param_value("minLon", 0);
+    std::string sSouth = req.get_param_value("minLat", 0);
+    std::string sEast = req.get_param_value("maxLon", 0);
+    std::string sNorth = req.get_param_value("maxLat", 0);
+    if (sWest.empty() || sSouth.empty() || sEast.empty() || sNorth.empty())
+      return false;
+    west = std::stod(sWest);
+    south = std::stod(sSouth);
+    east = std::stod(sEast);
+    north = std::stod(sNorth);
+    return true;
   } catch (...) {
+    return false;
+  }
+}
+
+std::string to_hex(const unsigned char *data, size_t len) {
+  static const char *hex = "0123456789abcdef";
+  std::string out;
+  out.reserve(len * 2);
+  for (size_t i = 0; i < len; ++i) {
+    out.push_back(hex[data[i] >> 4]);
+    out.push_back(hex[data[i] & 0x0F]);
+  }
+  return out;
+}
+// handleSegment: fetch segments from `segment_defs` JSON+bbox columns only
+void HttpHandler::handleSegments(const httplib::Request &req,
+                                 httplib::Response &res) {
+  // 1) Parse bbox (same helper)
+  double west = 0, south = 0, east = 0, north = 0;
+  if (!parse_bbox(req, west, south, east, north)) {
     res.status = 400;
-    res.set_content("Invalid query parameter types", "text/plain");
+    res.set_content(
+        R"({"error":"invalid bbox. use bbox=west,south,east,north or minLon/minLat/maxLon/maxLat"})",
+        "application/json");
+    return;
+  }
+  if (!(west < east && south < north)) {
+    res.status = 400;
+    res.set_content(
+        R"({"error":"bbox must satisfy west<east and south<north"})",
+        "application/json");
     return;
   }
 
-  json body;
-  try {
-    body = json::parse(req.body);
-  } catch (...) {
-    res.status = 400;
-    res.set_content("Invalid JSON body", "text/plain");
+  // 2) Query segment_defs using precomputed bbox columns
+  static const std::string sql = R"(
+    SELECT
+      segment_uid,
+      direction,
+      length_m,
+      coords_json
+    FROM segment_defs
+    WHERE bbox_min_lon <= ?
+      AND bbox_max_lon >= ?
+      AND bbox_min_lat <= ?
+      AND bbox_max_lat >= ?;
+  )";
+
+  if (!db_) {
+    std::cerr << "[handleSegments] FATAL: db_ is null!\n";
+    res.status = 500;
+    res.set_content(R"({"error":"internal db connection not initialized"})",
+                    "application/json");
+    return;
+  }
+  MYSQL_STMT *stmt = mysql_stmt_init(db_);
+  if (!stmt) {
+    res.status = 500;
+    res.set_content(R"({"error":"db statement init failed"})",
+                    "application/json");
+    return;
+  }
+  if (mysql_stmt_prepare(stmt, sql.c_str(),
+                         static_cast<unsigned long>(sql.size())) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"prepare failed: )") + e + "\"}",
+                    "application/json");
     return;
   }
 
-  OsrmResponse osrm_object;
-  try {
-    osrm_object = body.get<OsrmResponse>();
-  } catch (const std::exception &e) {
-    res.status = 400;
-    res.set_content(std::string("Parse error: ") + e.what(), "text/plain");
+  // 3) Bind bbox params: (east, west, north, south)
+  MYSQL_BIND pbind[4];
+  memset(pbind, 0, sizeof(pbind));
+  double params[4] = {east, west, north, south};
+  for (int i = 0; i < 4; ++i) {
+    pbind[i].buffer_type = MYSQL_TYPE_DOUBLE;
+    pbind[i].buffer = &params[i];
+    pbind[i].is_null = nullptr;
+    pbind[i].length = nullptr;
+  }
+  if (mysql_stmt_bind_param(stmt, pbind) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"bind params failed: )") + e +
+                        "\"}",
+                    "application/json");
     return;
   }
 
-  // TODO: segmentation engine
+  if (mysql_stmt_execute(stmt) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"execute failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
 
-  res.set_content(R"({"ok":true})", "application/json");
+  // 4) Bind result columns and fetch into GeoJSON FeatureCollection
+  MYSQL_BIND rbind[4];
+  memset(rbind, 0, sizeof(rbind));
+  unsigned char uid_buf[32]; // BINARY(32)
+  char dir_buf[8];
+  unsigned long dir_len = 0;
+  double length_m = 0;
+  // coords_json: assume <64KB, adjust if necessary
+  std::vector<char> json_buf(1 << 16);
+  unsigned long json_len = 0;
+
+  // UID
+  rbind[0].buffer_type = MYSQL_TYPE_STRING;
+  rbind[0].buffer = uid_buf;
+  rbind[0].buffer_length = sizeof(uid_buf);
+  rbind[0].length = nullptr;
+  // direction
+  rbind[1].buffer_type = MYSQL_TYPE_STRING;
+  rbind[1].buffer = dir_buf;
+  rbind[1].buffer_length = sizeof(dir_buf);
+  rbind[1].length = &dir_len;
+  // length_m
+  rbind[2].buffer_type = MYSQL_TYPE_DOUBLE;
+  rbind[2].buffer = &length_m;
+  // coords_json
+  rbind[3].buffer_type = MYSQL_TYPE_STRING;
+  rbind[3].buffer = json_buf.data();
+  rbind[3].buffer_length = json_buf.size();
+  rbind[3].length = &json_len;
+
+  if (mysql_stmt_bind_result(stmt, rbind) != 0 ||
+      mysql_stmt_store_result(stmt) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"bind/store result failed: )") + e +
+                        "\"}",
+                    "application/json");
+    return;
+  }
+
+  nlohmann::json fc = {{"type", "FeatureCollection"},
+                       {"features", nlohmann::json::array()}};
+
+  while (true) {
+    int rc = mysql_stmt_fetch(stmt);
+    if (rc == MYSQL_NO_DATA)
+      break;
+    if (rc == 1) {
+      std::string e = mysql_error(db_);
+      mysql_stmt_close(stmt);
+      res.status = 500;
+      res.set_content(std::string(R"({"error":"fetch failed: )") + e + "\"}",
+                      "application/json");
+      return;
+    }
+
+    // Build a Feature
+    nlohmann::json feat;
+    feat["type"] = "Feature";
+    // properties
+    nlohmann::json props = {{"uid", to_hex(uid_buf, sizeof(uid_buf))},
+                            {"direction", std::string(dir_buf, dir_len)},
+                            {"length_m", length_m}};
+    feat["properties"] = std::move(props);
+    // geometry
+    feat["geometry"] = {{"type", "LineString"},
+                        {"coordinates", nlohmann::json::parse(std::string(
+                                            json_buf.data(), json_len))}};
+    fc["features"].push_back(std::move(feat));
+  }
+
+  mysql_stmt_free_result(stmt);
+  mysql_stmt_close(stmt);
+
+  // 5) Return the GeoJSON
+  res.set_header("Access-Control-Allow-Origin", "*");
+  res.set_content(fc.dump(), "application/json");
 }
 
 void HttpHandler::handleDBPing(const httplib::Request &req,
                                httplib::Response &res) {
+
   // read credentials from ENV or config
   std::cerr << "hit ping" << "\n";
   const char *host = std::getenv("DB_HOST") ?: "127.0.0.1";
@@ -898,7 +1084,7 @@ void HttpHandler::handleDBPing(const httplib::Request &req,
   unsigned int port =
       std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
 
-  MYSQL *conn = mysql_init(nullptr);
+  MYSQL *conn = db_;
   if (!conn) {
     res.status = 500;
     res.set_content(R"({"ok":false,"error":"mysql_init failed"})",
