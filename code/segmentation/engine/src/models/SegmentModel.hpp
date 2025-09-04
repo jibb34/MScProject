@@ -10,12 +10,42 @@ struct SegmentRun {
   int to_idx;       // exclusive
 };
 enum class SegmentKind : uint8_t {
-  Existing = 0, // matched from DB (draw green)
+  Unknown = 0, // matched from DB (draw green)
   Flat,
   Uphill,
   Downhill,
   Rolling
 };
+
+inline const char *SegmentTypeToString(SegmentKind type) {
+  switch (type) {
+  case SegmentKind::Rolling:
+    return "rolling";
+  case SegmentKind::Flat:
+    return "flat";
+  case SegmentKind::Uphill:
+    return "uphill";
+  case SegmentKind::Downhill:
+    return "downhill";
+  default:
+    return "unknown";
+  }
+}
+
+inline SegmentKind SegmentTypeFromCode(int code) {
+  switch (code) {
+  case 1:
+    return SegmentKind::Flat;
+  case 2:
+    return SegmentKind::Uphill;
+  case 3:
+    return SegmentKind::Downhill;
+  case 4:
+    return SegmentKind::Rolling;
+  default:
+    return SegmentKind::Unknown;
+  }
+}
 
 struct SegmentDef {
   std::array<uint8_t, 32> uid; // SHA-256 bytes
@@ -25,6 +55,7 @@ struct SegmentDef {
   double bbox_min_lat = 0, bbox_min_lon = 0, bbox_max_lat = 0, bbox_max_lon = 0;
   double length_m = 0.0;
   bool isSnapped = true;
+  SegmentKind kind = SegmentKind::Unknown;
 };
 
 struct SegmentInstance {
@@ -36,5 +67,4 @@ struct SegmentInstance {
   int end_idx = 0;        // exclusive
   // ordered list of way runs composing this span
   std::vector<SegmentRun> runs;
-  SegmentKind kind = SegmentKind::Existing; // default for DB matches
 };

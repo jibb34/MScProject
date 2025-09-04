@@ -746,6 +746,21 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   auto terrainUS = eng.terrain_states_from_elevation(rs, tpar, E);
   auto state_codes = eng.get_states();
 
+  auto state_to_type = [](int s) -> SegmentKind {
+    switch (s) {
+    case 1:
+      return SegmentKind::Rolling;
+    case 2:
+      return SegmentKind::Flat;
+    case 3:
+      return SegmentKind::Uphill;
+    case 4:
+      return SegmentKind::Downhill;
+    default:
+      return SegmentKind::Unknown;
+    }
+  };
+
   // Change points
   std::vector<int> change_points = eng.get_changepoint_points(rs);
   out["change_points"] = change_points;
@@ -753,6 +768,26 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   // Build spans
   int N = (int)rs.points.size();
   auto spans = SegmentUtils::make_segments_from_change_points(change_points, N);
+
+  // map state codes to type
+  auto majority_state = [&](int a, int b) -> int {
+    int counts[5] = {0, 0, 0, 0, 0}; // 0..4
+    if (a < 0)
+      a = 0;
+    if (b > (int)state_codes.size())
+      b = (int)state_codes.size();
+    for (int i = a; i < b; ++i) {
+      int s = static_cast<int>(state_codes[i]);
+      if (s < 0 || s > 4)
+        s = 0;
+      ++counts[s];
+    }
+    int best = 0;
+    for (int s = 1; s <= 4; ++s)
+      if (counts[s] > counts[best])
+        best = s;
+    return best;
+  };
 
   // Collect way_ids once
   std::vector<long long> way_ids;
@@ -769,6 +804,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     si.start_idx = a;
     si.end_idx = b;
     si.runs = SegmentUtils::way_runs_in_slice(way_ids, a, b);
+    si.def.kind = state_to_type(majority_state(a, b));
     segs.push_back(std::move(si));
   }
 
@@ -790,6 +826,20 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     jr["point_count"] = s.def.point_count;
     jr["coordinates"] = json::parse(s.def.coords_json);
     jr["runs"] = json::array();
+    jr["type"] = [&] {
+      switch (s.def.kind) {
+      case SegmentKind::Rolling:
+        return "rolling";
+      case SegmentKind::Flat:
+        return "flat";
+      case SegmentKind::Uphill:
+        return "uphill";
+      case SegmentKind::Downhill:
+        return "downhill";
+      default:
+        return "unknown";
+      }
+    }();
     for (size_t i = 0; i < s.runs.size(); ++i) {
       const auto &r = s.runs[i];
       jr["runs"].push_back({{"seq", int(i)},

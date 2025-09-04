@@ -138,7 +138,6 @@ public:
         inst.def = def;
         inst.start_idx = sidx;
         inst.end_idx = eidx;
-        inst.kind = SegmentKind::Existing;
         out.instances.push_back(inst);
         out.masked_ranges.push_back({inst.start_idx, inst.end_idx});
       }

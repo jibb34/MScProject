@@ -7,42 +7,6 @@
 #include <string>
 #include <vector>
 
-// std::vector<SegmentDef> MySQLSegmentDB::query_defs_in_bbox(double min_lat,
-//                                                            double min_lon,
-//                                                            double max_lat,
-//                                                            double max_lon) {
-//   std::vector<SegmentDef> out;
-//   // NOTE: assumes table `segments` with columns matching SegmentDef fields
-//   //   uid_hex VARCHAR(64) PK, coords_json MEDIUMTEXT,
-//   //   point_count INT, bbox_min_lat DOUBLE, bbox_min_lon DOUBLE,
-//   //   bbox_max_lat DOUBLE, bbox_max_lon DOUBLE, length_m DOUBLE
-//   const char *sql =
-//       "SELECT uid_hex, coords_json, point_count, "
-//       "       bbox_min_lat, bbox_min_lon, bbox_max_lat, bbox_max_lon,
-//       length_m " "FROM segments " "WHERE bbox_min_lat <= ? AND bbox_max_lat
-//       >= ? " "  AND bbox_min_lon <= ? AND bbox_max_lon >= ? " "LIMIT 500";
-//
-//   mariadb::statement_ref stmt = conn_->create_statement(sql);
-//   stmt->set_double(0, max_lat);
-//   stmt->set_double(1, min_lat);
-//   stmt->set_double(2, max_lon);
-//   stmt->set_double(3, min_lon);
-//   auto res = stmt->query();
-//   while (res->next()) {
-//     SegmentDef d;
-//     d.uid_hex = res->get_string(0);
-//     d.coords_json = res->get_string(1);
-//     d.point_count = static_cast<int>(res->get_unsigned32(2));
-//     d.bbox_min_lat = res->get_double(3);
-//     d.bbox_min_lon = res->get_double(4);
-//     d.bbox_max_lat = res->get_double(5);
-//     d.bbox_max_lon = res->get_double(6);
-//     d.length_m = res->get_double(7);
-//     out.push_back(std::move(d));
-//   }
-//   return out;
-// }
-
 MySQLSegmentDB::MySQLSegmentDB(const std::string &uri, const std::string &user,
                                const std::string &pass,
                                const std::string &schema) {
@@ -96,7 +60,8 @@ void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
         bbox_min_lon = VALUES(bbox_min_lon),
         bbox_max_lat = VALUES(bbox_max_lat),
         bbox_max_lon = VALUES(bbox_max_lon),
-        length_m = VALUES(length_m)
+        length_m = VALUES(length_m),
+        kind = VALUES(kind)
     )SQL";
 
   MYSQL_STMT *stmt = mysql_stmt_init(conn_);
@@ -107,7 +72,7 @@ void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
     throw std::runtime_error(mysql_stmt_error(stmt));
 
   // Bind parameters
-  MYSQL_BIND b[10];
+  MYSQL_BIND b[11];
   memset(b, 0, sizeof(b));
 
   // segment_uid (binary 32)
@@ -144,6 +109,11 @@ void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
   // length_m
   b[7].buffer_type = MYSQL_TYPE_DOUBLE;
   b[7].buffer = (void *)&d.length_m;
+
+  // kind (enum -> tinyint)
+  b[8].buffer_type = MYSQL_TYPE_LONG;
+  int kind_code = static_cast<int>(d.kind);
+  b[8].buffer = &kind_code;
 
   if (mysql_stmt_bind_param(stmt, b))
     throw std::runtime_error(mysql_stmt_error(stmt));
