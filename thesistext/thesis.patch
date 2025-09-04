@@ -1,0 +1,58 @@
+*** Begin Patch
+*** Update File: thesis.tex
+@@ \chapter{Methodology}
++% ─────────────────────────────────────────────────────────────────────────────────
++\section{Critical Reflection on Methodology}
++In developing this methodology, several compromises were made. Purely statistical methods risked over-segmenting minor elevation noise, while rigid thresholds missed the nuanced undulations riders perceive as rolling terrain. We therefore adopted a hybrid of central-difference slope and moving-average deviation metrics, then cross-validated our “expected” algorithmic labels against “observed” rider feedback on a set of test routes. Discrepancies—such as segments tagged as \emph{flat} that riders described as \emph{challenging}—fed back into an iterative calibration loop, ensuring our computational definitions stay grounded in real-world cycling experience rather than abstract mathematical constructs.
++% ─────────────────────────────────────────────────────────────────────────────────
+
+*** End Patch: add critical reflection in Methodology
+
+
+*** Begin Patch
+*** Update File: thesis.tex
+@@ \section{LSEPI Analysis}
+ \subsection{Political}
+ \label{sec:lsepi}
+ % LSEPI analysis content.
++
++% ─────────────────────────────────────────────────────────────────────────────────
++\chapter{Critical Reflection}
++\label{chap:reflection}
++
++\section{Comparison of Existing Tools}
++Before designing our bespoke segmentation engine, we evaluated three mainstream platforms:
++\begin{itemize}
++  \item \textbf{Strava:} Prioritises competitive segment times and social comparison. While post-ride analytics are rich, Strava offers no predictive insight into the physiological demands of a full route.
++  \item \textbf{Komoot:} Emphasises surface type and scenic value, presenting clear elevation profiles but not categorising terrain by training zone or variability essential for structured workouts.
++  \item \textbf{Google Maps:} Focuses on travel-time efficiency. Elevation data is coarse, and there is no framework for assessing cumulative training load or segment variability.
++\end{itemize}
++
++\section{Rejected Design Paths}
++During development we prototyped and then set aside several approaches:
++\begin{itemize}
++  \item \emph{Fourier-transform segmentation:} Offered frequency-domain insights but was overly sensitive to noise and computationally heavy.
++  \item \emph{Supervised ML on rider-labelled data:} Limited by lack of large, high-quality annotated datasets, which prevented robust model training.
++  \item \emph{OSM road-type heuristics:} Road classification (residential, trunk, cycleway) correlated poorly with actual terrain difficulty, since classification often reflects traffic rules rather than gradient patterns.
++\end{itemize}
++
++\section{Expanded LSEPI Analysis}
++We revisited the LSEPI (Legal, Social, Ethical, Political/Institutional) framework with new critical insights:
++
++\subsection{Legal}
++Use of OSM data mandates ODbL compliance. Any commercial deployment must ensure proper attribution and adhere to derivative work guidelines.
++
++\subsection{Social}
++Democratising structured training data empowers cyclists but risks over-reliance on algorithmic recommendations, potentially reducing individual exploration and experiential learning.
++
++\subsection{Ethical}
++Data sparsity in under-mapped or rural areas can bias suggestions, leading to unsafe or suboptimal routing for some users. Addressing this requires transparent communication of data confidence.
++
++\subsection{Political/Institutional}
++Incumbent platforms (e.g., Strava, Komoot) may resist integration of open-source analytics that threaten their proprietary models, posing barriers to adoption despite clear user benefits.
++
++\section{Expected vs Observed Outcomes}
++An essential part of our validation strategy compared algorithmic predictions with rider reports. For example, when the engine classified a section as \emph{rolling} but multiple riders described it as a sustained climb, we reviewed and adjusted the amplitude and prominence thresholds. This feedback loop ensured our segmentation remained meaningful to cyclists and not just mathematically consistent.
++% ─────────────────────────────────────────────────────────────────────────────────
+*** End Patch: add full Critical Reflection chapter
+
