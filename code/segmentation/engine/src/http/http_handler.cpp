@@ -749,13 +749,13 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   auto state_to_type = [](int s) -> SegmentKind {
     switch (s) {
     case 1:
-      return SegmentKind::Rolling;
-    case 2:
       return SegmentKind::Flat;
-    case 3:
+    case 2:
       return SegmentKind::Uphill;
-    case 4:
+    case 3:
       return SegmentKind::Downhill;
+    case 4:
+      return SegmentKind::Rolling;
     default:
       return SegmentKind::Unknown;
     }
@@ -769,24 +769,36 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   int N = (int)rs.points.size();
   auto spans = SegmentUtils::make_segments_from_change_points(change_points, N);
 
-  // map state codes to type
-  auto majority_state = [&](int a, int b) -> int {
-    int counts[5] = {0, 0, 0, 0, 0}; // 0..4
-    if (a < 0)
-      a = 0;
-    if (b > (int)state_codes.size())
-      b = (int)state_codes.size();
-    for (int i = a; i < b; ++i) {
-      int s = static_cast<int>(state_codes[i]);
-      if (s < 0 || s > 4)
-        s = 0;
-      ++counts[s];
-    }
-    int best = 0;
-    for (int s = 1; s <= 4; ++s)
-      if (counts[s] > counts[best])
-        best = s;
-    return best;
+  // helper: nearest uniform-sample index for a given route cumulative distance
+  // (meters)
+  auto nearest_uniform_idx = [&](double s_m) -> int {
+    // terrainUS.s is ascending in meters
+    auto it = std::lower_bound(terrainUS.s.begin(), terrainUS.s.end(), s_m);
+    if (it == terrainUS.s.begin())
+      return 0;
+    if (it == terrainUS.s.end())
+      return (int)terrainUS.s.size() - 1;
+    size_t j = (size_t)(it - terrainUS.s.begin());
+    // pick closer of j and j-1
+    return (std::abs(terrainUS.s[j] - s_m) < std::abs(terrainUS.s[j - 1] - s_m))
+               ? (int)j
+               : (int)j - 1;
+  };
+
+  // route-index → state code via midpoint sampling
+  auto state_at_span = [&](int a, int b) -> int {
+    int mid = a + (std::max(1, b - a) / 2);
+    if (mid < 0)
+      mid = 0;
+    if (mid >= (int)rs.points.size())
+      mid = (int)rs.points.size() - 1;
+    double s_m = rs.points[mid].cum_dist; // meters
+    int j = nearest_uniform_idx(s_m);
+    int code =
+        (j >= 0 && j < (int)state_codes.size()) ? (int)state_codes[j] : 0;
+    if (code < 0 || code > 4)
+      code = 0;
+    return code;
   };
 
   // Collect way_ids once
@@ -804,7 +816,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     si.start_idx = a;
     si.end_idx = b;
     si.runs = SegmentUtils::way_runs_in_slice(way_ids, a, b);
-    si.def.kind = state_to_type(majority_state(a, b));
+    si.def.kind = state_to_type(state_at_span(a, b));
     segs.push_back(std::move(si));
   }
 

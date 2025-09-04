@@ -51,8 +51,8 @@ void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
   static const char *SQL = R"SQL(
       INSERT INTO segment_defs
         (segment_uid, direction, srid, point_count, coords_json,
-         bbox_min_lat, bbox_min_lon, bbox_max_lat, bbox_max_lon, length_m)
-      VALUES (?, 'F', 4326, ?, ?, ?, ?, ?, ?, ?)
+         bbox_min_lat, bbox_min_lon, bbox_max_lat, bbox_max_lon, length_m, kind)
+      VALUES (?, 'F', 4326, ?, ?, ?, ?, ?, ?, ?, ?)
       ON DUPLICATE KEY UPDATE
         point_count = VALUES(point_count),
         coords_json = VALUES(coords_json),
