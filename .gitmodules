@@ -13,3 +13,6 @@
 [submodule "code/segmentation/engine/thirdparty/json"]
 	path = code/segmentation/engine/thirdparty/json
 	url = https://github.com/nlohmann/json.git
+[submodule "code/segmentation/engine/thirdparty/eigen"]
+	path = code/segmentation/engine/thirdparty/eigen
+	url = https://gitlab.com/libeigen/eigen.git

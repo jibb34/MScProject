@@ -1,5 +1,3 @@
-version: "3.9"
-
 # This docker‑compose file provisions a single MySQL 8 container for
 # development and testing.  It reads credentials from .env, mounts
 # persistent storage, and executes any SQL files in the ./init

@@ -24,6 +24,10 @@ find_package(Threads REQUIRED)
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS src/*.cpp)
 
 add_executable(segmentation_engine ${SRC_FILES})
+option(USE_SYSTEM_EIGEN "Use system-installed Eigen if available" ON)
+if(USE_SYSTEM_EIGEN)
+  find_package(Eigen3 3.3 QUIET NO_MODULE)
+endif()
 
 add_subdirectory(thirdparty/json EXCLUDE_FROM_ALL)
 # Include paths

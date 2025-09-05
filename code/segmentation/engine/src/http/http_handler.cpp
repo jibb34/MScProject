@@ -50,7 +50,6 @@ void HttpHandler::callPostHandler(std::string action,
       {"lab/resample", &HttpHandler::handleLabResample},
       {"wavelet", &HttpHandler::handleWavelet}};
 
-
   if (auto it = kPostHandlers.find(action); it != kPostHandlers.end()) {
     (this->*(it->second))(req, res);
   } else {
@@ -62,7 +61,6 @@ void HttpHandler::callPostHandler(std::string action,
 void HttpHandler::callGetHandler(std::string action,
                                  const httplib::Request &req,
                                  httplib::Response &res) {
-
 
   static const std::unordered_map<std::string, HandlerFunc> kGetHandlers = {
       {"view", &HttpHandler::handleView},
@@ -756,7 +754,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   if (persist) {
     std::cerr << "Sending segments to database" << "\n";
     // Load DB connection info from environment (with defaults)
-    const char *db_host = std::getenv("DB_HOST") ?: "127.0.0.1";
+    const char *db_host = std::getenv("DB_HOST") ?: "172.17.0.1";
     const char *db_user = std::getenv("DB_USER") ?: "routeseg_user";
     const char *db_pass = std::getenv("DB_PASS") ?: "changeme-user";
     const char *db_name = std::getenv("DB_NAME") ?: "routeseg";
@@ -765,9 +763,9 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
 
     std::unique_ptr<MySQLSegmentDB> db;
     try {
-      db = std::make_unique<MySQLSegmentDB>(
-          std::string("tcp://") + db_host + ":" + std::to_string(db_port),
-          db_user, db_pass, db_name);
+      db = std::make_unique<MySQLSegmentDB>(std::string("tcp://") + db_host +
+                                                ":" + std::to_string(db_port),
+                                            db_user, db_pass, db_name);
       db->begin();
       for (auto &s : segs) {
         db->upsert_segment_def(s.def);
@@ -1019,4 +1017,3 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   res.set_header("Access-Control-Allow-Origin", "*");
   res.set_content(fc.dump(), "application/json");
 }
-

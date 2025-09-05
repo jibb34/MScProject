@@ -107,7 +107,6 @@ int main() {
     });
   }
 
-
   // ---------------------- Register GET endpoints --------------------------
   for (const auto &ep : settings["server"]["get_endpoints"]) {
     std::string path = ep.get<std::string>();

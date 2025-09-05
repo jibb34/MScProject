@@ -142,11 +142,13 @@
 
         const looksLatLon = Math.abs(a) <= 90 && Math.abs(b) <= 180;
         const looksLonLat = Math.abs(a) <= 180 && Math.abs(b) <= 90;
-        if (looksLatLon && !looksLonLat) out.push([a, b]);
-        else if (!looksLatLon && looksLonLat) out.push([b, a]);
-        else {
-          if (Math.abs(a) > 90 && Math.abs(b) <= 90) out.push([b, a]);
-          else out.push([a, b]);
+        // Force the internal convention: coords === [lat, lon]
+        if (looksLatLon && !looksLonLat) {
+          out.push([a, b]);          // already [lat, lon]
+        } else if (!looksLatLon && looksLonLat) {
+          out.push([b, a]);          // flip from [lon, lat]
+        } else {
+          out.push([b, a]);          // ambiguous → assume GeoJSON [lon,lat], flip
         }
       }
     }
