@@ -1,3 +1,5 @@
+// WaveletFootprintEngine builds wavelet-based signals from route data.
+
 #include "WaveletFootprint.hpp"
 #include "models/CoreTypes.hpp"
 
@@ -465,8 +467,7 @@ UniformSignal WaveletFootprintEngine::terrain_states_from_elevation(
     const RouteSignal &rs, const TerrainParams &p,
     std::vector<double> &E_out) const {
 
-  /* TODO:
-   */
+  // Build elevation wavelet and resample
   // 1) Build Wavelet Signal from elevation
   const GetterFn get_elev = [](const DataPoint &d) { return d.coord.elv; };
   WaveletSignal w = this->make_wavelet_signal(rs, get_elev, SeriesKind::Scalar);
