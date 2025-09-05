@@ -24,15 +24,12 @@ private:
   MYSQL *db_;
 
   // Individual request handlers
-  void handleSegment(const httplib::Request &req, httplib::Response &res);
   void handleWavelet(const httplib::Request &req, httplib::Response &res);
-  void handleDebug(const httplib::Request &req, httplib::Response &res);
   void handleUpload(const httplib::Request &req, httplib::Response &res);
   void handleView(const httplib::Request &req, httplib::Response &res);
   void handleSignalLabUI(const httplib::Request &req, httplib::Response &res);
   void handleSignalLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabResample(const httplib::Request &req, httplib::Response &res);
-  void handleDBPing(const httplib::Request &req, httplib::Response &res);
   void handleSegments(const httplib::Request &req, httplib::Response &res);
 };

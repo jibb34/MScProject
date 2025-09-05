@@ -45,11 +45,9 @@ void HttpHandler::callPostHandler(std::string action,
                                   const httplib::Request &req,
                                   httplib::Response &res) {
   static const std::unordered_map<std::string, HandlerFunc> kPostHandlers = {
-      {"debug", &HttpHandler::handleDebug},
       {"upload", &HttpHandler::handleUpload},
       {"lab/resample", &HttpHandler::handleLabResample},
-      {"wavelet", &HttpHandler::handleWavelet},
-      {"segment", &HttpHandler::handleSegment}};
+      {"wavelet", &HttpHandler::handleWavelet}};
 
   if (auto it = kPostHandlers.find(action); it != kPostHandlers.end()) {
     (this->*(it->second))(req, res);
@@ -67,7 +65,6 @@ void HttpHandler::callGetHandler(std::string action,
       {"view", &HttpHandler::handleView},
       {"viewLab", &HttpHandler::handleSignalLabUI},
       {"lab/meta", &HttpHandler::handleLabMeta},
-      {"dbping", &HttpHandler::handleDBPing},
       {"segments", &HttpHandler::handleSegments}};
 
   if (auto it = kGetHandlers.find(action); it != kGetHandlers.end()) {
@@ -76,168 +73,6 @@ void HttpHandler::callGetHandler(std::string action,
     res.status = 404;
     res.set_content("Unknown action: " + action, "text/plain");
   }
-}
-
-// ===== debug =====
-
-void HttpHandler::handleDebug(const httplib::Request &req,
-                              httplib::Response &res) {
-  const bool validate =
-      req.has_param("validate") && (req.get_param_value("validate") == "true");
-
-  // Signal Lab POST endpoint: /debug?lab=signal
-  if (req.method == "POST" && req.has_param("lab") &&
-      req.get_param_value("lab") == "signal") {
-    try {
-      auto j = nlohmann::json::parse(req.body);
-      const std::string map = j.value("map", "");
-      const std::string var = j.value("var", "elev");
-      const double ds = j.value("ds", 5.0);
-      const std::string ks = j.value("kind", "scalar");
-      const SeriesKind kind = (ks == "angle")         ? SeriesKind::Angle
-                              : (ks == "categorical") ? SeriesKind::Categorical
-                                                      : SeriesKind::Scalar;
-
-      if (map.empty() || !is_safe_basename(map)) {
-        res.status = 400;
-        res.set_content(R"({"error":"bad map path"})", "application/json");
-        return;
-      }
-
-      // load + build
-      nlohmann::json body;
-      {
-        std::ifstream in(map);
-        if (!in) {
-          res.status = 404;
-          res.set_content(R"({"error":"file not found"})", "application/json");
-          return;
-        }
-        in >> body;
-      }
-      OsrmResponse osrm = body.get<OsrmResponse>();
-      RouteSignalBuilder builder;
-      RouteSignal rs = builder.build(osrm);
-
-      WaveletFootprintEngine eng;
-      auto sig = eng.make_wavelet_signal(
-          rs, [&, var](const DataPoint &d) { return pick_value(d, var); }, kind,
-          /*min_step_m*/ 0.0);
-
-      UniformSignal uni;
-      switch (kind) {
-      case SeriesKind::Scalar:
-        uni = eng.resample_uniform_scalar(sig, ds);
-        break;
-      case SeriesKind::Angle:
-        uni = eng.resample_uniform_angle(sig, ds);
-        break;
-      case SeriesKind::Categorical:
-        uni = eng.resample_uniform_categorical(sig, ds);
-        break;
-      }
-
-      nlohmann::json out;
-      out["s_km"] = nlohmann::json::array();
-      out["y"] = nlohmann::json::array();
-      for (size_t i = 0; i < uni.s.size(); ++i) {
-        out["s_km"].push_back(uni.s[i] / 1000.0);
-        out["y"].push_back(uni.y[i]);
-      }
-      res.set_content(out.dump(), "application/json");
-      return;
-    } catch (const std::exception &e) {
-      nlohmann::json err = {{"error", e.what()}};
-      res.status = 400;
-      res.set_content(err.dump(), "application/json");
-      return;
-    }
-  }
-
-  if (validate) {
-    try {
-      auto _ = nlohmann::json::parse(req.body);
-      nlohmann::json ok = {{"ok", true},
-                           {"message", "JSON parsed successfully"}};
-      res.set_content(ok.dump(), "application/json");
-      return;
-    } catch (const nlohmann::json::parse_error &e) {
-      const size_t byte = e.byte;
-      auto [line, col] = calc_line_col(req.body, byte);
-      nlohmann::json err = {{"ok", false},
-                            {"kind", "parse_error"},
-                            {"what", e.what()},
-                            {"byte", byte},
-                            {"line", line},
-                            {"column", col},
-                            {"context", context_snippet(req.body, byte)}};
-      res.status = 400;
-      res.set_content(err.dump(), "application/json");
-      return;
-    } catch (const std::exception &e) {
-      nlohmann::json err = {
-          {"ok", false}, {"kind", "exception"}, {"what", e.what()}};
-      res.status = 400;
-      res.set_content(err.dump(), "application/json");
-      return;
-    }
-  }
-
-  const std::string inspect =
-      req.has_param("inspect") ? req.get_param_value("inspect") : "";
-  nlohmann::json body;
-  try {
-    body = nlohmann::json::parse(req.body);
-  } catch (const nlohmann::json::parse_error &e) {
-    const size_t byte = e.byte;
-    auto [line, col] = calc_line_col(req.body, byte);
-    nlohmann::json err = {{"ok", false},
-                          {"kind", "parse_error"},
-                          {"what", e.what()},
-                          {"byte", byte},
-                          {"line", line},
-                          {"column", col},
-                          {"context", context_snippet(req.body, byte)}};
-    res.status = 400;
-    res.set_content(err.dump(2), "application/json");
-    return;
-  }
-
-  if (inspect == "osrm") {
-    try {
-      OsrmResponse resp = body.get<OsrmResponse>();
-      auto info = summarize(resp);
-      res.set_content(info.dump(2), "application/json");
-      return;
-    } catch (const std::exception &e) {
-      nlohmann::json err = {
-          {"ok", false}, {"kind", "type_error"}, {"what", e.what()}};
-      res.status = 400;
-      res.set_content(err.dump(2), "application/json");
-      return;
-    }
-  }
-
-  if (inspect == "geojson") {
-    size_t point_count = 0;
-    for (const auto &feat : body.value("features", nlohmann::json::array())) {
-      const auto &coords = feat["geometry"]["coordinates"];
-      if (!coords.is_array())
-        continue;
-      if (coords.size() > 0 && coords[0].is_array() &&
-          coords[0][0].is_array()) {
-        for (const auto &line : coords)
-          point_count += line.size(); // MultiLineString
-      } else {
-        point_count += coords.size(); // LineString
-      }
-    }
-    nlohmann::json out = {{"ok", true}, {"points", point_count}};
-    res.set_content(out.dump(2), "application/json");
-    return;
-  }
-
-  res.set_content(R"({"ok":true,"message":"debug alive"})", "application/json");
 }
 
 // ===== POST: /upload =====
@@ -1178,4 +1013,3 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   res.set_header("Access-Control-Allow-Origin", "*");
   res.set_content(fc.dump(), "application/json");
 }
-
