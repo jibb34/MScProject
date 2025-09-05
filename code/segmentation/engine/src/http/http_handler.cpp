@@ -6,7 +6,6 @@
 #include "infra/MySQLSegmentDB.hpp"
 #include "models/params.hpp"
 #include "nlohmann/json.hpp"
-
 #include <algorithm>
 #include <cctype>
 #include <chrono>
@@ -63,6 +62,7 @@ void HttpHandler::callPostHandler(std::string action,
 void HttpHandler::callGetHandler(std::string action,
                                  const httplib::Request &req,
                                  httplib::Response &res) {
+
   static const std::unordered_map<std::string, HandlerFunc> kGetHandlers = {
       {"view", &HttpHandler::handleView},
       {"viewLab", &HttpHandler::handleSignalLabUI},
@@ -1179,36 +1179,3 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   res.set_content(fc.dump(), "application/json");
 }
 
-void HttpHandler::handleDBPing(const httplib::Request &req,
-                               httplib::Response &res) {
-
-  // Read credentials from environment; fall back to defaults.
-  const char *host = std::getenv("DB_HOST") ?: "127.0.0.1";
-  const char *user = std::getenv("DB_USER") ?: "routeseg_user";
-  const char *pass = std::getenv("DB_PASS") ?: "changeme-user";
-  const char *db = std::getenv("DB_NAME") ?: "routeseg";
-  unsigned int port =
-      std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
-
-  MYSQL *conn = mysql_init(nullptr);
-  if (!conn) {
-    res.status = 500;
-    res.set_content(R"({"ok":false,"error":"mysql_init failed"})",
-                    "application/json");
-    return;
-  }
-
-  if (!mysql_real_connect(conn, host, user, pass, db, port, nullptr, 0)) {
-    std::string err = mysql_error(conn);
-    mysql_close(conn);
-    res.status = 500;
-    res.set_content(
-        json{{"ok", false}, {"error", "connect failed: " + err}}.dump(),
-        "application/json");
-    return;
-  }
-
-  mysql_close(conn);
-  res.set_content(R"({"ok":true,"message":"DB connection successful"})",
-                  "application/json");
-}
