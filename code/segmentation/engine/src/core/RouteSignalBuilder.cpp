@@ -17,6 +17,7 @@
 #include "core/SegmentUtils.hpp"
 #include <cmath>
 #include <deque>
+#include <iostream>
 #include <limits>
 #include <numeric>
 #include <random>
@@ -340,6 +341,30 @@ static void snap_points_monotone(RouteSignal &rs, const Geometry &geom) {
   }
 }
 
+// helper: accept either an object or an array of {"key","value"} items
+static nlohmann::json normalizeExtensions(const nlohmann::json &ext) {
+  using json = nlohmann::json;
+  if (ext.is_object()) {
+    return ext; // already the shape we want
+  }
+  if (ext.is_array()) {
+    json obj = json::object();
+    for (const auto &item : ext) {
+      // common canonical shape
+      if (item.is_object() && item.contains("key") && item.contains("value")) {
+        obj[item["key"].get<std::string>()] = item["value"];
+        continue;
+      }
+      // optional: tolerate ["hr",152] or {"hr":152}
+      if (item.is_array() && item.size() == 2 && item[0].is_string())
+        obj[item[0].get<std::string>()] = item[1];
+      else if (item.is_object() && item.size() == 1)
+        obj.update(item);
+    }
+    return obj;
+  }
+  return json::object(); // null / other → empty
+}
 RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
   RouteSignal signal;
   try {
@@ -365,19 +390,20 @@ RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
     size_t point_counter = 0;
     for (size_t tp_idx = 0; tp_idx < osrm.tracepoints.size(); ++tp_idx) {
       const auto &tp = osrm.tracepoints[tp_idx];
+
       for (const auto &gpx : tp.gpx_list) {
         DataPoint &dp = signal.points[point_counter++];
         dp.coord = {gpx.lat, gpx.lon, gpx.elv};
         dp.tracepoint_idx = tp_idx;
         dp.time_rel = gpx.time - start_time;
-        if (gpx.extensions.is_object()) {
-          dp.extensions = gpx.extensions;
-        }
+        // accept array or object
+        dp.extensions = normalizeExtensions(gpx.extensions);
       }
     }
 
     // Assign the way identifiers for each point.  This relies on the OSRM
-    // matchings to tell us which OpenStreetMap way each GPX sample belongs to.
+    // matchings to tell us which OpenStreetMap way each GPX sample belongs
+    // to.
     assignWayIDs(osrm.matching.legs, osrm.tracepoints, signal);
 
     // monotone geometry snapping (prevents “against the grain” jumps)

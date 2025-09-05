@@ -6,20 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Chart.js for extension graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
   <style>
     html, body {
       height: 100%;
       margin: 0;
     }
-    #map {
-      height: 100%;
+    #tabs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1100;
+      display: flex;
     }
+    #tabs button {
+      padding: 6px 10px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+    }
+    #tabs button.active {
+      background: #ddd;
+      font-weight: bold;
+    }
+    .tab-content { display: none; height: 100%; }
+    .tab-content.active { display: block; }
+    #map { height: 100%; }
+
     #controls {
       position: absolute;
-      top: 10px;
+      top: 40px;
       left: 10px;
       z-index: 1000;
       background: white;
@@ -30,12 +49,17 @@
   </style>
 </head>
 <body>
+<div id="tabs">
+  <button data-tab="map" class="active">Map</button>
+  <button data-tab="ext">Extensions</button>
+</div>
 
 <div id="controls">
   <button id="loadBtn">Load Segments</button>
+      <input type="file" id="gpxFile" accept=".gpx" />
 </div>
-<div id="map"></div>
-
+<div id="map" class="tab-content active"></div>
+<canvas id="extChart" class="tab-content"></canvas>
   <div style="margin-top:8px; display:flex; gap:16px; align-items:center;">
     <label><input type="checkbox" id="debugToggle"> Debug</label>
     <div id="legend" style="font-family:system-ui, sans-serif; font-size:12px;">
@@ -91,6 +115,9 @@
     }
 
   let segmentLayer = null;
+  let gpxPoints = [];
+  let extChart = null;
+
 
   async function loadSegments() {
     const bounds = map.getBounds();
@@ -101,7 +128,8 @@
       bounds.getNorth().toFixed(6)
     ].join(',');
 
-    const url = `http://localhost:5005/segments?bbox=${bbox}`;
+    const API_BASE = `http://${window.location.hostname}:5005`;
+    const url = `${API_BASE}/segments?bbox=${bbox}`;
     console.log("Fetching:", url);
 
     try {
@@ -179,6 +207,7 @@
             `<br><strong>Length:</strong> ${len} m` +
             `<br><strong>Kind:</strong> ${kind}`
           );
+          layer.on('click', () => showSegmentGraph(feature));
           if (DEBUG) {
             layer.on('mouseover', () => console.debug('[route-mapper] hover feature props:', p));
           }
@@ -225,6 +254,98 @@
     features: validFeatures,
   };
 }
+function parseGPX(text) {
+  const xml = new DOMParser().parseFromString(text, 'application/xml');
+  const pts = Array.from(xml.getElementsByTagName('trkpt'));
+  gpxPoints = pts.map(pt => {
+    const lat = parseFloat(pt.getAttribute('lat'));
+    const lon = parseFloat(pt.getAttribute('lon'));
+    const ext = {};
+    pt.querySelectorAll('extensions *').forEach(el => {
+      const val = parseFloat(el.textContent);
+      if (!isNaN(val)) ext[el.tagName] = val;
+    });
+    return { lat, lon, extensions: ext };
+  });
+}
+
+document.getElementById('gpxFile').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => parseGPX(reader.result);
+  reader.readAsText(file);
+});
+
+function showSegmentGraph(feature) {
+  if (!gpxPoints.length) {
+    alert('Upload a GPX file with extension data first.');
+    return;
+  }
+  const coords = feature.geometry?.coordinates || [];
+  let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
+  coords.forEach(c => {
+    const lon = c[0], lat = c[1];
+    if (lat < minLat) minLat = lat;
+    if (lat > maxLat) maxLat = lat;
+    if (lon < minLon) minLon = lon;
+    if (lon > maxLon) maxLon = lon;
+  });
+  const pad = 0.0005;
+  minLat -= pad; maxLat += pad; minLon -= pad; maxLon += pad;
+
+  const pts = gpxPoints.filter(p => p.lat >= minLat && p.lat <= maxLat && p.lon >= minLon && p.lon <= maxLon);
+  if (!pts.length) {
+    alert('No extension data for this segment.');
+    return;
+  }
+  const labels = pts.map((_, i) => i + 1);
+  const extKeys = new Set();
+  pts.forEach(p => Object.keys(p.extensions || {}).forEach(k => extKeys.add(k)));
+  const colors = ['red', 'blue', 'green', 'orange', 'purple', 'brown', 'cyan', 'magenta', 'black'];
+  let colorIdx = 0;
+  const datasets = [];
+  extKeys.forEach(k => {
+    const data = pts.map(p => {
+      const v = p.extensions && p.extensions[k];
+      return Number.isFinite(v) ? v : null;
+    });
+    if (data.some(v => v !== null)) {
+      datasets.push({ label: k, data, borderColor: colors[colorIdx++ % colors.length], fill: false });
+    }
+  });
+  if (!datasets.length) {
+    alert('No extension data found for this segment.');
+    return;
+  }
+  const ctx = document.getElementById('extChart').getContext('2d');
+  if (extChart) extChart.destroy();
+  extChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      scales: {
+        x: { title: { display: true, text: 'Point' } },
+        y: { title: { display: true, text: 'Value' } }
+      }
+    }
+  });
+  activateTab('ext');
+}
+
+function activateTab(tab) {
+  document.querySelectorAll('#tabs button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === tab);
+  });
+  document.querySelectorAll('.tab-content').forEach(el => {
+    el.classList.toggle('active', (tab === 'map' && el.id === 'map') || (tab === 'ext' && el.id === 'extChart'));
+  });
+}
+
+document.querySelectorAll('#tabs button').forEach(btn => {
+  btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+});
 
 
   document.getElementById('loadBtn').addEventListener('click', loadSegments);

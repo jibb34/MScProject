@@ -8,6 +8,85 @@
  */
 
 (() => {
+  
+  // ===== Smoothing helpers (SG + EMA) =====
+  // Mild defaults tuned for per-sample GPX-like telemetry.
+  const SMOOTH_LEVEL = 13;   // odd, >=5. Increase to 11/13 for stronger smoothing
+  const SG_POLY = 3;        // cubic preserves shape of peaks/valleys
+
+  function isFiniteNum(x){ return Number.isFinite(x); }
+
+  // Savitzky–Golay smoothing (odd window, poly <= window-1)
+  function smoothSG(arr, window = SMOOTH_LEVEL, poly = SG_POLY) {
+    if (!Array.isArray(arr) || arr.length === 0) return arr;
+    if (window % 2 === 0) window += 1;
+    if (window < 5) window = 5;
+    if (poly >= window) poly = window - 1;
+    const n = arr.length, half = Math.floor(window/2);
+    // Build design matrix A for indices -half..+half
+    const A = [];
+    for (let i=-half; i<=half; i++){
+      const row = [];
+      for (let p=0; p<=poly; p++) row.push(Math.pow(i, p));
+      A.push(row);
+    }
+    const At = (M)=> M[0].map((_,j)=> M.map(r=> r[j]));
+    const matMul = (X,Y)=> X.map((row,i)=> Y[0].map((_,j)=> row.reduce((s,_,k)=> s + X[i][k]*Y[k][j],0)));
+    const inv = (M)=> {
+      const n=M.length; const I=[...Array(n)].map((_,i)=>[...Array(n)].map((__,j)=> i===j?1:0));
+      const A=M.map(r=>r.slice());
+      for(let i=0;i<n;i++){
+        let p=i; for(let r=i+1;r<n;r++) if (Math.abs(A[r][i])>Math.abs(A[p][i])) p=r;
+        if (Math.abs(A[p][i])<1e-12) return null;
+        [A[i],A[p]]=[A[p],A[i]]; [I[i],I[p]]=[I[p],I[i]];
+        const f = A[i][i];
+        for(let j=0;j<n;j++){ A[i][j]/=f; I[i][j]/=f; }
+        for(let r=0;r<n;r++) if (r!==i){
+          const g=A[r][i];
+          for(let j=0;j<n;j++){ A[r][j]-=g*A[i][j]; I[r][j]-=g*I[i][j]; }
+        }
+      }
+      return I;
+    };
+    const AT = At(A);
+    const ATA = matMul(AT, A);
+    const ATAinv = inv(ATA);
+    if (!ATAinv) return arr; // fallback if singular
+    const pinv = matMul(ATAinv, AT); // (A^T A)^{-1} A^T
+    const centerWeights = pinv[0];   // weights to estimate value at center
+
+    // Convolve with mirror padding at edges
+    const get = (k)=> (k<0) ? arr[-k] : (k>=n ? arr[2*n-2-k] : arr[k]);
+    const out = new Array(n);
+    for (let i=0;i<n;i++){
+      let acc=0, wsum=0;
+      for (let j=-half;j<=half;j++){
+        const v = get(i+j);
+        const w = centerWeights[j+half];
+        if (isFiniteNum(v)){ acc += w*v; wsum += w; }
+      }
+      out[i] = (wsum!==0)? acc : arr[i];
+    }
+    return out;
+  }
+
+  // Exponential moving average (zero-phase via forward+backward)
+  function smoothEMA(arr, alpha = 0.25) {
+    if (!Array.isArray(arr) || arr.length === 0) return arr;
+    const n = arr.length, f=new Array(n), b=new Array(n);
+    f[0] = isFiniteNum(arr[0]) ? arr[0] : 0;
+    for (let i=1;i<n;i++){
+      const x = isFiniteNum(arr[i]) ? arr[i] : f[i-1];
+      f[i] = f[i-1] + alpha*(x - f[i-1]);
+    }
+    b[n-1] = isFiniteNum(arr[n-1]) ? arr[n-1] : f[n-1];
+    for (let i=n-2;i>=0;i--){
+      const x = isFiniteNum(arr[i]) ? arr[i] : b[i+1];
+      b[i] = b[i+1] + alpha*(x - b[i+1]);
+    }
+    return f.map((v,i)=> 0.5*(v + b[i])); // reduce lag
+  }
+
   // ===== Elements =====
   const els = {
     mapSelect:  document.getElementById('mapSelect'),
@@ -1178,13 +1257,20 @@
     const traces = [];
     Object.entries(ext).forEach(([k, arr]) => {
       if (k === 's_km' || !Array.isArray(arr)) return;
-      traces.push({ x, y: arr, name: k, mode: 'lines' });
+      // clean & smooth numeric series (ignore objects/nulls)
+      const yRaw = arr.map(v => (v == null || typeof v === 'object') ? null : v);
+      let y;
+      try { y = smoothSG(yRaw); } catch { y = smoothEMA(yRaw, 0.25); }
+      traces.push({ x, y, name: k, mode: 'lines' });
     });
     if (!traces.length) {
       els.extPlot.innerHTML = '<em>No extension data</em>';
       return;
     }
-    Plotly.newPlot(els.extPlot, traces, { margin: { t: 20 }, xaxis: { title: 'Distance (km)' } });
+    Plotly.newPlot(els.extPlot, traces, {
+      margin: { t: 20 },
+      xaxis: { title: 'Distance (km)' }
+    });
   }
 
 
