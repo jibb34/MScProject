@@ -73,8 +73,6 @@ void HttpHandler::callGetHandler(std::string action,
     handleSignalLabUI(req, res);
   } else if (action == "labMeta") {
     handleLabMeta(req, res);
-  } else if (action == "dbping") {
-    handleDBPing(req, res);
   } else if (action == "segments") {
     handleSegments(req, res);
   }
@@ -1185,38 +1183,38 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   res.set_header("Access-Control-Allow-Origin", "*");
   res.set_content(fc.dump(), "application/json");
 }
-
-void HttpHandler::handleDBPing(const httplib::Request &req,
-                               httplib::Response &res) {
-
-  // read credentials from ENV or config
-  std::cerr << "hit ping" << "\n";
-  const char *host = std::getenv("DB_HOST") ?: "127.0.0.1";
-  const char *user = std::getenv("DB_USER") ?: "routeseg_user";
-  const char *pass = std::getenv("DB_PASS") ?: "changeme-user";
-  const char *db = std::getenv("DB_NAME") ?: "routeseg";
-  unsigned int port =
-      std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
-
-  MYSQL *conn = db_;
-  if (!conn) {
-    res.status = 500;
-    res.set_content(R"({"ok":false,"error":"mysql_init failed"})",
-                    "application/json");
-    return;
-  }
-
-  if (!mysql_real_connect(conn, host, user, pass, db, port, nullptr, 0)) {
-    std::string err = mysql_error(conn);
-    mysql_close(conn);
-    res.status = 500;
-    res.set_content(
-        json{{"ok", false}, {"error", "connect failed: " + err}}.dump(),
-        "application/json");
-    return;
-  }
-
-  mysql_close(conn);
-  res.set_content(R"({"ok":true,"message":"DB connection successful"})",
-                  "application/json");
-}
+//
+// void HttpHandler::handleDBPing(const httplib::Request &req,
+//                                httplib::Response &res) {
+//
+//   // read credentials from ENV or config
+//   std::cerr << "hit ping" << "\n";
+//   const char *host = std::getenv("DB_HOST") ?: "127.0.0.1";
+//   const char *user = std::getenv("DB_USER") ?: "routeseg_user";
+//   const char *pass = std::getenv("DB_PASS") ?: "changeme-user";
+//   const char *db = std::getenv("DB_NAME") ?: "routeseg";
+//   unsigned int port =
+//       std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
+//
+//   MYSQL *conn = db_;
+//   if (!conn) {
+//     res.status = 500;
+//     res.set_content(R"({"ok":false,"error":"mysql_init failed"})",
+//                     "application/json");
+//     return;
+//   }
+//
+//   if (!mysql_real_connect(conn, host, user, pass, db, port, nullptr, 0)) {
+//     std::string err = mysql_error(conn);
+//     mysql_close(conn);
+//     res.status = 500;
+//     res.set_content(
+//         json{{"ok", false}, {"error", "connect failed: " + err}}.dump(),
+//         "application/json");
+//     return;
+//   }
+//
+//   mysql_close(conn);
+//   res.set_content(R"({"ok":true,"message":"DB connection successful"})",
+//                   "application/json");
+// }
