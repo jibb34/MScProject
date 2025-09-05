@@ -346,10 +346,12 @@
   function _std(a) {
     const vv = _variance(a);
     return Number.isFinite(vv) ? Math.sqrt(vv) : NaN;
+
   }
   function _deg(rad) {
     return (rad * 180) / Math.PI;
   }
+
   function _wrapPi(rad) {
     const twoPi = 2 * Math.PI;
     let t = rad % twoPi;
@@ -1081,7 +1083,6 @@
       const btn = e.target.closest("button[data-tab]");
       if (!btn || btn.disabled) return;
       const name = btn.getAttribute("data-tab");
-      
       els.tabs
         .querySelectorAll("button[data-tab]")
         .forEach((b) => b.classList.toggle("active", b === btn));
@@ -1522,5 +1523,6 @@
     const extPanel = document.getElementById("panel-extensions");
     if (extPanel && !extPanel.hidden) renderSegmentExtensions(seg);
   }
+
 
 })();

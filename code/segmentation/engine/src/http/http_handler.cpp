@@ -45,9 +45,11 @@ void HttpHandler::callPostHandler(std::string action,
                                   const httplib::Request &req,
                                   httplib::Response &res) {
   static const std::unordered_map<std::string, HandlerFunc> kPostHandlers = {
+
       {"upload", &HttpHandler::handleUpload},
       {"lab/resample", &HttpHandler::handleLabResample},
       {"wavelet", &HttpHandler::handleWavelet}};
+
 
   if (auto it = kPostHandlers.find(action); it != kPostHandlers.end()) {
     (this->*(it->second))(req, res);
@@ -60,6 +62,7 @@ void HttpHandler::callPostHandler(std::string action,
 void HttpHandler::callGetHandler(std::string action,
                                  const httplib::Request &req,
                                  httplib::Response &res) {
+
 
   static const std::unordered_map<std::string, HandlerFunc> kGetHandlers = {
       {"view", &HttpHandler::handleView},
@@ -760,23 +763,26 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
     unsigned int db_port =
         std::getenv("DB_PORT") ? std::atoi(std::getenv("DB_PORT")) : 3306;
 
-    MySQLSegmentDB db(std::string("tcp://") + db_host + ":" +
-                          std::to_string(db_port),
-                      db_user, db_pass, db_name);
+    std::unique_ptr<MySQLSegmentDB> db;
     try {
-      db.begin();
+      db = std::make_unique<MySQLSegmentDB>(
+          std::string("tcp://") + db_host + ":" + std::to_string(db_port),
+          db_user, db_pass, db_name);
+      db->begin();
       for (auto &s : segs) {
-        db.upsert_segment_def(s.def);
-        auto seg_id = db.insert_route_segment(s);
-        db.insert_segment_runs(seg_id, s.runs);
+        db->upsert_segment_def(s.def);
+        auto seg_id = db->insert_route_segment(s);
+        db->insert_segment_runs(seg_id, s.runs);
       }
-      db.commit();
+      db->commit();
     } catch (const std::exception &e) {
       std::cerr << "[DB ERROR] " << e.what() << "\n";
-      // rollback on error, but don’t fail the entire request
-      try {
-        db.rollback();
-      } catch (...) {
+      if (db) {
+        // rollback on error, but don’t fail the entire request
+        try {
+          db->rollback();
+        } catch (...) {
+        }
       }
       out["db_error"] = e.what();
     }
@@ -1013,3 +1019,4 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   res.set_header("Access-Control-Allow-Origin", "*");
   res.set_content(fc.dump(), "application/json");
 }
+
