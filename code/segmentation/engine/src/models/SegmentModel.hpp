@@ -1,14 +1,18 @@
 #pragma once
+
 #include <array>
 #include <cstdint>
 #include <string>
 #include <vector>
 
+// Run of consecutive OSM way IDs that compose a segment.
 struct SegmentRun {
-  long long way_id; // nullable in DB; here use 0 for "unknown"
+  long long way_id; // nullable in DB; 0 denotes "unknown"
   int from_idx;     // inclusive (global route index)
   int to_idx;       // exclusive
 };
+
+// High level classification for a segment instance.
 enum class SegmentKind : uint8_t {
   Unknown = 0, // matched from DB (draw green)
   Flat,
@@ -47,6 +51,7 @@ inline SegmentKind SegmentTypeFromCode(int code) {
   }
 }
 
+// Canonical definition of a segment stored in the database.
 struct SegmentDef {
   std::array<uint8_t, 32> uid; // SHA-256 bytes
   std::string uid_hex;         // hex for convenience
@@ -58,13 +63,11 @@ struct SegmentDef {
   SegmentKind kind = SegmentKind::Unknown;
 };
 
+// A segment mapped back onto a particular route.
 struct SegmentInstance {
-  // definition
-  SegmentDef def;
-  // instance mapping back to route
-  long long route_id = 0; // supplied by caller if persisting
-  int start_idx = 0;      // inclusive
-  int end_idx = 0;        // exclusive
-  // ordered list of way runs composing this span
-  std::vector<SegmentRun> runs;
+  SegmentDef def;               // canonical definition
+  long long route_id = 0;       // supplied by caller if persisting
+  int start_idx = 0;            // inclusive
+  int end_idx = 0;              // exclusive
+  std::vector<SegmentRun> runs; // ordered list of runs composing this span
 };

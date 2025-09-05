@@ -1,3 +1,5 @@
+// RollingEnergyFFT computes windowed spectral energy using FFT.
+
 #include "RollingEnergyFFT.hpp"
 #include "core/wavelets/WaveletFootprint.hpp"
 #include <algorithm>
@@ -7,16 +9,11 @@ namespace wf {
 
 // Computes k_min, k_max from [λ_min, λ_max]
 static inline int bin_from_lambda(double N, double ds, double lambda_m) {
-  /* TODO: Map wavelength to FFT bin index k.
-  NOTE:
-  Window Length L_win = N⋅Δs
-  Spatial Frequency f=1/λ
-  Discrete bin k ≈ f⋅N⋅Δs = L_win/λ
-  */
+  // Map wavelength to FFT bin index.
   return (int)std::lround((N * ds) / std::max(lambda_m, 1e-9));
 }
 
-// NOTE: Constructor: define one fft plan to be used for each index in U[n]
+// Precompute FFT plans for each index
 RollingEnergyCalculator::RollingEnergyCalculator(int N, double ds) : ds_(ds) {
   N_ = std::max(5, (N | 1)); // force odd, >=5
   N_half_ = N_ / 2;

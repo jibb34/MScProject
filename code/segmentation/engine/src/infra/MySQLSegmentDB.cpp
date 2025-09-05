@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: MIT
+// MySQLSegmentDB wraps basic transactional operations for segment storage.
+
 #include "MySQLSegmentDB.hpp"
 #include "models/SegmentModel.hpp"
 #include <cstring>
@@ -7,6 +8,7 @@
 #include <string>
 #include <vector>
 
+// Establish connection using URI and credentials
 MySQLSegmentDB::MySQLSegmentDB(const std::string &uri, const std::string &user,
                                const std::string &pass,
                                const std::string &schema) {
@@ -32,21 +34,25 @@ MySQLSegmentDB::MySQLSegmentDB(const std::string &uri, const std::string &user,
 
 MySQLSegmentDB::~MySQLSegmentDB() { mysql_close(conn_); }
 
+// Begin transaction
 void MySQLSegmentDB::begin() {
   if (mysql_query(conn_, "START TRANSACTION"))
     throw std::runtime_error(mysql_error(conn_));
 }
 
+// Commit transaction
 void MySQLSegmentDB::commit() {
   if (mysql_query(conn_, "COMMIT"))
     throw std::runtime_error(mysql_error(conn_));
 }
 
+// Roll back transaction
 void MySQLSegmentDB::rollback() {
   if (mysql_query(conn_, "ROLLBACK"))
     throw std::runtime_error(mysql_error(conn_));
 }
 
+// Insert or update segment definition
 void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
   static const char *SQL = R"SQL(
       INSERT INTO segment_defs
@@ -124,6 +130,7 @@ void MySQLSegmentDB::upsert_segment_def(const SegmentDef &d) {
   mysql_stmt_close(stmt);
 }
 
+// Record segment instance for a route
 long long MySQLSegmentDB::insert_route_segment(const SegmentInstance &inst) {
   static const char *SQL = R"SQL(
       INSERT INTO route_segments (segment_uid, route_id, start_idx, end_idx)
@@ -172,6 +179,7 @@ long long MySQLSegmentDB::insert_route_segment(const SegmentInstance &inst) {
   return mysql_insert_id(conn_);
 }
 
+// Persist contiguous way runs for a segment
 void MySQLSegmentDB::insert_segment_runs(long long segment_id,
                                          const std::vector<SegmentRun> &runs) {
   static const char *SQL = R"SQL(

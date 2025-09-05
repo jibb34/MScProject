@@ -1,17 +1,5 @@
-// This file is an updated version of the segmentation engine’s
-// RouteSignalBuilder.
-//
-// The original implementation populated each DataPoint’s coordinates directly
-// from the input GPX tracepoints and used those coordinates to compute
-// cumulative distance, heading, speed and gradient for a route.  In practice
-// the OSRM matching step also returns an enriched geometry polyline (a sequence
-// of longitude/latitude pairs) describing the snapped route.  Because the GPX
-// points often contain GPS noise, the segments produced by the engine can
-// appear jagged and imprecise when visualised.  To tidy the segments we
-// replace each DataPoint’s latitude/longitude with the nearest coordinate
-// sampled from the OSRM geometry.  Elevation is preserved from the original
-// tracepoint.  After adjusting the coordinates we recompute the cumulative
-// distance and derive heading, speed and gradient as before.
+// RouteSignalBuilder composes matched geometry with raw trace points
+// and derives per-point metrics like heading, speed and gradient.
 
 #include "RouteSignalBuilder.hpp"
 #include "core/SegmentUtils.hpp"
@@ -23,19 +11,18 @@
 #include <random>
 #include <vector>
 
-// --- helper: compute bearings on geometry (radians)
+// Compute bearing between two coordinates in radians
 static inline double geom_heading_rad(const Coordinate &a,
                                       const Coordinate &b) {
   return SegmentUtils::calculateHeadingDegToRad(a, b);
 }
 
-// --- helper: absolute wrapped angle difference in [0,pi]
+// Absolute wrapped angle difference in radians
 static inline double ang_diff_abs(double a, double b) {
   return std::fabs(SegmentUtils::ang_diff(a, b));
 }
 
-// --- quick nearest-vertex distance on geometry (linear scan; fine for tens of
-// k points)
+// Nearest vertex distance on geometry using linear scan
 static inline double nearest_geom_vertex_m(const Coordinate &p,
                                            const std::vector<Coordinate> &g) {
   double best = std::numeric_limits<double>::infinity();
@@ -103,8 +90,7 @@ static HeadingStats window_heading_stats_rad(const std::deque<double> &hwin) {
   mad /= static_cast<double>(hwin.size());
   return {mean, mad};
 }
-// --- bootstrap mean distance over first INIT_N points, used as global
-// feasibility
+// Bootstrap mean geometry distance to gauge alignment
 static bool bootstrap_geometry_ok(const RouteSignal &rs,
                                   const std::vector<Coordinate> &g,
                                   int INIT_N = 120,
@@ -365,6 +351,8 @@ static nlohmann::json normalizeExtensions(const nlohmann::json &ext) {
   }
   return json::object(); // null / other → empty
 }
+// Construct a dense RouteSignal from an OSRM response
+// Samples tracepoints, snaps to matched geometry, and computes derived metrics
 RouteSignal RouteSignalBuilder::build(const OsrmResponse &osrm) {
   RouteSignal signal;
   try {

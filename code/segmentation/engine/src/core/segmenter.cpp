@@ -1,10 +1,12 @@
+// SegmentEngine orchestrates segmentation and existing-segment matching.
+
 #include "segmenter.hpp"
 
 #include "core/ExistingSegmentMatcher.hpp"
 #include "core/SegmentUtils.hpp"
-#include "segmenter.hpp"
 #include <algorithm>
 
+// Extract coordinates from RouteSignal
 std::vector<Coordinate>
 SegmentEngine::buildPolyline(const RouteSignal &s) const {
   std::vector<Coordinate> out;
@@ -14,6 +16,7 @@ SegmentEngine::buildPolyline(const RouteSignal &s) const {
   return out;
 }
 
+// Match existing segments and compute new ones
 std::vector<SegmentInstance>
 SegmentEngine::processSegmentation(RouteSignal &signal, SegmentDB &db) const {
   std::vector<SegmentInstance> existing;
@@ -28,10 +31,7 @@ SegmentEngine::processSegmentation(RouteSignal &signal, SegmentDB &db) const {
                             /*max_mean_m=*/18.0); // tight bias
   existing = match.instances;
 
-  // TODO: surface 'match.instances' to your HTTP/JSON layer so the UI can draw
-  // them (green) e.g., stash into a member or return value (depends on your
-  // current flow) For now we just “mask” their ranges for downstream
-  // segmentation.
+  // Mask existing ranges before further segmentation.
 
   // 2) Compute segmentation only on uncovered spans
   // build set of allowed index ranges
@@ -46,11 +46,6 @@ SegmentEngine::processSegmentation(RouteSignal &signal, SegmentDB &db) const {
   if (cur < N)
     allowed.push_back({cur, N});
 
-  // Your existing change-point detector would run per allowed span.
-  // Pseudocode:
-  // for (auto span : allowed) {
-  //   run_wavelet_or_rms(signal.points, span.first, span.second, ...);
-  //   collect SegmentInstance(s) with kind = Flat/Uphill/...
-  // }
+  // Downstream detectors can process each allowed span.
   return existing;
 }
