@@ -1,25 +1,27 @@
 #include "http_handler.hpp"
+
 #include "core/RouteSignalBuilder.hpp"
 #include "core/wavelets/WaveletFootprint.hpp"
 #include "debug/json_debug.hpp"
 #include "debug/osrm_inspect.hpp"
 #include "httplib.h"
+#include "infra/MySQLSegmentDB.hpp"
 #include "io/json_parser.hpp"
 #include "models/params.hpp"
 #include "nlohmann/json.hpp"
 
-#include "infra/MySQLSegmentDB.hpp"
-#include <algorithm> // sort
+#include <algorithm>
 #include <cctype>
 #include <chrono>
 #include <filesystem>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <limits> // numeric_limits
+#include <limits>
 #include <map>
 #include <random>
-#include <set> // set
+#include <set>
+#include <unordered_map>
 
 using json = nlohmann::json;
 
@@ -39,45 +41,43 @@ static double pick_value(const DataPoint &d, const std::string &var) {
   return std::numeric_limits<double>::quiet_NaN();
 }
 
-// ===== routes =====
-
-// void HttpHandler::registerRoutes(httplib::Server &server) {
-//   // (keep as-is or add routes here)
-// }
+// Mapping of action strings to member function handlers for GET/POST requests.
+using HandlerFunc = void (HttpHandler::*)(const httplib::Request &,
+                                          httplib::Response &);
 
 void HttpHandler::callPostHandler(std::string action,
                                   const httplib::Request &req,
                                   httplib::Response &res) {
-  if (action == "segment") {
-    // handleSegment(req, res);
-  } else if (action == "debug") {
-    handleDebug(req, res);
-  } else if (action == "upload") {
-    handleUpload(req, res);
-  } else if (action == "lab/resample") {
-    handleLabResample(req, res);
-  } else if (action == "wavelet") {
-    handleWavelet(req, res);
+  static const std::unordered_map<std::string, HandlerFunc> kPostHandlers = {
+      {"debug", &HttpHandler::handleDebug},
+      {"upload", &HttpHandler::handleUpload},
+      {"lab/resample", &HttpHandler::handleLabResample},
+      {"wavelet", &HttpHandler::handleWavelet},
+      {"segment", &HttpHandler::handleSegment}};
 
+  if (auto it = kPostHandlers.find(action); it != kPostHandlers.end()) {
+    (this->*(it->second))(req, res);
   } else {
     res.status = 404;
     res.set_content("Unknown action: " + action, "text/plain");
   }
 }
+
 void HttpHandler::callGetHandler(std::string action,
                                  const httplib::Request &req,
                                  httplib::Response &res) {
-  if (action == "view") {
-    handleView(req, res);
-  } else if (action == "viewLab") {
-    handleSignalLabUI(req, res);
-  } else if (action == "labMeta") {
-    handleLabMeta(req, res);
-  } else if (action == "segments") {
-    handleSegments(req, res);
-  }
-  // default
-  else {
+
+  static const std::unordered_map<std::string, HandlerFunc> kGetHandlers = {
+      {"view", &HttpHandler::handleView},
+      {"viewLab", &HttpHandler::handleSignalLabUI},
+      {"lab/meta", &HttpHandler::handleLabMeta},
+      {"dbping", &HttpHandler::handleDBPing},
+      {"segments", &HttpHandler::handleSegments}};
+
+  if (auto it = kGetHandlers.find(action); it != kGetHandlers.end()) {
+    (this->*(it->second))(req, res);
+  } else {
+
     res.status = 404;
     res.set_content("Unknown action: " + action, "text/plain");
   }
@@ -1183,6 +1183,8 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   res.set_header("Access-Control-Allow-Origin", "*");
   res.set_content(fc.dump(), "application/json");
 }
+
+
 //
 // void HttpHandler::handleDBPing(const httplib::Request &req,
 //                                httplib::Response &res) {
@@ -1218,3 +1220,4 @@ void HttpHandler::handleSegments(const httplib::Request &req,
 //   res.set_content(R"({"ok":true,"message":"DB connection successful"})",
 //                   "application/json");
 // }
+

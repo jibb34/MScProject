@@ -210,6 +210,7 @@
       E_gap_close_m: hyst ? num("wf_E_gap", 30, [0, 2000]) : undefined,
       E_min_run_m: hyst ? num("wf_E_min", 80, [0, 5000]) : undefined,
 
+
       min_segment_length_m: segMin,
       merge_side_right: mergeRight,
 
@@ -341,11 +342,13 @@
     if (v.length < 2) return NaN;
     const m = _mean(v);
     return v.reduce((s, x) => s + (x - m) * (x - m), 0) / (v.length - 1);
+
   }
   function _std(a) {
     const vv = _variance(a);
     return Number.isFinite(vv) ? Math.sqrt(vv) : NaN;
   }
+
   function _deg(rad) {
     return (rad * 180) / Math.PI;
   }
@@ -1081,9 +1084,11 @@
       if (!btn || btn.disabled) return;
       const name = btn.getAttribute("data-tab");
 
+
       els.tabs
         .querySelectorAll("button[data-tab]")
         .forEach((b) => b.classList.toggle("active", b === btn));
+
 
       document.querySelectorAll("#labPanels .panel").forEach((p) => {
         const active = p.id === `panel-${name}`;
@@ -1559,4 +1564,5 @@
   //         "❌ Fetch failed: " + err;
   //     });
   // });
+
 })();

@@ -1,5 +1,10 @@
+// Entry point for the segmentation engine HTTP server.  It wires up the
+// httplib server, loads configuration and exposes the REST endpoints handled by
+// `HttpHandler`.
+
 #include "http/http_handler.hpp"
 #include "json.hpp" // nlohmann/json
+
 #include <execinfo.h>
 #include <fstream>
 #include <iostream>
@@ -33,7 +38,8 @@ static void bt(int sig) {
 
 int main() {
   install_bt_handlers();
-  // Load configuration
+
+  // ---------------------- Load configuration ------------------------------
   std::ifstream cfg("config/settings.json");
   if (!cfg) {
     std::cerr << "[ERROR] Cannot open config/settings.json\n";
@@ -41,40 +47,27 @@ int main() {
   }
   json settings;
   cfg >> settings;
-  int port = settings["server"]["port"];
-  // int port = 5005;
-  // Simple debug log to stdout/file
+  int port = settings["server"].value("port", 5005);
   std::cout << "[DEBUG] Starting server on port " << port << std::endl;
 
-  // HTTP server setup
+  // ---------------------- HTTP server setup -------------------------------
   httplib::Server server;
-  server.set_mount_point("/static",
-                         "./public"); // serves files in ./public at /static/*
+  server.set_mount_point("/static", "./public");
   server.set_file_extension_and_mimetype_mapping("js",
                                                  "application/javascript");
-
   server.set_file_extension_and_mimetype_mapping("css", "text/css");
-  // Optional configuration – comment these out initially
   server.set_payload_max_length(1024ull * 1024ull * 512ull); // 512MB
   server.set_read_timeout(60, 0);
   server.set_write_timeout(60, 0);
 
-  // Test echo endpoint – comment out for a minimal server
+  // Simple echo endpoint useful during development
   server.Post("/_echo", [](const auto &req, auto &res) {
-    // nlohmann::json j = {
-    //     {"method", req.method},
-    //     {"path", req.path},
-    //     {"content_type", req.get_header_value("Content-Type")},
-    //     {"bytes", req.body.size()},
-    //     {"snippet",
-    //      req.body.substr(0, std::min<size_t>(req.body.size(), 256))}};
-    // res.set_content(j.dump(2), "application/json");
     std::string reply = "Received POST to " + req.path +
-                        ", content‑length=" + std::to_string(req.body.size());
+                        ", content-length=" + std::to_string(req.body.size());
     res.set_content(reply, "text/plain");
   });
 
-  // Instantiate HttpHandler and register endpoints – comment out initially
+  // ---------------------- Database connection -----------------------------
   MYSQL *db = mysql_init(nullptr);
   if (!db) {
     std::cerr << "[main] mysql_init failed\n";
@@ -94,11 +87,11 @@ int main() {
   }
   HttpHandler handler(db);
 
-  for (const auto &ep : settings["server"]["endpoints"]) {
+  // ---------------------- Register POST endpoints -------------------------
+  for (const auto &ep : settings["server"]["post_endpoints"]) {
     std::string path = ep.get<std::string>();
     std::string action =
         (!path.empty() && path[0] == '/') ? path.substr(1) : path;
-    std::cerr << "Listening on: " << action << "\n";
     server.Post(path, [action, &handler](const auto &req, auto &res) {
       try {
         handler.callPostHandler(action, req, res);
@@ -113,27 +106,26 @@ int main() {
       }
     });
   }
-  std::string action = "view";
-  server.Get("/view", [action, &handler](const auto &req, auto &res) {
-    handler.callGetHandler("view", req, res);
-  });
-  server.Get("/viewLab", [action, &handler](const auto &req, auto &res) {
-    handler.callGetHandler("viewLab", req, res);
-  });
-  server.Get("/lab/meta", [&handler](const auto &req, auto &res) {
-    handler.callGetHandler("labMeta", req, res);
-  });
-  server.Get("/segments", [&handler](const auto &req, auto &res) {
-    handler.callGetHandler("segments", req, res);
-  });
 
+
+  // ---------------------- Register GET endpoints --------------------------
+  for (const auto &ep : settings["server"]["get_endpoints"]) {
+    std::string path = ep.get<std::string>();
+    std::string action =
+        (!path.empty() && path[0] == '/') ? path.substr(1) : path;
+    server.Get(path, [action, &handler](const auto &req, auto &res) {
+      handler.callGetHandler(action, req, res);
+    });
+  }
+
+  // Non-configurable helper endpoint listing uploaded files
   server.Get("/lab/list", [](const httplib::Request &, httplib::Response &res) {
     const auto arr = list_uploads_json();
-    nlohmann::json out = {{"files", arr}}; // <-- wrap it
+    nlohmann::json out = {{"files", arr}};
     res.set_content(out.dump(), "application/json");
   });
 
-  // Start listening – this blocks until the server stops
+  // ---------------------- Start server ------------------------------------
   server.listen("0.0.0.0", port);
   return 0;
 }
