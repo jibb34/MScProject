@@ -1,3 +1,4 @@
+// Utilities for segment geometry calculations.
 #pragma once
 #include "SegmentDB.hpp"
 #include "models/OsrmResponse.hpp"
@@ -17,9 +18,8 @@ struct Curvature {
 };
 
 class SegmentUtils {
-public:
-  bool checkForJunction(const Leg &l);
-  // Displacement is the as-the-crow-flies distance between gpx points, not the
+public: // Displacement is the as-the-crow-flies distance between gpx points,
+        // not the
   // road length
   static double calculateGradient(const Coordinate &coord1,
                                   const Coordinate &coord2);

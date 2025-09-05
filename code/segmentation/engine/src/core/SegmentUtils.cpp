@@ -1,3 +1,5 @@
+// SegmentUtils provides geometry helpers and hashing utilities for segments.
+
 #include "core/SegmentUtils.hpp"
 #include "infra/MySQLSegmentDB.hpp"
 #include "models/OsrmResponse.hpp"
@@ -10,12 +12,6 @@
 #include <sstream>
 #include <vector>
 using json = nlohmann::json;
-
-double checkForJunction() {
-  // TODO: implement function to find the location of the junction as a
-  // segmentation node
-  return 0.0;
-}
 
 double SegmentUtils::haversine(double x1, double x2, double y1, double y2) {
   double phi1 = y1 * (M_PI / 180);

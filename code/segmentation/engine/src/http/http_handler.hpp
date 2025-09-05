@@ -1,14 +1,17 @@
 #pragma once
-#include "core/RouteSignalBuilder.hpp" // for RouteSignalBuilder
-#include "core/SegmentDB.hpp"          // for SegmentInstance, SegmentDef, etc.
-#include "core/SegmentUtils.hpp"       // for SegmentUtils
+
+#include "core/RouteSignalBuilder.hpp" // RouteSignalBuilder
+#include "core/SegmentDB.hpp"          // SegmentInstance, SegmentDef
+#include "core/SegmentUtils.hpp"       // SegmentUtils helpers
 #include "httplib.h"
 #include <mysql/mysql.h>
 #include <nlohmann/json.hpp>
 
+// Thin wrapper around httplib callbacks.  The main server forwards requests to
+// these member functions based on the action string parsed from the URL.
 class HttpHandler {
 public:
-  HttpHandler(MYSQL *db) : db_(db) {}
+  explicit HttpHandler(MYSQL *db) : db_(db) {}
 
   void registerRoutes(httplib::Server &server);
   void callPostHandler(std::string action, const httplib::Request &req,
@@ -19,14 +22,13 @@ public:
 private:
   std::string endpoint_;
   MYSQL *db_;
-  // Add handlers here as we create them. /segment should be the only main one
-  // though
+
+  // Individual request handlers
   void handleSegment(const httplib::Request &req, httplib::Response &res);
   void handleWavelet(const httplib::Request &req, httplib::Response &res);
   void handleDebug(const httplib::Request &req, httplib::Response &res);
   void handleUpload(const httplib::Request &req, httplib::Response &res);
   void handleView(const httplib::Request &req, httplib::Response &res);
-
   void handleSignalLabUI(const httplib::Request &req, httplib::Response &res);
   void handleSignalLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabMeta(const httplib::Request &req, httplib::Response &res);

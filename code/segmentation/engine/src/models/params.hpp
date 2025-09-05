@@ -1,7 +1,9 @@
 #pragma once
+
 #include "json.hpp"
 #include <string>
 
+// User-supplied parameters controlling the segmentation algorithm.
 struct SegmentationParams {
   double min_segment_length_m = 50.0;
   bool split_on_highway_change = true;
