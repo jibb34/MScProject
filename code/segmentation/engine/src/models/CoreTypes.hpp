@@ -1,4 +1,5 @@
 #pragma once
+
 #include <inttypes.h>
 #include <limits>
 #include <nlohmann/json.hpp>
@@ -7,12 +8,14 @@
 
 using Json = nlohmann::json;
 
+// Basic spatial coordinate with elevation.
 struct Coordinate {
   double lat;
   double lon;
   double elv;
 };
 
+// Simplified set of OSM highway classes used by the engine.
 enum class HighwayType : u_int8_t {
   Motorway,
   Trunk,
@@ -30,28 +33,28 @@ enum class HighwayType : u_int8_t {
   Ferry
 };
 
+// A single sampled point along a route with derived metrics for segmentation.
 struct DataPoint {
-  // Raw Data
-  Coordinate coord;
-  double time_rel; // time from point 0
-  uint32_t way_id;
+  Coordinate coord; // raw location
+  double time_rel;  // time from point 0
+  uint32_t way_id;  // OSM way identifier
   HighwayType highway_type;
 
-  // Derived
+  // Derived quantities
   double heading_radians;
   double heading_delta;
   double heading_delta_norm;
   double speed = 0;
   double speed_smoothed = 0;
   double gradient;
-  double curvature; // in rads per metre
-  // For obtaining future values double cum_dist;
-  int tracepoint_idx = 0;
-  double cum_dist = 0;
-  // GPX extensions
-  Json extensions = Json::object();
+  double curvature;       // radians per metre
+  int tracepoint_idx = 0; // index back to OSRM tracepoint
+  double cum_dist = 0;    // cumulative distance in metres
+
+  Json extensions = Json::object(); // GPX extensions
 };
 
+// Convenience container for a full route.
 struct RouteSignal {
   std::vector<DataPoint> points;
 };

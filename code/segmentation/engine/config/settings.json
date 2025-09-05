@@ -1,14 +1,21 @@
 {
   "server": {
     "port": 5005,
-    "endpoints": [
+    "post_endpoints": [
       "/segment",
       "/debug",
       "/upload",
       "/view",
       "/lab/resample",
       "/wavelet"
-      
+
+    ],
+    "get_endpoints": [
+      "/view",
+      "/viewLab",
+      "/lab/meta",
+      "/dbping",
+      "/segments"
     ]
   },
   "segmentation": {

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "json.hpp"
 #include "models/CoreTypes.hpp"
 #include <array>
@@ -7,6 +8,8 @@
 
 using Coord = std::array<double, 2>; // [lon, lat]
 using Json = nlohmann::json;
+
+// Structures modelling the subset of OSRM's JSON response we care about.
 
 // ---------- Geometry ----------
 struct Geometry {
