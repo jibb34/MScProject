@@ -39,7 +39,7 @@
     #controls {
       position: absolute;
       top: 40px;
-      left: 10px;
+      left: 50px;
       z-index: 1000;
       background: white;
       padding: 8px 12px;
@@ -49,14 +49,9 @@
   </style>
 </head>
 <body>
-<div id="tabs">
-  <button data-tab="map" class="active">Map</button>
-  <button data-tab="ext">Extensions</button>
-</div>
 
 <div id="controls">
   <button id="loadBtn">Load Segments</button>
-      <input type="file" id="gpxFile" accept=".gpx" />
 </div>
 <div id="map" class="tab-content active"></div>
 <canvas id="extChart" class="tab-content"></canvas>
@@ -254,28 +249,21 @@
     features: validFeatures,
   };
 }
-function parseGPX(text) {
-  const xml = new DOMParser().parseFromString(text, 'application/xml');
-  const pts = Array.from(xml.getElementsByTagName('trkpt'));
-  gpxPoints = pts.map(pt => {
-    const lat = parseFloat(pt.getAttribute('lat'));
-    const lon = parseFloat(pt.getAttribute('lon'));
-    const ext = {};
-    pt.querySelectorAll('extensions *').forEach(el => {
-      const val = parseFloat(el.textContent);
-      if (!isNaN(val)) ext[el.tagName] = val;
-    });
-    return { lat, lon, extensions: ext };
-  });
-}
+// function parseGPX(text) {
+//   const xml = new DOMParser().parseFromString(text, 'application/xml');
+//   const pts = Array.from(xml.getElementsByTagName('trkpt'));
+//   gpxPoints = pts.map(pt => {
+//     const lat = parseFloat(pt.getAttribute('lat'));
+//     const lon = parseFloat(pt.getAttribute('lon'));
+//     const ext = {};
+//     pt.querySelectorAll('extensions *').forEach(el => {
+//       const val = parseFloat(el.textContent);
+//       if (!isNaN(val)) ext[el.tagName] = val;
+//     });
+//     return { lat, lon, extensions: ext };
+//   });
+// }
 
-document.getElementById('gpxFile').addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = () => parseGPX(reader.result);
-  reader.readAsText(file);
-});
 
 function showSegmentGraph(feature) {
   if (!gpxPoints.length) {
