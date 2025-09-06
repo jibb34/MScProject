@@ -9,7 +9,7 @@ using std::string;
 using std::vector;
 using std::unordered_map;
 
-nlohmann::json extension_stats(const vector<DataPoint> &segment) {
+TrainingSuitabilityScore compute_tss(const vector<DataPoint> &segment) {
   unordered_map<string, vector<double>> buckets;
   for (const auto &dp : segment) {
     if (!dp.extensions.is_object())
@@ -21,7 +21,7 @@ nlohmann::json extension_stats(const vector<DataPoint> &segment) {
     }
   }
 
-  nlohmann::json result = nlohmann::json::object();
+  TrainingSuitabilityScore tss;
   for (auto &kv : buckets) {
     const auto &vals = kv.second;
     if (vals.empty())
@@ -36,12 +36,9 @@ nlohmann::json extension_stats(const vector<DataPoint> &segment) {
       sq += d * d;
     }
     double stddev = std::sqrt(sq / vals.size());
-    result[kv.first] = {{"count", vals.size()},
-                        {"mean", mean},
-                        {"std", stddev},
-                        {"min", min},
-                        {"max", max}};
+    tss.extensions[kv.first] = {vals.size(), mean, stddev, min, max};
   }
-  return result;
+
+  return tss;
 }
 
