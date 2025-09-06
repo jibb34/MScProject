@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\begin{document}
+\title{Segmentation Engine Documentation}
+\author{}
+\date{}
+\maketitle
+
+\section{Overview}
+The segmentation engine is a C++ HTTP service that performs route analysis and segment extraction. The server loads its configuration from \texttt{config/settings.json} and exposes a set of REST endpoints.
+
+\section{Building and Running}
+\begin{verbatim}
+cmake -S . -B build
+cmake --build build
+./build/segmentation_engine  % binary name may vary
+\end{verbatim}
+The default server port and endpoint list are defined in \texttt{config/settings.json}.
+
+\section{API}
+\subsection{\texttt{POST /upload}}
+Save a client-provided map JSON file.
+\begin{description}
+\item[Body] JSON object representing the map data.
+\item[Response] \texttt{\{ "ok": true, "file": "uploads/map\_<timestamp>\_<rand>.json" \}}
+\end{description}
+
+\subsection{\texttt{GET /view?map=<path>}}
+Render an interactive HTML viewer for a previously uploaded map.
+\begin{description}
+\item[Query] \texttt{map} -- path returned from \texttt{/upload} (must be under \texttt{uploads/}).
+\item[Response] HTML page comparing raw OSRM geometry to derived route signal.
+\end{description}
+
+\subsection{\texttt{GET /viewLab?map=<path>}}
+Redirect to the static Signal Lab UI.
+\begin{description}
+\item[Query] optional \texttt{map} path.
+\item[Response] HTTP 302 redirect to \texttt{/static/signal\_lab.html}.
+\end{description}
+
+\subsection{\texttt{GET /lab/meta?map=<path>}}
+List available uploads and optionally preload one map.
+\begin{description}
+\item[Query] optional \texttt{map} path.
+\item[Response] JSON \texttt{\{ "uploads": ["uploads/..."], "preload": "uploads/..."? \}}.
+\end{description}
+
+\subsection{\texttt{POST /lab/resample}}
+Build a route signal and resample requested variables onto a uniform distance grid.
+\begin{description}
+\item[Body] \texttt{\{ "map": "uploads/...", "ds\_m": <step\_m>, "vars": ["elev", ...] \}}
+\item[Response] \texttt{\{ "ok": true, "s\_km": [..], "ds\_m": <step\_m>, "series": {"var": [...]}\}}
+\end{description}
+
+\subsection{\texttt{POST /wavelet}}
+Run wavelet-based terrain segmentation on a map and optionally persist results.
+\begin{description}
+\item[Body] \texttt{\{ "map": "uploads/...", "fn": "terrain", "persist": false \}}
+\item[Response] JSON containing \texttt{segments} with segment geometry and metadata, \texttt{series} with processed signals, \texttt{s\_km\_uniform} axis and \texttt{ds\_m} spacing. If database persistence fails, a \texttt{db\_error} field is included.
+\end{description}
+
+\subsection{\texttt{GET /segments}}
+Fetch previously persisted segments intersecting a bounding box.
+\begin{description}
+\item[Query] either \texttt{bbox=west,south,east,north} or \texttt{minLon}, \texttt{minLat}, \texttt{maxLon}, \texttt{maxLat}.
+\item[Response] GeoJSON \texttt{FeatureCollection} of matching segments.
+\end{description}
+
+\end{document}
