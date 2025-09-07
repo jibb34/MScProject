@@ -12,7 +12,9 @@
       "/view",
       "/viewLab",
       "/lab/meta",
-      "/segments"
+      "/segments",
+      "/segment",
+      "/tss"
     ]
   },
   "segmentation": {

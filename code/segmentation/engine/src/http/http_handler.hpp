@@ -32,4 +32,6 @@ private:
   void handleLabMeta(const httplib::Request &req, httplib::Response &res);
   void handleLabResample(const httplib::Request &req, httplib::Response &res);
   void handleSegments(const httplib::Request &req, httplib::Response &res);
+  void handleSegment(const httplib::Request &req, httplib::Response &res);
+  void handleTss(const httplib::Request &req, httplib::Response &res);
 };
