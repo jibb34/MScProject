@@ -5,16 +5,24 @@ Boeing, G.  \harvardyearleft 2017\harvardyearright , `Osmnx: New methods for
   acquiring, constructing, analyzing, and visualizing complex street networks',
   {\em Computers, Environment and Urban Systems} {\bf 65},~126--139.
 
+\harvarditem{Canny}{1986}{Canny1986}
+Canny, J.  \harvardyearleft 1986\harvardyearright , `A computational approach
+  to edge detection', {\em IEEE Transactions on Pattern Analysis and Machine
+  Intelligence} {\bf PAMI-8}(6),~679--698.
+
 \harvarditem{Coggan \harvardand\ Allen}{2012}{coggan2012training}
 Coggan, A.~R. \harvardand\ Allen, H.  \harvardyearleft 2012\harvardyearright ,
   {\em Training and Racing with a Power Meter}, 2 edn, VeloPress, Boulder, CO.
 
-\harvarditem{{Editors of Bicycling}}{2017}{Bicycling2017}
-{Editors of Bicycling}  \harvardyearleft 2017\harvardyearright , `A cyclist's
-  guide to speaking strava', {\em Bicycling Magazine (online)} .
-\newblock Published 31 May 2017, available at \url{
-  https://www.bicycling.com/news/g20041808/a-cyclists-guide-to-speaking-strava/
-  }.
+\harvarditem{Franco}{2012}{FrancoCurvature}
+Franco, A.  \harvardyearleft 2012\harvardyearright , `Curvature and twistiness
+  of roads', \url{https://adamfranco.com/curvature-and-twistiness-of-roads/ }.
+\newblock Accessed: 2025-09-06.
+
+\harvarditem{Graps}{1995}{Graps1995}
+Graps, A.  \harvardyearleft 1995\harvardyearright , `An introduction to
+  wavelets', {\em IEEE Computational Science and Engineering} {\bf
+  2}(2),~50--61.
 
 \harvarditem{Hurley}{2020}{Hurley2020}
 Hurley, S.  \harvardyearleft 2020\harvardyearright , `Normalized
@@ -43,6 +51,11 @@ Luxen, D. \harvardand\ Vetter, C.  \harvardyearleft 2011\harvardyearright ,
   Information Systems ({GIS}~ '11)', {ACM}, New York, {NY}, {USA},
   pp.~513--516.
 
+\harvarditem{Mapbox}{2018}{OSMLR2018}
+Mapbox  \harvardyearleft 2018\harvardyearright , Openstreetmap linear reference
+  (osmlr) specification, Technical report, Mapbox.
+\newblock Version 1.0.
+
 \harvarditem{Newson \harvardand\ Krumm}{2009}{NewsonKrumm2009}
 Newson, P. \harvardand\ Krumm, J.  \harvardyearleft 2009\harvardyearright ,
   Hidden markov map matching through noise and sparseness, {\em in}
@@ -53,6 +66,13 @@ Newson, P. \harvardand\ Krumm, J.  \harvardyearleft 2009\harvardyearright ,
   https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/map-matching-ACM-GIS-camera-ready.pdf
   }.
 \newline\harvardurl{https://dl.acm.org/doi/10.1145/1653771.1653818}
+
+\harvarditem[Ogle et~al.]{Ogle, Guensler \harvardand\ Elango}{2006}{Ogle2006}
+Ogle, J., Guensler, R. \harvardand\ Elango, V.  \harvardyearleft
+  2006\harvardyearright , Georgia tech commute vehicle study: Use of modified
+  kalman filter to improve distance and speed estimation from gps data,
+  Technical report, Georgia Institute of Technology.
+\newblock Transportation Research Board presentation.
 
 \harvarditem{{{OpenStreetMap} community}}{2025}{OverpassAPI}
 {{OpenStreetMap} community}  \harvardyearleft 2025\harvardyearright , `Overpass
@@ -102,6 +122,15 @@ Sharifzadeh, M., Azmoodeh, F. \harvardand\ Shahabi, C.  \harvardyearleft
   2005)', Vol. 3633 of {\em Lecture Notes in Computer Science}, Springer, Angra
   dos Reis, Brazil, pp.~127--144.
 
+\harvarditem{Sinnott}{1984}{Sinnott1984}
+Sinnott, R.~W.  \harvardyearleft 1984\harvardyearright , `Virtues of the
+  haversine', {\em Sky and Telescope} {\bf 68},~159.
+
+\harvarditem{Smith}{1997}{Smith1997}
+Smith, S.~W.  \harvardyearleft 1997\harvardyearright , {\em The Scientist and
+  Engineer's Guide to Digital Signal Processing}, California Technical
+  Publishing.
+
 \harvarditem{Story \harvardand\ contributors}{2023}{folium}
 Story, R. \harvardand\ contributors  \harvardyearleft 2023\harvardyearright ,
   `Folium: {Python} data. {Leaflet}.js maps',
@@ -125,5 +154,10 @@ Topf, J. \harvardand\ Contributors, O.  \harvardyearleft 2023\harvardyearright
   , `Osmium: A multi-purpose toolkit for {OpenStreetMap} data', Osmium/Osmcode
   Project [Online]. Available: \url{ https://osmcode.org/} [Accessed
   11-Aug-2025].
+
+\harvarditem[Wang et~al.]{Wang, Cui, Shi \harvardand\ Wu}{2018}{Wang2018Grades}
+Wang, Q., Cui, Z., Shi, C. \harvardand\ Wu, H.  \harvardyearleft
+  2018\harvardyearright , `Evaluating the impacts of grades on vehicular speeds
+  on expressways', {\em PLOS ONE} {\bf 13}(4),~e0184142.
 
 \end{thebibliography}

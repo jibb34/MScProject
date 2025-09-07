@@ -11,45 +11,45 @@ Warning--entry type for "OSRMDocker" isn't style-file defined
 --line 204 of file references.bib
 Warning--empty author in ISO27001
 Warning--empty author in ISO42010
-You've used 19 entries,
+You've used 26 entries,
             2909 wiz_defined-function locations,
-            761 strings with 8962 characters,
-and the built_in function-call counts, 64736 in all, are:
-= -- 10716
-> -- 569
+            811 strings with 9937 characters,
+and the built_in function-call counts, 80017 in all, are:
+= -- 13017
+> -- 850
 < -- 3
-+ -- 4939
-- -- 168
-* -- 5396
-:= -- 13091
-add.period$ -- 27
-call.type$ -- 19
-change.case$ -- 254
-chr.to.int$ -- 17
-cite$ -- 21
-duplicate$ -- 266
-empty$ -- 545
-format.name$ -- 223
-if$ -- 11661
++ -- 5965
+- -- 252
+* -- 6622
+:= -- 16433
+add.period$ -- 36
+call.type$ -- 26
+change.case$ -- 353
+chr.to.int$ -- 24
+cite$ -- 28
+duplicate$ -- 364
+empty$ -- 756
+format.name$ -- 323
+if$ -- 14353
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 7
-newline$ -- 73
-num.names$ -- 171
-pop$ -- 127
+missing$ -- 12
+newline$ -- 96
+num.names$ -- 243
+pop$ -- 156
 preamble$ -- 1
-purify$ -- 275
+purify$ -- 380
 quote$ -- 0
-skip$ -- 225
+skip$ -- 305
 stack$ -- 0
-substring$ -- 14917
-swap$ -- 58
-text.length$ -- 249
+substring$ -- 18011
+swap$ -- 70
+text.length$ -- 347
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 100
 warning$ -- 2
-while$ -- 373
+while$ -- 526
 width$ -- 0
-write$ -- 262
+write$ -- 356
 (There were 5 warnings)
