@@ -1,0 +1,117 @@
+\contentsline {chapter}{Abstract}{1}{Doc-Start}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Research Objectives}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Training Suitability and Segmentation Algorithm Design and Analysis}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Research Objectives}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Algorithmic Approaches to Segmentation and Categorization}{5}{subsection.2.1.2}%
+\contentsline {paragraph}{Paul Newson and John Krumm: "Hidden Markov Map Matching Through Noise and Sparseness"}{5}{section*.1}%
+\contentsline {paragraph}{HMM-based Map Matching with OSRM}{5}{section*.2}%
+\contentsline {paragraph}{Customising behaviour via Lua (before (re)extract).}{6}{lstlisting.2.1}%
+\contentsline {paragraph}{Boeing, G: "Modeling and Analyzing Urban Networks and Amenities with OSMnx"}{6}{section*.5}%
+\contentsline {subsection}{\numberline {2.1.3}Methodological Considerations and Assumptions}{7}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Pulling Map Data}{7}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Training Suitability Scoring}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Research Objectives}{8}{subsection.2.2.1}%
+\contentsline {subsubsection}{Algorithm Design}{8}{section*.6}%
+\contentsline {subsubsection}{Validation and Evaluation}{8}{section*.7}%
+\contentsline {subsubsection}{Robustness and Edge Cases}{9}{section*.8}%
+\contentsline {subsection}{\numberline {2.2.2}Approaches to Suitability Scoring}{9}{subsection.2.2.2}%
+\contentsline {paragraph}{Sharifzadeh et al. "Change Detection in Time Series Data Using Wavelet Footprints"}{9}{section*.9}%
+\contentsline {paragraph}{Indoor Cycling Association: "How Much Time in the Red Zone?"}{9}{section*.10}%
+\contentsline {paragraph}{Sean Hurley: "Normalized Power \citep {Hurley2020}: What It Is and How to Use It"}{10}{section*.12}%
+\contentsline {subsection}{\numberline {2.2.3}Methodological Considerations and Assumptions}{11}{subsection.2.2.3}%
+\contentsline {subsubsection}{Supplementary Techniques for Segmentation and Scoring}{14}{section*.15}%
+\contentsline {paragraph}{Resampling from time to distance.}{14}{section*.16}%
+\contentsline {paragraph}{Shortest arc and distance calculations.}{14}{section*.17}%
+\contentsline {paragraph}{Wavelets for change detection.}{15}{section*.18}%
+\contentsline {paragraph}{Hysteresis thresholding.}{15}{section*.19}%
+\contentsline {paragraph}{Root mean square (RMS) metrics.}{15}{section*.20}%
+\contentsline {paragraph}{Gradient variation.}{15}{section*.21}%
+\contentsline {paragraph}{Curvature and twistiness.}{15}{section*.22}%
+\contentsline {paragraph}{Speed and acceleration smoothing.}{16}{section*.23}%
+\contentsline {paragraph}{Segmenting by OpenStreetMap ways.}{16}{section*.24}%
+\contentsline {section}{\numberline {2.3}LSEPI Analysis}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Legal}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Social}{16}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Ethical}{17}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Political}{17}{subsection.2.3.4}%
+\contentsline {chapter}{\numberline {3}Requirements}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Software Requirements Specification (SRS)}{18}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Purpose and Scope}{18}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Intended Audience and Reading Suggestions}{18}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Overall Description}{18}{subsection.3.1.3}%
+\contentsline {subsubsection}{Product Perspective}{18}{section*.25}%
+\contentsline {subsubsection}{Product Functions}{19}{section*.26}%
+\contentsline {subsubsection}{User Characteristics}{19}{section*.27}%
+\contentsline {subsubsection}{Operating Environment}{19}{section*.28}%
+\contentsline {subsubsection}{Design and Implementation Constraints}{20}{section*.29}%
+\contentsline {subsubsection}{Assumptions and Dependencies}{20}{section*.30}%
+\contentsline {subsection}{\numberline {3.1.4}Specific Requirements}{20}{subsection.3.1.4}%
+\contentsline {subsubsection}{External Interface Requirements}{20}{section*.31}%
+\contentsline {paragraph}{User Interfaces}{20}{section*.32}%
+\contentsline {paragraph}{Software Interfaces}{20}{section*.33}%
+\contentsline {subsubsection}{Functional Requirements}{20}{section*.34}%
+\contentsline {subsubsection}{Non-Functional Requirements}{21}{section*.36}%
+\contentsline {subsubsection}{Logical Database Requirements}{21}{section*.38}%
+\contentsline {subsubsection}{Software System Attributes}{22}{section*.40}%
+\contentsline {paragraph}{Reliability}{22}{section*.41}%
+\contentsline {paragraph}{Availability}{22}{section*.42}%
+\contentsline {paragraph}{Security}{22}{section*.43}%
+\contentsline {paragraph}{Maintainability}{22}{section*.44}%
+\contentsline {paragraph}{Portability}{22}{section*.45}%
+\contentsline {section}{\numberline {3.2}Standards and Compliance}{22}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Design}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Scope and Purpose}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Architectural Design}{24}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Architectural Views}{24}{subsection.5.2.1}%
+\contentsline {subsubsection}{Concept View}{24}{section*.47}%
+\contentsline {subsubsection}{Functional View}{25}{section*.48}%
+\contentsline {subsubsection}{Physical View}{26}{section*.50}%
+\contentsline {subsubsection}{Information View}{26}{section*.51}%
+\contentsline {subsubsection}{Behavioral View}{27}{section*.52}%
+\contentsline {subsection}{\numberline {5.2.2}Design Rationale}{27}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Design Patterns and Styles}{27}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Module-Level Design}{27}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}GPX-to-Enriched-JSON Pipeline Modules}{27}{subsection.5.3.1}%
+\contentsline {subsubsection}{Module Dependency Diagram}{28}{section*.53}%
+\contentsline {subsubsection}{Module Specifications}{28}{section*.54}%
+\contentsline {section}{\numberline {5.4}Interface Design}{28}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}User Interface}{28}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Software Interfaces}{28}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Data Design}{28}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Data Models}{28}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Database Schema}{28}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Data Dictionary}{28}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Standards and Compliance in Design}{28}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Methodology}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Critical Reflection on Methodology}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Component Implementation}{29}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Input Pipeline}{29}{subsection.6.2.1}%
+\contentsline {subsubsection}{GPX Data Enrichment}{30}{section*.55}%
+\contentsline {subsubsection}{Pre-indexing OpenStreetMap Ways via SQLite}{31}{section*.57}%
+\contentsline {subsubsection}{Data Stream}{31}{section*.59}%
+\contentsline {subsection}{\numberline {6.2.2}Segmentation Engine}{32}{subsection.6.2.2}%
+\contentsline {paragraph}{Goal.}{32}{section*.60}%
+\contentsline {subsection}{\numberline {6.2.3}Segmentation Engine: Two-Pass Weighting and Recursive Merging}{34}{subsection.6.2.3}%
+\contentsline {paragraph}{Pass 1 --- Propose boundaries.}{34}{section*.66}%
+\contentsline {paragraph}{Pass 2 --- Weight boundaries.}{34}{section*.67}%
+\contentsline {paragraph}{Recursive merging.}{35}{section*.68}%
+\contentsline {paragraph}{Outcome.}{35}{section*.69}%
+\contentsline {subsection}{\numberline {6.2.4}TSS Engine}{35}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Testing and Results}{35}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Results and Conclusions}{37}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{38}{chapter.8}%
+\contentsline {chapter}{\numberline {A}Further Development}{41}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{42}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Directory Structure}{49}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Application Documentation}{50}{appendix.D}%
+\contentsline {section}{\numberline {D.1}Segmentation Engine Documentation}{50}{section.D.1}%
+\contentsline {section}{\numberline {D.2}Pipeline Documentation}{52}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Archived Documentation}{64}{section.D.3}%
+\contentsline {section}{\numberline {D.4}Archived Map Data Documentation}{68}{section.D.4}%
+\contentsline {section}{\numberline {D.5}Thesis Proposal}{70}{section.D.5}%
+\contentsline {section}{\numberline {D.6}Literature Review}{80}{section.D.6}%
+\contentsline {section}{\numberline {D.7}Method}{86}{section.D.7}%
