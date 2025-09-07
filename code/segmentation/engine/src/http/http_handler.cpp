@@ -1,6 +1,7 @@
 #include "http_handler.hpp"
 
 #include "core/RouteSignalBuilder.hpp"
+#include "core/TrainingSuitability.hpp"
 #include "core/wavelets/WaveletFootprint.hpp"
 #include "httplib.h"
 #include "infra/MySQLSegmentDB.hpp"
@@ -66,7 +67,9 @@ void HttpHandler::callGetHandler(std::string action,
       {"view", &HttpHandler::handleView},
       {"viewLab", &HttpHandler::handleSignalLabUI},
       {"lab/meta", &HttpHandler::handleLabMeta},
-      {"segments", &HttpHandler::handleSegments}};
+      {"segments", &HttpHandler::handleSegments},
+      {"segment", &HttpHandler::handleSegment},
+      {"tss", &HttpHandler::handleTss}};
 
   if (auto it = kGetHandlers.find(action); it != kGetHandlers.end()) {
     (this->*(it->second))(req, res);
@@ -1016,4 +1019,282 @@ void HttpHandler::handleSegments(const httplib::Request &req,
   // 5) Return the GeoJSON
   res.set_header("Access-Control-Allow-Origin", "*");
   res.set_content(fc.dump(), "application/json");
+}
+
+void HttpHandler::handleSegment(const httplib::Request &req,
+                                httplib::Response &res) {
+  if (!req.has_param("uid")) {
+    res.status = 400;
+    res.set_content(R"({"error":"missing uid"})", "application/json");
+    return;
+  }
+
+  std::string uid_hex = req.get_param_value("uid");
+
+  static const std::string sql = R"(
+    SELECT direction,length_m,kind,coords_json
+    FROM segment_defs WHERE segment_uid = UNHEX(?) LIMIT 1;
+  )";
+
+  if (!db_) {
+    res.status = 500;
+    res.set_content(R"({"error":"internal db connection not initialized"})",
+                    "application/json");
+    return;
+  }
+
+  MYSQL_STMT *stmt = mysql_stmt_init(db_);
+  if (!stmt) {
+    res.status = 500;
+    res.set_content(R"({"error":"db statement init failed"})",
+                    "application/json");
+    return;
+  }
+  if (mysql_stmt_prepare(stmt, sql.c_str(),
+                         static_cast<unsigned long>(sql.size())) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"prepare failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
+
+  MYSQL_BIND pbind[1];
+  memset(pbind, 0, sizeof(pbind));
+  unsigned long uid_len = uid_hex.size();
+  pbind[0].buffer_type = MYSQL_TYPE_STRING;
+  pbind[0].buffer = uid_hex.data();
+  pbind[0].buffer_length = uid_len;
+  pbind[0].length = &uid_len;
+
+  if (mysql_stmt_bind_param(stmt, pbind) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"bind params failed: )") + e +
+                        "\"}",
+                    "application/json");
+    return;
+  }
+
+  if (mysql_stmt_execute(stmt) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"execute failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
+
+  MYSQL_BIND rbind[4];
+  memset(rbind, 0, sizeof(rbind));
+  char dir_buf[8];
+  unsigned long dir_len = 0;
+  double length_m = 0;
+  unsigned char kind_val = 0;
+  std::vector<char> json_buf(1 << 16);
+  unsigned long json_len = 0;
+
+  rbind[0].buffer_type = MYSQL_TYPE_STRING;
+  rbind[0].buffer = dir_buf;
+  rbind[0].buffer_length = sizeof(dir_buf);
+  rbind[0].length = &dir_len;
+
+  rbind[1].buffer_type = MYSQL_TYPE_DOUBLE;
+  rbind[1].buffer = &length_m;
+
+  rbind[2].buffer_type = MYSQL_TYPE_TINY;
+  rbind[2].buffer = &kind_val;
+  rbind[2].is_unsigned = true;
+
+  rbind[3].buffer_type = MYSQL_TYPE_STRING;
+  rbind[3].buffer = json_buf.data();
+  rbind[3].buffer_length = json_buf.size();
+  rbind[3].length = &json_len;
+
+  if (mysql_stmt_bind_result(stmt, rbind) != 0 ||
+      mysql_stmt_store_result(stmt) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"bind/store result failed: )") + e +
+                        "\"}",
+                    "application/json");
+    return;
+  }
+
+  int rc = mysql_stmt_fetch(stmt);
+  if (rc == MYSQL_NO_DATA) {
+    mysql_stmt_free_result(stmt);
+    mysql_stmt_close(stmt);
+    res.status = 404;
+    res.set_content(R"({"error":"not found"})", "application/json");
+    return;
+  }
+  if (rc == 1) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_free_result(stmt);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"fetch failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
+
+  nlohmann::json out;
+  out["uid"] = uid_hex;
+  out["direction"] = std::string(dir_buf, dir_len);
+  out["length_m"] = length_m;
+  out["kind"] = static_cast<unsigned int>(kind_val);
+  out["coordinates"] =
+      nlohmann::json::parse(std::string(json_buf.data(), json_len));
+
+  mysql_stmt_free_result(stmt);
+  mysql_stmt_close(stmt);
+
+  res.set_header("Access-Control-Allow-Origin", "*");
+  res.set_content(out.dump(), "application/json");
+}
+
+void HttpHandler::handleTss(const httplib::Request &req,
+                            httplib::Response &res) {
+  if (!req.has_param("id")) {
+    res.status = 400;
+    res.set_content(R"({"error":"missing id"})", "application/json");
+    return;
+  }
+  long long seg_id = 0;
+  try {
+    seg_id = std::stoll(req.get_param_value("id"));
+  } catch (...) {
+    res.status = 400;
+    res.set_content(R"({"error":"invalid id"})", "application/json");
+    return;
+  }
+
+  static const std::string sql = R"(
+    SELECT sd.coords_json
+    FROM route_segments rs
+    JOIN segment_defs sd ON rs.segment_uid = sd.segment_uid
+    WHERE rs.segment_id = ? LIMIT 1;
+  )";
+
+  if (!db_) {
+    res.status = 500;
+    res.set_content(R"({"error":"internal db connection not initialized"})",
+                    "application/json");
+    return;
+  }
+
+  MYSQL_STMT *stmt = mysql_stmt_init(db_);
+  if (!stmt) {
+    res.status = 500;
+    res.set_content(R"({"error":"db statement init failed"})",
+                    "application/json");
+    return;
+  }
+  if (mysql_stmt_prepare(stmt, sql.c_str(),
+                         static_cast<unsigned long>(sql.size())) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"prepare failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
+
+  MYSQL_BIND pbind[1];
+  memset(pbind, 0, sizeof(pbind));
+  pbind[0].buffer_type = MYSQL_TYPE_LONGLONG;
+  pbind[0].buffer = &seg_id;
+
+  if (mysql_stmt_bind_param(stmt, pbind) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"bind params failed: )") + e +
+                        "\"}",
+                    "application/json");
+    return;
+  }
+
+  if (mysql_stmt_execute(stmt) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"execute failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
+
+  MYSQL_BIND rbind[1];
+  memset(rbind, 0, sizeof(rbind));
+  std::vector<char> json_buf(1 << 16);
+  unsigned long json_len = 0;
+  rbind[0].buffer_type = MYSQL_TYPE_STRING;
+  rbind[0].buffer = json_buf.data();
+  rbind[0].buffer_length = json_buf.size();
+  rbind[0].length = &json_len;
+
+  if (mysql_stmt_bind_result(stmt, rbind) != 0 ||
+      mysql_stmt_store_result(stmt) != 0) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"bind/store result failed: )") + e +
+                        "\"}",
+                    "application/json");
+    return;
+  }
+
+  int rc = mysql_stmt_fetch(stmt);
+  if (rc == MYSQL_NO_DATA) {
+    mysql_stmt_free_result(stmt);
+    mysql_stmt_close(stmt);
+    res.status = 404;
+    res.set_content(R"({"error":"not found"})", "application/json");
+    return;
+  }
+  if (rc == 1) {
+    std::string e = mysql_error(db_);
+    mysql_stmt_free_result(stmt);
+    mysql_stmt_close(stmt);
+    res.status = 500;
+    res.set_content(std::string(R"({"error":"fetch failed: )") + e + "\"}",
+                    "application/json");
+    return;
+  }
+
+  mysql_stmt_free_result(stmt);
+  mysql_stmt_close(stmt);
+
+  std::string json_str(json_buf.data(), json_len);
+  std::vector<DataPoint> pts;
+  try {
+    auto arr = nlohmann::json::parse(json_str);
+    if (arr.is_array()) {
+      for (auto &el : arr) {
+        DataPoint dp;
+        if (el.is_object())
+          dp.extensions = el.value("extensions", nlohmann::json::object());
+        pts.push_back(std::move(dp));
+      }
+    }
+  } catch (...) {
+  }
+
+  TrainingSuitabilityScore score = compute_tss(pts);
+  nlohmann::json out = nlohmann::json::object();
+  for (const auto &kv : score.extensions) {
+    const auto &st = kv.second;
+    out[kv.first] = {{"count", st.count},
+                     {"mean", st.mean},
+                     {"std", st.std},
+                     {"min", st.min},
+                     {"max", st.max}};
+  }
+
+  res.set_header("Access-Control-Allow-Origin", "*");
+  res.set_content(out.dump(), "application/json");
 }
