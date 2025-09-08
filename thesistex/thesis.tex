@@ -5,7 +5,6 @@
 % Packages
 %--------------------------------------
 \usepackage[margin=2.5cm]{geometry}
-\usepackage[utf8]{inputenc}
 
 \usepackage{setspace}
 \usepackage{enumitem}
@@ -22,10 +21,10 @@
 \usepackage[normalem]{ulem}
 \pgfplotsset{compat=1.18}
 \usepackage{tabularx}
-% \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{{assets/}}
 \usepackage{listings}
+\lstset{breaklines=true, columns=fullflexible, keepspaces=true}
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -40,13 +39,13 @@
 \usepackage{tocloft}
 \usepackage{fancyhdr}
 \setlength{\headheight}{14pt}
-\usepackage{listings}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows.meta,positioning,fit}
 \captionsetup[table]{font=footnotesize, labelfont=footnotesize, justification=centering}
 \captionsetup[figure]{font=footnotesize, labelfont=footnotesize, justification=centering}
 \usepackage[nameinlink,noabbrev]{cleveref} % smarter refs
+\usepackage[final]{microtype}
 % Make cleveref know about listings:
 \crefname{listing}{Listing}{Listings}
 \Crefname{listing}{Listing}{Listings}
@@ -126,7 +125,6 @@ crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 	ride dynamics. TSS has 5 components; one for each zone in the 5-zone training model. Together, these components form a practical
 	route-planning system that prioritises the quality of training stimulus over performance ranking and competition.
 \end{abstract}
-%TODO: review
 
 % Table of Contents, List of Figures, List of Tables
 \hypersetup{pageanchor=false}
@@ -144,10 +142,8 @@ crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 
 %---------- Main Chapters ----------
 
-%TODO: review
 \chapter{Introduction}
 \label{chap:introduction}
-%TODO: review
 High-quality cycling training depends on being able to execute the intended effort without interruption. Professional riders often train
 on long climbs with low-traffic roads in remote locations, most amateurs, by contrast, plan routes with general-purpose mapping tools
 and only discover mid-ride that junctions, blind corners or traffic furniture force repeated wattage spikes or dips. The result is high power
@@ -236,7 +232,7 @@ and map-based segmentation. Some, or all of these may be applied to the algorith
 segmentation types. What follows is a review of the literature that exists that could contribute to achieving advanced segmentation.
 
 \paragraph{Paul Newson and John Krumm: "Hidden Markov Map Matching Through Noise and Sparseness"}
-A useful way to clean up the location data as a pre-processing step could be through map matching. Newson and Krumm \citeyearpar{NewsonKrumm2009} explore
+A useful way to clean up the location data as a preprocessing step could be through map matching. Newson and Krumm \citeyearpar{NewsonKrumm2009} explore
 map-matching through a HMM model on timestamp-marked latitude and longitude pairs. The approach showcased in the paper is focused on automobile
 traffic, so there may be some need to tweak the emission delta for bikes, to accomodate for larger variance in the horizontal travel distance,
 as well as increasing the search range for nodes around each track point. The search would then use a Gaussian probability curve,
@@ -361,21 +357,21 @@ base GPX data (latitude, longitude, elevation, time) and OSM route data, with th
 \subsection{Approaches to Suitability Scoring}
 \paragraph{Sharifzadeh et al. "Change Detection in Time Series Data Using Wavelet  Footprints"}
 An interesting approach to Suitability scoring relates to Fast Fourier Transforms, and a convolution approach comes from Medhi Sharifzadeh et al \citeyearpar{Sharifzadeh2005},
-from the University of Southern California, introducing a concept known as "wavelet footprints" as a compact, multi-resolution approach to
-representation of spatial-temporal trajectories. Wavelet footprints are a  more granular version of the Wavelet Transform, which in turn is a
+from the University of Southern California, introducing a concept known as "Wavelet Footprints" as a compact, multi-resolution approach to
+representation of spatial-temporal trajectories. Wavelet Footprints are a  more granular version of the Wavelet Transform, which in turn is a
 version of the Fourier Transform. The approach involves using Wavelets to transform a signal into the "Wavelet Domain". The smaller the wavelet,
 the more reactive it will be to change in the original signal, so by adjusting the size of the wavelet, the signal can be filtered to be more or
-less reactive to change. Wavelet footprints have an advantage over the general Wavelet transform, where they only retain the most significant
+less reactive to change. Wavelet Footprints have an advantage over the general Wavelet transform, where they only retain the most significant
 components. This is done by having wavelets occur in orthoganal sets. Due to Heisenberg's Uncertainty Principle, it is impossible to perfectly
 describe both the frequency content of a signal and the location in time of the signal. Time-domain and Frequency-Domain analysis in this regard
 are at opposite ends of the spectrum, but the Wavelet Domain sits in the middle, allowing for a sliding scale value, where a larger scale gives
 more frequency and less time resolution, while smaller scales give less frequency, and more time resolution.
 
-The advantage of using wavelet footprints over the Fourier Transform means that it is possible to isolate points in the signal where significant
+The advantage of using Wavelet Footprints over the Fourier Transform means that it is possible to isolate points in the signal where significant
 changes occur in specific metrics, or combination of metrics, allowing flexibility in choosing what conditions must be met to enact a segmentation.
 
 \paragraph{Indoor Cycling Association: "How Much Time in the Red Zone?"}
-This article by Indoor Cycling Association \citeyearpar{indoorcycling_redzone} details a breakdown of the 7-training-zone model, which provide a good template for cutoff times for tuning Wavelet Footprints
+This article by Indoor Cycling Association \citeyearpar{indoorcycling_redzone} explains the 7-training-zone model; a good starting point for cutoff times for tuning Wavelet Footprints
 for analysing the GPX signal. The general consensus is having 5 zones is a good compromise between continuous training definitions
 (specific power numbers) and binary (hard or easy). While the article describes 7 zones, Zones 1-3 all fall outside of the hour range, which
 for the purpose of segment analysis would be fairly useless. The 5-Zone model approach has good suitability to wavelet analysis, since small
@@ -524,7 +520,7 @@ Protection Act and GDPR: the system performs privacy trimming on the first kilom
 immediate analysis, and only persists aggregated segment statistics.  When map data is fetched from OpenStreetMap and OSRM profiles are tuned the licences of
 these projects are respected: both OpenStreetMap and OSRM are permissively licensed, so derived works can be integrated into an academic system provided
 attribution is given.  Any code reused from open-source libraries (such as cpp-httplib, nlohmann/json or \texttt{osmnx}) is cited appropriately and the
-original licences are included in the repository, fulfilling our obligations under the MIT and BSD licences. In practice the OSRM images used for map matching are built from specific OpenStreetMap snapshots, and the pipeline bundles the required Open Database License notice so that downstream users remain aware of the dataset's provenance. Derived routing graphs are recreated on demand rather than redistributed, preserving the intent of the ODbL. Uploaded GPX traces are processed in memory with hashed identifiers and deleted once aggregate statistics have been stored, reducing the surface for data leaks.
+original licences are included in the repository, fulfilling our obligations under the MIT and BSD licences. In practice the OSRM images used for map matching are built from specific OpenStreetMap snapshots, and the pipeline bundles the required Open Database License notice so that downstream users remain aware of the data set's provenance. Derived routing graphs are recreated on demand rather than redistributed, preserving the intent of the ODbL. Uploaded GPX traces are processed in memory with hashed identifiers and deleted once aggregate statistics have been stored, reducing the surface for data leaks.
 \subsection{Social}
 From a social standpoint the system aims to empower cyclists of all abilities to train more effectively, but it also has the potential to exacerbate
 inequalities.  Experienced riders with sophisticated power meters will be able to contribute richer data to the segment database, which could bias the Training
@@ -794,7 +790,7 @@ The non-functional requirements of the system are as follows:
 \subsubsection{Software System Attributes}
 \paragraph{Reliability}
 System components are individually testable, and hardened for failure with catch blocks for any edge conditions, with the default behaviour defined
-as "ignore" per section. The multi-chunk approach to processing also allows for error, without corrupting the entire dataset. If a chunk is corrupted,
+as "ignore" per section. The multi-chunk approach to processing also allows for error, without corrupting the entire data set. If a chunk is corrupted,
 it can just be ignored.
 
 \paragraph{Availability}
@@ -842,7 +838,7 @@ Below is the high-level timeline for the project, showing completed milestones i
 	\item Week 6: Integrate wavelet \& hysteresis approaches and perform initial tests
 	\item Week 7: Develop Training Suitability Scoring engine and tune thresholds
 	\item Week 8: Web UI prototype for upload and visualization
-	\item Week 9: Bulk testing on Strava dataset \& performance tuning
+	\item Week 9: Bulk testing on Strava data set \& performance tuning
 	\item **Week 10 (now): Add critical reflection, finalize lessons learned**
 	\item **Final days: Produce timeline figure/Gantt and polish usability discussion**
 \end{itemize}
@@ -909,7 +905,7 @@ The functional view includes key modules and their responsibilities.
 
 \begin{table}[H]
         \centering\small
-        \caption{Architectural Design > Architectural Views - structured summary}
+        \caption{Architectural Views - structured summary}
         \label{tbl:architectural-views}
         \begin{tabularx}{\textwidth}{l X}
                 \toprule
@@ -936,12 +932,11 @@ The functional view includes key modules and their responsibilities.
 
 
 \subsubsection{Physical View}
-Hardware deployment and network design.
-% Diagrams of the network design and a list of representative hardware configurations are provided in the accompanying documentation.  These include
-% container topology and resource requirements, but are omitted here for brevity.
+Diagrams of the network design and a list of representative hardware configurations are provided in the accompanying documentation.  These include
+container topology and resource requirements, but are omitted here for brevity.
 
 
-\subsubsection{Behavioral View}
+\subsubsection{Behavioural View}
 Use case and sequence diagrams for the system
 \begin{figure}[H]
   \centering
@@ -1156,7 +1151,6 @@ routes. Once the matching behaved acceptably, I moved on to enriching the matche
 the next subsection).
 
 % ----------------------------
-% Begin new enrichment subsection inserted here
 \subsubsection{GPX Data Enrichment}
 \label{sec:gpx_enrich}
 After I had reliable map matching in place, I turned my attention to enriching each trackpoint with context and sensor data. I wrote two Python
@@ -1419,7 +1413,6 @@ to train the data perform a targeted training session on routes highlighted by t
 This section contrasts the performance of the segmentation engine developed in this thesis with other public segment creation tools.
 
 \subsection{Qualitative Comparison}
-% TODO: Discuss conceptual differences, feature sets, and user experience between the approaches.
 \begin{table}[H]
     \centering\small
     \caption{Simple side-by-side look at Strava vs. My Segmentation Engine}
@@ -1428,74 +1421,13 @@ This section contrasts the performance of the segmentation engine developed in t
         \toprule
         \textbf{What} & \textbf{Strava} & \textbf{My Engine} \\
         \midrule
-        How pieces are made & Riders draw their own; can overlap or start in odd places & Cut up by math rules (wavelets + RMS), always the same way \\
-        Where pieces show up & Lots in busy places, few in quiet ones & Works anywhere a ride goes \\
-        What each piece shows & Time and speed lists; leaderboards & Extra ride data (slope, power, heart rate, effort) \\
-        Clear or hidden & Rules hidden, start/end not always clear & Rules open, easy to set and repeat \\
-        Main goal & Race and compare with others & Study ride load and training use \\
+        How pieces are made & Riders draw their own; can be noisy or gamed & Cut up by rules (wavelets + RMS), deterministic \\
+        Where pieces show up & Many in busy areas, fewer in quiet ones & Works anywhere a ride goes \\
+        What each piece shows & Leaderboards; time/speed only & Adds slope, power, heart rate, effort \\
+        Clear or hidden & Rules are hidden; start/end unclear to users & Transparent, rule-driven; can be explained \\
         \bottomrule
     \end{tabularx}
 \end{table}
-\label{chap:results}
-\subsection{Quantitative Comparison}
-By running 20 separate GPX files through the segmentation engine, and getting the start and end positions of their segments (as well as the total
-segment length), we were able to calculate a simliarity score via the following formula:
-\[
-\mathrm{Sim}(S,E) = \exp\!\left(-\frac{d(s_{\mathrm{start}}, e_{\mathrm{start}}) + d(s_{\mathrm{end}}, e_{\mathrm{end}})}{2 \, \tau}\right),
-\]
-\paragraph{Similarity Metric:}
-We define similarity between a Strava segment $S$ and an engine segment $E$ by comparing their start and end coordinates. Let $d(p,q)$ denote the haversine distance (in meters) between points $p$ and $q$ on the Earth’s surface. If $S = (s_{\mathrm{start}}, s_{\mathrm{end}})$ and $E = (e_{\mathrm{start}}, e_{\mathrm{end}})$, then the similarity score is
-where $\tau$ is a scaling constant (e.g., $100$ m) that determines how quickly similarity decays with distance. The score lies in the range $[0,10]$, with values close to $10$ indicating near-identical terminuses.
-We use terminal points rather than overall route matching here to save time mostly, and due to the nature of segments existing on a road network, more often than not if two teriminuses are the same, then the route in between will be the same as well.
-
-
-By using the Strava API to get the segments that ran along the routes that I took the GPX files from, we are able to get a significant amount of data to compare, and putting the results on a logarithmic scale
-we get some interesting results, as seen in \ref{fig:compare}.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.6\textwidth]{graph_compare.png}
-  \label{fig:compare}
-  \caption{A clear correlation between strava and segmentation engine results.}
-\end{figure}
-There is a clear correlation, especially between the 400m and 1.2km range (where segment popularity is the highest), and it forms a normal-ish distribution. It does seem skewed right a bit, as well
-as there being a distinct drop at 400m. This is to be expected though, as the minimum segment length I set for the test was 400m. Anything less than this was merged into another segment.
-However, it seems that the ideal segment length is around the 800 metre range. So optimising my algorithm around that length makes the most sense.
-
-\section{Final Thoughts}
-
-\chapter{Results and Conclusions}
-\label{chap:results}
-This project set out to determine whether road suitability for structured cycling training could be quantified using only ride data and open mapping sources.
-The implemented system successfully ingests GPX tracks, performs map matching against OpenStreetMap via OSRM, enriches tracks with contextual metadata and segments routes using a reproducible algorithm.
-Evaluation on a diverse set of twenty rides cross-referenced with Strava segments showed that the segmentation engine agrees with human judgement on most meaningful transitions.
-In preprocessing trials, a Kalman smoother reduced positional jitter by roughly 12\% compared to a simple hysteresis filter, yielding more stable boundaries.
-Building on OSRM and the OpenStreetMap dataset proved sufficient for high-quality routing without resorting to proprietary services. The pipeline trims the first kilometre of every upload, hashes rider identifiers and discards raw files after aggregation, demonstrating that useful segment analytics can be produced while respecting data privacy.
-
-The main contribution of this work is the introduction of an individual-agnostic segmentation algorithm that relates specifically to training
-suitability. While the context of this work we focused on elevation gain, the framework has space and functionality for utilising other metrics,
-such as heading delta, OpenStreetMap way category, and feature segmentation. By categorising elevation into four distinct sections, this allows
-a start for implmenting Training Suitability scoring, since gradient variation of a road is a huge factor in cyclists not achieving their
-power targets for a given workout. This framework hopefully will also allow others to build upon it, and with collective knowledge, implement
-a robust method for creating a score system for the training segments. 
-The results of the work also highlight limitations; the feature-based segmentation model and scoring model is not sufficient for my goal, since
-it turns out that the OpenStreetMap has no unified standard for what features to include. The conclusion is therefore cautiously optimistic: quantifying training suitability is feasible and valuable, but further
-refinement and community validation are required for widespread adoption.
-
-\section*{Reflection}
-Developing the system highlighted the trade-offs between leveraging rich open datasets and safeguarding the privacy of riders who contribute their traces. Iterating between Kalman smoothing and hysteresis filters emphasised how algorithmic choices shape both accuracy and user trust. Future iterations should continue to question data retention practices and to document the provenance of the open tools on which the platform depends.
-
-\chapter{Further Discussions and Research Gaps}
-\label{chap:discussion}
-Several avenues exist for future improvement.  First, the segmentation algorithm currently operates with fixed thresholds. Experimenting with
-dynamic programming approaches or machine learning models could yield more robust boundaries, particularly in complex urban environments.  Second, the
-Training Suitability Score could be improved upon by incorporating additional data sources such as live traffic volumes, air quality indices and weather
-forecasts, all of which influence the quality of a ride but were outside the scope of this study.  Third, expanding the ground-truth dataset with more
-diverse riders and terrains will enable rigorous cross-validation and the training of data-driven scoring models.  Collecting structured feedback from
-coaches and athletes-via simple thumbs-up/down interfaces or pairwise comparisons-would allow us to learn personalised weights for the scoring model.
-Any other time-series or distance-series data from routes could be taken and implemented into the algorithm, as the main functionality of this project is
-discrete signal analysis at the end of it all.
-
-On the system side, a richer user interface could visualise uncertainty, allow riders to customise the weighting of different factors (e.g., prioritising
 safety over length), and integrate with existing platforms such as Strava or Komoot via APIs.  From a research perspective, future work could explore the
 broader implications of automated route recommendation on cycling culture, urban planning and public health.  Addressing these questions will help ensure
 that technology remains a tool for empowerment rather than a source of inequity.
@@ -1511,11 +1443,9 @@ training suitability, or if it is just a product of normal distribution of road 
 \bibliography{references}
 \appendix
 \label{chap:appendix}
-%TODO: review
 \chapter{Extracted Code Listings}{Extracted Code Listings}
 \label{apx:furtherreading}
 \input{appendix_extracted_listings.tex}
-%TODO: review
 
 %TODO: review
 \chapter{Application Documentation}{Application Documentation}

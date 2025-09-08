@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 22:10
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  9 SEP 2025 00:42
  restricted system commands enabled.
 **docs.tex
 (./docs.tex
@@ -1018,11 +1018,8 @@ al sen-sor val-ues nor-malised ac-cord-ing to \TU/lmtt/m/n/10.95 config/extensio
 ns_map.json\TU/lmr/m/n/10.95 .
  []
 
-
-LaTeX Warning: Reference `fig:legs' on page 8 undefined on input line 312.
-
 [8]
-<assets/legs.png, id=213, 962.59625pt x 434.62375pt>
+<assets/legs.png, id=215, 962.59625pt x 434.62375pt>
 File: assets/legs.png Graphic file (type png)
 <use assets/legs.png>
 Package luatex.def Info: assets/legs.png  used on input line 331.
@@ -1054,13 +1051,6 @@ Underfull \hbox (badness 1237) in paragraph at lines 4--7
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `docs.out' has not changed.
 (rerunfilecheck)             Checksum: FE5E197C6BC7F9F9E934F79F6AAE7938;2350.
 )
@@ -1096,10 +1086,10 @@ Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
 pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on docs.pdf (11 pages, 5943948 bytes).
+Output written on docs.pdf (11 pages, 5943873 bytes).
 
-PDF statistics: 345 PDF objects out of 1000 (max. 8388607)
- 279 compressed objects within 3 object streams
+PDF statistics: 346 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
  80 named destinations out of 1000 (max. 131072)
  112 words of extra memory for PDF output out of 10000 (max. 100000000)
 
