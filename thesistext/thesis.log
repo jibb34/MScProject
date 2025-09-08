@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 00:08
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 11:52
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -909,6 +909,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks47
 \@floatcapt=\box78
 )
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/makecell/ma
+kecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen310
+\c@nlinenum=\count330
+\TeXr@lab=\toks48
+)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyphenat/hy
 phenat.sty
 Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
@@ -937,26 +944,26 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 gen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks48
-\ex@=\dimen310
+\@emptytoks=\toks49
+\ex@=\dimen311
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 bsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen311
+\pmbraise@=\dimen312
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 opn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count330
+\inf@bad=\count331
 LaTeX Info: Redefining \frac on input line 236.
-\uproot@=\count331
-\leftroot@=\count332
+\uproot@=\count332
+\leftroot@=\count333
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count333
-\DOTSCASE@=\count334
+\classnum@=\count334
+\DOTSCASE@=\count335
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -966,34 +973,34 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen312
+\big@size=\dimen313
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count335
+\macc@depth=\count336
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count336
+\c@MaxMatrixCols=\count337
 \dotsspace@=\muskip16
-\c@parentequation=\count337
-\dspbrk@lvl=\count338
-\tag@help=\toks49
-\row@=\count339
-\column@=\count340
-\maxfields@=\count341
-\andhelp@=\toks50
-\eqnshift@=\dimen313
-\alignsep@=\dimen314
-\tagshift@=\dimen315
-\tagwidth@=\dimen316
-\totwidth@=\dimen317
-\lineht@=\dimen318
-\@envbody=\toks51
+\c@parentequation=\count338
+\dspbrk@lvl=\count339
+\tag@help=\toks50
+\row@=\count340
+\column@=\count341
+\maxfields@=\count342
+\andhelp@=\toks51
+\eqnshift@=\dimen314
+\alignsep@=\dimen315
+\tagshift@=\dimen316
+\tagwidth@=\dimen317
+\totwidth@=\dimen318
+\lineht@=\dimen319
+\@envbody=\toks52
 \multlinegap=\skip59
 \multlinetaggap=\skip60
-\mathdisplay@stack=\toks52
+\mathdisplay@stack=\toks53
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
@@ -1042,7 +1049,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks53
+\pdftexcmds@toks=\toks54
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hycolor/hyc
 olor.sty
@@ -1068,16 +1075,16 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 voptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count342
+\c@section@level=\count343
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/etoolbox/et
 oolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count343
+\etb@tempcnta=\count344
 )
-\@linkdim=\dimen319
-\Hy@linkcounter=\count344
-\Hy@pagecounter=\count345
+\@linkdim=\dimen320
+\Hy@linkcounter=\count345
+\Hy@pagecounter=\count346
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/pd
 1enc.def
@@ -1087,7 +1094,7 @@ File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 ntcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count346
+\Hy@SavedSpaceFactor=\count347
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/pu
 enc.def
@@ -1100,14 +1107,14 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count347
+\c@Hy@tempcnt=\count348
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen320
+\XeTeXLinkMargin=\dimen321
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/bitset/bi
 tset.sty
@@ -1118,9 +1125,9 @@ c/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count348
-\Field@Width=\dimen321
-\Fld@charsize=\dimen322
+\Fld@menulength=\count349
+\Field@Width=\dimen322
+\Fld@charsize=\dimen323
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -1134,9 +1141,9 @@ hi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count349
-\c@Item=\count350
-\c@Hfootnote=\count351
+\Hy@abspage=\count350
+\c@Item=\count351
+\c@Hfootnote=\count352
 )
 Package hyperref Info: Driver (autodetected): hluatex.
 
@@ -1155,8 +1162,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count352
-\c@bookmark@seq@number=\count353
+\Fld@listcount=\count353
+\c@bookmark@seq@number=\count354
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/rerunfilech
 eck/rerunfilecheck.sty
@@ -1177,7 +1184,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip62
 \bibsep=\skip63
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count354
+\c@NAT@ctr=\count355
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tocloft/toc
 loft.sty
@@ -1212,8 +1219,8 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforefigskip=\skip90
 \cftfigindent=\skip91
 \cftfignumwidth=\skip92
-\c@lofdepth=\count355
-\c@lotdepth=\count356
+\c@lofdepth=\count356
+\c@lotdepth=\count357
 \cftbeforelottitleskip=\skip93
 \cftafterlottitleskip=\skip94
 \cftbeforetabskip=\skip95
@@ -1305,10 +1312,10 @@ File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
 ries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen323
-\pgfarrowlength=\dimen324
-\pgfarrowwidth=\dimen325
-\pgfarrowlinewidth=\dimen326
+\pgfarrowinset=\dimen324
+\pgfarrowlength=\dimen325
+\pgfarrowwidth=\dimen326
+\pgfarrowlinewidth=\dimen327
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibrarypositioning.code.tex
@@ -1341,33 +1348,33 @@ Package cleveref Info: no abbreviation of names on input line 7852.
 ) (./thesis.aux)
 \openout1 = thesis.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 101.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-00.
+01.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ts1cmr
 .fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1407,17 +1414,17 @@ LaTeX Font Info:    ... okay on input line 100.
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii
 /supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count357
-\scratchdimen=\dimen327
+\scratchcounter=\count358
+\scratchdimen=\dimen328
 \scratchbox=\box101
-\nofMPsegments=\count358
-\nofMParguments=\count359
-\everyMPshowfont=\toks54
-\MPscratchCnt=\count360
-\MPscratchDim=\dimen328
-\MPnumerator=\count361
-\makeMPintoPDFobject=\count362
-\everyMPtoPDFconversion=\toks55
+\nofMPsegments=\count359
+\nofMParguments=\count360
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count361
+\MPscratchDim=\dimen329
+\MPnumerator=\count362
+\makeMPintoPDFobject=\count363
+\everyMPtoPDFconversion=\toks56
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/epstopdf-pk
 g/epstopdf-base.sty
@@ -1442,7 +1449,7 @@ e
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c@lstlisting=\count363
+\c@lstlisting=\count364
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1454,7 +1461,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-00.
+01.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmtt.f
 d
@@ -1462,106 +1469,106 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 100.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/scsl' undefined
-(Font)              using `T1/lmtt/b/sc' instead on input line 100.
+(Font)              using `T1/lmtt/b/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/sc' undefined
-(Font)              using `T1/lmtt/b/n' instead on input line 100.
+(Font)              using `T1/lmtt/b/n' instead on input line 101.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 100.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 101.
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 100.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 101.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 100.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 101.
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/scsl' undefined
-(Font)              using `T1/lmtt/bx/sc' instead on input line 100.
+(Font)              using `T1/lmtt/bx/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/sc' undefined
-(Font)              using `T1/lmtt/bx/n' instead on input line 100.
+(Font)              using `T1/lmtt/bx/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sbx/sc' undefined
-(Font)              using `T1/lmtt/sb/sc' instead on input line 100.
+(Font)              using `T1/lmtt/sb/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/n' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 100.
+(Font)              using `T1/lmtt/m/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/it' undefined
-(Font)              using `T1/lmtt/sb/n' instead on input line 100.
+(Font)              using `T1/lmtt/sb/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/sl' undefined
-(Font)              using `T1/lmtt/sb/it' instead on input line 100.
+(Font)              using `T1/lmtt/sb/it' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/scit' undefined
-(Font)              using `T1/lmtt/sb/sc' instead on input line 100.
+(Font)              using `T1/lmtt/sb/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/sc' undefined
-(Font)              using `T1/lmtt/sb/n' instead on input line 100.
+(Font)              using `T1/lmtt/sb/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sbc/sc' undefined
-(Font)              using `T1/lmtt/c/sc' instead on input line 100.
+(Font)              using `T1/lmtt/c/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/n' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 100.
+(Font)              using `T1/lmtt/m/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/it' undefined
-(Font)              using `T1/lmtt/c/n' instead on input line 100.
+(Font)              using `T1/lmtt/c/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/sl' undefined
-(Font)              using `T1/lmtt/c/it' instead on input line 100.
+(Font)              using `T1/lmtt/c/it' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/scit' undefined
-(Font)              using `T1/lmtt/c/sc' instead on input line 100.
+(Font)              using `T1/lmtt/c/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/sc' undefined
-(Font)              using `T1/lmtt/c/n' instead on input line 100.
+(Font)              using `T1/lmtt/c/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/lc/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/lc/sl' tried instead on input line 100.
+(Font)              Font shape `T1/lmtt/lc/sl' tried instead on input line 101.
 
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/lc/scsl' undefined
-(Font)              using `T1/lmtt/lc/sc' instead on input line 100.
+(Font)              using `T1/lmtt/lc/sc' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/lc/sc' undefined
-(Font)              using `T1/lmtt/lc/n' instead on input line 100.
+(Font)              using `T1/lmtt/lc/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/m/ui' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 100.
+(Font)              using `T1/lmtt/m/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/ui' undefined
-(Font)              using `T1/lmtt/bx/n' instead on input line 100.
+(Font)              using `T1/lmtt/bx/n' instead on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/m/In' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 100.
+(Font)              using `T1/lmtt/m/n' instead on input line 101.
 
-Package hyperref Info: Link coloring OFF on input line 100.
+Package hyperref Info: Link coloring OFF on input line 101.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 
@@ -1572,7 +1579,7 @@ Package hyperref Info: Link coloring OFF on input line 100.
 p/pdftex.map}]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 [1]
-Package hyperref Info: Option `pageanchor' set `false' on input line 129.
+Package hyperref Info: Option `pageanchor' set `false' on input line 130.
  (./thesis.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
 .
@@ -1623,16 +1630,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 
 \openout5 = thesis.toc
- [2] (./thesis.lof)
+ [2] [3] (./thesis.lof)
 \tf@lof=\write6
 
 \openout6 = thesis.lof
- [3] (./thesis.lot)
+ [4] (./thesis.lot)
 \tf@lot=\write7
 
 \openout7 = thesis.lot
- [4]
-Package hyperref Info: Option `pageanchor' set `true' on input line 139.
+ [5]
+Package hyperref Info: Option `pageanchor' set `true' on input line 140.
 
 Chapter 1.
 
@@ -1643,16 +1650,16 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 ] [2] [3]
 Chapter 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 221.
+(Font)              <9> on input line 222.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 221.
+(Font)              <5> on input line 222.
 [4
 
 ] [5]
-<assets/hmm_transition.png, id=421, 386.44376pt x 226.8475pt>
+<assets/hmm_transition.png, id=459, 386.44376pt x 226.8475pt>
 File: assets/hmm_transition.png Graphic file (type png)
 <use assets/hmm_transition.png>
-Package luatex.def Info: assets/hmm_transition.png  used on input line 282.
+Package luatex.def Info: assets/hmm_transition.png  used on input line 283.
 (luatex.def)             Requested size: 212.41261pt x 124.69035pt.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
@@ -1680,142 +1687,192 @@ tlang2.sty
 File: lstlang2.sty 2024/02/21 1.10 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 288.
+nput line 289.
  [6<./assets/hmm_transition.png>] [7] [8]
-<assets/zones.png, id=494, 301.125pt x 228.855pt>
+<assets/zones.png, id=532, 301.125pt x 228.855pt>
 File: assets/zones.png Graphic file (type png)
 <use assets/zones.png>
-Package luatex.def Info: assets/zones.png  used on input line 418.
+Package luatex.def Info: assets/zones.png  used on input line 419.
 (luatex.def)             Requested size: 283.22162pt x 215.26689pt.
  [9] [10<./assets/zones.png>]
-<assets/jibb_powercurve.png, id=522, 1012.78375pt x 443.6575pt>
+<assets/jibb_powercurve.png, id=560, 1012.78375pt x 443.6575pt>
 File: assets/jibb_powercurve.png Graphic file (type png)
 <use assets/jibb_powercurve.png>
-Package luatex.def Info: assets/jibb_powercurve.png  used on input line 468.
+Package luatex.def Info: assets/jibb_powercurve.png  used on input line 469.
 (luatex.def)             Requested size: 377.62642pt x 165.41663pt.
- [11] [12<./assets/jibb_powercurve.png>] [13] [14] [15]
-Chapter 3.
-[16
+ [11] [12<./assets/jibb_powercurve.png>] [13] [14]
+Underfull \hbox (badness 1668) in paragraph at lines 609--610
+\T1/lmr/m/n/10.95 in long straight-aways,
+ []
 
-] [17]
-Underfull \hbox (badness 1043) in paragraph at lines 725--725
+
+Underfull \hbox (badness 10000) in paragraph at lines 610--611
+[]|\T1/lmr/m/n/10.95 Good at pre-serv-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 610--611
+\T1/lmr/m/n/10.95 topol-ogy but over-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 611--612
+[]|\T1/lmr/m/n/10.95 Bal-ances length and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 611--612
+\T1/lmr/m/n/10.95 num-ber with some
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 611--612
+\T1/lmr/m/n/10.95 late splits on grad-ual
+ []
+
+
+Overfull \hbox (89.8164pt too wide) in paragraph at lines 605--614
+ [][] 
+ []
+
+[15]
+Overfull \hbox (4.39989pt too wide) in paragraph at lines 624--625
+[]\T1/lmr/m/n/10.95 For-mu-late seg-men-ta-tion as an in-te-ger pro-gram-ming pr
+ob-
+ []
+
+[16]
+Chapter 3.
+[17
+
+] [18]
+Underfull \hbox (badness 1043) in paragraph at lines 780--780
 []|\T1/lmr/m/n/9 De-fault pri-vacy pro-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--725
+Underfull \hbox (badness 10000) in paragraph at lines 780--780
 []|\T1/lmr/m/n/9 Unit test on im-port;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--725
+Underfull \hbox (badness 10000) in paragraph at lines 780--780
 []|\T1/lmr/m/n/9 De-fines sup-ported in-put
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 725--725
+Underfull \hbox (badness 1215) in paragraph at lines 780--780
 \T1/lmr/m/n/9 for-mat; re-jec-t/flag un-sup-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--725
+Underfull \hbox (badness 10000) in paragraph at lines 780--780
 []|\T1/lmr/m/n/9 CI builds and runs
  []
 
 
-Underfull \hbox (badness 6842) in paragraph at lines 725--725
+Underfull \hbox (badness 6842) in paragraph at lines 780--780
 \T1/lmr/m/n/9 docker-compose; health
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--725
+Underfull \hbox (badness 10000) in paragraph at lines 780--780
 []|\T1/lmr/m/n/9 Legal/reg-u-la-tory re-quire-
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 725--725
+Underfull \hbox (badness 4647) in paragraph at lines 780--780
 []|\T1/lmr/m/n/9 Se-cu-rity re-view; doc-u-
  []
 
-[18]
-Underfull \hbox (badness 8132) in paragraph at lines 755--755
+[19]
+Underfull \hbox (badness 8132) in paragraph at lines 810--810
 []|\T1/lmr/m/n/9 Fa-cil-i-tates fu-ture fea-ture
  []
 
 
-Underfull \hbox (badness 5696) in paragraph at lines 755--755
+Underfull \hbox (badness 5696) in paragraph at lines 810--810
 []|\T1/lmr/m/n/9 Im-proves user ex-pe-ri-ence
  []
 
 
-Overfull \hbox (57.08511pt too wide) in paragraph at lines 762--767
+Underfull \hbox (badness 1715) in paragraph at lines 821--822
+[]|\T1/lmr/m/n/10.95 En-sures each seg-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 822--823
+[]|\T1/lmr/m/n/10.95 En-ables per-for-mance
+ []
+
+
+Overfull \hbox (60.51466pt too wide) in paragraph at lines 817--825
  [][] 
  []
 
-[19] [20]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20] [21] [22]
 Chapter 4.
-[21
+[23
 
 ]
 Chapter 5.
-<assets/archdiagram.png, id=662, 994.71625pt x 479.7925pt>
+<assets/archdiagram.png, id=713, 994.71625pt x 479.7925pt>
 File: assets/archdiagram.png Graphic file (type png)
 <use assets/archdiagram.png>
-Package luatex.def Info: assets/archdiagram.png  used on input line 847.
+Package luatex.def Info: assets/archdiagram.png  used on input line 904.
 (luatex.def)             Requested size: 424.82523pt x 204.91574pt.
-[22
+[24
 
-] [23<./assets/archdiagram.png>] [24]
+] [25<./assets/archdiagram.png>] [26]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 9
-40.
+88.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmss.f
 d
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Underfull \vbox (badness 1242) has occurred while \output is active []
-
- [25]
-[26] [27]
+) [27] [28] [29]
 Chapter 6.
-[28
+[30
 
 ]
 
-LaTeX Warning: Reference `sec:wayindex' on page 29 undefined on input line 1061
+LaTeX Warning: Reference `sec:wayindex' on page 31 undefined on input line 1132
 .
 
-[29]
+[31]
 
-LaTeX Warning: Reference `sec:wayindex' on page 30 undefined on input line 1099
+LaTeX Warning: Reference `sec:wayindex' on page 32 undefined on input line 1170
 .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1121
+Underfull \hbox (badness 10000) in paragraph at lines 1192--1192
 []|\T1/lmr/m/n/10.95 (101, {'high-way': 'res-i-den-tial',
  []
 
-[30]
-Overfull \hbox (14.33739pt too wide) in paragraph at lines 1152--1153
+[32]
+Overfull \hbox (14.33739pt too wide) in paragraph at lines 1223--1224
 []\T1/lmr/bx/n/10.95 What didn't: \T1/lmr/m/n/10.95 I ini-tially passed Docker 
 flags with bad spac-ing and got \TU/lmtt/m/n/10.95 invalid containerPort:
  []
 
-[31] [32]
-Overfull \hbox (18.59232pt too wide) in paragraph at lines 1209--1211
+[33] [34]
+Overfull \hbox (18.59232pt too wide) in paragraph at lines 1280--1282
 \T1/lmr/m/n/10.95 was ac-tu-ally \TU/lmtt/m/n/10.95 null\T1/lmr/m/n/10.95 . I st
 opped us-ing \TU/lmtt/m/n/10.95 value() \T1/lmr/m/n/10.95 on un-cer-tain nodes 
 and switched to \TU/lmtt/m/n/10.95 contains()\T1/lmr/m/n/10.95 +\TU/lmtt/m/n/10
 .95 is_-
  []
 
-[33] [34] [35]
+[35] [36] [37]
 Chapter 7.
-[36
+[38
 
 ]
 Chapter 8.
-[37
+[39
 
 ] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 18--21
@@ -1835,7 +1892,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--33
 5 https://www.trainerroad.com/blog/
  []
 
-[38
+[40
 
 
 Missing character: There is no — (U+2014) in font ec-lmri10!
@@ -1852,17 +1909,17 @@ Underfull \hbox (badness 3068) in paragraph at lines 135--138
 []\T1/lmr/m/n/10.95 Story, R. and con-trib-u-tors (2023), `Folium: Python data. Leaflet.js maps', []$\TU/lmtt/m/n/10.95 https://
  []
 
-[39]
+[41]
 Underfull \hbox (badness 1043) in paragraph at lines 147--151
 \TU/lmtt/m/n/10.95 master/osrm/doc/osrm_mapmatching.md$[]\T1/lmr/m/n/10.95 .  Ov
 erview of OSRM map match-ing with HM-
  []
 
-) [40
+) [42
 Missing character: There is no — (U+2014) in font ec-lmri10!
 ]
 Appendix A.
-(./appendix_extracted_listings.tex [41
+(./appendix_extracted_listings.tex [43
 
 ]
 Appendix B.
@@ -1874,7 +1931,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
-) [42
+) [44
 
 
 
@@ -1904,7 +1961,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [43] [44]
+) [45] [46]
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
@@ -1912,17 +1969,17 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [45] [46]
+) [47] [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47])
-[48]
+ [49])
+[50]
 Appendix C.
-[49
+[51
 
 ]
 Appendix D.
-[50
+[52
 
 ] (./thesis.aux)
  ***********
@@ -1937,18 +1994,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: E508E14E65DC6F1996F0265AF8ACF198;10150.
+(rerunfilecheck)             Checksum: 6B8DEAB866C2E8D0854DDEAE128E4B1D;11572.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44910 strings out of 476447
- 381639,1977958 words of node,token memory allocated
- 956 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 13 glue, 4 kern, 1 glyph, 33 attribute, 98 glue_spe
+ 45103 strings out of 476447
+ 381646,1977958 words of node,token memory allocated
+ 951 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 13 glue, 4 kern, 1 glyph, 33 attribute, 97 glue_spe
 c, 33 attribute_list, 2 write, 9 pdf_action nodes
-   avail lists: 1:2,2:8068,3:4431,4:1289,5:10607,6:120,7:10047,8:105,9:19815,10:
+   avail lists: 1:1,2:8030,3:4432,4:1228,5:10607,6:121,7:10046,8:105,9:19815,10:
 28,11:736
- 65292 multiletter control sequences out of 65536+600000
+ 65470 multiletter control sequences out of 65536+600000
  94 fonts using 21766071 bytes
  99i,12n,120p,740b,2151s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
@@ -1979,10 +2036,10 @@ t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri
 lic/lm/lmss10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/font
 s/type1/public/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texm
 f-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on thesis.pdf (56 pages, 752865 bytes).
+Output written on thesis.pdf (59 pages, 758240 bytes).
 
-PDF statistics: 1232 PDF objects out of 1440 (max. 8388607)
- 1130 compressed objects within 12 object streams
- 545 named destinations out of 1000 (max. 131072)
- 480 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1282 PDF objects out of 1440 (max. 8388607)
+ 1177 compressed objects within 12 object streams
+ 555 named destinations out of 1000 (max. 131072)
+ 528 words of extra memory for PDF output out of 10000 (max. 100000000)
 

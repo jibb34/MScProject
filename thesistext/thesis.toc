@@ -36,74 +36,80 @@
 \contentsline {subsection}{\numberline {2.3.2}Social}{14}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Ethical}{15}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Political}{15}{subsection.2.3.4}%
-\contentsline {chapter}{\numberline {3}Requirements}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Software Requirements Specification (SRS)}{16}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Purpose and Scope}{16}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Intended Audience and Reading Suggestions}{16}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Overall Description}{16}{subsection.3.1.3}%
-\contentsline {subsubsection}{Product Perspective}{16}{section*.22}%
-\contentsline {subsubsection}{Product Functions}{17}{section*.23}%
-\contentsline {subsubsection}{User Characteristics}{17}{section*.24}%
-\contentsline {subsubsection}{Operating Environment}{17}{section*.25}%
-\contentsline {subsubsection}{Design and Implementation Constraints}{18}{section*.26}%
-\contentsline {subsubsection}{Assumptions and Dependencies}{18}{section*.27}%
-\contentsline {subsection}{\numberline {3.1.4}Specific Requirements}{18}{subsection.3.1.4}%
-\contentsline {subsubsection}{External Interface Requirements}{18}{section*.28}%
-\contentsline {paragraph}{User Interfaces}{18}{section*.29}%
-\contentsline {paragraph}{Software Interfaces}{18}{section*.30}%
-\contentsline {subsubsection}{Functional Requirements}{18}{section*.31}%
-\contentsline {subsubsection}{Non-Functional Requirements}{19}{section*.33}%
-\contentsline {subsubsection}{Logical Database Requirements}{19}{section*.35}%
-\contentsline {subsubsection}{Software System Attributes}{20}{section*.37}%
-\contentsline {paragraph}{Reliability}{20}{section*.38}%
-\contentsline {paragraph}{Availability}{20}{section*.39}%
-\contentsline {paragraph}{Security}{20}{section*.40}%
-\contentsline {paragraph}{Maintainability}{20}{section*.41}%
-\contentsline {paragraph}{Portability}{20}{section*.42}%
-\contentsline {section}{\numberline {3.2}Standards and Compliance}{20}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Implementation}{21}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Design}{22}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Scope and Purpose}{22}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Architectural Design}{22}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Architectural Views}{22}{subsection.5.2.1}%
-\contentsline {subsubsection}{Concept View}{22}{section*.45}%
-\contentsline {subsubsection}{Functional View}{23}{section*.46}%
-\contentsline {subsubsection}{Physical View}{24}{section*.48}%
-\contentsline {subsubsection}{Database Entity - Relational View}{24}{section*.49}%
-\contentsline {subsubsection}{Behavioral View}{25}{section*.50}%
-\contentsline {subsection}{\numberline {5.2.2}Design Rationale}{25}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Design Patterns and Styles}{26}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Module-Level Design}{26}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}GPX-to-Enriched-JSON Pipeline Modules}{26}{subsection.5.3.1}%
-\contentsline {subsubsection}{Module Dependency Diagram}{26}{section*.52}%
-\contentsline {subsubsection}{Module Specifications}{26}{section*.53}%
-\contentsline {section}{\numberline {5.4}Interface Design}{26}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}User Interface}{26}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Software Interfaces}{26}{subsection.5.4.2}%
-\contentsline {section}{\numberline {5.5}Data Design}{27}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Data Models}{27}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Database Schema}{27}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Data Dictionary}{27}{subsection.5.5.3}%
-\contentsline {section}{\numberline {5.6}Standards and Compliance in Design}{27}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Methodology}{28}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Critical Reflection on Methodology}{28}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Component Implementation}{28}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Input Pipeline}{28}{subsection.6.2.1}%
-\contentsline {subsubsection}{GPX Data Enrichment}{29}{section*.54}%
-\contentsline {subsubsection}{Pre-indexing OpenStreetMap Ways via SQLite}{30}{section*.56}%
-\contentsline {subsubsection}{Data Stream}{31}{section*.58}%
-\contentsline {subsection}{\numberline {6.2.2}Segmentation Engine}{31}{subsection.6.2.2}%
-\contentsline {paragraph}{Goal.}{31}{section*.59}%
-\contentsline {subsection}{\numberline {6.2.3}Segmentation Engine: Two-Pass Weighting and Recursive Merging}{33}{subsection.6.2.3}%
-\contentsline {paragraph}{Pass 1 --- Propose boundaries.}{33}{section*.65}%
-\contentsline {paragraph}{Pass 2 --- Weight boundaries.}{34}{section*.66}%
-\contentsline {paragraph}{Recursive merging.}{34}{section*.67}%
-\contentsline {paragraph}{Outcome.}{34}{section*.68}%
-\contentsline {subsection}{\numberline {6.2.4}TSS Engine}{34}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Testing and Results}{34}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Results and Conclusions}{36}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{37}{chapter.8}%
-\contentsline {chapter}{\numberline {A}Further Development}{41}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{42}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Directory Structure}{49}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Application Documentation}{50}{appendix.D}%
+\contentsline {section}{\numberline {2.4}Critical Comparison of Existing Segmentation Systems}{15}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Alternative Approaches Considered}{16}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Requirements}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Software Requirements Specification (SRS)}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Purpose and Scope}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Intended Audience and Reading Suggestions}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Overall Description}{17}{subsection.3.1.3}%
+\contentsline {subsubsection}{Product Perspective}{17}{section*.24}%
+\contentsline {subsubsection}{Product Functions}{18}{section*.25}%
+\contentsline {subsubsection}{User Characteristics}{18}{section*.26}%
+\contentsline {subsubsection}{Operating Environment}{18}{section*.27}%
+\contentsline {subsubsection}{Design and Implementation Constraints}{19}{section*.28}%
+\contentsline {subsubsection}{Assumptions and Dependencies}{19}{section*.29}%
+\contentsline {subsection}{\numberline {3.1.4}Specific Requirements}{19}{subsection.3.1.4}%
+\contentsline {subsubsection}{External Interface Requirements}{19}{section*.30}%
+\contentsline {paragraph}{User Interfaces}{19}{section*.31}%
+\contentsline {paragraph}{Software Interfaces}{19}{section*.32}%
+\contentsline {subsubsection}{Functional Requirements}{19}{section*.33}%
+\contentsline {subsubsection}{Non-Functional Requirements}{20}{section*.35}%
+\contentsline {subsubsection}{Logical Database Requirements}{20}{section*.37}%
+\contentsline {subsubsection}{Software System Attributes}{20}{section*.39}%
+\contentsline {paragraph}{Reliability}{20}{section*.40}%
+\contentsline {paragraph}{Availability}{21}{section*.41}%
+\contentsline {paragraph}{Security}{21}{section*.42}%
+\contentsline {paragraph}{Maintainability}{21}{section*.43}%
+\contentsline {paragraph}{Portability}{22}{section*.44}%
+\contentsline {section}{\numberline {3.2}Standards and Compliance}{22}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Design}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Scope and Purpose}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Architectural Design}{24}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Architectural Views}{24}{subsection.5.2.1}%
+\contentsline {subsubsection}{Concept View}{24}{section*.47}%
+\contentsline {subsubsection}{Functional View}{25}{section*.48}%
+\contentsline {subsubsection}{Physical View}{27}{section*.50}%
+\contentsline {subsubsection}{Database Entity - Relational View}{27}{section*.51}%
+\contentsline {subsubsection}{Behavioral View}{27}{section*.53}%
+\contentsline {subsection}{\numberline {5.2.2}Design Rationale}{27}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Design Patterns and Styles}{28}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Module-Level Design}{28}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}GPX-to-Enriched-JSON Pipeline Modules}{28}{subsection.5.3.1}%
+\contentsline {subsubsection}{Module Dependency Diagram}{28}{section*.54}%
+\contentsline {subsubsection}{Module Specifications}{28}{section*.55}%
+\contentsline {section}{\numberline {5.4}Interface Design}{28}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}User Interface}{28}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Software Interfaces}{29}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Data Design}{29}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Data Models}{29}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Database Schema}{29}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Data Dictionary}{29}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Standards and Compliance in Design}{29}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Methodology}{30}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Critical Reflection on Methodology}{30}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Component Implementation}{30}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Input Pipeline}{30}{subsection.6.2.1}%
+\contentsline {subsubsection}{GPX Data Enrichment}{31}{section*.56}%
+\contentsline {subsubsection}{Pre-indexing OpenStreetMap Ways via SQLite}{32}{section*.58}%
+\contentsline {subsubsection}{Data Stream}{33}{section*.60}%
+\contentsline {subsection}{\numberline {6.2.2}Segmentation Engine}{33}{subsection.6.2.2}%
+\contentsline {paragraph}{Goal.}{33}{section*.61}%
+\contentsline {subsection}{\numberline {6.2.3}Segmentation Engine: Two-Pass Weighting and Recursive Merging}{35}{subsection.6.2.3}%
+\contentsline {paragraph}{Pass 1 -- Propose boundaries.}{36}{section*.67}%
+\contentsline {paragraph}{Pass 2 -- Weight boundaries.}{36}{section*.68}%
+\contentsline {paragraph}{Recursive merging.}{36}{section*.69}%
+\contentsline {paragraph}{Outcome.}{36}{section*.70}%
+\contentsline {subsection}{\numberline {6.2.4}TSS Engine}{36}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Testing and Results}{36}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Comparison with Existing Segment Creation Tools}{37}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Qualitative Comparison}{37}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Quantitative Comparison}{37}{subsection.6.4.2}%
+\contentsline {chapter}{\numberline {7}Results and Conclusions}{38}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{39}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Deferred Code Implementations}{39}{section.8.1}%
+\contentsline {chapter}{\numberline {A}Further Development}{43}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{44}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Directory Structure}{51}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Application Documentation}{52}{appendix.D}%

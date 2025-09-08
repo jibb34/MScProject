@@ -1,9 +1,9 @@
 % !TEX TS-program = xelatex
 \documentclass[11pt,twoside]{report}
 
-%---------------------------------------------------------------------------
+%--------------------------------------
 % Packages
-%---------------------------------------------------------------------------
+%--------------------------------------
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 
@@ -50,9 +50,9 @@
 \Crefname{listing}{Listing}{Listings}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
-%---------------------------------------------------------------------------
+%--------------------------------------
 % Graphics and Listings Setup
-%---------------------------------------------------------------------------
+%--------------------------------------
 \captionsetup{font=small,labelfont=bf}
 \lstset{
   basicstyle=\ttfamily\footnotesize,
@@ -80,9 +80,9 @@ relation/.style={-{Triangle[length=5pt,width=7pt]}, thick},
 crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 }
 
-%--------------------------------------------------------------------------
+%-------------------------------------
 % Header and Footer
-%---------------------------------------------------------------------------
+%--------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
@@ -90,17 +90,17 @@ crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 \fancyhead[LO]{\nouppercase{\rightmark}}
 \renewcommand{\headrulewidth}{0.4pt}
 
-%---------------------------------------------------------------------------
+%--------------------------------------
 % Spacing
-%---------------------------------------------------------------------------
+%--------------------------------------
 \onehalfspacing
 
-%---------------------------------------------------------------------------
+%--------------------------------------
 % Document
-%---------------------------------------------------------------------------
+%--------------------------------------
 \begin{document}
 
-%-------------------- Front Matter --------------------
+%---------- Front Matter ----------
 \begin{titlepage}
 	\centering
 	{\Huge\bfseries Quantification of Cycling Training Routes by Segmentation and Algorithmic Analysis\\[1em]}
@@ -115,14 +115,14 @@ crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 \begin{abstract}
 	\addcontentsline{toc}{chapter}{Abstract}
 	Training quality depends not only on an athlete's physiology but also on the road environment: long, uninterrupted climbs
-	or low--traffic corridors benefit sustained efforts, whereas junctions, stops and heavy traffic fragment work and increase power variability.
+	or low-traffic corridors benefit sustained efforts, whereas junctions, stops and heavy traffic fragment work and increase power variability.
 	This thesis investigates whether the "training suitability" of roads can be quantified and used to help cyclists plan better sessions.
-	This paper presents an end--to--end framework that transforms raw GPS traces from a GPX file into a list of road segments, annotated for training suitability.
-	An input pipeline cleans and map--matches traces to OpenStreetMap using OSRM in a manner similar to Luxen and Vetter \citeyearpar{Luxen2011}, and enriches the matched geometry with road
+	This paper presents an end-to-end framework that transforms raw GPS traces from a GPX file into a list of road segments, annotated for training suitability.
+	An input pipeline cleans and map-matches traces to OpenStreetMap using OSRM in a manner similar to Luxen and Vetter \citeyearpar{Luxen2011}, and enriches the matched geometry with road
 	metadata (e.g., highway class, speed limit, junction density). A standalone engine performs the route segmentation with a two pass processing algorithm.
 	. Each segment has it's metadata analysed, and then it is given a Training Suitability Score (TSS) derived from road context and observed
 	ride dynamics. TSS has 5 components; one for each zone in the 5-zone training model. Together, these components form a practical
-	route--planning system that prioritises the quality of training stimulus over performance ranking and competition.
+	route-planning system that prioritises the quality of training stimulus over performance ranking and competition.
 \end{abstract}
 %TODO: review
 
@@ -140,22 +140,22 @@ crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 \hypersetup{pageanchor=true}
 \pagenumbering{arabic}
 
-%-------------------- Main Chapters --------------------
+%---------- Main Chapters ----------
 
 %TODO: review
 \chapter{Introduction}
 \label{chap:introduction}
 %TODO: review
-High--quality cycling training depends on being able to execute the intended effort without interruption. Professional riders often train
-on long climbs with low--traffic roads in remote locations; most amateurs, by contrast, plan routes with general--purpose mapping tools
+High-quality cycling training depends on being able to execute the intended effort without interruption. Professional riders often train
+on long climbs with low-traffic roads in remote locations, most amateurs, by contrast, plan routes with general-purpose mapping tools
 and only discover mid-ride that junctions, blind corners or traffic furniture force repeated wattage spikes or dips. The result is high power
 variance, which increases Normalized Power, a metric that approximates the metabolic cost of a ride according to Coggan and Allen \citeyearpar{coggan2012training}. This
 means that during an endurance or structured interval session, an athlete may not be able to target the power zones they are aiming for,
 leading to suboptimal training stimulus. Most mapping tools do not consider the suitability of a road for structured training, focusing instead on
 either performance rankings (e.g., Strava segments) or commuting efficiency (e.g., Google Maps). This dissertation addresses that gap. by investigating
 whether the suitability of a road for structured training can be quantified from just ride data and open-source mapping solutions so that
-routes can be planned with an optimal path; maximizing segments that support sustained efforts.
-I refer to this property as \emph{training suitability}. The proposed system would ingest raw GPX traces, perform map--matching against
+routes can be planned with an optimal path, which maximizes segments that support sustained efforts.
+I refer to this property as \emph{training suitability}. The proposed system would ingest raw GPX traces, perform map-matching against
 OpenStreetMap with OSRM's match engine, enrich the resulting paths with road metadata (e.g., highway class, speed limits and junction density),
 and then apply a segmentation procedure. Segments are identified using a multi-pass algorithm, that takes each "leg" of the route (a leg being
 the smallest unit of a route, returned by OSRM's match engine) and attempts to merge every consecutive leg recursively until either there is one leg,
@@ -163,7 +163,7 @@ or the merge cost of each segment/leg exceeds a threshold. This is known as a me
 always chooses the best option at each step, without considering future consequences. Each segment then has a set of scores generated from
 the road and GPX metadata, one for each accepted training zone below 1 hour, defined by Sage \citeyearpar{Sage2019}. This set of scores is collectively
 known as the Training Suitability Score (TSS). To support this goal, I aim to implement (1) batch processing for large GPX collections,
-(2) segment de--duplication and matching so new routes can be expressed as sequences of known segments if available, and (3) a minimal web application
+(2) segment de-duplication and matching so new routes can be expressed as sequences of known segments if available, and (3) a minimal web application
 for exploring routes, visualising segment scores and gathering feedback. In summary, this work aims to move route planning beyond performance
 rankings towards the deliberate selection of roads that maximise training stimulus. The remainder of this chapter provides background
 and states the research objectives that guide the study.
@@ -180,42 +180,33 @@ interruption frequency, aiming to bridge the gap between navigation and training
 
 \section{Research Objectives}
 \label{sec:research-objectives}
-This dissertation investigates whether the \emph{training suitability} of roads can be quantified from ride data and open map sources to support
-route planning for structured efforts. The objectives are:
+This dissertation investigates whether a route can be meaningfully segmented into deterministic components that can be used in traditional
+route-finding algorithms. The \emph{training suitability} of roads can be quantified from ride data and open map sources to support
+route planning for structured efforts. Future work built upon this framework may opt to convert the segments to NetworkX paths for weighted
+route-finding. The scope of the thesis does not extend this far, the current objectives are:
 
 \begin{enumerate}[label=O\arabic*., leftmargin=2.2em]
 	\item \textbf{Define 'training suitability'.} Formalise a segment-level construct that analyses the training performance and route features at five
 	      levels of training suitability.
 	\item \textbf{Build a reproducible map-matching pipeline.} Establish a deterministic GPX~$\rightarrow$ OSM route pipeline that normalizes
-	      the data to a standard map-matched format, using OSRM's \citeyearpar{OSRMMatchAPI} match service to remove unwanted GPS noise.
+	      the data to a standard map-matched format, using the Open Source Routing Machine's \citeyearpar{OSRMMatchAPI} /match API endpoint to remove unwanted GPS noise.
 	\item \textbf{Develop segmentation methods.} Compare candidates for route segmentation:
 	      \begin{enumerate}[label=O3\alph*., leftmargin=2.5em]
 		      \item curvature/heading and grade change-points,
 		      \item speed-variance and stop-density cues,
-		      \item multi--scale wavelet \citeyearpar{Sharifzadeh2005} change detection,
+		      \item multi-scale wavelet \citeyearpar{Sharifzadeh2005} change detection,
 		      \item topology-aware separation (junction density, crossings),
 		      \item greedy vs.\ dynamic-programming formulations.
 	      \end{enumerate}
-
-	\item \textbf{Engineer segment features.} Design a feature schema; including but not limited to: length, elevation gain, mean/variance of grade, curvature, stop/junction density,
+	\item \textbf{Engineer segment features.} Design a feature schema that can include metrics such as: length, elevation gain, mean/variance of grade, curvature, stop/junction density,
 	      speed-limit, highway class, surface/cycleway tags, and simple traffic proxies derived from OSM metadata.
-	\item \textbf{Specify a TSS model.} Create (1) a transparent rule-based baseline mapping features to a scalar training suitability score, as well as (2) an algorithmic
-	      signal analysis for each training zone (Endurance, Tempo, Threshold, VO$_2$max, Anaerobic/Neuromuscular) from the segment features.
-	\item \textbf{Ground-truth construction.} Derive labels from ride dynamics (e.g., proportion of time in target zone, pause frequency,
-	\item \textbf{Validate alignment with training intent.} Test whether TSS correlates with: (a) sustained power feasibility, (b) low
-	      interruption frequency, (c) subjective suitability ratings based on existing known training rides at given intensity.
-	\item \textbf{Segment library operations.} Deduplicate, index, and match new routes to an evolving segment set; assess match precision for each call.
-	\item \textbf{Human feedback (optional).} Prototype lightweight feedback (thumbs-up/down or pairwise choices) and test whether incorporating
-	      it improves ranking metrics.
+	\item \textbf{Specify a TSS model.} Investigate mapping road and training features to a scalar training suitability score, as well as (2) an algorithmic
+	      signal analysis for each training zone (Endurance, Tempo, Threshold, VO$_2$max, Anaerobic/Neuromuscular) from said segment features.
+	\item \textbf{Segment library operations.} Deduplicate, index, and match new routes to an evolving segment set in a central database.
 	\item \textbf{Reproducibility and privacy.} Ensure runs are reproducible and only anonymized segment scores are stored to the database
 	      (no user-identifiable ride data).
 \end{enumerate}
 
-
-
-
-
-%TODO: review
 \chapter{Literature Review}
 \label{chap:litreview}
 A literature review was conducted\footnote{Note to reader: since the literature review was conducted in advance to any other section in this paper,
@@ -227,13 +218,13 @@ inform the design and implementation, as well as provide a springboard for criti
 
 \subsection{Research Objectives}
 The purpose of creating an algorithmic approach to categorizing and segmenting a GPX route is to be able to construct new routes based on the
-requirements of the rider's training plan. Intuitively, it makes sense to segment a route; riders do not have to analyse every part of a map
+requirements of the rider's training plan. Intuitively, it makes sense to segment a route, riders do not have to analyse every part of a map
 in street view to determine if it is viable for their specific workout. Riders are specifically interested in sections of the route
 such as climbs, descents, busy roads, and gravel. The objective of research should be to come up with a method of segmentation,
 and subsequent categorization, of road segments so riders can path their ride to maximise the TSS of their route.
-Intuitively, I could segment a route by the roads that it follows. When a route changes to a new road, the route can be segmented. However this can
+Intuitively, one could segment a route by the roads that it follows. When a route changes to a new road, the route can be segmented. However this can
 prove more difficult to formalize, as a road can have many intersections, and a logical route could span two roads. The question becomes how
-to define a split so that segments occur at meaningful points, and how do I define meaningful?
+to define a split so that segments occur at meaningful points, and how does one define meaningful?
 
 \newpage
 \subsection{Algorithmic Approaches to Segmentation and Categorization}
@@ -252,24 +243,24 @@ consecutive points so straight line distance is more probable. Lastly, a Viterbi
 Their approach includes two variables that need to be tweaked to maximise accuracy. This could be done via machine learning, but is out of the
 scope of this research. It will be set to a "good enough" setting. Once the node sequence is determined, the sequence of ways can then be
 determined. At first I considered a rough implementation of this algorithm for my purposes, keeing it lightweight but targeted for my use case.
-However, after researching my next source, I realized that the OSRM (Open Source Routing Machine) project already implements a map-matching i
-algorithm that is more than sufficient for my needs, and had a HTTP interface, so I can simply send the GPX data to it, and it will return a
-JSON object with the matched route.
+However, after researching Hidden Markov Models further, I realized that the OSRM (Open Source Routing Machine) project already implements a map-matching
+algorithm that is more than sufficient for my needs, and had a HTTP interface, so I could simply send GPS data to it, and it would return a
+GeoJSON object with the matched route.
 
 \paragraph{HMM-based Map Matching with OSRM}
-OSRM's \texttt{/match} service implements the HMM paradigm, returning one or more matched sub-traces with per-point confidence \citeyearpar{OSRMMatchAPI}.
+OSRM's \texttt{/match} service implements the aformentioned HMM paradigm, returning one or more matched sub-traces with per-point confidence \citeyearpar{OSRMMatchAPI}.
 Telenav's \citeyearpar{TelenavOSRMMapMatching} OSRM notes explicitly discuss HMM+Viterbi for map matching.
-Practically, OSRM's design makes this workflow reproducible and customizable: you can run the engine locally in Docker for
-deterministic experiments and adjust routing behaviour with Lua profiles to better reflect cycling vs.\ driving,
-surface penalties, or junction costs before (re)extracting the graph used by the matcher \citeyearpar{OSRMDocker,OSRMApiProfile,OSRMProfileLua}.
-Taken together, this lets us: (1) map-match noisy rides, (2) export rich annotations (nodes/way/gpx) for downstream segmentation,
-and (3) tune profiles to reflect training-use contexts (e.g., prefer longer, open roads, but avoid major highway links), then re-run match at scale.
+Practically, OSRM's design makes this workflow reproducible and customizable: it can run locally in a Docker container for
+experiments and routing behaviour can be adjusted with Lua profiles to better reflect cycling over driving.
+Surface penalties, or junction costs can be adjusted before (re)extracting the graph used by the matcher \citeyearpar{OSRMDocker,OSRMApiProfile,OSRMProfileLua}.
+Taken together, this allows for: (1) map-match noisy rides, (2) export rich annotations (nodes/way/gpx) for downstream segmentation,
+and (3) tune profiles to reflect training-use contexts (e.g., prefer longer, open roads, but avoid major highway links).
 
 \newpage
 
 \begin{figure}[h!]
 	\centering
-	% Illustrative shapes only: Gaussian-like emission vs. distance; quadratic transition penalty vs. path-length deviation.
+	% Illustrative shapes only: Gaussian-like emission vs. distance quadratic transition penalty vs. path-length deviation.
 	\begin{tikzpicture}
 		\begin{axis}[
 				width=0.45\textwidth,height=4cm,
@@ -287,23 +278,23 @@ and (3) tune profiles to reflect training-use contexts (e.g., prefer longer, ope
 
 \paragraph{Customising behaviour via Lua (before (re)extract).}
 \begin{lstlisting}[captionpos=b,language={[5.2]Lua},caption={Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling},label={lst:lua_profile}]
--- Inside a custom profile (simplified example)
+- Inside a custom profile (simplified example)
 local function way_processing(way, result)
   local highway = way:get_value_by_key('highway') or '
   local surface = way:get_value_by_key('surface') or '
   local smooth  = way:get_value_by_key('smoothness') or '
 
-  -- Base speeds (km/h) - tune to your use case
+  - Base speeds (km/h) - tune to your use case
   local base = { residential = 22, tertiary = 20, secondary = 18, primary = 16 }
   result.speed = base[highway] or 15
 
-  -- Discourage trunk and trunk_link for training rides
+  - Discourage trunk and trunk_link for training rides
   if highway == 'trunk' or highway == 'trunk_link' then
     result.speed = result.speed * 0.30
     result.weight = (result.weight or 1.0) * 3.0
   end
 
-  -- Prefer paved+smooth; discourage unpaved
+  - Prefer paved+smooth; discourage unpaved
   if surface == 'unpaved' or surface == 'gravel' then
     result.speed = result.speed * 0.75
     result.weight = (result.weight or 1.0) * 1.4
@@ -324,24 +315,25 @@ latitudes and longitudes, which can then return a clean and topologically correc
 
 
 \subsection{Methodological Considerations and Assumptions}
-Firstly we must obtain a GPX file. This is given from either a new or existing activity. It can be obtained in many ways, either from common
-fitness websites (Strava, Garmin, MapMyRide, etc.), or directly downloaded from a GPS device. Either way, there are standards to take
-advantage of. Each GPX is an XML-style file. An example can be found in Appendix \ref{lst:gpx-example}. It is obvious that the GPX file follows
-a hierarchical tree structure, with metadata including time, GPS coordinates, and cycling-specific physiological metrics. Not all of the data
+The input of the whole system is one or more GPX files. This can be given from either a new or existing cycling activity. It can be obtained in many ways, either from common
+fitness websites (Strava, Garmin, MapMyRide, etc. all provide GPX download options), or directly downloaded from a GPS device via USB. Either way, there are standards to take
+advantage of. Each GPX is an XML-style file. An example can be found in Appendix \ref{lst:gpx-example}. It is clear that the GPX file follows
+an XML hierarchical tree structure, with metadata including time, GPS coordinates, and cycling-specific physiological metrics all as part of GPX Trackpoints. Not all of the data
 is named consistently, especially in "extensions", so it is important to consider variations in naming. This can be normalized during the processing
 with a regex-style dictionary map, having a standard name for each useful metric, along with a list of synonyms.
 \\
-Once downloaded, GPX data must be normalized and processed. This can be done by converting to a standardized JSON object structure, where each
-object contains at least Latitude, Longitude, Elevation, and timing data. After this, erroneous values should be corrected without removing time
+Once downloaded, GPX data must be normalized and processed into a standardized object structure. Each
+object should contain at least Latitude, Longitude, Elevation, and timing data. After this, erroneous values should be corrected without removing time
 series data. This can be done with either flagging or interpolation. Flagging is useful for detecting missing data, such as 0s or NaNs, which
 can be ignored in the data processing, but removing the data would cause timing mismapping, putting the data signals out of sync.
 Simply detecting 0s or NaN values in the data stream is sufficient for some datapoints, but the preferred approach for numerical data is
-to approximate it with interpolation of the average of the surrounding present values. Lastly, derived metadata, such as speed or heading,
+to replace it with interpolation of the average of the surrounding present values. Lastly, derived metadata, such as speed or heading,
 should be calculated mathematically, and added as an additional extension in the JSON file to reduce processing time on any non-concurrent
-processes.
+processes. Due to the nature of the sampling (1hz), there is a lot of acceleration and elevation data lost. So it is also necessary to implement some smoothing
+algorithms to allow for a more precise signal.
 
 \subsection{Pulling Map Data}
-OSMnx allows easy and efficient pulling of API data from the OpenStreetMap database. This could be used  to correct the GPS data, and also to
+OSMnx \citep{boeing2017osmnx} allows easy and efficient pulling of API data from the OpenStreetMap database. This could be used  to correct the GPS data, and also to
 enrich the data for segmentation and categorization. To do this, we use the \texttt{os.graph\_from\_bbox()}
 function to pull only nearby data (within the bounding box of the route). The approach is as follows:
 \begin{enumerate}
@@ -368,7 +360,7 @@ base GPX data (latitude, longitude, elevation, time) and OSM route data, with th
 	\item \textbf{Model family}: Compare transparent formula-based models (weighted feature sum with calibrated bins) vs. learned models
 	      (ordinal regression / pairwise ranking).
 	\item \textbf{Weight learning}: Learn weights from coach labels or pairwise "A more suitable than B"
-	      judgments; constrain for interpretability.
+	      judgments, and constrain for interpretability.
 	\item \textbf{Multi-objective scoring}: Support per-intent heads (Endurance/Threshold/Neuromuscular) sharing a common feature backbone.
 	\item \textbf{Uncertainty}: Output a confidence/uncertainty score (e.g., via bootstrap or ensembling) for downstream UI.
 \end{enumerate}
@@ -376,15 +368,15 @@ base GPX data (latitude, longitude, elevation, time) and OSM route data, with th
 \subsubsection{Validation and Evaluation}
 \begin{enumerate}
 	\item \textbf{Reliability}: Test consistency on repeated rides (ICC, coefficient of variation) under GPS noise and sampling-rate changes.
-	\item \textbf{Criterion validity}: Correlate TSS with expert/coach ratings and with proxy physiology (normalized power, % time in Z4--Z6, HR drift).
+	\item \textbf{Criterion validity}: Correlate TSS with expert/coach ratings and with proxy physiology (normalized power, % time in Z4-Z6, HR drift).
 	\item \textbf{Discrimination}: AUC/average precision to separate segments intended for different training zones.
 	\item \textbf{Calibration}: Reliability plots (expected vs. observed difficulty bins).
-	\item \textbf{Generalisation}: Cross-validate across geographies (urban/rural, hilly/flat) and seasons; check domain shift.
+	\item \textbf{Generalisation}: Cross-validate across geographies (urban/rural, hilly/flat) and seasons, then check domain shift.
 \end{enumerate}
 
 \subsubsection{Robustness and Edge Cases}
 \begin{enumerate}
-	\item \textbf{GPS/Map-matching noise}: Stress-test with perturbed trajectories; target $\leq$5\% score drift.
+	\item \textbf{GPS/Map-matching noise}: Stress-test with perturbed trajectories and target $\leq$5\% score drift.
 	\item \textbf{Segment length effects}: Ensure fairness across short vs. long segments (length-aware normalization).
 	\item \textbf{Outliers}: Downweight extreme rides (e.g., device glitches, group sprints) to protect segment baselines. Can filter out data points above
 	      certain standard deviation value or absolute ceiling (2000+ watts/200rpm/250hr, etc...).
@@ -457,7 +449,7 @@ Implementing a summative score that represents a segment will also benefit from 
 As a cyclist or group of cyclists ride a specific segment, the better picture I get of the route, as the average values will be a good
 representation of the training suitability of the route.
 \begin{itemize}
-	\item \textbf{Power:} All cyclists have different power thresholds; in other words, two cyclists may be going the same speed up a climb,
+	\item \textbf{Power:} All cyclists have different power thresholds. In other words, two cyclists may be going the same speed up a climb,
 	      but one may be going all out, and another just going easy. They may not even have the same power output. The one going easy could have
 	      a higher power output than the person going all out, depending on their weight. As such absolute power is a bad reference point for
 	      training suitibility. Rather, I need to focus on power variation, as well as power curve. A power curve is the integration of all power
@@ -508,7 +500,7 @@ and heading changes\footnote{Great-circle distance via the haversine formula pro
 \paragraph{Wavelets for change detection.}
 signal returns coefficients proportional to the change between adjacent samples.  At larger scales, Haar wavelets can capture broader trends
 while still localising changes in time.  This makes them well suited for detecting abrupt shifts in speed, grade or heading in GPS
-data\footnote{Haar wavelets compute discrete differences between successive samples; using multi-scale wavelets allows both fine and coarse
+data\footnote{Haar wavelets compute discrete differences between successive samples, using multi-scale wavelets allows both fine and coarse
 	change detection within trajectory signals \citep{Graps1995}.}.
 
 \paragraph{Hysteresis thresholding.}
@@ -532,7 +524,7 @@ efforts\footnote{Transportation studies note that fluctuating road gradients con
 	frequent grade changes distinct from steady climbs or flats \citep{Wang2018Grades}.}.
 
 \paragraph{Curvature and twistiness.}
-routes, curvature at a point can be estimated by fitting a circle through three consecutive coordinates; its inverse radius is the
+routes, curvature at a point can be estimated by fitting a circle through three consecutive coordinates, its inverse radius is the
 curvature $\kappa$.  Summing the magnitudes of curvature along a segment (or computing an RMS curvature) yields a twistiness metric,
 which increases with the number and sharpness of bends\footnote{Twistiness metrics sum or integrate curvature along a road: computing
 	curvature from the circumcircle of three successive points and aggregating it across a segment gives a measure of how winding the road
@@ -542,7 +534,7 @@ which increases with the number and sharpness of bends\footnote{Twistiness metri
 Prior to differentiation, signals should be smoothed using filters such as moving averages, Savitzky-Golay filters, Butterworth low-pass filters
 or modified Kalman filters.  Comparative studies found that a modified Kalman filter provided the most accurate speed and distance estimates for
 GPS data by balancing measurement noise and physical motion models\footnote{Applying smoothing filters (e.g.\ moving average, Savitzky-Golay,
-	Butterworth or modified Kalman) before differentiation reduces GPS noise; a modified Kalman filter has been shown to produce the most accurate
+	Butterworth or modified Kalman) before differentiation reduces GPS noise, a modified Kalman filter has been shown to produce the most accurate
 	smoothed speed and distance estimates for vehicle trajectories \citep{Ogle2006}.}.
 
 
@@ -608,7 +600,7 @@ Table~\ref{tab:segmentation-comparison} contrasts the segmentation lengths and b
     \hline
     Method A (Landmark) & 12 & 15 & 9 & Tends to under-segment in long straightaways, misses minor turns. \\
     Method B (Graph-cut) & 14 & 13 & 11 & Good at preserving topology but over-segments noisy sections. \\
-    Method C (Wavelet, ours) & 13 & 14 & 10 & Balances length and number; some late splits on gradual curves. \\
+    Method C (Wavelet, ours) & 13 & 14 & 10 & Balances length and number with some late splits on gradual curves. \\
     \hline
   \end{tabular}
 \end{table}
@@ -620,7 +612,7 @@ We observe that the landmark-based method fails in low-feature regions, while gr
 Although we ultimately adopted the wavelet segmentation, we investigated other strategies:
 \begin{description}
   \item[Greedy Merge Heuristic:] Starting from fine-grained initial segments, iteratively merge adjacent segments that minimize an energy function until stability. This method can adaptively control segment counts but requires careful energy design and often stalls in local minima.
-  \item[Machine Learning–Based Classification:] Train a supervised model to predict cut locations based on curvature, speed, and context features. While promising, this approach necessitates labelled training data and risks overfitting to specific route geometries.
+  \item[Machine Learning-Based Classification:] Train a supervised model to predict cut locations based on curvature, speed, and context features. While promising, this approach necessitates labelled training data and risks overfitting to specific route geometries.
   \item[Topology-Constrained Optimization:] Formulate segmentation as an integer programming problem optimizing for both route fidelity and segment length uniformity. Yields optimal splits but at the cost of high computational expense for long routes.
 \end{description}
 
@@ -660,7 +652,7 @@ The SRS covers requirements for both \emph{upload mode} (GPX ingestion, segmenta
 \begin{itemize}
 	\item \textbf{Developers:} Read entire SRS to understand system scope, functional interfaces, and data models.
 	\item \textbf{Testers:} Focus on Section \ref{sec:specific} (Specific Requirements) for test case derivation.
-	\item \textbf{Stakeholders (coaches, cyclists):} Sections \ref{sec:purpose}--\ref{sec:overview} provide high-level understanding of capabilities.
+	\item \textbf{Stakeholders (coaches, cyclists):} Sections \ref{sec:purpose}-\ref{sec:overview} provide high-level understanding of capabilities.
 \end{itemize}
 \subsection{Overall Description}
 \label{sec:overview}
@@ -674,14 +666,14 @@ map routes from a map drawing system.
 \subsubsection{Product Functions}
 \begin{itemize}
 	\item \textbf{GPX Ingestion:} Accepts GPX 1.1 uploads, applies privacy-filter trimming, and parses into coordinate streams.
-	\item \textbf{Map Data Preparation:} Fetches OSM extracts via Overpass; converts to PBF with Osmium; loads map into OSRM engine.
+	\item \textbf{Map Data Preparation:} Fetches OSM extracts via Overpass, converts to PBF with Osmium, loads map into OSRM engine.
 	\item \textbf{Map Matching:} Uses OSRM engine to snap GPX/drawn points to the routable network given by the .pbf file, yielding a formatted JSON object.
 	\item \textbf{Segmentation:} Runs a two-pass C++ algorithm that (1) proposes segment boundaries by topological features and (2) matches segments in
 	      the database within spatial tolerances.
 	\item \textbf{Database Management:} Inserts new segments (UUID + Route JSON), updates hit counts, and appends TSS values. Prunes segments
 	      below frequency thresholds after given amount of time.
 	\item \textbf{Route Querying:} Given a drawn route, returns only the existing segments that fall along it, along with aggregated statistics.
-	\item \textbf{User Interface:} Web pages for upload and drawing; interactive map highlighting segments and showing hover tooltips with TSS and hit count.
+	\item \textbf{User Interface:} Web pages for upload and drawing, and interactive map highlighting segments and showing hover tooltips with TSS and hit count.
 \end{itemize}
 
 % Auto-generated table from adjacent paragraph for clarity
@@ -721,7 +713,7 @@ be considered less important over functionality.
 \begin{itemize}
 	\item \textbf{Modularization:} All components of the system must be contained within Docker containers, for easy deployment to most servers.
 	\item \textbf{Data Formats:} GPX 1.1, GeoJSON (LineString), MySQL spatial types.
-	\item \textbf{Standards Compliance:} Must adhere to GDPR and UK Data Protection Act; architecture described per ISO 42010.
+	\item \textbf{Standards Compliance:} Must adhere to GDPR and UK Data Protection Act, architecture described per ISO 42010.
 \end{itemize}
 \subsubsection{Assumptions and Dependencies}
 \begin{itemize}
@@ -867,19 +859,20 @@ The whole project will be made available via GitHub, and possibly a dockerized v
 
 % === Project Timeline ===
 \subsection*{Project Timeline}
-Below is the high-level timeline for the project, showing completed milestones in grey and remaining tasks in bold.  Milestones that have passed are either shaded or struck through - please remove lines that no longer apply.
+Below is the high-level timeline for the project, showing completed milestones in grey and remaining tasks in bold.
 \begin{itemize}
-	\item \sout{Week 1--2: Finalise research questions \& write proposal}
-	\item \sout{Week 3: Literature review complete; identify core segmentation methods}
-	\item \sout{Week 4: Set up OSRM + GPX ingestion prototype}
-	\item \sout{Week 5: Implement C++ segmentation engine (curvature \& grade)}
-	\item \sout{Week 6: Integrate wavelet \& hysteresis approaches; initial tests}
-	\item \sout{Week 7: Develop Training Suitability Scoring engine; tune thresholds}
-	\item \sout{Week 8: Web UI prototype for upload and visualization}
-	\item \sout{Week 9: Bulk testing on Strava dataset \& performance tuning}
+	\item Week 1-2: Finalise research questions \& write proposal
+	\item Week 3: Literature review complete, identify core segmentation methods
+	\item Week 4: Set up OSRM + GPX ingestion prototype
+	\item Week 5: Implement C++ segmentation engine (curvature \& grade)
+	\item Week 6: Integrate wavelet \& hysteresis approaches and perform initial tests
+	\item Week 7: Develop Training Suitability Scoring engine and tune thresholds
+	\item Week 8: Web UI prototype for upload and visualization
+	\item Week 9: Bulk testing on Strava dataset \& performance tuning
 	\item **Week 10 (now): Add critical reflection, finalize lessons learned**
 	\item **Final days: Produce timeline figure/Gantt and polish usability discussion**
 \end{itemize}
+
 \chapter{Design}
 \label{chap:design}
 % ISO/IEC/IEEE 42010 \citeyearpar{ISO42010} compliant design documentation
@@ -898,8 +891,6 @@ while also considering reliability.
 The overview of the system is presented in Figure \ref{fig:archdiagram}.
 Present a high-level system architecture diagram using UML or SysML.
 
-% In the document body:
-% % In the body:
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.9\textwidth]{archdiagram.png}
@@ -911,7 +902,7 @@ Present a high-level system architecture diagram using UML or SysML.
 \subsubsection{Concept View}
 The architectural concept of the system can be broken down into 3 layers:
 \begin{itemize}
-	\item \textbf{Presentation Layer} - This is the front end; A web application where users can either upload their GPX
+	\item \textbf{Presentation Layer} - This is the front end, a web application where users can either upload their GPX
 	      files, or draw a route on an interactive map. This layer will communicate with the back end through HTTP API requests. This layer is mostly
 	      outside the scope of the project, since I am not a front end engineer.
 	\item \textbf{Processing Layer} - The beef of the project, this includes the back-end of the system, and consists of input/output pipelines,
@@ -948,22 +939,22 @@ The functional view includes key modules and their responsibilities.
         \label{tbl:architectural-views}
         \begin{tabularx}{\textwidth}{l X}
                 \toprule
-                \textbf{Name/Key} & \textbf{Description/Value} \
+                \textbf{Name/Key} & \textbf{Description/Value} \\
                 \midrule
-                Presentation Layer & Front-end web application where users can upload GPX files or draw routes via an interactive map, communicating with the back end through HTTP APIs. \
-                Processing Layer & Back-end pipelines and engines coordinated by Python controllers to route information between components. \
-                Data Layer & SQL database and external APIs that provide persistent storage and map data. \
-                Front end Web App & Serves HTTP pages and collects information from the user. \
-                Front End Controller & Routes user information to the correct API endpoint. \
-                Input Pipeline Orchestrator & Handles input routing, sending GPX files to the pipeline and retrieving GeoJSON objects. \
-                Engine Orchestrator & Coordinates segments between the Segmentation and TSS engines in a two-pass system. \
-                DTO Orchestrator & Formats resulting segments into data objects and passes them to the SQL database. \
-                Output Pipeline Orchestrator & Receives route data from the input pipeline, validates it and sends it to the Segmentation Engine, returning segment lists in GeoJSON format. \
-                Segmentation Engine & C++ service performing route segmentation and matching logic. \
-                TSS Engine & Assigns training scores to segments based on the GPX data. \
-                SQL Database & Stores persistent segments, hit counts and associated TSS objects. \
-                Osmium Engine & Docker service converting and merging OSM data for the input pipeline. \
-                OSRM Matching Engine & Docker service matching GeoJSON chunks to the map network. \
+                Presentation Layer & Front-end web application where users can upload GPX files or draw routes via an interactive map, communicating with the back end through HTTP APIs. \\
+                Processing Layer & Back-end pipelines and engines coordinated by Python controllers to route information between components. \\
+                Data Layer & SQL database and external APIs that provide persistent storage and map data. \\
+                Front end Web App & Serves HTTP pages and collects information from the user. \\
+                Front End Controller & Routes user information to the correct API endpoint. \\
+                Input Pipeline Orchestrator & Handles input routing, sending GPX files to the pipeline and retrieving GeoJSON objects. \\
+                Engine Orchestrator & Coordinates segments between the Segmentation and TSS engines in a two-pass system. \\
+                DTO Orchestrator & Formats resulting segments into data objects and passes them to the SQL database. \\
+                Output Pipeline Orchestrator & Receives route data from the input pipeline, validates it and sends it to the Segmentation Engine, returning segment lists in GeoJSON format. \\
+                Segmentation Engine & C++ service performing route segmentation and matching logic. \\
+                TSS Engine & Assigns training scores to segments based on the GPX data. \\
+                SQL Database & Stores persistent segments, hit counts and associated TSS objects. \\
+                Osmium Engine & Docker service converting and merging OSM data for the input pipeline. \\
+                OSRM Matching Engine & Docker service matching GeoJSON chunks to the map network. \\
                 \bottomrule
         \end{tabularx}
 \end{table}
@@ -975,12 +966,52 @@ Hardware deployment and network design.
 % Diagrams of the network design and a list of representative hardware configurations are provided in the accompanying documentation.  These include
 % container topology and resource requirements, but are omitted here for brevity.
 \subsubsection{Database Entity - Relational View}
-The persistence layer stores canonical segment definitions and their occurrences on concrete routes. The core schema comprises three tables:
+The persistence layer stores segment definitions and their occurrences on concrete routes. The core schema comprises three tables:
 \texttt{segment\_defs} (one row per directional segment definition), \texttt{route\_segments} (each physical occurrence of a segment within a matched route) and
 \texttt{segment\_way\_runs} (ordered runs of identical OSM way IDs within a segment span). A segment definition is keyed by a 32\,byte
-fingerprint (SHA--256) computed from rounded coordinates and traversal direction; \texttt{route\_segments} references it and records the
-inclusive/exclusive index span within the original route points; \texttt{segment\_way\_runs} preserves the sequence of underlying OSM ways
+fingerprint (SHA-256) computed from rounded coordinates and traversal direction. \texttt{route\_segments} references it and records the
+inclusive/exclusive index span within the original route points, \texttt{segment\_way\_runs} preserves the sequence of underlying OSM ways
 inside the segment.\footnote{See schema comments for keys, indices and referential actions.}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=3cm]
+  % -- Entities --
+  \node[entity] (segment_defs) {segment\_defs};
+  \node[entity, right=of segment_defs] (route_segments) {route\_segments};
+  \node[entity, below=of route_segments] (seg_way_runs) {segment\_way\_runs};
+
+  % Relation crow's foot: segment_defs 1 --< route_segments
+  \draw[relation] (segment_defs) -- node[above]{1} (route_segments.west);
+  \draw[crowfoot] (route_segments.west)++(-0.2,0.2) -- ++(-0.4,0);
+  \draw[crowfoot] (route_segments.west) -- ++(-0.4,0);
+  \draw[crowfoot] (route_segments.west)++(-0.2,-0.2) -- ++(-0.4,0);
+
+  % Relation: route_segments 1 --< seg_way_runs
+  \draw[relation] (route_segments.south) -- node[right]{1} (seg_way_runs.north);
+  \draw[crowfoot] (seg_way_runs.north)++(-0.2,0.2) -- ++(0,-0.4);
+  \draw[crowfoot] (seg_way_runs.north) -- ++(0,-0.4);
+  \draw[crowfoot] (seg_way_runs.north)++(0.2,0.2) -- ++(0,-0.4);
+
+  % -- Another cluster --
+  \node[entity, below left=5cm and 0cm of segment_defs] (athletes) {athletes};
+  \node[entity, right=of athletes] (activities) {activities};
+  \node[entity, right=of activities] (act_points) {activity\_points};
+
+  % athletes 1 --< activities
+  \draw[relation] (athletes) -- node[above]{1} (activities.west);
+  \draw[crowfoot] (activities.west)++(-0.2,0.2) -- ++(-0.4,0);
+  \draw[crowfoot] (activities.west) -- ++(-0.4,0);
+  \draw[crowfoot] (activities.west)++(-0.2,-0.2) -- ++(-0.4,0);
+
+  % activities 1 --< activity_points
+  \draw[relation] (activities) -- node[above]{1} (act_points.west);
+  \draw[crowfoot] (act_points.west)++(-0.2,0.2) -- ++(-0.4,0);
+  \draw[crowfoot] (act_points.west) -- ++(-0.4,0);
+  \draw[crowfoot] (act_points.west)++(-0.2,-0.2) -- ++(-0.4,0);
+\end{tikzpicture}
+\caption{ERD snippet}
+\end{figure}
 
 
 \subsubsection{Behavioral View}
@@ -998,38 +1029,6 @@ As of right now, this is a small scale experiment to prove the concept. If this 
 explore for scalability, such as deploying the system to expandable cloud services such as AWS or Azure. This is beyond the scope of the
 project however.
 
-\begin{figure}[H]
-	\begin{tikzpicture}[node distance=3cm]
-		% --- Entities ---
-		\node[entity] (segment_defs) {segment\_defs};
-		\node[entity, right=of segment_defs] (route_segments) {route\_segments};
-		\node[entity, below=of route_segments] (seg_way_runs) {segment\_way\_runs};
-		% Relation crow's foot: segment_defs 1 ---< route_segments
-		\draw[relation] (segment_defs) -- node[above]{1} (route_segments.west);
-		\draw[crowfoot] (route_segments.west)++(-0.2,0.2) -- ++(-0.4,0);
-		\draw[crowfoot] (route_segments.west) -- ++(-0.4,0);
-		\draw[crowfoot] (route_segments.west)++(-0.2,-0.2) -- ++(-0.4,0);
-		% Relation: route_segments 1 ---< seg_way_runs
-		\draw[relation] (route_segments.south) -- node[right]{1} (seg_way_runs.north);
-		\draw[crowfoot] (seg_way_runs.north)++(-0.2,0.2) -- ++(0,-0.4);
-		\draw[crowfoot] (seg_way_runs.north) -- ++(0,-0.4);
-		\draw[crowfoot] (seg_way_runs.north)++(0.2,0.2) -- ++(0,-0.4);
-		% --- Another cluster ---
-		\node[entity, below left=5cm and 0cm of segment_defs] (athletes) {athletes};
-		\node[entity, right=of athletes] (activities) {activities};
-		\node[entity, right=of activities] (act_points) {activity\_points};
-		% athletes 1 ---< activities
-		\draw[relation] (athletes) -- node[above]{1} (activities.west);
-		\draw[crowfoot] (activities.west)++(-0.2,0.2) -- ++(-0.4,0);
-		\draw[crowfoot] (activities.west) -- ++(-0.4,0);
-		\draw[crowfoot] (activities.west)++(-0.2,-0.2) -- ++(-0.4,0);
-		% activities 1 ---< activity_points
-		\draw[relation] (activities) -- node[above]{1} (act_points.west);
-		\draw[crowfoot] (act_points.west)++(-0.2,0.2) -- ++(-0.4,0);
-		\draw[crowfoot] (act_points.west) -- ++(-0.4,0);
-		\draw[crowfoot] (act_points.west)++(-0.2,-0.2) -- ++(-0.4,0);
-	\end{tikzpicture}
-\end{figure}
 \subsection{Design Patterns and Styles}
 The implementation embraces a layered, pipeline-oriented architecture.  The high-level design separates concerns into a presentation layer (web UI),
 a processing layer (Python orchestrators and C++ segmentation engine) and a data layer (SQLite/MySQL databases and OSM extracts), following the classic
@@ -1076,10 +1075,10 @@ List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g
 \chapter{Methodology}
 \label{chap:methodology}
 % Implementation details.
-%--------------------------------------------------------------------------------
+%----------------------------------------
 \section{Critical Reflection on Methodology}
 In developing this methodology, several compromises were made. Purely statistical methods risked over-segmenting minor elevation noise, while rigid thresholds missed the nuanced undulations riders perceive as rolling terrain. I therefore adopted a hybrid of central-difference slope and moving-average deviation metrics, then cross-validated our "expected" algorithmic labels against "observed" rider feedback on a set of test routes. Discrepancies-such as segments tagged as \emph{flat} that riders described as \emph{challenging}-fed back into an iterative calibration loop, ensuring our computational definitions stay grounded in real-world cycling experience rather than abstract mathematical constructs.
-%--------------------------------------------------------------------------------
+%----------------------------------------
 
 \section{Component Implementation}
 This section provides a personal overview of how I went about implementing each component of the system. Rather than a dry description of what
@@ -1087,8 +1086,8 @@ each module does (see Chapter~\ref{chap:implement} for those details), I recount
 rationale behind them.
 \subsection{Input Pipeline}
 I began by experimenting with small GPX files in order to understand the XML structure and isolate coordinate pairs. My first prototype simply
-read a GPX and produced a list of latitude--longitude tuples. Once I was comfortable with the data, I wrote a Python module to fetch map data
-from the Overpass API \citeyearpar{OverpassAPI}; this involved generating a bounding box from the GPX extents and sending the appropriate HTTP
+read a GPX and produced a list of latitude-longitude tuples. Once I was comfortable with the data, I wrote a Python module to fetch map data
+from the Overpass API \citeyearpar{OverpassAPI}. This involved generating a bounding box from the GPX extents and sending the appropriate HTTP
 requests. To support more complex workflows I created a Python virtual environment, installed the required dependencies from
 \texttt{requirements.txt} and started wrapping individual steps into scripts. After downloading raw \texttt{.osm} files I realised they needed
 to be converted to Protocolbuffer (\texttt{.pbf}) format for OSRM \citeyearpar{Luxen2011}, so I built a Docker image containing Osmium  \citep{Osmium}
@@ -1104,7 +1103,7 @@ pipeline I experimented with the OSRM radius parameter and dynamic search window
 routes. Once the matching behaved acceptably, I moved on to enriching the matched GeoJSON with OSM metadata and GPX sensor data (described in
 the next subsection).
 
-% -------------------------------------------------------
+% ----------------------------
 % Begin new enrichment subsection inserted here
 \subsubsection{GPX Data Enrichment}
 \label{sec:gpx_enrich}
@@ -1124,17 +1123,17 @@ normalise all of the fields using a configuration file, \texttt{config/extension
 	      via a nearest-node lookup. With this identifier I can fetch attributes like road type, name, speed limit and width from the pre-indexed
 	      OSM database described in Section~\ref{sec:wayindex}.
 	\item \textbf{Producing enriched JSON.} For every point I emit an object that records its position and time, a \texttt{gpx\_list} array
-	      of canonical field objects (each with \texttt{name}, \texttt{value} and \texttt{unit}), the \texttt{way\_id}, and any associated metadata.
+	      of field objects (each with \texttt{name}, \texttt{value} and \texttt{unit}), the \texttt{way\_id}, and any associated metadata.
 	      This normalised structure became the foundation for my segmentation and training suitability scoring.
 \end{enumerate}
-This process gave me a clean, uniform representation of each ride, ready to be fed into the segmentation engine. Table~\ref{tab:extensionsmap} summarises some of the canonical keys and their common synonyms defined in \texttt{extensions\_map.json}. Only short phrases or keywords are included in the table to avoid overly long entries.
+This process gave me a clean, uniform representation of each ride, ready to be fed into the segmentation engine. Table~\ref{tab:extensionsmap} summarises some of the keys and their common synonyms defined in \texttt{extensions\_map.json}. Only short phrases or keywords are included in the table to avoid overly long entries.
 \begin{table}[htbp!]
 	\centering
 	\caption{Canonical extension keys and example synonyms}
 	\label{tab:extensionsmap}
 	\begin{tabular}{ll}
 		\toprule
-		Canonical key       & Example GPX synonyms                                 \\
+		Key       & Example GPX synonyms                                 \\
 		\midrule
 		\texttt{hr\_bpm}    & heartrate, heart\_rate, hr                           \\
 		\texttt{cad\_rpm}   & cadence, cad\_ence, cad                              \\
@@ -1151,9 +1150,9 @@ This process gave me a clean, uniform representation of each ride, ready to be f
 To efficiently map each trackpoint to its OpenStreetMap way the script \texttt{build\_way\_index.py} reads the \texttt{.pbf} map produced
 earlier and populates two SQLite tables:
 \begin{itemize}
-	\item \textbf{ways} --- one row per OSM way. Each row stores the integer \texttt{way\_id} and a JSON-encoded \texttt{tags} column containing attributes such as
+	\item \textbf{ways} -- one row per OSM way. Each row stores the integer \texttt{way\_id} and a JSON-encoded \texttt{tags} column containing attributes such as
 	      \texttt{highway}, \texttt{name}, \texttt{surface} and \texttt{maxspeed}. The \texttt{way\_id} column is a primary key to allow fast lookup.
-	\item \textbf{edges} --- one row per directed edge between two nodes of a way. Columns store the \texttt{edge\_id} (primary key),
+	\item \textbf{edges} -- one row per directed edge between two nodes of a way. Columns store the \texttt{edge\_id} (primary key),
 	      starting node identifier \texttt{u}, ending node identifier \texttt{v}, associated \texttt{way\_id}, \texttt{direction}
 	      (1 for forward and -1 for reverse), and the geodesic length of the edge in metres. Indexes on \texttt{u} and \texttt{v} accelerate
 	      nearest-neighbour queries.
@@ -1186,7 +1185,7 @@ of a few rows from the \texttt{ways} and \texttt{edges} tables in our prototype 
 \end{table}
 This indexed SQLite database allows the enrichment pipeline to attach road metadata to each trackpoint in milliseconds, which is
 essential for scaling batch processing to thousands of GPX files.
-% -------------------------------------------------------
+% ----------------------------
 
 \subsubsection{Data Stream}
 The data going in was the GPX file, and the settings.yml that controlled parameters such as chunk size (of the gps chunks), and dynamic
@@ -1212,9 +1211,9 @@ complained the target didn't exist. I moved \texttt{add\_executable} earlier and
 I then containerised the build with Ubuntu base and non-interactive \texttt{apt} to avoid tzdata prompts. See Listing~\ref{lst:Dockerfile}.
 
 \begin{itemize}
-	\item \textbf{What worked:} reproducible Docker builds; a short \texttt{build\_and\_deploy.sh}.
-	\item \textbf{What didn't:} I initially passed Docker flags with bad spacing and got \texttt{invalid containerPort: 5005--name}.
-	\item \textbf{Changes made:} fixed the run script to pass \texttt{-p HOST:CONTAINER} and \texttt{--name} cleanly.
+	\item \textbf{What worked:} reproducible Docker builds - a short \texttt{build\_and\_deploy.sh}.
+	\item \textbf{What didn't:} I initially passed Docker flags with bad spacing and got \texttt{invalid containerPort: 5005-name}.
+	\item \textbf{Changes made:} fixed the run script to pass \texttt{-p HOST:CONTAINER} and \texttt{-name} cleanly.
 \end{itemize}
 
 \subsubsection*{Step 2 - HTTP server and dispatcher}
@@ -1225,7 +1224,7 @@ I briefly broke routing by registering endpoints in a loop with a lambda that ca
 called the last handler. I changed it to capture by value, and that fixed the routing.
 
 \begin{itemize}
-	\item \textbf{What worked:} one dispatcher for multiple endpoints; simple route code.
+	\item \textbf{What worked:} one dispatcher for multiple endpoints, simple route code.
 	\item \textbf{What didn't:} lambda capture by reference in route registration.
 	\item \textbf{Changes made:} capture \texttt{action} by value (\texttt{[action, \&handler]\{\ldots\}}).
 \end{itemize}
@@ -1234,7 +1233,7 @@ called the last handler. I changed it to capture by value, and that fixed the ro
 To debug end-to-end connection, I made \texttt{/debug} to count coordinates. That gave a nice smoke test before implementing segmentation.
 
 Because my inputs can be large (\(>\)15\,MB), I increased cpp-httplib's payload cap and timeouts in the server (see Listing~\ref{lst:maincpp}).
-After that, I ran \texttt{curl --data-binary @file.json} to send the file to the endpoint.
+After that, I ran \texttt{curl -data-binary @file.json} to send the file to the endpoint.
 
 \begin{itemize}
 	\item \textbf{What worked:} a tiny point-counter confirmed HTTP + JSON wiring.
@@ -1249,7 +1248,7 @@ diagnosing malformed uploads (Listing~\ref{lst:jsonvalid}). This only checks syn
 \begin{itemize}
 	\item \textbf{What worked:} immediate pinpoint of syntax errors (exact line/column).
 	\item \textbf{What didn't:} it doesn't catch type mismatches (that happens during deserialization).
-	\item \textbf{Changes made:} kept this endpoint strictly for syntax; added defensive deserialization later.
+	\item \textbf{Changes made:} kept this endpoint strictly for syntax and added defensive deserialization later.
 \end{itemize}
 
 \subsubsection*{Step 5 - Enriched OSRM input model (no steps, null-safe tracepoints)}
@@ -1264,7 +1263,7 @@ Next I defined the enriched input model. The input is an OSRM \texttt{match} res
 
 I implemented non-intrusive \texttt{from\_json(\dots)} converters (found by ADL), and I made them defensive: every string/number read is guarded with
 \texttt{contains()}+\texttt{is\_*()} before access. For \texttt{tracepoints}, a null entry becomes a placeholder that preserves indices. The model is shown in
-Listing~\ref{lst:structshpp}; with examples of deserializers in Listing~\ref{lst:fromjson}.
+Listing~\ref{lst:structshpp}, with examples of deserializers in Listing~\ref{lst:fromjson}.
 
 During this pass I hit two runtime errors and fixed both:
 \begin{enumerate}
@@ -1275,9 +1274,9 @@ During this pass I hit two runtime errors and fixed both:
 \end{enumerate}
 
 \begin{itemize}
-	\item \textbf{What worked:} non-intrusive converters; null-safe tracepoints; epoch timestamps.
+	\item \textbf{What worked:} non-intrusive converters, null-safe tracepoints, epoch timestamps.
 	\item \textbf{What didn't:} assuming types with \texttt{value()} caused 302/306 errors on real data.
-	\item \textbf{Changes made:} defensive guards around every field; placeholder tracepoints to keep index alignment; 'use first matching' for consistency.
+	\item \textbf{Changes made:} defensive guards around every field with placeholder tracepoints to keep index alignment, 'use first matching' for consistency.
 \end{itemize}
 
 At this point the service (1) runs in Docker, (2) exposes \texttt{/segment} and \texttt{/debug}, and (3) reliably ingests large, enriched OSRM inputs into strong
@@ -1288,11 +1287,11 @@ C++ structures with defensive parsing. This is the foundation I use for the segm
 \label{subsec:two-pass-merge}
 After enriching each matched trace with OSM context (e.g., \texttt{highway}, \texttt{surface}, \texttt{cycleway}) and GPX-derived cues, the engine applies a two-pass
 procedure to produce contextually coherent segments:
-\paragraph{Pass 1 --- Propose boundaries.} Candidate split points are placed where (1) topological changes occur (e.g., way or major attribute
+\paragraph{Pass 1 -- Propose boundaries.} Candidate split points are placed where (1) topological changes occur (e.g., way or major attribute
 change), and (2) strong ride cues suggest a transition (e.g., large heading change or a stop). A small minimum-length guard prevents trivial
 fragments.
 
-\paragraph{Pass 2 --- Weight boundaries.} Each proposed boundary receives a \emph{merge cost} in $[0,1]$ summarizing dissimilarity between the two
+\paragraph{Pass 2 -- Weight boundaries.} Each proposed boundary receives a \emph{merge cost} in $[0,1]$ summarizing dissimilarity between the two
 adjacent sections. Heuristics based on OSM tags set the cost: for example, large differences in \texttt{highway} class, a \texttt{junction=yes}
 node, or an access barrier yield high costs (near~1), while minor attribute changes yield low costs (near~0). An illustrative ruleset is shown in
 Listing~\ref{lst:weights-example}. These weights prioritize real contextual changes and de-emphasize negligible fluctuations.
@@ -1301,7 +1300,7 @@ Listing~\ref{lst:weights-example}. These weights prioritize real contextual chan
 merge, neighboring costs are refreshed to reflect the new context, and the process repeats until no further low-cost merges are available.
 Boundaries with cost~$=1$ (e.g., barriers or hard junctions) are never merged. The high-level routine is shown in Listing~\ref{lst:mergealg}.
 
-\paragraph{Outcome.} Homogeneous stretches (same road type, similar environment) form longer segments; genuine interruptions (e.g., sharp
+\paragraph{Outcome.} Homogeneous stretches (same road type, similar environment) form longer segments, while genuine interruptions (e.g., sharp
 intersection, barrier, paved$\rightarrow$unpaved) remain as boundaries. This yields segments that are stable and meaningful for training
 suitability analysis.
 
@@ -1364,7 +1363,7 @@ refinement and community validation are required for widespread adoption.
 
 \chapter{Further Discussions and Research Gaps}
 \label{chap:discussion}
-Several avenues exist for future improvement.  First, the segmentation algorithm currently operates greedily with fixed thresholds; experimenting with
+Several avenues exist for future improvement.  First, the segmentation algorithm currently operates greedily with fixed thresholds while experimenting with
 dynamic programming approaches or machine learning models could yield more robust boundaries, particularly in complex urban environments.  Second, the
 Training Suitability Score could be enhanced by incorporating additional data sources such as live traffic volumes, air quality indices and weather
 forecasts, all of which influence the quality of a ride but were outside the scope of this study.  Third, expanding the ground-truth dataset with more
@@ -1401,12 +1400,12 @@ Several modules were built during development but have not yet been integrated i
 \label{apx:documentation}
 
 
-%---------------------------------------------------------------------------
+%--------------------------------------
 % Bibliography
-%---------------------------------------------------------------------------
+%--------------------------------------
 
 
-% --- auto inserted: extracted code listings appendix ---
+% -- auto inserted: extracted code listings appendix --
 \end{document}
 
 
