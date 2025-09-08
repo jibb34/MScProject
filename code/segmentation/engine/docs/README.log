@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 01:42
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 22:09
  restricted system commands enabled.
 **README.tex
 (./README.tex
@@ -61,6 +61,16 @@ luaotfload | db : Font names database loaded from /opt/homebrew/Cellar/texlive/2
 \belowcaptionskip=\skip49
 \bibindent=\dimen139
 )
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/inpute
+nc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/geometry/ge
 ometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -68,7 +78,7 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/ke
 yval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
+\KV@toks@=\toks19
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/iftex/ifv
 tex.sty
@@ -89,7 +99,7 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutheight=\dimen145
 \Gm@layouthoffset=\dimen146
 \Gm@layoutvoffset=\dimen147
-\Gm@dimlist=\toks18
+\Gm@dimlist=\toks20
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/hy
 perref.sty
@@ -123,7 +133,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks19
+\pdftexcmds@toks=\toks21
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hycolor/hyc
 olor.sty
@@ -256,7 +266,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 stings.sty
 \lst@mode=\count275
 \lst@gtempboxa=\box51
-\lst@token=\toks20
+\lst@token=\toks22
 \lst@length=\count276
 \lst@currlwidth=\dimen152
 \lst@column=\count277
@@ -302,7 +312,7 @@ Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \LT@rows=\count285
 \c@LT@tables=\count286
 \c@LT@chunks=\count287
-\LT@p@ftn=\toks21
+\LT@p@ftn=\toks23
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/array
 .sty
@@ -310,47 +320,118 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen157
 \ar@mcellbox=\box58
 \extrarowheight=\dimen158
-\NC@list=\toks22
+\NC@list=\toks24
 \extratabsurround=\skip55
 \backup@length=\skip56
 \ar@cellbox=\box59
 )
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/float/float
+.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count288
+\float@exts=\toks25
+\float@box=\box60
+\@float@everytoks=\toks26
+\@floatcapt=\box61
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/gr
+aphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/gr
+aphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/tr
+ig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-cf
+g/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 107.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-de
+f/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/caption/sub
+caption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/caption/cap
+tion.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/caption/cap
+tion3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen161
+\captionmargin=\dimen162
+\caption@leftmargin=\dimen163
+\caption@rightmargin=\dimen164
+\caption@width=\dimen165
+\caption@indent=\dimen166
+\caption@parindent=\dimen167
+\caption@hangindent=\dimen168
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count289
+\c@continuedfloat=\count290
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/caption/ltc
+aption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+))
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count291
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count292
+)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3backend/l
 3backend-luatex.def
 File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count288
+\l__color_backend_stack_int=\count293
 Inserting `l3color' in `luaotfload.parse_color'.
-\l__pdf_internal_box=\box60
+\l__pdf_internal_box=\box62
 ) (./README.aux)
 \openout1 = README.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
-.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+3.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ts1cmr
 .fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -386,110 +467,179 @@ LaTeX Font Info:    ... okay on input line 7.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 7.
+Package hyperref Info: Link coloring OFF on input line 13.
 (./README.out) (./README.out)
 \@outlinefile=\write3
 
 \openout3 = README.out
-\c@lstlisting=\count289
+\c@lstlisting=\count294
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii
+/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count295
+\scratchdimen=\dimen169
+\scratchbox=\box63
+\nofMPsegments=\count296
+\nofMParguments=\count297
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count298
+\MPscratchDim=\dimen170
+\MPnumerator=\count299
+\makeMPintoPDFobject=\count300
+\everyMPtoPDFconversion=\toks28
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/epstopdf-pk
+g/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/latexconfig
+/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 12.
+(Font)              <12> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 12.
+(Font)              <8> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 12.
- [1
+(Font)              <6> on input line 16.
+
+
+LaTeX Warning: No \author given.
+
+[1
 
 {/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updma
 p/pdftex.map}]
-Overfull \hbox (9.06587pt too wide) in paragraph at lines 79--81
+Overfull \hbox (9.06587pt too wide) in paragraph at lines 83--85
 []\TU/lmr/m/n/10 To con-sol-i-date end-points and avoid Cross-Origin Re-source 
 Shar-ing (CORS) is-sues, the par-ent \TU/lmtt/m/n/10 segmentation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
-[]|\TU/lmr/bx/n/10 GET
- []
-
-
-Overfull \hbox (0.69176pt too wide) in paragraph at lines 98--98
-\TU/lmr/bx/n/10 /view?map=\TU/lmr/bx/it/10 path| 
- []
-
-
-Underfull \hbox (badness 1577) in paragraph at lines 98--99
+Underfull \hbox (badness 1577) in paragraph at lines 102--103
 []|\TU/lmr/m/n/10 Ren-ders an in-ter-ac-tive HTML viewer com-par-ing raw
  []
 
+[2] [3]
+<./assets/full_dashboard_default.png, id=110, 1421.31pt x 526.96875pt>
+File: ./assets/full_dashboard_default.png Graphic file (type png)
+<use ./assets/full_dashboard_default.png>
+Package luatex.def Info: ./assets/full_dashboard_default.png  used on input lin
+e 133.
+(luatex.def)             Requested size: 225.4804pt x 83.59303pt.
+<./assets/upload_in_progress.png, id=111, 680.5425pt x 59.22125pt>
+File: ./assets/upload_in_progress.png Graphic file (type png)
+<use ./assets/upload_in_progress.png>
+Package luatex.def Info: ./assets/upload_in_progress.png  used on input line 13
+8.
+(luatex.def)             Requested size: 225.4804pt x 19.62167pt.
+<./assets/upload_complete.png, id=112, 1112.155pt x 54.2025pt>
+File: ./assets/upload_complete.png Graphic file (type png)
+<use ./assets/upload_complete.png>
+Package luatex.def Info: ./assets/upload_complete.png  used on input line 145.
+(luatex.def)             Requested size: 225.4804pt x 10.98917pt.
+<./assets/route_vs_match.png, id=113, 1404.24625pt x 429.605pt>
+File: ./assets/route_vs_match.png Graphic file (type png)
+<use ./assets/route_vs_match.png>
+Package luatex.def Info: ./assets/route_vs_match.png  used on input line 150.
+(luatex.def)             Requested size: 225.4804pt x 68.98074pt.
+<./assets/segment_database_viewer.png, id=114, 1065.9825pt x 608.2725pt>
+File: ./assets/segment_database_viewer.png Graphic file (type png)
+<use ./assets/segment_database_viewer.png>
+Package luatex.def Info: ./assets/segment_database_viewer.png  used on input li
+ne 167.
+(luatex.def)             Requested size: 328.82707pt x 187.63438pt.
+ [4<./assets/full_dashboard_default.png><./assets/upload_in_progress.png><./asse
+ts/upload_complete.png><./assets/route_vs_match.png><./assets/segment_database_v
+iewer.png>]
+<./assets/signals_elevation.png, id=127, 1413.28pt x 628.3475pt>
+File: ./assets/signals_elevation.png Graphic file (type png)
+<use ./assets/signals_elevation.png>
+Package luatex.def Info: ./assets/signals_elevation.png  used on input line 181
+.
+(luatex.def)             Requested size: 187.89914pt x 83.53848pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 182.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 182.
+<./assets/wavelet_controls.png, id=128, 1414.28375pt x 657.45625pt>
+File: ./assets/wavelet_controls.png Graphic file (type png)
+<use ./assets/wavelet_controls.png>
+Package luatex.def Info: ./assets/wavelet_controls.png  used on input line 186.
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-[]|\TU/lmr/bx/n/10 GET
- []
+(luatex.def)             Requested size: 187.89914pt x 87.34828pt.
+<./assets/wavelet_display.png, id=129, 1400.23125pt x 373.395pt>
+File: ./assets/wavelet_display.png Graphic file (type png)
+<use ./assets/wavelet_display.png>
+Package luatex.def Info: ./assets/wavelet_display.png  used on input line 193.
+(luatex.def)             Requested size: 187.89914pt x 50.10417pt.
+<./assets/segment_controls.png, id=130, 1398.22375pt x 403.5075pt>
+File: ./assets/segment_controls.png Graphic file (type png)
+<use ./assets/segment_controls.png>
+Package luatex.def Info: ./assets/segment_controls.png  used on input line 198.
 
-
-Overfull \hbox (19.59175pt too wide) in paragraph at lines 99--99
-\TU/lmr/bx/n/10 /viewLab?map=\TU/lmr/bx/it/10 path| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--100
-[]|\TU/lmr/bx/n/10 GET
- []
-
-
-Overfull \hbox (23.68175pt too wide) in paragraph at lines 100--100
-\TU/lmr/bx/n/10 /lab/meta?map=\TU/lmr/bx/it/10 path| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--101
-[]|\TU/lmr/bx/n/10 POST /lab/re-
- []
-
-[2] [3] (./README.aux)
+(luatex.def)             Requested size: 187.89914pt x 54.22487pt.
+<./assets/segment_extensions.png, id=131, 1395.2125pt x 251.94125pt>
+File: ./assets/segment_extensions.png Graphic file (type png)
+<use ./assets/segment_extensions.png>
+Package luatex.def Info: ./assets/segment_extensions.png  used on input line 21
+1.
+(luatex.def)             Requested size: 328.82707pt x 59.37535pt.
+<./assets/strava_view.png, id=132, 820.06375pt x 502.87875pt>
+File: ./assets/strava_view.png Graphic file (type png)
+<use ./assets/strava_view.png>
+Package luatex.def Info: ./assets/strava_view.png  used on input line 222.
+(luatex.def)             Requested size: 178.5092pt x 109.45964pt.
+<./assets/komoot_view.png, id=133, 782.925pt x 599.23875pt>
+File: ./assets/komoot_view.png Graphic file (type png)
+<use ./assets/komoot_view.png>
+Package luatex.def Info: ./assets/komoot_view.png  used on input line 227.
+(luatex.def)             Requested size: 178.5092pt x 136.62419pt.
+ [5<./assets/signals_elevation.png><./assets/wavelet_controls.png><./assets/wave
+let_display.png><./assets/segment_controls.png><./assets/segment_extensions.png>
+<./assets/strava_view.png><./assets/komoot_view.png>]
+(./README.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `README.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `README.out':
-(rerunfilecheck)             Before: 1F0E5B6A48C65EFC298BED3579D16664;1682
-(rerunfilecheck)             After:  A648986769E83E8548636564232F59C7;1763.
+Package rerunfilecheck Info: File `README.out' has not changed.
+(rerunfilecheck)             Checksum: 88BEB978C7508F9088BD59507B10BB6A;2761.
 )
 
 Here is how much of LuaTeX's memory you used:
- 9895 strings out of 476447
+ 12494 strings out of 476447
  125027,1977958 words of node,token memory allocated
  446 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 56 glue_spec,
  4 attribute_list, 1 write nodes
-   avail lists: 2:556,3:333,4:5,5:328,6:77,7:5822,8:1,9:380,10:3,11:475
- 31858 multiletter control sequences out of 65536+600000
- 33 fonts using 2393343 bytes
- 72i,6n,75p,458b,425s stack positions out of 10000i,1000n,20000p,200000b,200000s
+   avail lists: 2:577,3:333,4:8,5:334,6:79,7:5828,8:4,9:388,10:7,11:475
+ 34338 multiletter control sequences out of 65536+600000
+ 40 fonts using 2898471 bytes
+ 72i,9n,75p,458b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
-lm/lmroman10-bolditalic.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf
--dist/fonts/opentype/public/lm/lmmono10-regular.otf></opt/homebrew/Cellar/texliv
-e/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></opt/
-homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmr
-oman10-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fon
-ts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312_
-3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></opt/homebrew
-/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman17-r
-egular.otf>
-Output written on README.pdf (3 pages, 43034 bytes).
+lm/lmroman9-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dis
+t/fonts/opentype/public/lm/lmroman10-bolditalic.otf></opt/homebrew/Cellar/texliv
+e/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></op
+t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/l
+mroman10-bold.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/font
+s/opentype/public/lm/lmroman10-regular.otf></opt/homebrew/Cellar/texlive/2024031
+2_3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/
+Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-re
+gular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/openty
+pe/public/lm/lmroman17-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/homebrew/Cellar/texl
+ive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+Output written on README.pdf (5 pages, 9394647 bytes).
 
-PDF statistics: 134 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 131072)
- 113 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 212 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 131072)
+ 161 words of extra memory for PDF output out of 10000 (max. 100000000)
 

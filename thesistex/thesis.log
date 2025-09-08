@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 21:07
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 22:10
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -2266,7 +2266,7 @@ ine 1471.
 [65
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1374, page=10, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1376, page=10, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 10>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
@@ -2285,7 +2285,7 @@ line 1471.
  [66
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1381, page=11, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1383, page=11, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 11>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
@@ -2305,7 +2305,7 @@ line 1471.
 [67
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1388, 614.295pt x 794.97pt>
+<../code/segmentation/engine/docs/README.pdf, id=1390, 614.295pt x 794.97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf  used on i
@@ -2316,7 +2316,7 @@ File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf  used on i
 nput line 1476.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../code/segmentation/engine/docs/README.pdf, id=1391, page=1, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1393, page=1, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 1>
@@ -2346,7 +2346,7 @@ ed on input line 1476.
  [68
 
 <../code/segmentation/engine/docs/README.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1440, page=2, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1442, page=2, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 2>
@@ -2366,7 +2366,7 @@ ed on input line 1476.
  [69
 
 <../code/segmentation/engine/docs/README.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1447, page=3, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1449, page=3, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 3>
@@ -2385,6 +2385,47 @@ ed on input line 1476.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
  [70
 
+<../code/segmentation/engine/docs/README.pdf>]
+<../code/segmentation/engine/docs/README.pdf, id=1463, page=4, 614.295pt x 794.
+97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 4>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 4>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 4>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [71
+
+<../code/segmentation/engine/docs/README.pdf>]
+<../code/segmentation/engine/docs/README.pdf, id=1487, page=5, 614.295pt x 794.
+97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 5>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page5 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 5>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page5 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 5>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page5 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+
+[72
+
 <../code/segmentation/engine/docs/README.pdf>] (./thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -2402,14 +2443,14 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46210 strings out of 476447
+ 46236 strings out of 476447
  381641,1977958 words of node,token memory allocated
  957 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 13 glue, 4 kern, 1 glyph, 32 attribute, 99 glue_spe
 c, 32 attribute_list, 2 write, 9 pdf_action nodes
    avail lists: 1:1,2:8069,3:4431,4:1228,5:10620,6:120,7:9817,8:105,9:19825,10:2
 8,11:712
- 66366 multiletter control sequences out of 65536+600000
+ 66372 multiletter control sequences out of 65536+600000
  94 fonts using 21766071 bytes
  99i,17n,120p,728b,2153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
@@ -2440,10 +2481,10 @@ t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri
 lic/lm/lmss10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/font
 s/type1/public/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texm
 f-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on thesis.pdf (76 pages, 5972381 bytes).
+Output written on thesis.pdf (78 pages, 16160019 bytes).
 
-PDF statistics: 1560 PDF objects out of 1728 (max. 8388607)
- 1344 compressed objects within 14 object streams
- 570 named destinations out of 1000 (max. 131072)
+PDF statistics: 1615 PDF objects out of 1728 (max. 8388607)
+ 1364 compressed objects within 14 object streams
+ 572 named destinations out of 1000 (max. 131072)
  512 words of extra memory for PDF output out of 10000 (max. 100000000)
 

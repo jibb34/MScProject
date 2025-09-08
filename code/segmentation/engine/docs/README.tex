@@ -1,13 +1,17 @@
 \documentclass{article}
+\usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption} % for subfigures
+\graphicspath{{./assets}} % adjust to your path
+
 \begin{document}
 \title{Segmentation Engine Documentation}
-\author{}
-\date{\today}
 \maketitle
 
 \section{Scope}
@@ -88,7 +92,7 @@ clients to interact with all components through a single origin.
 
 \section{REST API}
 Table~\ref{tab:api} lists the available endpoints. JSON bodies use UTF-8 encoding and timestamps follow ISO~8601.
-\begin{longtable}{>{\bfseries}p{3cm}p{9cm}}
+\begin{longtable}{>{\bfseries}p{5cm}p{9cm}}
 \caption{REST endpoints}\label{tab:api}\\
 Method/Path & Description \\\hline
 \endfirsthead
@@ -114,5 +118,120 @@ Fatal signals (segmentation faults, aborts, arithmetic errors) are trapped and a
 
 \section{Conformance}
 The Segmentation Engine and this document use ISO~8601 timestamps and the terminology defined in ISO/IEC/IEEE~26514:2008. All numeric values are expressed using SI units.
+\newpage
+\section{Application Screenshots}
+
+% === Dashboard & Data Upload ===
+\subsection{Dashboard and Data Upload}
+% [Context added]
+ In line with ISO/IEC/IEEE 26514:2008 guidance on task-oriented documentation, this sequence demonstrates the primary user workflow: initial dashboard state, file transfer progression, confirmation of successful ingestion, and verification via route–OSRM alignment. The figure substantiates that the ingest–validate loop is operational end to end.
+
+\label{sec:dashboard-upload}
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\linewidth]{full_dashboard_default.png}
+    \caption{Default dashboard on initial load.}
+    \label{fig:dashboard-default}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\linewidth]{upload_in_progress.png}
+    \caption{Upload in progress.}
+    \label{fig:upload-in-progress}
+  \end{subfigure}
+
+  \vspace{0.75em}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\linewidth]{upload_complete.png}
+    \caption{Upload complete.}
+    \label{fig:upload-complete}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\linewidth]{route_vs_match.png}
+    \caption{Route vs matched geometry.}
+    \label{fig:route-vs-match}
+  \end{subfigure}
+
+  \caption{Loading, uploading, and path matching workflow.}
+  \label{fig:dashboard-upload}
+\end{figure}
+
+% === Database Viewer ===
+\subsection{Database Viewer}
+% [Context added]
+ This view evidences persistence and retrieval capabilities as required by the standard's “data management and storage” descriptions. It shows that extracted segments are indexed, queryable, and auditable, supporting reproducibility of results and post hoc analysis.
+
+\label{sec:db-viewer}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{segment_database_viewer.png}
+  \caption{Interactive segment database inspector.}
+  \label{fig:db-viewer}
+\end{figure}
+
+% === Signal & Wavelets ===
+\subsection{Signal and Wavelet Panels}
+% [Context added]
+ These panels expose algorithm configuration and outputs, satisfying the standard’s expectation for clarity of computational steps. Elevation-versus-distance, tunable wavelet parameters, and the scalogram together justify threshold and segmentation choices, enabling readers to trace input settings to resultant segments.
+
+\label{sec:signal-wavelet}
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\linewidth]{signals_elevation.png}
+    \caption{Elevation view ($\Delta s = 5$m).}
+    \label{fig:signal-elevation}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\linewidth]{wavelet_controls.png}
+    \caption{Wavelet controls.}
+    \label{fig:wavelet-controls}
+  \end{subfigure}
+
+  \vspace{0.75em}
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\linewidth]{wavelet_display.png}
+    \caption{Scalogram with trend overlay.}
+    \label{fig:wavelet-display}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.40\textwidth}
+    \includegraphics[width=\linewidth]{segment_controls.png}
+    \caption{Segmentation options.}
+    \label{fig:seg-controls}
+  \end{subfigure}
+  \caption{Signal plots, wavelet parameters, and segmentation settings.}
+  \label{fig:signal-wavelet}
+\end{figure}
+
+% === Extensions ===
+\section{Extensions Graph}
+\label{sec:extensions-compare}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{segment_extensions.png}
+  \caption{Auxiliary signals (extensions) aligned to distance.}
+  \label{fig:extensions-compare}
+\end{figure}
+
+% === External Comparisons ===
+\subsection{External Platform Views}
+\label{sec:external-views}
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.38\textwidth}
+    \includegraphics[width=\linewidth]{strava_view.png}
+    \caption{Strava route view.}
+    \label{fig:strava-view}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.38\textwidth}
+    \includegraphics[width=\linewidth]{komoot_view.png}
+    \caption{Komoot route view.}
+    \label{fig:komoot-view}
+  \end{subfigure}
+  \caption{Comparison: Strava vs Komoot.}
+  \label{fig:external-views}
+\end{figure}
+
 
 \end{document}
+

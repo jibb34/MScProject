@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  10 AUG 2025 23:49
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 22:10
  restricted system commands enabled.
 **docs.tex
 (./docs.tex
@@ -830,33 +830,33 @@ Inserting `l3color' in `luaotfload.parse_color'.
 ) (./docs.aux)
 \openout1 = docs.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
-2.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
+9.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ts1cmr
 .fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -919,7 +919,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 29.
  (./docs.out) (./docs.out)
 \@outlinefile=\write4
 
@@ -927,7 +927,11 @@ Package hyperref Info: Link coloring OFF on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+
+LaTeX Warning: No \author given.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
 [][][][]$\TU/lmtt/m/n/9 https://cdn.standards.iteh.ai/samples/77451/e161501288fd
 44f88c6fdd0f6e46b017/
  []
@@ -935,28 +939,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--37
 <assets/track1_gpx.png, id=65, 916.42375pt x 666.49pt>
 File: assets/track1_gpx.png Graphic file (type png)
 <use assets/track1_gpx.png>
-Package luatex.def Info: assets/track1_gpx.png  used on input line 48.
+Package luatex.def Info: assets/track1_gpx.png  used on input line 45.
 (luatex.def)             Requested size: 232.17242pt x 168.84927pt.
 <assets/track1_route.png, id=66, 959.585pt x 724.7075pt>
 File: assets/track1_route.png Graphic file (type png)
 <use assets/track1_route.png>
-Package luatex.def Info: assets/track1_route.png  used on input line 55.
+Package luatex.def Info: assets/track1_route.png  used on input line 52.
 (luatex.def)             Requested size: 232.17242pt x 175.33774pt.
 <assets/track2_gpx.png, id=67, 1047.915pt x 599.23875pt>
 File: assets/track2_gpx.png Graphic file (type png)
 <use assets/track2_gpx.png>
-Package luatex.def Info: assets/track2_gpx.png  used on input line 65.
+Package luatex.def Info: assets/track2_gpx.png  used on input line 62.
 (luatex.def)             Requested size: 232.17242pt x 132.76558pt.
 <assets/track2_route.png, id=68, 1066.98625pt x 556.0775pt>
 File: assets/track2_route.png Graphic file (type png)
 <use assets/track2_route.png>
-Package luatex.def Info: assets/track2_route.png  used on input line 72.
+Package luatex.def Info: assets/track2_route.png  used on input line 69.
 (luatex.def)             Requested size: 232.17242pt x 120.99678pt.
 [1
 
 {/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updma
 p/pdftex.map}]
-Overfull \hbox (36.30693pt too wide) in paragraph at lines 85--86
+Overfull \hbox (36.30693pt too wide) in paragraph at lines 82--83
 []\TU/lmr/bx/n/10.95 Data ex-trac-tion and map down-load\TU/lmr/m/n/10.95 ---The
  shell script[][][] in-vokes the Python mod-ule \TU/lmtt/m/n/10.95 prepare_map.p
 y\TU/lmr/m/n/10.95 .
@@ -965,93 +969,110 @@ y\TU/lmr/m/n/10.95 .
 [2<./assets/track1_gpx.png><./assets/track1_route.png><./assets/track2_gpx.png><
 ./assets/track2_route.png>] [3]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 139.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 136.
  [4]
-Overfull \hbox (15.05223pt too wide) in paragraph at lines 182--183
+Overfull \hbox (15.05223pt too wide) in paragraph at lines 179--180
 []\TU/lmr/bx/n/10.95 write_json(points, path)[] \TU/lmr/m/n/10.95 En-sures the 
 tar-get di-rec-tory ex-ists (\TU/lmtt/m/n/10.95 os.makedirs(..., exist_ok=True)\TU/lmr/m/n/10.95 ),
  []
 
 
-Overfull \hbox (15.09962pt too wide) in paragraph at lines 185--186
+Overfull \hbox (15.09962pt too wide) in paragraph at lines 182--183
 \TU/lmr/m/n/10.95 form \TU/lmtt/m/n/10.95 https://overpass-api.de/api/map?bbox=w
 est,south,east,north\TU/lmr/m/n/10.95 , fetches via \TU/lmtt/m/n/10.95 requests.
 get()\TU/lmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (4.47227pt too wide) in paragraph at lines 208--209
+Overfull \hbox (4.47227pt too wide) in paragraph at lines 205--206
 []\TU/lmr/bx/n/10.95 Chunk for OSRM: \TU/lmr/m/n/10.95 In-vokes \TU/lmtt/m/n/10
 .95 points_to_osrm_json(points, chunk_dir, gpx_name, radius,
  []
 
 [5]
-Overfull \hbox (14.61748pt too wide) in paragraph at lines 215--216
+Overfull \hbox (14.61748pt too wide) in paragraph at lines 212--213
 []\TU/lmr/bx/n/10.95 Com-pute bound-ing box: \TU/lmr/m/n/10.95 Uses \TU/lmtt/m/
 n/10.95 bounding_box_from_data(points) \TU/lmr/m/n/10.95 (from \TU/lmtt/m/n/10.
 95 utils/gpx_utils.py\TU/lmr/m/n/10.95 )
  []
 
 
-Overfull \hbox (2.83221pt too wide) in paragraph at lines 226--227
+Overfull \hbox (2.83221pt too wide) in paragraph at lines 223--224
 []\TU/lmr/m/n/10.95 Cre-ates a \TU/lmtt/m/n/10.95 ThreadPoolExecutor(max_workers
 =MAX_THREADS) \TU/lmr/m/n/10.95 and sub-mits \TU/lmtt/m/n/10.95 thread_processes
 ()
  []
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 238.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 235.
 [6] [7]
-Overfull \hbox (50.93677pt too wide) in paragraph at lines 295--295
+Overfull \hbox (50.93677pt too wide) in paragraph at lines 292--292
 []  \TU/lmtt/m/n/10.95 }, ... // multiple gpx points per tracepoint. contains po
 ints up until the next tracepoint.[] 
  []
 
 
-Overfull \hbox (60.3976pt too wide) in paragraph at lines 300--301
+Overfull \hbox (60.3976pt too wide) in paragraph at lines 297--298
 []\TU/lmtt/m/n/10.95 extensions \TU/lmr/m/n/10.95 is a dic-tio-nary of canon-i-c
 al sen-sor val-ues nor-malised ac-cord-ing to \TU/lmtt/m/n/10.95 config/extensio
 ns_map.json\TU/lmr/m/n/10.95 .
  []
 
+
+LaTeX Warning: Reference `fig:legs' on page 8 undefined on input line 312.
+
 [8]
-Overfull \hbox (16.44427pt too wide) in paragraph at lines 357--357
+<assets/legs.png, id=213, 962.59625pt x 434.62375pt>
+File: assets/legs.png Graphic file (type png)
+<use assets/legs.png>
+Package luatex.def Info: assets/legs.png  used on input line 331.
+(luatex.def)             Requested size: 338.58632pt x 152.86998pt.
+
+Overfull \hbox (16.44427pt too wide) in paragraph at lines 363--363
 []  \TU/lmtt/m/n/10.95 "duration":2.3,         // OSRM-calculated travel time fr
 om weightings in profile.lua[] 
  []
 
+[9<./assets/legs.png>]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 369.
-[9]
-Overfull \hbox (26.69565pt too wide) in paragraph at lines 387--388
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 376.
+
+Overfull \hbox (26.69565pt too wide) in paragraph at lines 394--395
 []\TU/lmr/m/n/10.95 If the Folium plot-ting script can-not find any match re-sul
 t files, it raises an ex-plicit \TU/lmtt/m/n/10.95 FileNotFoundError\TU/lmr/m/n
 /10.95 . 
  []
 
-(./docs.bbl
+[10] (./docs.bbl
 Underfull \hbox (badness 1237) in paragraph at lines 4--7
 []\TU/lmr/m/n/10.95 Folium De-vel-op-ers (2025), ‘Folium: Python li-brary for in-ter-ac-tive maps
 ’, []$\TU/lmtt/m/n/10.95 https://folium.
  []
 
-[10]) [11] (./docs.aux)
+) [11] (./docs.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `docs.out' has not changed.
 (rerunfilecheck)             Checksum: FE5E197C6BC7F9F9E934F79F6AAE7938;2350.
 )
 
 Here is how much of LuaTeX's memory you used:
- 23938 strings out of 476447
+ 23952 strings out of 476447
  125027,1977958 words of node,token memory allocated
  744 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 8 glue, 4 kern, 1 glyph, 20 attribute, 76 glue_spec
 , 20 attribute_list, 2 write, 5 pdf_action nodes
-   avail lists: 2:1528,3:861,4:64,5:563,6:72,7:8487,8:104,9:455,10:22,11:513
- 45366 multiletter control sequences out of 65536+600000
+   avail lists: 2:1528,3:861,4:60,5:563,6:71,7:8235,8:104,9:455,10:22,11:498
+ 45376 multiletter control sequences out of 65536+600000
  55 fonts using 4289143 bytes
  102i,10n,101p,1543b,934s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
@@ -1075,10 +1096,10 @@ Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
 pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on docs.pdf (11 pages, 5108589 bytes).
+Output written on docs.pdf (11 pages, 5943948 bytes).
 
-PDF statistics: 342 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 131072)
+PDF statistics: 345 PDF objects out of 1000 (max. 8388607)
+ 279 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 131072)
  112 words of extra memory for PDF output out of 10000 (max. 100000000)
 
