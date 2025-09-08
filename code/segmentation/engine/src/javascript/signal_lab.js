@@ -982,7 +982,6 @@
     }
 
     const persist = document.getElementById("persistToggle").checked;
-    const includeCoords = document.getElementById("wfCoordsToggle")?.checked;
     const p = getTerrainParams();
     const payload = {
       map: sel,
@@ -990,7 +989,6 @@
       params: { terrain: p },
       persist,
     };
-    if (includeCoords) payload.strava_json = true;
     appendLog(`[wavelet] POST /wavelet fn=terrain map=${sel}`);
 
     const r = await fetch("/wavelet", {
@@ -1020,30 +1018,6 @@
     }
 
     if (window.onWaveletResponse) window.onWaveletResponse(j);
-    if (includeCoords && Array.isArray(j.strava_segments)) {
-      appendLog(`[wavelet] lat/long pairs: ${j.strava_segments.length}`);
-      const wantSave = window.confirm(
-        "Download segment coordinates JSON?",
-      );
-      if (wantSave) {
-        try {
-          const blob = new Blob(
-            [JSON.stringify(j.strava_segments, null, 2)],
-            { type: "application/json" },
-          );
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = `${sel || "segments"}_${Date.now()}.json`;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        } catch (err) {
-          console.error("[wavelet] failed to save JSON:", err);
-        }
-      }
-    }
 
     const xWave =
       Array.isArray(j.s_km_uniform) && j.s_km_uniform.length
@@ -1446,15 +1420,11 @@
   });
 
   let segments = [];
-  let stravaSegments = [];
   let segMap = null;
   let currentSegment = -1;
 
   window.onWaveletResponse = function (out) {
     segments = Array.isArray(out.segments) ? out.segments : [];
-    stravaSegments = Array.isArray(out.strava_segments)
-      ? out.strava_segments
-      : [];
     currentSegment = -1;
     const btn = document.querySelector('[data-tab="segments"]');
     if (btn) btn.disabled = segments.length === 0;
