@@ -505,6 +505,9 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   // Persist flag
   bool persist = in.value("persist", false);
 
+  // Optional: emit Strava-style segment positions
+  bool strava_json = in.value("strava_json", false);
+
   // Read map JSON
   json body;
   try {
@@ -662,6 +665,7 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
 
   // Serialize segments
   json jsegs = json::array();
+  json jstrava = json::array();
   for (auto &s : segs) {
     json jr;
     jr["segment_uid"] = s.def.uid_hex;
@@ -737,6 +741,15 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
       jr["extensions"] = std::move(ext);
     }
     jsegs.push_back(std::move(jr));
+
+    if (strava_json && s.start_idx >= 0 &&
+        s.end_idx < (int)rs.points.size()) {
+      const auto &sc = rs.points[s.start_idx].coord;
+      const auto &ec = rs.points[s.end_idx].coord;
+      jstrava.push_back(
+          {{"start_latlng", {sc.lat, sc.lon}},
+           {"end_latlng", {ec.lat, ec.lon}}});
+    }
   }
   // Axis for uniform result (for precise alignment)
   std::vector<double> s_km_u;
@@ -750,6 +763,8 @@ void HttpHandler::handleWavelet(const httplib::Request &req,
   series["terrain"] = state_codes;
 
   out["segments"] = std::move(jsegs);
+  if (strava_json)
+    out["strava_segments"] = std::move(jstrava);
   out["series"] = std::move(series);
   out["s_km_uniform"] = s_km_u;
   out["ds_m"] = terrainUS.ds;
