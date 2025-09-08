@@ -184,7 +184,7 @@ Curvature SegmentUtils::calculateCurvature(const std::vector<DataPoint> &points,
   double excess_integral = 0.0;
 
   // calcluate differential of each point: |dθ| / ds
-  for (size_t i = 0; i + 1 < n; ++i) {
+  for (size_t i = 0; i < n - 1; ++i) {
     // angle differential
     double theta_1 = heading_ENU(pts[i - 1], pts[i]);
     double theta_2 = heading_ENU(pts[i], pts[i + 1]);
