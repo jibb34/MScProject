@@ -1439,10 +1439,14 @@ safety over length), and integrate with existing platforms such as Strava or Kom
 broader implications of automated route recommendation on cycling culture, urban planning and public health.  Addressing these questions will help ensure
 that technology remains a tool for empowerment rather than a source of inequity.
 
+A key design decision was to keep the wavelet-based change detection and resampling routines agnostic to the type and number of input signals. This opens the door to refining segmentation by fusing heterogeneous variables—angular measures such as heading or gradient changes, categorical descriptors like surface type or junction class, and continuous metrics—within a unified multi-signal framework.
+
 \section{Deferred Code Implementations}
 \label{sec:unused-code}
-Several modules were built during development but have not yet been integrated into the main pipeline. This section documents these dormant 
+Several modules were built during development but have not yet been integrated into the main pipeline. This section documents these dormant
 features and outlines how future versions could incorporate them.
+
+The wavelet and resampling utilities were intentionally implemented to accept multiple concurrent signals. Although the current pipeline feeds them single streams, they can operate over angular inputs, categorical road attributes and other derived variables in parallel. Wiring these capabilities into the segmentation engine would enable more nuanced segment boundaries and facilitate experiments with alternative segmentation strategies.
 % TODO: Enumerate and describe the unused code segments, explaining their intended roles and integration plans.
 
 \newpage
