@@ -1020,8 +1020,29 @@
     }
 
     if (window.onWaveletResponse) window.onWaveletResponse(j);
-    if (Array.isArray(j.strava_segments)) {
+    if (includeCoords && Array.isArray(j.strava_segments)) {
       appendLog(`[wavelet] lat/long pairs: ${j.strava_segments.length}`);
+      const wantSave = window.confirm(
+        "Download segment coordinates JSON?",
+      );
+      if (wantSave) {
+        try {
+          const blob = new Blob(
+            [JSON.stringify(j.strava_segments, null, 2)],
+            { type: "application/json" },
+          );
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `${sel || "segments"}_${Date.now()}.json`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        } catch (err) {
+          console.error("[wavelet] failed to save JSON:", err);
+        }
+      }
     }
 
     const xWave =
