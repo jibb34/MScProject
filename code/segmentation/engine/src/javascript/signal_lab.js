@@ -982,6 +982,7 @@
     }
 
     const persist = document.getElementById("persistToggle").checked;
+    const includeCoords = document.getElementById("wfCoordsToggle")?.checked;
     const p = getTerrainParams();
     const payload = {
       map: sel,
@@ -989,6 +990,7 @@
       params: { terrain: p },
       persist,
     };
+    if (includeCoords) payload.strava_json = true;
     appendLog(`[wavelet] POST /wavelet fn=terrain map=${sel}`);
 
     const r = await fetch("/wavelet", {
@@ -1018,6 +1020,9 @@
     }
 
     if (window.onWaveletResponse) window.onWaveletResponse(j);
+    if (Array.isArray(j.strava_segments)) {
+      appendLog(`[wavelet] lat/long pairs: ${j.strava_segments.length}`);
+    }
 
     const xWave =
       Array.isArray(j.s_km_uniform) && j.s_km_uniform.length
@@ -1420,11 +1425,15 @@
   });
 
   let segments = [];
+  let stravaSegments = [];
   let segMap = null;
   let currentSegment = -1;
 
   window.onWaveletResponse = function (out) {
     segments = Array.isArray(out.segments) ? out.segments : [];
+    stravaSegments = Array.isArray(out.strava_segments)
+      ? out.strava_segments
+      : [];
     currentSegment = -1;
     const btn = document.querySelector('[data-tab="segments"]');
     if (btn) btn.disabled = segments.length === 0;
