@@ -1315,6 +1315,37 @@ the code documentation, under \ref{apx:documentation}.
 \end{itemize}
 
 \subsubsection*{Step 8 - Tuning Parameters, and implementing basics of TSS score framework}
+After the core segmentation logic was functional, I focused on adjusting parameters such as wavelet scale, RMS window length, and classification thresholds.
+This was an iterative process: I repeatedly ran the engine on test GPX routes, observed the resulting segmentation graphs, and compared them against known
+Strava segments or manual inspection. Each adjustment aimed to reduce noise while still capturing meaningful terrain transitions.
+
+\begin{itemize}
+    \item \textbf{What worked:} systematic testing with a consistent set of benchmark rides.
+    \item \textbf{What didn't:} small tweaks sometimes produced large unintended effects, especially on noisy GPX files.
+    \item \textbf{Changes made:} fixed default parameters to a balanced set and exposed overrides in the HTTP API for experimentation.
+\end{itemize}
+
+\subsubsection*{Step 9 - Segment persistence in the database}
+With segmentation results stabilised, I extended the database schema to include segment objects. Each segment definition received a unique identifier and
+was stored with attributes such as start/end coordinates, average gradient, and length. A join table linked these definitions to their occurrences within
+uploaded routes, allowing both re-use of canonical segment definitions and context-specific metadata storage.
+
+\begin{itemize}
+    \item \textbf{What worked:} relational schema enabled queries across routes and supported visualisation of recurring segments.
+    \item \textbf{What didn't:} initial schema design missed some attributes (e.g. kind/classification) which required later migrations.
+    \item \textbf{Changes made:} normalised the schema with \texttt{segment\_defs}, \texttt{route\_segments}, and \texttt{segment\_way\_runs} tables.
+\end{itemize}
+
+\subsubsection*{Step 10 - Training Suitability Score (TSS) prototype}
+Finally, I integrated a basic Training Suitability Score into the engine. The idea was to provide a single metric summarising the training value of a
+segment or route. At this stage the score was a composite of segment length, gradient, and estimated power requirements, aggregated into a normalised scale.
+This prototype served as a proof of concept for how segmentation outputs could be transformed into actionable training insights.
+
+\begin{itemize}
+    \item \textbf{What worked:} simple formulae gave quick, interpretable results and showed potential for ranking routes by training utility.
+    \item \textbf{What didn't:} the score did not yet account for physiology-specific measures (e.g., heart rate zones, normalized power).
+    \item \textbf{Changes made:} laid groundwork for incorporating more advanced metrics in future iterations.
+\end{itemize}
 
 
 
@@ -1355,9 +1386,27 @@ This section contrasts the performance of the segmentation engine developed in t
 
 \subsection{Qualitative Comparison}
 % TODO: Discuss conceptual differences, feature sets, and user experience between the approaches.
+\begin{table}[H]
+    \centering\small
+    \caption{Simple side-by-side look at Strava vs. My Segmentation Engine}
+    \label{tbl:strava-vs-engine}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
+        \textbf{What} & \textbf{Strava} & \textbf{My Engine} \\
+        \midrule
+        How pieces are made & Riders draw their own; can overlap or start in odd places & Cut up by math rules (wavelets + RMS), always the same way \\
+        Where pieces show up & Lots in busy places, few in quiet ones & Works anywhere a ride goes \\
+        What each piece shows & Time and speed lists; leaderboards & Extra ride data (slope, power, heart rate, effort) \\
+        Clear or hidden & Rules hidden, start/end not always clear & Rules open, easy to set and repeat \\
+        Main goal & Race and compare with others & Study ride load and training use \\
+        \midrule
+        \textbf{(Numbers – to be filled later)} & \multicolumn{2}{l}{Segment counts, length spread, overlap with Strava, slope match, training scores} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
 
 \subsection{Quantitative Comparison}
-% TODO: Present metrics such as segmentation accuracy, processing time, and resource usage to benchmark against existing tools.
 
 \chapter{Results and Conclusions}
 \label{chap:results}
@@ -1392,7 +1441,8 @@ that technology remains a tool for empowerment rather than a source of inequity.
 
 \section{Deferred Code Implementations}
 \label{sec:unused-code}
-Several modules were built during development but have not yet been integrated into the main pipeline. This section documents these dormant features and outlines how future versions could incorporate them.
+Several modules were built during development but have not yet been integrated into the main pipeline. This section documents these dormant 
+features and outlines how future versions could incorporate them.
 % TODO: Enumerate and describe the unused code segments, explaining their intended roles and integration plans.
 
 \newpage
@@ -1400,14 +1450,9 @@ Several modules were built during development but have not yet been integrated i
 \appendix
 \label{chap:appendix}
 %TODO: review
-\chapter{Further Development}{Further Development}
+\chapter{Extracted Code Listings}{Extracted Code Listings}
 \label{apx:furtherreading}
 \input{appendix_extracted_listings.tex}
-%TODO: review
-
-%TODO: review
-\chapter{Directory Structure}{Directory Structure}
-\label{apx:dirstruct}
 %TODO: review
 
 %TODO: review
@@ -1415,12 +1460,6 @@ Several modules were built during development but have not yet been integrated i
 \label{apx:documentation}
 
 
-%--------------------------------------
-% Bibliography
-%--------------------------------------
-
-
-% -- auto inserted: extracted code listings appendix --
 \end{document}
 
 
