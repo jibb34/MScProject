@@ -935,53 +935,6 @@ The functional view includes key modules and their responsibilities.
 Hardware deployment and network design.
 % Diagrams of the network design and a list of representative hardware configurations are provided in the accompanying documentation.  These include
 % container topology and resource requirements, but are omitted here for brevity.
-\subsubsection{Database Entity - Relational View}
-The persistence layer stores segment definitions and their occurrences on concrete routes. The core schema comprises three tables:
-\texttt{segment\_defs} (one row per directional segment definition), \texttt{route\_segments} (each physical occurrence of a segment within a matched route) and
-\texttt{segment\_way\_runs} (ordered runs of identical OSM way IDs within a segment span). A segment definition is keyed by a 32\,byte
-fingerprint (SHA-256) computed from rounded coordinates and traversal direction. \texttt{route\_segments} references it and records the
-inclusive/exclusive index span within the original route points, \texttt{segment\_way\_runs} preserves the sequence of underlying OSM ways
-inside the segment.\footnote{See schema comments for keys, indices and referential actions.}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[node distance=3cm]
-  % -- Entities --
-  \node[entity] (segment_defs) {segment\_defs};
-  \node[entity, right=of segment_defs] (route_segments) {route\_segments};
-  \node[entity, below=of route_segments] (seg_way_runs) {segment\_way\_runs};
-
-  % Relation crow's foot: segment_defs 1 --< route_segments
-  \draw[relation] (segment_defs) -- node[above]{1} (route_segments.west);
-  \draw[crowfoot] (route_segments.west)++(-0.2,0.2) -- ++(-0.4,0);
-  \draw[crowfoot] (route_segments.west) -- ++(-0.4,0);
-  \draw[crowfoot] (route_segments.west)++(-0.2,-0.2) -- ++(-0.4,0);
-
-  % Relation: route_segments 1 --< seg_way_runs
-  \draw[relation] (route_segments.south) -- node[right]{1} (seg_way_runs.north);
-  \draw[crowfoot] (seg_way_runs.north)++(-0.2,0.2) -- ++(0,-0.4);
-  \draw[crowfoot] (seg_way_runs.north) -- ++(0,-0.4);
-  \draw[crowfoot] (seg_way_runs.north)++(0.2,0.2) -- ++(0,-0.4);
-
-  % -- Another cluster --
-  \node[entity, below left=5cm and 0cm of segment_defs] (athletes) {athletes};
-  \node[entity, right=of athletes] (activities) {activities};
-  \node[entity, right=of activities] (act_points) {activity\_points};
-
-  % athletes 1 --< activities
-  \draw[relation] (athletes) -- node[above]{1} (activities.west);
-  \draw[crowfoot] (activities.west)++(-0.2,0.2) -- ++(-0.4,0);
-  \draw[crowfoot] (activities.west) -- ++(-0.4,0);
-  \draw[crowfoot] (activities.west)++(-0.2,-0.2) -- ++(-0.4,0);
-
-  % activities 1 --< activity_points
-  \draw[relation] (activities) -- node[above]{1} (act_points.west);
-  \draw[crowfoot] (act_points.west)++(-0.2,0.2) -- ++(-0.4,0);
-  \draw[crowfoot] (act_points.west) -- ++(-0.4,0);
-  \draw[crowfoot] (act_points.west)++(-0.2,-0.2) -- ++(-0.4,0);
-\end{tikzpicture}
-\caption{ERD snippet}
-\end{figure}
 
 
 \subsubsection{Behavioral View}
@@ -1020,14 +973,52 @@ Docstrings for clarity, and the Google C++ style for the engine code.  Continuou
 \section{Module-Level Design}{Module-Level Design}
 \label{sec:moduledesign}
 \subsection{GPX-to-Enriched-JSON Pipeline Modules}
-Python Modules for the input pipeline, including dependencies, and interfaces.
-\subsubsection{Module Dependency Diagram}
-% \ref{fig:moddepdiag} visually shows the dependencies for each module in the input pipeline.
-% A module dependency diagram showing the relationships between the Python scripts in the input pipeline is included in Appendix~\ref{apx:documentation}.
-\subsubsection{Module Specifications}
-For specific module-level specifications, see Appendix~\ref{apx:documentation}
+The processing layer is decomposed into small, focused modules so that each step can be reasoned about and tested in isolation.
+Figure~\ref{fig:moduledeps} gives the high level dependency chain.
 
-% Detailed specifications for each module-including purpose, inputs, outputs and dependencies-are compiled in the documentation in Appendix~\ref{apx:documentation}.
+\subsubsection{Module Dependency Diagram}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[node distance=2.8cm,>=Stealth]
+    \node[entity] (reader) {GPX Reader};
+    \node[entity, right=of reader] (matcher) {Map Matcher};
+    \node[entity, right=of matcher] (enricher) {Enricher};
+    \node[entity, right=of enricher] (segmenter) {Segmentation Engine};
+    \node[entity, right=of segmenter] (tss) {TSS Engine};
+    \node[entity, right=of tss] (db) {DB Adapter};
+    \draw[relation] (reader) -- (matcher);
+    \draw[relation] (matcher) -- (enricher);
+    \draw[relation] (enricher) -- (segmenter);
+    \draw[relation] (segmenter) -- (tss);
+    \draw[relation] (tss) -- (db);
+  \end{tikzpicture}
+  \caption{Module dependency diagram for the processing pipeline}
+  \label{fig:moduledeps}
+\end{figure}
+
+\subsubsection{Module Specifications}
+\begin{longtable}{p{3cm}p{3cm}p{3cm}p{5cm}}
+\toprule
+Module & Inputs & Outputs & Responsibility \\
+\midrule
+GPX Reader & GPX file & waypoint list & Parse GPX XML and normalise track points \\
+Map Matcher & waypoint list & matched geometry & Aligns GPS track to OSM network via OSRM \\
+Enricher & matched geometry & enriched GeoJSON & Augments geometry with OSM metadata and sensor readings \\
+Segmentation Engine & enriched GeoJSON & segment list & Detects homogeneous route segments \\
+TSS Engine & segment list, activity data & scored segments & Computes Training Suitability Score per segment \\
+DB Adapter & scored segments & persistence records & Persists segment definitions and statistics \\
+\bottomrule
+\end{longtable}
+
+\paragraph{Module Summaries}
+\begin{itemize}
+  \item \textbf{GPX Reader} normalises timestamps and coordinates into an internal list of points.
+  \item \textbf{Map Matcher} uses OSRM to snap the points to the OpenStreetMap network and returns a cleaned geometry.
+  \item \textbf{Enricher} fetches contextual attributes for each way (class, speed limit, junction density).
+  \item \textbf{Segmentation Engine} implements the two-pass algorithm that groups points into contiguous segments.
+  \item \textbf{TSS Engine} analyses rider power and route context to derive per-zone suitability scores.
+  \item \textbf{DB Adapter} converts segments into Data Transfer Objects and writes them to the SQL schema.
+\end{itemize}
 
 \section{Interface Design}
 \subsection{User Interface}
@@ -1038,15 +1029,76 @@ The back-end will also respond with the same GeoJSON objects back to the front-e
 REST APIs are also used to interface with third party tools such as the OSRM \citeyearpar{Luxen2011} route matching engine, and the Overpass API  \citep{OverpassAPI}.
 
 \section{Data Design}
-\subsection{Data Models}
-ERD showing data entities and relationships.
+\subsection{Entity--Relationship Model}
+The persistence layer is captured by the ERD in Figure~\ref{fig:db_erd}. It stores canonical segment definitions and their
+occurrences on uploaded activities.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=3cm]
+  \node[entity] (segment_defs) {segment\_defs};
+  \node[entity, right=of segment_defs] (route_segments) {route\_segments};
+  \node[entity, below=of route_segments] (seg_way_runs) {segment\_way\_runs};
+  \node[entity, below left=5cm and 0cm of segment_defs] (athletes) {athletes};
+  \node[entity, right=of athletes] (activities) {activities};
+  \node[entity, right=of activities] (act_points) {activity\_points};
+
+  \draw[relation] (segment_defs) -- node[above]{1} (route_segments.west);
+  \draw[crowfoot] (route_segments.west)++(-0.2,0.2) -- ++(-0.4,0);
+  \draw[crowfoot] (route_segments.west) -- ++(-0.4,0);
+  \draw[crowfoot] (route_segments.west)++(-0.2,-0.2) -- ++(-0.4,0);
+
+  \draw[relation] (route_segments.south) -- node[right]{1} (seg_way_runs.north);
+  \draw[crowfoot] (seg_way_runs.north)++(-0.2,0.2) -- ++(0,-0.4);
+  \draw[crowfoot] (seg_way_runs.north) -- ++(0,-0.4);
+  \draw[crowfoot] (seg_way_runs.north)++(0.2,0.2) -- ++(0,-0.4);
+
+  \draw[relation] (athletes) -- node[above]{1} (activities.west);
+  \draw[crowfoot] (activities.west)++(-0.2,0.2) -- ++(-0.4,0);
+  \draw[crowfoot] (activities.west) -- ++(-0.4,0);
+  \draw[crowfoot] (activities.west)++(-0.2,-0.2) -- ++(-0.4,0);
+
+  \draw[relation] (activities) -- node[above]{1} (act_points.west);
+  \draw[crowfoot] (act_points.west)++(-0.2,0.2) -- ++(-0.4,0);
+  \draw[crowfoot] (act_points.west) -- ++(-0.4,0);
+  \draw[crowfoot] (act_points.west)++(-0.2,-0.2) -- ++(-0.4,0);
+\end{tikzpicture}
+\caption{Entity--relationship diagram for the database}
+\label{fig:db_erd}
+\end{figure}
 
 \subsection{Database Schema}
-Detailed table definitions, keys, indexes, and normalization rules.
+\begin{longtable}{p{3cm}p{3cm}p{7cm}}
+\toprule
+Table & Field & Description \\
+\midrule
+segment\_defs & seg\_id (TEXT) & 32-byte SHA-256 hex fingerprint \\
+segment\_defs & length (REAL) & segment length in metres \\
+segment\_defs & geom (BLOB) & encoded polyline geometry \\
+route\_segments & route\_id (INTEGER) & FK to uploaded route/activity \\
+route\_segments & seg\_id (TEXT) & FK to segment\_defs.seg\_id \\
+route\_segments & start\_idx (INTEGER) & inclusive index of first point \\
+route\_segments & end\_idx (INTEGER) & exclusive index after last point \\
+segment\_way\_runs & seg\_id (TEXT) & FK to segment\_defs.seg\_id \\
+segment\_way\_runs & seq (INTEGER) & order within segment \\
+segment\_way\_runs & way\_id (INTEGER) & OSM way identifier \\
+\bottomrule
+\end{longtable}
 
 \subsection{Data Dictionary}
-Definitions and formats for all data elements used in the system.
-
+\begin{longtable}{p{3cm}p{3cm}p{7cm}}
+\toprule
+Element & Format & Description \\
+\midrule
+seg\_id & 64 hex chars & Unique SHA-256 identifier for a directional segment \\
+route\_id & integer & Internal ID for a matched activity or route \\
+start\_idx / end\_idx & integer & Indices into original point array (end exclusive) \\
+geom & encoded polyline & Compressed segment geometry using Google polyline encoding \\
+way\_id & integer & OpenStreetMap way identifier forming part of a segment \\
+tss\_z1 -- tss\_z5 & float & Per-zone training suitability scores (0--1) \\
+hit\_count & integer & Number of times segment has been observed \\
+\bottomrule
+\end{longtable}
 
 \section{Standards and Compliance in Design}
 List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g., ISO/IEC 27001 \citeyearpar{ISO27001} for security).
@@ -1438,6 +1490,19 @@ like surface type or junction class, and continuous metrics—within a unified m
   linktodoc=true
 ]{../code/segmentation/engine/docs/README.pdf}
 
+
+
+\chapter{Glossary}
+\label{apx:glossary}
+\begin{description}
+  \item[GPX] GPS Exchange Format used to encode routes and activities.
+  \item[GeoJSON] JSON-based format for geographic data structures.
+  \item[OSM] OpenStreetMap, the open collaborative map database.
+  \item[OSRM] Open Source Routing Machine providing map matching services.
+  \item[TSS] Training Suitability Score assigned to each segment.
+  \item[ERD] Entity--Relationship Diagram illustrating database structure.
+  \item[DTO] Data Transfer Object used for moving data between modules.
+\end{description}
 
 
 \end{document}
