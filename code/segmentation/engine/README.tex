@@ -99,7 +99,7 @@ GET /view?map=\emph{path} & Renders an interactive HTML viewer comparing raw OSR
 GET /viewLab?map=\emph{path} & Redirects to the Signal Lab user interface.\\
 GET /lab/meta?map=\emph{path} & Lists available uploads and optionally returns metadata for a specific map.\\
 POST /lab/resample & Builds a route signal and resamples requested variables onto a uniform distance grid.\\
-POST /wavelet & Performs wavelet-based terrain segmentation and optionally persists segments to the database.\\
+POST /wavelet & Performs wavelet-based terrain segmentation and optionally persists segments to the database. Set \texttt{strava\_json} to \texttt{true} to also emit a list of segment start/end coordinates matching Strava's format.\\
 GET /segments & Retrieves previously persisted segments intersecting a geographic bounding box.\\
 \end{longtable}
 
