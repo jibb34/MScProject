@@ -109,6 +109,14 @@ Segmentation is accomplished by constructing a uniformly sampled route signal fr
 \section{Data Management}
 Segment metadata is stored in a MySQL schema defined by \texttt{schema.sql}. The \texttt{infra::MySQLSegmentDB} component manages connections, inserts new segments and queries by bounding box.
 
+\section{Training Suitability and Use Case}
+Recent updates add utilities that make the engine well suited for preparing training data. The
+\texttt{/lab/resample} endpoint emits uniformly sampled feature vectors while \texttt{/wavelet}
+produces corresponding segment labels. Together these endpoints can be used to assemble
+supervised learning sets for tasks such as terrain classification or route difficulty prediction.
+In a typical workflow the engine preprocesses raw map data, stores the derived segments and then
+exports feature/label pairs for consumption by external machine learning pipelines.
+
 \section{Error Handling and Logging}
 Fatal signals (segmentation faults, aborts, arithmetic errors) are trapped and a stack trace is printed to the server log. Endpoint handlers translate exceptions into HTTP~500 responses containing a diagnostic message.
 
