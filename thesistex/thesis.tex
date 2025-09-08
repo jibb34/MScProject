@@ -15,6 +15,8 @@
   Scale=MatchLowercase
 ]
 \usepackage{lmodern}
+\usepackage{pdfpages} % for \includepdf
+
 \usepackage[T1]{fontenc}
 \usepackage{pgfplots}
 \usepackage[normalem]{ulem}
@@ -115,7 +117,7 @@ crowfoot/.style={-{Straight Barb[angle=30:2pt 2]}, thick},
 \begin{abstract}
 	\addcontentsline{toc}{chapter}{Abstract}
 	Training quality depends not only on an athlete's physiology but also on the road environment: long, uninterrupted climbs
-	or low-traffic corridors benefit sustained efforts, whereas junctions, stops and heavy traffic fragment work and increase power variability.
+	and low-traffic roads benefit sustained efforts, while junctions, stops and heavy traffic fragment work and increase power variability.
 	This thesis investigates whether the "training suitability" of roads can be quantified and used to help cyclists plan better sessions.
 	This paper presents an end-to-end framework that transforms raw GPS traces from a GPX file into a list of road segments, annotated for training suitability.
 	An input pipeline cleans and map-matches traces to OpenStreetMap using OSRM in a manner similar to Luxen and Vetter \citeyearpar{Luxen2011}, and enriches the matched geometry with road
@@ -1462,6 +1464,17 @@ The wavelet and resampling utilities were intentionally implemented to accept mu
 %TODO: review
 \chapter{Application Documentation}{Application Documentation}
 \label{apx:documentation}
+\includepdf[
+  pages=-,
+  pagecommand={},
+  linktodoc=true
+]{../code/pipeline/docs/docs.pdf}
+\includepdf[
+  pages=-,
+  pagecommand={},
+  linktodoc=true
+]{../code/segmentation/engine/docs/README.pdf}
+
 
 
 \end{document}

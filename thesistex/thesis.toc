@@ -96,20 +96,14 @@
 \contentsline {subsubsection}{Data Stream}{35}{section*.62}%
 \contentsline {subsection}{\numberline {6.2.2}Segmentation Engine}{35}{subsection.6.2.2}%
 \contentsline {paragraph}{Goal.}{35}{section*.63}%
-\contentsline {subsection}{\numberline {6.2.3}Segmentation Engine: Two-Pass Weighting and Recursive Merging}{37}{subsection.6.2.3}%
-\contentsline {paragraph}{Pass 1 -- Propose boundaries.}{38}{section*.69}%
-\contentsline {paragraph}{Pass 2 -- Weight boundaries.}{38}{section*.70}%
-\contentsline {paragraph}{Recursive merging.}{38}{section*.71}%
-\contentsline {paragraph}{Outcome.}{38}{section*.72}%
-\contentsline {subsection}{\numberline {6.2.4}TSS Engine}{38}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Testing and Results}{38}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Comparison with Existing Segment Creation Tools}{39}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Qualitative Comparison}{39}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Quantitative Comparison}{39}{subsection.6.4.2}%
-\contentsline {chapter}{\numberline {7}Results and Conclusions}{40}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{41}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Deferred Code Implementations}{41}{section.8.1}%
-\contentsline {chapter}{\numberline {A}Further Development}{45}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{46}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Directory Structure}{53}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Application Documentation}{54}{appendix.D}%
+\contentsline {subsection}{\numberline {6.2.3}TSS Engine}{39}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Testing and Results}{40}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Comparison with Existing Segment Creation Tools}{40}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Qualitative Comparison}{41}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Quantitative Comparison}{41}{subsection.6.4.2}%
+\contentsline {chapter}{\numberline {7}Results and Conclusions}{42}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{43}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Deferred Code Implementations}{43}{section.8.1}%
+\contentsline {chapter}{\numberline {A}Extracted Code Listings}{48}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{49}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Application Documentation}{56}{appendix.C}%

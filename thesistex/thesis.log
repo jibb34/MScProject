@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 12:28
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 21:07
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -262,21 +262,60 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/fonten
-c.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-2.
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pdfpages/pd
+fpages.sty
+Package: pdfpages 2024/01/21 v0.5y Insert pages of external PDF documents (AM)
 
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ifthen
+.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/calc.
+sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count278
+\calc@Bcount=\count279
+\calc@Adimen=\dimen152
+\calc@Bdimen=\dimen153
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count280
+\calc@Cskip=\skip53
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/eso-pic/eso
+-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen154
+\ESO@tempdimb=\dimen155
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/xcolor/xcol
+or.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-cf
+g/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 274.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-de
+f/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/ma
+thcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 ))
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgfplots/pg
-fplots.sty
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
-pgfplots.revision.tex)
-Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
-
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/gr
 aphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -294,14 +333,42 @@ g/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 107.
-
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-de
-f/luatex.def
-File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
-))
-\Gin@req@height=\dimen152
-\Gin@req@width=\dimen153
 )
+\Gin@req@height=\dimen156
+\Gin@req@width=\dimen157
+)
+\AM@pagewidth=\dimen158
+\AM@pageheight=\dimen159
+\AM@fboxrule=\dimen160
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pdfpages/pp
+luatex.def
+File: ppluatex.def 2024/01/21 v0.5y Pdfpages driver for LuaTeX (AM)
+)
+\pdfpages@includegraphics@status=\count281
+\AM@pagebox=\box53
+\AM@global@opts=\toks22
+\AM@pagecnt=\count282
+\AM@toc@title=\toks23
+\AM@lof@heading=\toks24
+\c@AM@survey=\count283
+\AM@templatesizebox=\box54
+)
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/fonten
+c.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+2.
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgfplots/pg
+fplots.sty
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
+pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/fronten
 dlayer/tikz.sty
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/basicla
@@ -310,13 +377,13 @@ yer/pgf.sty
 es/pgfrcs.sty
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
 ties/pgfutil-common.tex
-\pgfutil@everybye=\toks22
-\pgfutil@tempdima=\dimen154
-\pgfutil@tempdimb=\dimen155
+\pgfutil@everybye=\toks25
+\pgfutil@tempdima=\dimen161
+\pgfutil@tempdimb=\dimen162
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
 ties/pgfutil-latex.def
-\pgfutil@abb=\box53
+\pgfutil@abb=\box55
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
 ties/pgfrcs.code.tex
@@ -336,33 +403,33 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
 ties/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks23
-\pgfkeys@temptoks=\toks24
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
 ties/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks25
+\pgfkeys@tmptoks=\toks28
 ))
-\pgf@x=\dimen156
-\pgf@y=\dimen157
-\pgf@xa=\dimen158
-\pgf@ya=\dimen159
-\pgf@xb=\dimen160
-\pgf@yb=\dimen161
-\pgf@xc=\dimen162
-\pgf@yc=\dimen163
-\pgf@xd=\dimen164
-\pgf@yd=\dimen165
+\pgf@x=\dimen163
+\pgf@y=\dimen164
+\pgf@xa=\dimen165
+\pgf@ya=\dimen166
+\pgf@xb=\dimen167
+\pgf@yb=\dimen168
+\pgf@xc=\dimen169
+\pgf@yc=\dimen170
+\pgf@xd=\dimen171
+\pgf@yd=\dimen172
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count278
-\c@pgf@countb=\count279
-\c@pgf@countc=\count280
-\c@pgf@countd=\count281
-\t@pgf@toka=\toks26
-\t@pgf@tokb=\toks27
-\t@pgf@tokc=\toks28
-\pgf@sys@id@count=\count282
+\c@pgf@counta=\count284
+\c@pgf@countb=\count285
+\c@pgf@countc=\count286
+\c@pgf@countd=\count287
+\t@pgf@toka=\toks29
+\t@pgf@tokb=\toks30
+\t@pgf@tokc=\toks31
+\pgf@sys@id@count=\count288
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
 mlayer/pgf.cfg
@@ -381,35 +448,13 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
 mlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count283
-\pgfsyssoftpath@bigbuffer@items=\count284
+\pgfsyssoftpath@smallbuffer@items=\count289
+\pgfsyssoftpath@bigbuffer@items=\count290
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/syste
 mlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/xcolor/xcol
-or.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
-
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-cf
-g/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: luatex.def on input line 274.
-
-(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/ma
-thcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
@@ -420,12 +465,12 @@ pgfmath.code.tex
 pgfmathutil.code.tex)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
 pgfmathparser.code.tex
-\pgfmath@dimen=\dimen166
-\pgfmath@count=\count285
-\pgfmath@box=\box54
-\pgfmath@toks=\toks29
-\pgfmath@stack@operand=\toks30
-\pgfmath@stack@operation=\toks31
+\pgfmath@dimen=\dimen173
+\pgfmath@count=\count291
+\pgfmath@box=\box56
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
 pgfmathfunctions.code.tex)
@@ -449,59 +494,59 @@ pgfmathfunctions.integerarithmetics.code.tex)
 pgfmathcalc.code.tex)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
 pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count286
+\c@pgfmathroundto@lastzeros=\count292
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/math/
 pgfint.code.tex)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen167
-\pgf@picmaxx=\dimen168
-\pgf@picminy=\dimen169
-\pgf@picmaxy=\dimen170
-\pgf@pathminx=\dimen171
-\pgf@pathmaxx=\dimen172
-\pgf@pathminy=\dimen173
-\pgf@pathmaxy=\dimen174
-\pgf@xx=\dimen175
-\pgf@xy=\dimen176
-\pgf@yx=\dimen177
-\pgf@yy=\dimen178
-\pgf@zx=\dimen179
-\pgf@zy=\dimen180
+\pgf@picminx=\dimen174
+\pgf@picmaxx=\dimen175
+\pgf@picminy=\dimen176
+\pgf@picmaxy=\dimen177
+\pgf@pathminx=\dimen178
+\pgf@pathmaxx=\dimen179
+\pgf@pathminy=\dimen180
+\pgf@pathmaxy=\dimen181
+\pgf@xx=\dimen182
+\pgf@xy=\dimen183
+\pgf@yx=\dimen184
+\pgf@yy=\dimen185
+\pgf@zx=\dimen186
+\pgf@zy=\dimen187
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen181
-\pgf@path@lasty=\dimen182
+\pgf@path@lastx=\dimen188
+\pgf@path@lasty=\dimen189
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen183
-\pgf@shorten@start@additional=\dimen184
+\pgf@shorten@end@additional=\dimen190
+\pgf@shorten@start@additional=\dimen191
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box55
-\pgf@hbox=\box56
-\pgf@layerbox@main=\box57
-\pgf@picture@serial@count=\count287
+\pgfpic=\box57
+\pgf@hbox=\box58
+\pgf@layerbox@main=\box59
+\pgf@picture@serial@count=\count293
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen185
+\pgflinewidth=\dimen192
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen186
-\pgf@pt@y=\dimen187
-\pgf@pt@temp=\dimen188
+\pgf@pt@x=\dimen193
+\pgf@pt@y=\dimen194
+\pgf@pt@temp=\dimen195
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorequick.code.tex
@@ -518,14 +563,14 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen189
+\pgfarrowsep=\dimen196
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen190
-\pgf@sys@shading@range@num=\count288
-\pgf@shadingcount=\count289
+\pgf@max=\dimen197
+\pgf@sys@shading@range@num=\count294
+\pgf@shadingcount=\count295
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcoreimage.code.tex
@@ -534,7 +579,7 @@ File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box58
+\pgfexternal@startupbox=\box60
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/basic
 layer/pgfcorelayers.code.tex
@@ -555,7 +600,7 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
 es/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box59
+\pgfnodeparttextbox=\box61
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
 es/pgfmoduleplot.code.tex
@@ -564,8 +609,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/compati
 bility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen191
-\pgf@nodesepend=\dimen192
+\pgf@nodesepstart=\dimen198
+\pgf@nodesepend=\dimen199
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pgf/compati
 bility/pgfcomp-version-1-18.sty
@@ -584,10 +629,10 @@ pgfmath.code.tex))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/utili
 ties/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen193
-\pgffor@skip=\dimen194
-\pgffor@stack=\toks32
-\pgffor@toks=\toks33
+\pgffor@iter=\dimen256
+\pgffor@skip=\dimen257
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/tikz.code.tex
@@ -596,34 +641,34 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
 ries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count290
-\pgfplotmarksize=\dimen195
+\pgf@plot@mark@count=\count296
+\pgfplotmarksize=\dimen258
 )
-\tikz@lastx=\dimen196
-\tikz@lasty=\dimen197
-\tikz@lastxsaved=\dimen198
-\tikz@lastysaved=\dimen199
-\tikz@lastmovetox=\dimen256
-\tikz@lastmovetoy=\dimen257
-\tikzleveldistance=\dimen258
-\tikzsiblingdistance=\dimen259
-\tikz@figbox=\box60
-\tikz@figbox@bg=\box61
-\tikz@tempbox=\box62
-\tikz@tempbox@bg=\box63
-\tikztreelevel=\count291
-\tikznumberofchildren=\count292
-\tikznumberofcurrentchild=\count293
-\tikz@fig@count=\count294
+\tikz@lastx=\dimen259
+\tikz@lasty=\dimen260
+\tikz@lastxsaved=\dimen261
+\tikz@lastysaved=\dimen262
+\tikz@lastmovetox=\dimen263
+\tikz@lastmovetoy=\dimen264
+\tikzleveldistance=\dimen265
+\tikzsiblingdistance=\dimen266
+\tikz@figbox=\box62
+\tikz@figbox@bg=\box63
+\tikz@tempbox=\box64
+\tikz@tempbox@bg=\box65
+\tikztreelevel=\count297
+\tikznumberofchildren=\count298
+\tikznumberofcurrentchild=\count299
+\tikz@fig@count=\count300
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
 es/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count295
-\pgfmatrixcurrentcolumn=\count296
-\pgf@matrix@numberofcolumns=\count297
+\pgfmatrixcurrentrow=\count301
+\pgfmatrixcurrentcolumn=\count302
+\pgf@matrix@numberofcolumns=\count303
 )
-\tikz@expandcount=\count298
+\tikz@expandcount=\count304
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibrarytopaths.code.tex
@@ -635,12 +680,12 @@ pgfplots.code.tex
 pgfplotscore.code.tex
 Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
 \pgfplots@luabackend@table=\catcodetable14
-\t@pgfplots@toka=\toks34
-\t@pgfplots@tokb=\toks35
-\t@pgfplots@tokc=\toks36
-\pgfplots@tmpa=\dimen260
-\c@pgfplots@coordindex=\count299
-\c@pgfplots@scanlineindex=\count300
+\t@pgfplots@toka=\toks37
+\t@pgfplots@tokb=\toks38
+\t@pgfplots@tokc=\toks39
+\pgfplots@tmpa=\dimen267
+\c@pgfplots@coordindex=\count305
+\c@pgfplots@scanlineindex=\count306
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 sys/pgfplotssysgeneric.code.tex))
@@ -651,9 +696,9 @@ oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
 ries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks37
-\t@pgf@tokb=\toks38
-\t@pgf@tokc=\toks39
+\t@pgf@toka=\toks40
+\t@pgf@tokb=\toks41
+\t@pgf@tokc=\toks42
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)
@@ -673,14 +718,14 @@ liststructure/pgfplotsliststructure.code.tex)
 liststructure/pgfplotsliststructureext.code.tex)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count301
+\c@pgfplotsarray@tmp=\count307
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 liststructure/pgfplotsmatrix.code.tex)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count302
-\t@pgfplotstable@a=\toks40
+\c@pgfplotstable@counta=\count308
+\t@pgfplotstable@a=\toks43
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 liststructure/pgfplotsdeque.code.tex)
@@ -692,7 +737,7 @@ util/pgfplotsbinary.data.code.tex))
 util/pgfplotsutil.verb.code.tex)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count303
+\c@pgfplotslibrarysurf@no=\count309
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 sys/pgflibrarypgfplots.surfshading.pgfsys-luatex.def)))
@@ -724,16 +769,16 @@ pgfplots.paths.code.tex)
 endlayer/tikz/libraries/tikzlibrarydecorations.code.tex
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/modul
 es/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen261
-\pgfdecoratedremainingdistance=\dimen262
-\pgfdecoratedinputsegmentcompleteddistance=\dimen263
-\pgfdecoratedinputsegmentremainingdistance=\dimen264
-\pgf@decorate@distancetomove=\dimen265
-\pgf@decorate@repeatstate=\count304
-\pgfdecorationsegmentamplitude=\dimen266
-\pgfdecorationsegmentlength=\dimen267
+\pgfdecoratedcompleteddistance=\dimen268
+\pgfdecoratedremainingdistance=\dimen269
+\pgfdecoratedinputsegmentcompleteddistance=\dimen270
+\pgfdecoratedinputsegmentremainingdistance=\dimen271
+\pgf@decorate@distancetomove=\dimen272
+\pgf@decorate@repeatstate=\count310
+\pgfdecorationsegmentamplitude=\dimen273
+\pgfdecorationsegmentlength=\dimen274
 )
-\tikz@lib@dec@box=\box64
+\tikz@lib@dec@box=\box66
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
@@ -745,13 +790,13 @@ endlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
 ries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgfplots/
 libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count305
-\pgfplots@xmin@reg=\dimen268
-\pgfplots@xmax@reg=\dimen269
-\pgfplots@ymin@reg=\dimen270
-\pgfplots@ymax@reg=\dimen271
-\pgfplots@zmin@reg=\dimen272
-\pgfplots@zmax@reg=\dimen273
+\pgfplots@numplots=\count311
+\pgfplots@xmin@reg=\dimen275
+\pgfplots@xmax@reg=\dimen276
+\pgfplots@ymin@reg=\dimen277
+\pgfplots@ymax@reg=\dimen278
+\pgfplots@zmin@reg=\dimen279
+\pgfplots@zmax@reg=\dimen280
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
@@ -763,16 +808,16 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/ulem/ulem
 .sty
-\UL@box=\box65
-\UL@hyphenbox=\box66
-\UL@skip=\skip51
-\UL@hook=\toks41
-\UL@height=\dimen274
-\UL@pe=\count306
-\UL@pixel=\dimen275
-\ULC@box=\box67
+\UL@box=\box67
+\UL@hyphenbox=\box68
+\UL@skip=\skip54
+\UL@hook=\toks44
+\UL@height=\dimen281
+\UL@pe=\count312
+\UL@pixel=\dimen282
+\ULC@box=\box69
 Package: ulem 2019/11/18
-\ULdepth=\dimen276
+\ULdepth=\dimen283
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/tabul
 arx.sty
@@ -781,36 +826,36 @@ Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/array
 .sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen277
-\ar@mcellbox=\box68
-\extrarowheight=\dimen278
-\NC@list=\toks42
-\extratabsurround=\skip52
-\backup@length=\skip53
-\ar@cellbox=\box69
+\col@sep=\dimen284
+\ar@mcellbox=\box70
+\extrarowheight=\dimen285
+\NC@list=\toks45
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box71
 )
-\TX@col@width=\dimen279
-\TX@old@table=\dimen280
-\TX@old@col=\dimen281
-\TX@target=\dimen282
-\TX@delta=\dimen283
-\TX@cols=\count307
-\TX@ftn=\toks43
+\TX@col@width=\dimen286
+\TX@old@table=\dimen287
+\TX@old@col=\dimen288
+\TX@target=\dimen289
+\TX@delta=\dimen290
+\TX@cols=\count313
+\TX@ftn=\toks46
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/li
 stings.sty
-\lst@mode=\count308
-\lst@gtempboxa=\box70
-\lst@token=\toks44
-\lst@length=\count309
-\lst@currlwidth=\dimen284
-\lst@column=\count310
-\lst@pos=\count311
-\lst@lostspace=\dimen285
-\lst@width=\dimen286
-\lst@newlines=\count312
-\lst@lineno=\count313
-\lst@maxwidth=\dimen287
+\lst@mode=\count314
+\lst@gtempboxa=\box72
+\lst@token=\toks47
+\lst@length=\count315
+\lst@currlwidth=\dimen291
+\lst@column=\count316
+\lst@pos=\count317
+\lst@lostspace=\dimen292
+\lst@width=\dimen293
+\lst@newlines=\count318
+\lst@lineno=\count319
+\lst@maxwidth=\dimen294
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tpatch.sty
@@ -819,9 +864,9 @@ File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-\c@lstnumber=\count314
-\lst@skipnumbers=\count315
-\lst@framebox=\box71
+\c@lstnumber=\count320
+\lst@skipnumbers=\count321
+\lst@framebox=\box73
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/li
 stings.cfg
@@ -840,81 +885,81 @@ Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/caption/cap
 tion3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen288
-\captionmargin=\dimen289
-\caption@leftmargin=\dimen290
-\caption@rightmargin=\dimen291
-\caption@width=\dimen292
-\caption@indent=\dimen293
-\caption@parindent=\dimen294
-\caption@hangindent=\dimen295
+\caption@tempdima=\dimen295
+\captionmargin=\dimen296
+\caption@leftmargin=\dimen297
+\caption@rightmargin=\dimen298
+\caption@width=\dimen299
+\caption@indent=\dimen300
+\caption@parindent=\dimen301
+\caption@hangindent=\dimen302
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count316
-\c@continuedfloat=\count317
+\c@caption@flags=\count322
+\c@continuedfloat=\count323
 Package caption Info: listings package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count318
+\c@subfigure=\count324
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count319
+\c@subtable=\count325
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/booktabs/bo
 oktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen296
-\lightrulewidth=\dimen297
-\cmidrulewidth=\dimen298
-\belowrulesep=\dimen299
-\belowbottomsep=\dimen300
-\aboverulesep=\dimen301
-\abovetopsep=\dimen302
-\cmidrulesep=\dimen303
-\cmidrulekern=\dimen304
-\defaultaddspace=\dimen305
-\@cmidla=\count320
-\@cmidlb=\count321
-\@aboverulesep=\dimen306
-\@belowrulesep=\dimen307
-\@thisruleclass=\count322
-\@lastruleclass=\count323
-\@thisrulewidth=\dimen308
+\heavyrulewidth=\dimen303
+\lightrulewidth=\dimen304
+\cmidrulewidth=\dimen305
+\belowrulesep=\dimen306
+\belowbottomsep=\dimen307
+\aboverulesep=\dimen308
+\abovetopsep=\dimen309
+\cmidrulesep=\dimen310
+\cmidrulekern=\dimen311
+\defaultaddspace=\dimen312
+\@cmidla=\count326
+\@cmidlb=\count327
+\@aboverulesep=\dimen313
+\@belowrulesep=\dimen314
+\@thisruleclass=\count328
+\@lastruleclass=\count329
+\@thisrulewidth=\dimen315
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tools/longt
 able.sty
 Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
-\LTleft=\skip54
-\LTright=\skip55
-\LTpre=\skip56
-\LTpost=\skip57
-\LTchunksize=\count324
-\LTcapwidth=\dimen309
-\LT@head=\box72
-\LT@firsthead=\box73
-\LT@foot=\box74
-\LT@lastfoot=\box75
-\LT@gbox=\box76
-\LT@cols=\count325
-\LT@rows=\count326
-\c@LT@tables=\count327
-\c@LT@chunks=\count328
-\LT@p@ftn=\toks45
+\LTleft=\skip57
+\LTright=\skip58
+\LTpre=\skip59
+\LTpost=\skip60
+\LTchunksize=\count330
+\LTcapwidth=\dimen316
+\LT@head=\box74
+\LT@firsthead=\box75
+\LT@foot=\box76
+\LT@lastfoot=\box77
+\LT@gbox=\box78
+\LT@cols=\count331
+\LT@rows=\count332
+\c@LT@tables=\count333
+\c@LT@chunks=\count334
+\LT@p@ftn=\toks48
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/float/float
 .sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count329
-\float@exts=\toks46
-\float@box=\box77
-\@float@everytoks=\toks47
-\@floatcapt=\box78
+\c@float@type=\count335
+\float@exts=\toks49
+\float@box=\box79
+\@float@everytoks=\toks50
+\@floatcapt=\box80
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/makecell/ma
 kecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen310
-\c@nlinenum=\count330
-\TeXr@lab=\toks48
+\rotheadsize=\dimen317
+\c@nlinenum=\count336
+\TeXr@lab=\toks51
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyphenat/hy
 phenat.sty
@@ -933,7 +978,7 @@ LaTeX Info: Redefining \_ on input line 43.
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 math.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip58
+\@mathmargin=\skip61
 
 For additional information on amsmath, use the `?' option.
 
@@ -944,63 +989,63 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 gen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks49
-\ex@=\dimen311
+\@emptytoks=\toks52
+\ex@=\dimen318
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 bsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen312
+\pmbraise@=\dimen319
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsmath/ams
 opn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count331
+\inf@bad=\count337
 LaTeX Info: Redefining \frac on input line 236.
-\uproot@=\count332
-\leftroot@=\count333
+\uproot@=\count338
+\leftroot@=\count339
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count334
-\DOTSCASE@=\count335
+\classnum@=\count340
+\DOTSCASE@=\count341
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box79
-\strutbox@=\box80
+\Mathstrutbox@=\box81
+\strutbox@=\box82
 LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen313
+\big@size=\dimen320
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count336
+\macc@depth=\count342
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count337
+\c@MaxMatrixCols=\count343
 \dotsspace@=\muskip16
-\c@parentequation=\count338
-\dspbrk@lvl=\count339
-\tag@help=\toks50
-\row@=\count340
-\column@=\count341
-\maxfields@=\count342
-\andhelp@=\toks51
-\eqnshift@=\dimen314
-\alignsep@=\dimen315
-\tagshift@=\dimen316
-\tagwidth@=\dimen317
-\totwidth@=\dimen318
-\lineht@=\dimen319
-\@envbody=\toks52
-\multlinegap=\skip59
-\multlinetaggap=\skip60
-\mathdisplay@stack=\toks53
+\c@parentequation=\count344
+\dspbrk@lvl=\count345
+\tag@help=\toks53
+\row@=\count346
+\column@=\count347
+\maxfields@=\count348
+\andhelp@=\toks54
+\eqnshift@=\dimen321
+\alignsep@=\dimen322
+\tagshift@=\dimen323
+\tagwidth@=\dimen324
+\totwidth@=\dimen325
+\lineht@=\dimen326
+\@envbody=\toks55
+\multlinegap=\skip62
+\multlinetaggap=\skip63
+\mathdisplay@stack=\toks56
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
@@ -1049,7 +1094,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks54
+\pdftexcmds@toks=\toks57
 ))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hycolor/hyc
 olor.sty
@@ -1075,16 +1120,16 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 voptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count343
+\c@section@level=\count349
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/etoolbox/et
 oolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count344
+\etb@tempcnta=\count350
 )
-\@linkdim=\dimen320
-\Hy@linkcounter=\count345
-\Hy@pagecounter=\count346
+\@linkdim=\dimen327
+\Hy@linkcounter=\count351
+\Hy@pagecounter=\count352
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/pd
 1enc.def
@@ -1094,7 +1139,7 @@ File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 ntcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count347
+\Hy@SavedSpaceFactor=\count353
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/hyperref/pu
 enc.def
@@ -1107,14 +1152,14 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count348
+\c@Hy@tempcnt=\count354
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen321
+\XeTeXLinkMargin=\dimen328
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/bitset/bi
 tset.sty
@@ -1125,9 +1170,9 @@ c/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count349
-\Field@Width=\dimen322
-\Fld@charsize=\dimen323
+\Fld@menulength=\count355
+\Field@Width=\dimen329
+\Fld@charsize=\dimen330
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -1141,9 +1186,9 @@ hi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count350
-\c@Item=\count351
-\c@Hfootnote=\count352
+\Hy@abspage=\count356
+\c@Item=\count357
+\c@Hfootnote=\count358
 )
 Package hyperref Info: Driver (autodetected): hluatex.
 
@@ -1162,8 +1207,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count353
-\c@bookmark@seq@number=\count354
+\Fld@listcount=\count359
+\c@bookmark@seq@number=\count360
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/rerunfilech
 eck/rerunfilecheck.sty
@@ -1176,70 +1221,70 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip61
+\Hy@SectionHShift=\skip64
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/natbib/natb
 ib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip62
-\bibsep=\skip63
+\bibhang=\skip65
+\bibsep=\skip66
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count355
+\c@NAT@ctr=\count361
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tocloft/toc
 loft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 51.
-\cftparskip=\skip64
-\cftbeforetoctitleskip=\skip65
-\cftaftertoctitleskip=\skip66
-\cftbeforepartskip=\skip67
-\cftpartnumwidth=\skip68
-\cftpartindent=\skip69
-\cftbeforechapskip=\skip70
-\cftchapindent=\skip71
-\cftchapnumwidth=\skip72
-\cftbeforesecskip=\skip73
-\cftsecindent=\skip74
-\cftsecnumwidth=\skip75
-\cftbeforesubsecskip=\skip76
-\cftsubsecindent=\skip77
-\cftsubsecnumwidth=\skip78
-\cftbeforesubsubsecskip=\skip79
-\cftsubsubsecindent=\skip80
-\cftsubsubsecnumwidth=\skip81
-\cftbeforeparaskip=\skip82
-\cftparaindent=\skip83
-\cftparanumwidth=\skip84
-\cftbeforesubparaskip=\skip85
-\cftsubparaindent=\skip86
-\cftsubparanumwidth=\skip87
-\cftbeforeloftitleskip=\skip88
-\cftafterloftitleskip=\skip89
-\cftbeforefigskip=\skip90
-\cftfigindent=\skip91
-\cftfignumwidth=\skip92
-\c@lofdepth=\count356
-\c@lotdepth=\count357
-\cftbeforelottitleskip=\skip93
-\cftafterlottitleskip=\skip94
-\cftbeforetabskip=\skip95
-\cfttabindent=\skip96
-\cfttabnumwidth=\skip97
+\cftparskip=\skip67
+\cftbeforetoctitleskip=\skip68
+\cftaftertoctitleskip=\skip69
+\cftbeforepartskip=\skip70
+\cftpartnumwidth=\skip71
+\cftpartindent=\skip72
+\cftbeforechapskip=\skip73
+\cftchapindent=\skip74
+\cftchapnumwidth=\skip75
+\cftbeforesecskip=\skip76
+\cftsecindent=\skip77
+\cftsecnumwidth=\skip78
+\cftbeforesubsecskip=\skip79
+\cftsubsecindent=\skip80
+\cftsubsecnumwidth=\skip81
+\cftbeforesubsubsecskip=\skip82
+\cftsubsubsecindent=\skip83
+\cftsubsubsecnumwidth=\skip84
+\cftbeforeparaskip=\skip85
+\cftparaindent=\skip86
+\cftparanumwidth=\skip87
+\cftbeforesubparaskip=\skip88
+\cftsubparaindent=\skip89
+\cftsubparanumwidth=\skip90
+\cftbeforeloftitleskip=\skip91
+\cftafterloftitleskip=\skip92
+\cftbeforefigskip=\skip93
+\cftfigindent=\skip94
+\cftfignumwidth=\skip95
+\c@lofdepth=\count362
+\c@lotdepth=\count363
+\cftbeforelottitleskip=\skip96
+\cftafterlottitleskip=\skip97
+\cftbeforetabskip=\skip98
+\cfttabindent=\skip99
+\cfttabnumwidth=\skip100
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/fancyhdr/fa
 ncyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip98
-\f@nch@O@elh=\skip99
-\f@nch@O@erh=\skip100
-\f@nch@O@olh=\skip101
-\f@nch@O@orh=\skip102
-\f@nch@O@elf=\skip103
-\f@nch@O@erf=\skip104
-\f@nch@O@olf=\skip105
-\f@nch@O@orf=\skip106
+\f@nch@headwidth=\skip101
+\f@nch@O@elh=\skip102
+\f@nch@O@erh=\skip103
+\f@nch@O@olh=\skip104
+\f@nch@O@orh=\skip105
+\f@nch@O@elf=\skip106
+\f@nch@O@erf=\skip107
+\f@nch@O@olf=\skip108
+\f@nch@O@orf=\skip109
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibraryshapes.code.tex
@@ -1288,34 +1333,34 @@ File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
 ries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box81
-\pgfnodeparttwobox=\box82
-\pgfnodepartthreebox=\box83
-\pgfnodepartfourbox=\box84
-\pgfnodeparttwentybox=\box85
-\pgfnodepartnineteenbox=\box86
-\pgfnodeparteighteenbox=\box87
-\pgfnodepartseventeenbox=\box88
-\pgfnodepartsixteenbox=\box89
-\pgfnodepartfifteenbox=\box90
-\pgfnodepartfourteenbox=\box91
-\pgfnodepartthirteenbox=\box92
-\pgfnodeparttwelvebox=\box93
-\pgfnodepartelevenbox=\box94
-\pgfnodeparttenbox=\box95
-\pgfnodepartninebox=\box96
-\pgfnodeparteightbox=\box97
-\pgfnodepartsevenbox=\box98
-\pgfnodepartsixbox=\box99
-\pgfnodepartfivebox=\box100
+\pgfnodepartlowerbox=\box83
+\pgfnodeparttwobox=\box84
+\pgfnodepartthreebox=\box85
+\pgfnodepartfourbox=\box86
+\pgfnodeparttwentybox=\box87
+\pgfnodepartnineteenbox=\box88
+\pgfnodeparteighteenbox=\box89
+\pgfnodepartseventeenbox=\box90
+\pgfnodepartsixteenbox=\box91
+\pgfnodepartfifteenbox=\box92
+\pgfnodepartfourteenbox=\box93
+\pgfnodepartthirteenbox=\box94
+\pgfnodeparttwelvebox=\box95
+\pgfnodepartelevenbox=\box96
+\pgfnodeparttenbox=\box97
+\pgfnodepartninebox=\box98
+\pgfnodeparteightbox=\box99
+\pgfnodepartsevenbox=\box100
+\pgfnodepartsixbox=\box101
+\pgfnodepartfivebox=\box102
 )))
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/libra
 ries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen324
-\pgfarrowlength=\dimen325
-\pgfarrowwidth=\dimen326
-\pgfarrowlinewidth=\dimen327
+\pgfarrowinset=\dimen331
+\pgfarrowlength=\dimen332
+\pgfarrowwidth=\dimen333
+\pgfarrowlinewidth=\dimen334
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibrarypositioning.code.tex
@@ -1348,33 +1393,33 @@ Package cleveref Info: no abbreviation of names on input line 7852.
 ) (./thesis.aux)
 \openout1 = thesis.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 101.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 103.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-01.
+03.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ts1cmr
 .fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1414,17 +1459,17 @@ LaTeX Font Info:    ... okay on input line 101.
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii
 /supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count358
-\scratchdimen=\dimen328
-\scratchbox=\box101
-\nofMPsegments=\count359
-\nofMParguments=\count360
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count361
-\MPscratchDim=\dimen329
-\MPnumerator=\count362
-\makeMPintoPDFobject=\count363
-\everyMPtoPDFconversion=\toks56
+\scratchcounter=\count364
+\scratchdimen=\dimen335
+\scratchbox=\box103
+\nofMPsegments=\count365
+\nofMParguments=\count366
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count367
+\MPscratchDim=\dimen336
+\MPnumerator=\count368
+\makeMPintoPDFobject=\count369
+\everyMPtoPDFconversion=\toks59
 )
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/epstopdf-pk
 g/epstopdf-base.sty
@@ -1446,10 +1491,25 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pdflscape/p
+dflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/pdflscape/p
+dflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/ls
+cape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c@lstlisting=\count364
+\c@lstlisting=\count370
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1461,7 +1521,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-01.
+03.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmtt.f
 d
@@ -1469,106 +1529,106 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 101.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/scsl' undefined
-(Font)              using `T1/lmtt/b/sc' instead on input line 101.
+(Font)              using `T1/lmtt/b/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/b/sc' undefined
-(Font)              using `T1/lmtt/b/n' instead on input line 101.
+(Font)              using `T1/lmtt/b/n' instead on input line 103.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 103.
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 101.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 103.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 101.
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 103.
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/scsl' undefined
-(Font)              using `T1/lmtt/bx/sc' instead on input line 101.
+(Font)              using `T1/lmtt/bx/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/sc' undefined
-(Font)              using `T1/lmtt/bx/n' instead on input line 101.
+(Font)              using `T1/lmtt/bx/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sbx/sc' undefined
-(Font)              using `T1/lmtt/sb/sc' instead on input line 101.
+(Font)              using `T1/lmtt/sb/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/n' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 101.
+(Font)              using `T1/lmtt/m/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/it' undefined
-(Font)              using `T1/lmtt/sb/n' instead on input line 101.
+(Font)              using `T1/lmtt/sb/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/sl' undefined
-(Font)              using `T1/lmtt/sb/it' instead on input line 101.
+(Font)              using `T1/lmtt/sb/it' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/scit' undefined
-(Font)              using `T1/lmtt/sb/sc' instead on input line 101.
+(Font)              using `T1/lmtt/sb/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sb/sc' undefined
-(Font)              using `T1/lmtt/sb/n' instead on input line 101.
+(Font)              using `T1/lmtt/sb/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/sbc/sc' undefined
-(Font)              using `T1/lmtt/c/sc' instead on input line 101.
+(Font)              using `T1/lmtt/c/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/n' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 101.
+(Font)              using `T1/lmtt/m/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/it' undefined
-(Font)              using `T1/lmtt/c/n' instead on input line 101.
+(Font)              using `T1/lmtt/c/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/sl' undefined
-(Font)              using `T1/lmtt/c/it' instead on input line 101.
+(Font)              using `T1/lmtt/c/it' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/scit' undefined
-(Font)              using `T1/lmtt/c/sc' instead on input line 101.
+(Font)              using `T1/lmtt/c/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/c/sc' undefined
-(Font)              using `T1/lmtt/c/n' instead on input line 101.
+(Font)              using `T1/lmtt/c/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/lc/it' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/lc/sl' tried instead on input line 101.
+(Font)              Font shape `T1/lmtt/lc/sl' tried instead on input line 103.
 
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/lc/scsl' undefined
-(Font)              using `T1/lmtt/lc/sc' instead on input line 101.
+(Font)              using `T1/lmtt/lc/sc' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/lc/sc' undefined
-(Font)              using `T1/lmtt/lc/n' instead on input line 101.
+(Font)              using `T1/lmtt/lc/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/m/ui' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 101.
+(Font)              using `T1/lmtt/m/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/bx/ui' undefined
-(Font)              using `T1/lmtt/bx/n' instead on input line 101.
+(Font)              using `T1/lmtt/bx/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `T1/lmtt/m/In' undefined
-(Font)              using `T1/lmtt/m/n' instead on input line 101.
+(Font)              using `T1/lmtt/m/n' instead on input line 103.
 
-Package hyperref Info: Link coloring OFF on input line 101.
+Package hyperref Info: Link coloring OFF on input line 103.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 
@@ -1579,7 +1639,7 @@ Package hyperref Info: Link coloring OFF on input line 101.
 p/pdftex.map}]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 [1]
-Package hyperref Info: Option `pageanchor' set `false' on input line 130.
+Package hyperref Info: Option `pageanchor' set `false' on input line 132.
  (./thesis.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
 .
@@ -1630,16 +1690,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 
 \openout5 = thesis.toc
- [2] [3] (./thesis.lof)
+ [2] (./thesis.lof)
 \tf@lof=\write6
 
 \openout6 = thesis.lof
- [4] (./thesis.lot)
+ [3] (./thesis.lot)
 \tf@lot=\write7
 
 \openout7 = thesis.lot
- [5]
-Package hyperref Info: Option `pageanchor' set `true' on input line 140.
+ [4]
+Package hyperref Info: Option `pageanchor' set `true' on input line 142.
 
 Chapter 1.
 
@@ -1650,16 +1710,16 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 ] [2] [3]
 Chapter 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 213.
+(Font)              <9> on input line 215.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 213.
+(Font)              <5> on input line 215.
 [4
 
 ] [5]
-<assets/hmm_transition.png, id=458, 386.44376pt x 226.8475pt>
+<assets/hmm_transition.png, id=450, 386.44376pt x 226.8475pt>
 File: assets/hmm_transition.png Graphic file (type png)
 <use assets/hmm_transition.png>
-Package luatex.def Info: assets/hmm_transition.png  used on input line 274.
+Package luatex.def Info: assets/hmm_transition.png  used on input line 276.
 (luatex.def)             Requested size: 212.41261pt x 124.69035pt.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
@@ -1687,59 +1747,59 @@ tlang2.sty
 File: lstlang2.sty 2024/02/21 1.10 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 280.
+nput line 282.
  [6<./assets/hmm_transition.png>] [7] [8]
-<assets/zones.png, id=531, 301.125pt x 228.855pt>
+<assets/zones.png, id=523, 301.125pt x 228.855pt>
 File: assets/zones.png Graphic file (type png)
 <use assets/zones.png>
-Package luatex.def Info: assets/zones.png  used on input line 411.
+Package luatex.def Info: assets/zones.png  used on input line 413.
 (luatex.def)             Requested size: 283.22162pt x 215.26689pt.
  [9] [10<./assets/zones.png>]
-<assets/jibb_powercurve.png, id=558, 1012.78375pt x 443.6575pt>
+<assets/jibb_powercurve.png, id=550, 1012.78375pt x 443.6575pt>
 File: assets/jibb_powercurve.png Graphic file (type png)
 <use assets/jibb_powercurve.png>
-Package luatex.def Info: assets/jibb_powercurve.png  used on input line 461.
+Package luatex.def Info: assets/jibb_powercurve.png  used on input line 463.
 (luatex.def)             Requested size: 377.62642pt x 165.41663pt.
  [11] [12<./assets/jibb_powercurve.png>] [13] [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
-Underfull \hbox (badness 1668) in paragraph at lines 601--602
+Underfull \hbox (badness 1668) in paragraph at lines 603--604
 \T1/lmr/m/n/10.95 in long straight-aways,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
 []|\T1/lmr/m/n/10.95 Good at pre-serv-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
 \T1/lmr/m/n/10.95 topol-ogy but over-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
 []|\T1/lmr/m/n/10.95 Bal-ances length and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
 \T1/lmr/m/n/10.95 num-ber with some
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 603--604
+Underfull \hbox (badness 1237) in paragraph at lines 605--606
 \T1/lmr/m/n/10.95 late splits on grad-ual
  []
 
 
-Overfull \hbox (89.8164pt too wide) in paragraph at lines 597--606
+Overfull \hbox (89.8164pt too wide) in paragraph at lines 599--608
  [][] 
  []
 
 
-Overfull \hbox (4.39989pt too wide) in paragraph at lines 616--617
+Overfull \hbox (4.39989pt too wide) in paragraph at lines 618--619
 []\T1/lmr/m/n/10.95 For-mu-late seg-men-ta-tion as an in-te-ger pro-gram-ming pr
 ob-
  []
@@ -1749,67 +1809,67 @@ Chapter 3.
 [18
 
 ] [19]
-Underfull \hbox (badness 1043) in paragraph at lines 772--772
+Underfull \hbox (badness 1043) in paragraph at lines 774--774
 []|\T1/lmr/m/n/9 De-fault pri-vacy pro-tec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 772--772
+Underfull \hbox (badness 10000) in paragraph at lines 774--774
 []|\T1/lmr/m/n/9 Unit test on im-port;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 772--772
+Underfull \hbox (badness 10000) in paragraph at lines 774--774
 []|\T1/lmr/m/n/9 De-fines sup-ported in-put
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 772--772
+Underfull \hbox (badness 1215) in paragraph at lines 774--774
 \T1/lmr/m/n/9 for-mat; re-jec-t/flag un-sup-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 772--772
+Underfull \hbox (badness 10000) in paragraph at lines 774--774
 []|\T1/lmr/m/n/9 CI builds and runs
  []
 
 
-Underfull \hbox (badness 6842) in paragraph at lines 772--772
+Underfull \hbox (badness 6842) in paragraph at lines 774--774
 \T1/lmr/m/n/9 docker-compose; health
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 772--772
+Underfull \hbox (badness 10000) in paragraph at lines 774--774
 []|\T1/lmr/m/n/9 Legal/reg-u-la-tory re-quire-
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 772--772
+Underfull \hbox (badness 4647) in paragraph at lines 774--774
 []|\T1/lmr/m/n/9 Se-cu-rity re-view; doc-u-
  []
 
 [20]
-Underfull \hbox (badness 8132) in paragraph at lines 802--802
+Underfull \hbox (badness 8132) in paragraph at lines 804--804
 []|\T1/lmr/m/n/9 Fa-cil-i-tates fu-ture fea-ture
  []
 
 
-Underfull \hbox (badness 5696) in paragraph at lines 802--802
+Underfull \hbox (badness 5696) in paragraph at lines 804--804
 []|\T1/lmr/m/n/9 Im-proves user ex-pe-ri-ence
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 813--814
+Underfull \hbox (badness 1715) in paragraph at lines 815--816
 []|\T1/lmr/m/n/10.95 En-sures each seg-ment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--815
+Underfull \hbox (badness 10000) in paragraph at lines 816--817
 []|\T1/lmr/m/n/10.95 En-ables per-for-mance
  []
 
 
-Overfull \hbox (60.51466pt too wide) in paragraph at lines 809--817
+Overfull \hbox (60.51466pt too wide) in paragraph at lines 811--819
  [][] 
  []
 
@@ -1822,30 +1882,30 @@ Chapter 4.
 
 ]
 Chapter 5.
-<assets/archdiagram.png, id=720, 994.71625pt x 479.7925pt>
+<assets/archdiagram.png, id=711, 994.71625pt x 479.7925pt>
 File: assets/archdiagram.png Graphic file (type png)
 <use assets/archdiagram.png>
-Package luatex.def Info: assets/archdiagram.png  used on input line 896.
+Package luatex.def Info: assets/archdiagram.png  used on input line 898.
 (luatex.def)             Requested size: 424.82523pt x 204.91574pt.
 [25
 
 ] [26<./assets/archdiagram.png>] [27]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 9
-80.
+82.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmss.f
 d
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<assets/usecase.png, id=739, 1419.3025pt x 204.765pt>
+<assets/usecase.png, id=731, 1419.3025pt x 204.765pt>
 File: assets/usecase.png Graphic file (type png)
 <use assets/usecase.png>
-Package luatex.def Info: assets/usecase.png  used on input line 1021.
+Package luatex.def Info: assets/usecase.png  used on input line 1023.
 (luatex.def)             Requested size: 424.82523pt x 61.28937pt.
-<assets/sequence.png, id=740, 750.805pt x 437.635pt>
+<assets/sequence.png, id=732, 750.805pt x 437.635pt>
 File: assets/sequence.png Graphic file (type png)
 <use assets/sequence.png>
-Package luatex.def Info: assets/sequence.png  used on input line 1027.
+Package luatex.def Info: assets/sequence.png  used on input line 1029.
 (luatex.def)             Requested size: 472.03123pt x 275.14389pt.
  [28<./assets/usecase.png>] [29<./assets/sequence.png>] [30] [31]
 Chapter 6.
@@ -1853,42 +1913,60 @@ Chapter 6.
 
 ]
 
-LaTeX Warning: Reference `sec:wayindex' on page 33 undefined on input line 1133
+LaTeX Warning: Reference `sec:wayindex' on page 33 undefined on input line 1142
 .
 
 [33]
 
-LaTeX Warning: Reference `sec:wayindex' on page 34 undefined on input line 1171
+LaTeX Warning: Reference `sec:wayindex' on page 34 undefined on input line 1180
 .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1193--1193
+Underfull \hbox (badness 10000) in paragraph at lines 1202--1202
 []|\T1/lmr/m/n/10.95 (101, {'high-way': 'res-i-den-tial',
  []
 
 [34]
-Overfull \hbox (14.33739pt too wide) in paragraph at lines 1224--1225
+Overfull \hbox (14.33739pt too wide) in paragraph at lines 1233--1234
 []\T1/lmr/bx/n/10.95 What didn't: \T1/lmr/m/n/10.95 I ini-tially passed Docker 
 flags with bad spac-ing and got \TU/lmtt/m/n/10.95 invalid containerPort:
  []
 
-[35] [36]
-Overfull \hbox (18.59232pt too wide) in paragraph at lines 1281--1283
-\T1/lmr/m/n/10.95 was ac-tu-ally \TU/lmtt/m/n/10.95 null\T1/lmr/m/n/10.95 . I st
-opped us-ing \TU/lmtt/m/n/10.95 value() \T1/lmr/m/n/10.95 on un-cer-tain nodes 
-and switched to \TU/lmtt/m/n/10.95 contains()\T1/lmr/m/n/10.95 +\TU/lmtt/m/n/10
-.95 is_-
+[35] [36] [37] [38]
+Overfull \hbox (6.78374pt too wide) in paragraph at lines 1338--1339
+[]\T1/lmr/bx/n/10.95 Changes made: \T1/lmr/m/n/10.95 nor-malised the schema with
+ \TU/lmtt/m/n/10.95 segment_-defs\T1/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 route_-s
+egments\T1/lmr/m/n/10.95 , and \TU/lmtt/m/n/10.95 segment_-
  []
 
-[37] [38] [39]
+[39]
+Underfull \hbox (badness 1902) in paragraph at lines 1407--1407
+[]|\T1/lmr/m/n/10 Time and speed lists; leader-
+ []
+
+
+Overfull \hbox (48.80293pt too wide) in alignment at lines 1407--1407
+[][][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
+[41
+Missing character: There is no – (U+2013) in font ec-lmbx10!
+]
 Chapter 7.
-[40
+[42
 
 ]
 Chapter 8.
-[41
+[43
 
-] (./thesis.bbl
+
+Missing character: There is no — (U+2014) in font ec-lmr10!
+Missing character: There is no — (U+2014) in font ec-lmr10!
+] [44] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 18--21
 []\T1/lmr/m/n/10.95 Franco, A. (2012), `Cur-va-ture and twisti-ness of roads', 
 []$\TU/lmtt/m/n/10.95 https://adamfranco.com/
@@ -1906,7 +1984,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--33
 5 https://www.trainerroad.com/blog/
  []
 
-[42
+[45
 
 
 Missing character: There is no — (U+2014) in font ec-lmri10!
@@ -1923,17 +2001,17 @@ Underfull \hbox (badness 3068) in paragraph at lines 135--138
 []\T1/lmr/m/n/10.95 Story, R. and con-trib-u-tors (2023), `Folium: Python data. Leaflet.js maps', []$\TU/lmtt/m/n/10.95 https://
  []
 
-[43]
+[46]
 Underfull \hbox (badness 1043) in paragraph at lines 147--151
 \TU/lmtt/m/n/10.95 master/osrm/doc/osrm_mapmatching.md$[]\T1/lmr/m/n/10.95 .  Ov
 erview of OSRM map match-ing with HM-
  []
 
-) [44
+) [47
 Missing character: There is no — (U+2014) in font ec-lmri10!
 ]
 Appendix A.
-(./appendix_extracted_listings.tex [45
+(./appendix_extracted_listings.tex [48
 
 ]
 Appendix B.
@@ -1945,7 +2023,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
-) [46
+) [49
 
 
 
@@ -1975,7 +2053,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [47] [48]
+) [50] [51]
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
@@ -1983,19 +2061,331 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [49] [50]
+) [52] [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [51])
-[52]
+ [54])
+[55]
 Appendix C.
-[53
+<../code/pipeline/docs/docs.pdf, id=1191, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf  used on input line 147
+1.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf  used on input line 147
+1.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+<../code/pipeline/docs/docs.pdf, id=1194, page=1, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 1>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
+ine 1471.
+(luatex.def)             Requested size: 597.50682pt x 845.04503pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 1>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+[56
 
 ]
-Appendix D.
-[54
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 1>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 1>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 1>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [57
 
-] (./thesis.aux)
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1278, page=2, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 2>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 2>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 2>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [58
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1300, page=3, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 3>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page3 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 3>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page3 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 3>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page3 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+
+[59
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1307, page=4, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 4>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 4>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 4>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [60
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1321, page=5, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 5>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page5 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 5>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page5 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 5>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page5 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+
+[61
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1345, page=6, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 6>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 6>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 6>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [62
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1352, page=7, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 7>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page7 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 7>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page7 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 7>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page7 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+
+[63
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1359, page=8, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 8>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 8>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 8>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [64
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1366, page=9, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 9>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page9 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 9>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page9 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 9>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page9 used on input l
+ine 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+
+[65
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1374, page=10, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 10>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
+line 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 10>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
+line 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 10>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
+line 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [66
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1381, page=11, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 11>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
+line 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 11>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
+line 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 11>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
+line 1471.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+
+[67
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/segmentation/engine/docs/README.pdf, id=1388, 614.295pt x 794.97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf  used on i
+nput line 1476.
+(luatex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf  used on i
+nput line 1476.
+(luatex.def)             Requested size: 614.29349pt x 794.96806pt.
+<../code/segmentation/engine/docs/README.pdf, id=1391, page=1, 614.295pt x 794.
+97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 1>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 1>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 1>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 1>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 1>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [68
+
+<../code/segmentation/engine/docs/README.pdf>]
+<../code/segmentation/engine/docs/README.pdf, id=1440, page=2, 614.295pt x 794.
+97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 2>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 2>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 2>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [69
+
+<../code/segmentation/engine/docs/README.pdf>]
+<../code/segmentation/engine/docs/README.pdf, id=1447, page=3, 614.295pt x 794.
+97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 3>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 3>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 3>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
+ed on input line 1476.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [70
+
+<../code/segmentation/engine/docs/README.pdf>] (./thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -2007,28 +2397,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 6B8DEAB866C2E8D0854DDEAE128E4B1D;11572.
+(rerunfilecheck)             Checksum: 044379BB03FFF77E5B2ABF17D552C60F;11067.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45130 strings out of 476447
- 381645,1977958 words of node,token memory allocated
- 951 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 13 glue, 4 kern, 1 glyph, 33 attribute, 97 glue_spe
-c, 33 attribute_list, 2 write, 9 pdf_action nodes
-   avail lists: 1:1,2:8031,3:4431,4:1228,5:10607,6:120,7:9809,8:105,9:19815,10:2
+ 46210 strings out of 476447
+ 381641,1977958 words of node,token memory allocated
+ 957 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 13 glue, 4 kern, 1 glyph, 32 attribute, 99 glue_spe
+c, 32 attribute_list, 2 write, 9 pdf_action nodes
+   avail lists: 1:1,2:8069,3:4431,4:1228,5:10620,6:120,7:9817,8:105,9:19825,10:2
 8,11:712
- 65488 multiletter control sequences out of 65536+600000
+ 66366 multiletter control sequences out of 65536+600000
  94 fonts using 21766071 bytes
- 99i,12n,120p,740b,2151s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'chapter*.71'
-
-warning  (pdf backend): unreferenced destination with name 'table.caption.57'
+ 99i,17n,120p,728b,2153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
 lm/lmmono10-italic.otf>{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist
 /fonts/enc/dvips/lm/lm-ts1.enc}{/opt/homebrew/Cellar/texlive/20240312_3/share/te
@@ -2057,10 +2440,10 @@ t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri
 lic/lm/lmss10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/font
 s/type1/public/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texm
 f-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on thesis.pdf (61 pages, 813739 bytes).
+Output written on thesis.pdf (76 pages, 5972381 bytes).
 
-PDF statistics: 1299 PDF objects out of 1440 (max. 8388607)
- 1189 compressed objects within 12 object streams
- 558 named destinations out of 1000 (max. 131072)
- 528 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1560 PDF objects out of 1728 (max. 8388607)
+ 1344 compressed objects within 14 object streams
+ 570 named destinations out of 1000 (max. 131072)
+ 512 words of extra memory for PDF output out of 10000 (max. 100000000)
 
