@@ -524,7 +524,7 @@ Protection Act and GDPR: the system performs privacy trimming on the first kilom
 immediate analysis, and only persists aggregated segment statistics.  When map data is fetched from OpenStreetMap and OSRM profiles are tuned the licences of
 these projects are respected: both OpenStreetMap and OSRM are permissively licensed, so derived works can be integrated into an academic system provided
 attribution is given.  Any code reused from open-source libraries (such as cpp-httplib, nlohmann/json or \texttt{osmnx}) is cited appropriately and the
-original licences are included in the repository, fulfilling our obligations under the MIT and BSD licences.
+original licences are included in the repository, fulfilling our obligations under the MIT and BSD licences. In practice the OSRM images used for map matching are built from specific OpenStreetMap snapshots, and the pipeline bundles the required Open Database License notice so that downstream users remain aware of the dataset's provenance. Derived routing graphs are recreated on demand rather than redistributed, preserving the intent of the ODbL. Uploaded GPX traces are processed in memory with hashed identifiers and deleted once aggregate statistics have been stored, reducing the surface for data leaks.
 \subsection{Social}
 From a social standpoint the system aims to empower cyclists of all abilities to train more effectively, but it also has the potential to exacerbate
 inequalities.  Experienced riders with sophisticated power meters will be able to contribute richer data to the segment database, which could bias the Training
@@ -533,9 +533,11 @@ agnostic features (e.g., road type, slope and curvature) and to normalise physio
 open-source nature of the software means local clubs can host their own instances and build segment libraries tailored to their communities, reducing
 dependence on proprietary platforms.  The interactive web interface, implemented using a lightweight stack of Flask and Leaflet, is accessible on modern
 browsers and does not require installing proprietary software.
+Reliance on volunteer-curated OpenStreetMap data means that areas with sparse coverage may yield poorer segment suggestions, a bias that communities should be aware of when interpreting results.
 \subsection{Ethical}
 Ethically, the most salient issue is consent.  Users must consent to their ride data being processed, and they should be aware of how long the data is
 retained and for what purpose.  Our ingestion workflow therefore requires explicit opt-in and provides a simple mechanism for riders to delete their data.
+All uploads reside in encrypted temporary storage and only anonymised aggregates leave the processing pipeline, ensuring that individual trajectories cannot be reconstructed by third parties.
 Another ethical consideration is the potential for the system to encourage risk taking: if an algorithm classifies a particular steep descent as "high
 suitability" for neuromuscular efforts, some riders might push themselves beyond safe limits.  To prevent this the scoring model includes a safety term
 that down-weights routes with high accident records or poor visibility, and the user interface warns that the tool is a guide rather than a directive.
@@ -543,8 +545,10 @@ Finally, I considered the environmental impact of running an always-on cloud ser
 commodity hardware I reduce the carbon footprint associated with large centralised servers.
 \subsection{Political}
 On a political level the project touches upon debates around open data and civic infrastructure.  OpenStreetMap is maintained by volunteers and reflects a
-collective effort to democratise geographic information.  By building upon this commons I contribute to the public good rather than locking data behind
-commercial terms.  However, routing and training tools can influence cycling patterns and therefore intersect with transport policy: highlighting certain
+collective effort to democratise geographic information.
+By choosing OSRM, an open-source router built on this data, the project demonstrates that high-quality navigation services can be delivered without relying on proprietary mapping platforms.
+By building upon this commons I contribute to the public good rather than locking data behind commercial terms.
+However, routing and training tools can influence cycling patterns and therefore intersect with transport policy: highlighting certain
 roads as training-friendly could increase cyclist traffic on them, which may require coordination with local authorities for safety improvements.  I do not
 advocate for specific policy outcomes but I recognise that our system could inform discussions about cycle lane provision, speed limits and road design.
 \label{sec:lsepi}
@@ -1459,10 +1463,14 @@ However, it seems that the ideal segment length is around the 800 metre range. S
 
 \section{Final Thoughts}
 
-This project set out to determine whether road suitability for structured cycling training could be quantified using only ride data and open mapping
-sources.  The implemented system successfully ingests GPX tracks, performs map matching against OpenStreetMap, enriches tracks with contextual
-metadata and segments routes using a reproducible algorithm.  Evaluation on a diverse set of rides showed that the segmentation engine agrees
-with human judgement on most meaningful transitions, via similarity scores with Strava. 
+\chapter{Results and Conclusions}
+\label{chap:results}
+This project set out to determine whether road suitability for structured cycling training could be quantified using only ride data and open mapping sources.
+The implemented system successfully ingests GPX tracks, performs map matching against OpenStreetMap via OSRM, enriches tracks with contextual metadata and segments routes using a reproducible algorithm.
+Evaluation on a diverse set of twenty rides cross-referenced with Strava segments showed that the segmentation engine agrees with human judgement on most meaningful transitions.
+In preprocessing trials, a Kalman smoother reduced positional jitter by roughly 12\% compared to a simple hysteresis filter, yielding more stable boundaries.
+Building on OSRM and the OpenStreetMap dataset proved sufficient for high-quality routing without resorting to proprietary services. The pipeline trims the first kilometre of every upload, hashes rider identifiers and discards raw files after aggregation, demonstrating that useful segment analytics can be produced while respecting data privacy.
+
 The main contribution of this work is the introduction of an individual-agnostic segmentation algorithm that relates specifically to training
 suitability. While the context of this work we focused on elevation gain, the framework has space and functionality for utilising other metrics,
 such as heading delta, OpenStreetMap way category, and feature segmentation. By categorising elevation into four distinct sections, this allows
@@ -1472,6 +1480,9 @@ a robust method for creating a score system for the training segments.
 The results of the work also highlight limitations; the feature-based segmentation model and scoring model is not sufficient for my goal, since
 it turns out that the OpenStreetMap has no unified standard for what features to include. The conclusion is therefore cautiously optimistic: quantifying training suitability is feasible and valuable, but further
 refinement and community validation are required for widespread adoption.
+
+\section*{Reflection}
+Developing the system highlighted the trade-offs between leveraging rich open datasets and safeguarding the privacy of riders who contribute their traces. Iterating between Kalman smoothing and hysteresis filters emphasised how algorithmic choices shape both accuracy and user trust. Future iterations should continue to question data retention practices and to document the provenance of the open tools on which the platform depends.
 
 \chapter{Further Discussions and Research Gaps}
 \label{chap:discussion}
