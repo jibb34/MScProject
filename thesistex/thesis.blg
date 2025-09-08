@@ -5,51 +5,49 @@ The style file: agsm.bst
 Database file #1: references.bib
 Warning--entry type for "OSRMMatchAPI" isn't style-file defined
 --line 184 of file references.bib
-Warning--entry type for "OSRMApiProfile" isn't style-file defined
---line 194 of file references.bib
 Warning--entry type for "OSRMDocker" isn't style-file defined
---line 204 of file references.bib
+--line 194 of file references.bib
 Warning--empty author in ISO27001
 Warning--empty author in ISO42010
-You've used 26 entries,
+You've used 25 entries,
             2909 wiz_defined-function locations,
-            811 strings with 9937 characters,
-and the built_in function-call counts, 80017 in all, are:
-= -- 13017
-> -- 850
+            806 strings with 9693 characters,
+and the built_in function-call counts, 76949 in all, are:
+= -- 12512
+> -- 826
 < -- 3
-+ -- 5965
-- -- 252
-* -- 6622
-:= -- 16433
-add.period$ -- 36
-call.type$ -- 26
-change.case$ -- 353
++ -- 5733
+- -- 245
+* -- 6371
+:= -- 15803
+add.period$ -- 34
+call.type$ -- 25
+change.case$ -- 339
 chr.to.int$ -- 24
-cite$ -- 28
-duplicate$ -- 364
-empty$ -- 756
-format.name$ -- 323
-if$ -- 14353
-int.to.chr$ -- 7
+cite$ -- 27
+duplicate$ -- 353
+empty$ -- 730
+format.name$ -- 314
+if$ -- 13805
+int.to.chr$ -- 6
 int.to.str$ -- 0
 missing$ -- 12
-newline$ -- 96
-num.names$ -- 243
-pop$ -- 156
+newline$ -- 91
+num.names$ -- 233
+pop$ -- 149
 preamble$ -- 1
-purify$ -- 380
+purify$ -- 365
 quote$ -- 0
-skip$ -- 305
+skip$ -- 295
 stack$ -- 0
-substring$ -- 18011
-swap$ -- 70
-text.length$ -- 347
+substring$ -- 17308
+swap$ -- 67
+text.length$ -- 333
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
+type$ -- 96
 warning$ -- 2
-while$ -- 526
+while$ -- 505
 width$ -- 0
-write$ -- 356
-(There were 5 warnings)
+write$ -- 342
+(There were 4 warnings)

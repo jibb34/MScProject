@@ -30,7 +30,7 @@
 \citation{NewsonKrumm2009}
 \citation{OSRMMatchAPI}
 \citation{TelenavOSRMMapMatching}
-\citation{OSRMDocker,OSRMApiProfile,OSRMProfileLua}
+\citation{OSRMDocker,OSRMMatchAPI,OSRMProfileLua}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Algorithmic Approaches to Segmentation and Categorization}{5}{subsection.2.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Paul Newson and John Krumm: "Hidden Markov Map Matching Through Noise and Sparseness"}{5}{section*.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{HMM-based Map Matching with OSRM}{5}{section*.2}\protected@file@percent }
@@ -167,76 +167,96 @@
 \newlabel{tbl:architectural-views}{{5.1}{26}{Architectural Design > Architectural Views - structured summary}{table.caption.49}{}}
 \newlabel{tbl:architectural-views@cref}{{[table][1][5]5.1}{[1][26][]26}}
 \@writefile{toc}{\contentsline {subsubsection}{Physical View}{27}{section*.50}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Database Entity - Relational View}{27}{section*.51}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces ERD snippet}}{27}{figure.caption.52}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Behavioral View}{27}{section*.53}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Use Case diagram for the Route Segmentation System}}{27}{figure.caption.54}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Sequence diagram of upload, segmentation, and visualization flow}}{28}{figure.caption.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Design Rationale}{28}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Behavioral View}{27}{section*.51}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Use Case diagram for the Route Segmentation System}}{27}{figure.caption.52}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Sequence diagram of upload, segmentation, and visualization flow}}{27}{figure.caption.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Design Rationale}{27}{subsection.5.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Design Patterns and Styles}{28}{subsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Module-Level Design}{28}{section.5.3}\protected@file@percent }
+\newlabel{sec:moduledesign}{{5.3}{28}{Module-Level Design}{section.5.3}{}}
+\newlabel{sec:moduledesign@cref}{{[section][3][5]5.3}{[1][28][]28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}GPX-to-Enriched-JSON Pipeline Modules}{28}{subsection.5.3.1}\protected@file@percent }
+\gdef \LT@i {\LT@entry 
+    {1}{97.35826pt}\LT@entry 
+    {1}{97.35826pt}\LT@entry 
+    {1}{97.35826pt}\LT@entry 
+    {1}{154.26378pt}}
+\@writefile{toc}{\contentsline {subsubsection}{Module Dependency Diagram}{29}{section*.54}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Module dependency diagram for the processing pipeline}}{29}{figure.caption.55}\protected@file@percent }
+\newlabel{fig:moduledeps}{{5.4}{29}{Module dependency diagram for the processing pipeline}{figure.caption.55}{}}
+\newlabel{fig:moduledeps@cref}{{[figure][4][5]5.4}{[1][28][]29}}
+\@writefile{toc}{\contentsline {subsubsection}{Module Specifications}{29}{section*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Module Summaries}{29}{section*.57}\protected@file@percent }
 \citation{Luxen2011}
 \citation{OverpassAPI}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Module-Level Design}{29}{section.5.3}\protected@file@percent }
-\newlabel{sec:moduledesign}{{5.3}{29}{Module-Level Design}{section.5.3}{}}
-\newlabel{sec:moduledesign@cref}{{[section][3][5]5.3}{[1][29][]29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}GPX-to-Enriched-JSON Pipeline Modules}{29}{subsection.5.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Module Dependency Diagram}{29}{section*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Module Specifications}{29}{section*.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Interface Design}{29}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}User Interface}{29}{subsection.5.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Software Interfaces}{29}{subsection.5.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Data Design}{29}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Data Models}{29}{subsection.5.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Interface Design}{30}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}User Interface}{30}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Software Interfaces}{30}{subsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Data Design}{30}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Entity-Relationship Model}{30}{subsection.5.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Entity--relationship diagram for the database}}{30}{figure.caption.58}\protected@file@percent }
+\newlabel{fig:db_erd}{{5.5}{30}{Entity--relationship diagram for the database}{figure.caption.58}{}}
+\newlabel{fig:db_erd@cref}{{[figure][5][5]5.5}{[1][30][]30}}
+\gdef \LT@ii {\LT@entry 
+    {1}{154.26378pt}\LT@entry 
+    {1}{154.26378pt}\LT@entry 
+    {1}{182.71652pt}}
+\gdef \LT@iii {\LT@entry 
+    {1}{154.26378pt}\LT@entry 
+    {1}{83.13188pt}\LT@entry 
+    {1}{211.16928pt}}
 \citation{ISO27001}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Database Schema}{30}{subsection.5.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Data Dictionary}{30}{subsection.5.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Standards and Compliance in Design}{30}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Database Schema}{31}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Data Dictionary}{31}{subsection.5.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Standards and Compliance in Design}{31}{section.5.6}\protected@file@percent }
 \citation{OverpassAPI}
 \citation{Luxen2011}
 \citation{Osmium}
 \citation{folium}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Methodology}{31}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Methodology}{32}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:methodology}{{6}{31}{Methodology}{chapter.6}{}}
-\newlabel{chap:methodology@cref}{{[chapter][6][]6}{[1][31][]31}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Critical Reflection on Methodology}{31}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Component Implementation}{31}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Input Pipeline}{31}{subsection.6.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{GPX Data Enrichment}{32}{section*.58}\protected@file@percent }
-\newlabel{sec:gpx_enrich}{{6.2.1}{32}{GPX Data Enrichment}{section*.58}{}}
-\newlabel{sec:gpx_enrich@cref}{{[subsection][1][6,2]6.2.1}{[1][32][]32}}
+\newlabel{chap:methodology}{{6}{32}{Methodology}{chapter.6}{}}
+\newlabel{chap:methodology@cref}{{[chapter][6][]6}{[1][32][]32}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Critical Reflection on Methodology}{32}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Component Implementation}{32}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Input Pipeline}{32}{subsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{GPX Data Enrichment}{33}{section*.59}\protected@file@percent }
+\newlabel{sec:gpx_enrich}{{6.2.1}{33}{GPX Data Enrichment}{section*.59}{}}
+\newlabel{sec:gpx_enrich@cref}{{[subsection][1][6,2]6.2.1}{[1][33][]33}}
 \citation{boeing2017osmnx}
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Canonical extension keys and example synonyms}}{33}{table.caption.59}\protected@file@percent }
-\newlabel{tab:extensionsmap}{{6.1}{33}{Canonical extension keys and example synonyms}{table.caption.59}{}}
-\newlabel{tab:extensionsmap@cref}{{[table][1][6]6.1}{[1][33][]33}}
-\@writefile{toc}{\contentsline {subsubsection}{Pre-indexing OpenStreetMap Ways via SQLite}{33}{section*.60}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Data Stream}{34}{section*.62}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Segmentation Engine}{34}{subsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Goal.}{34}{section*.63}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}TSS Engine}{38}{subsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Testing and Results}{39}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Comparison with Existing Segment Creation Tools}{39}{section.6.4}\protected@file@percent }
-\newlabel{sec:comparison}{{6.4}{39}{Comparison with Existing Segment Creation Tools}{section.6.4}{}}
-\newlabel{sec:comparison@cref}{{[section][4][6]6.4}{[1][39][]39}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Qualitative Comparison}{40}{subsection.6.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Simple side-by-side look at Strava vs. My Segmentation Engine}}{40}{table.caption.74}\protected@file@percent }
-\newlabel{tbl:strava-vs-engine}{{6.2}{40}{Simple side-by-side look at Strava vs. My Segmentation Engine}{table.caption.74}{}}
-\newlabel{tbl:strava-vs-engine@cref}{{[table][2][6]6.2}{[1][39][]40}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Quantitative Comparison}{40}{subsection.6.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Results and Conclusions}{41}{chapter.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Canonical extension keys and example synonyms}}{34}{table.caption.60}\protected@file@percent }
+\newlabel{tab:extensionsmap}{{6.1}{34}{Canonical extension keys and example synonyms}{table.caption.60}{}}
+\newlabel{tab:extensionsmap@cref}{{[table][1][6]6.1}{[1][34][]34}}
+\@writefile{toc}{\contentsline {subsubsection}{Pre-indexing OpenStreetMap Ways via SQLite}{34}{section*.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Data Stream}{35}{section*.63}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Segmentation Engine}{35}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Goal.}{35}{section*.64}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}TSS Engine}{39}{subsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Results and Conclusions}{40}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:results}{{7}{41}{Results and Conclusions}{chapter.7}{}}
-\newlabel{chap:results@cref}{{[chapter][7][]7}{[1][41][]41}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{42}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Testing and Results}{40}{section.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Comparison of Segmentation with Existing Segment Creation Tools}{40}{section.7.2}\protected@file@percent }
+\newlabel{sec:comparison}{{7.2}{40}{Comparison of Segmentation with Existing Segment Creation Tools}{section.7.2}{}}
+\newlabel{sec:comparison@cref}{{[section][2][7]7.2}{[1][40][]40}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Qualitative Comparison}{41}{subsection.7.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7.1}{\ignorespaces Simple side-by-side look at Strava vs. My Segmentation Engine}}{41}{table.caption.75}\protected@file@percent }
+\newlabel{tbl:strava-vs-engine}{{7.1}{41}{Simple side-by-side look at Strava vs. My Segmentation Engine}{table.caption.75}{}}
+\newlabel{tbl:strava-vs-engine@cref}{{[table][1][7]7.1}{[1][40][]41}}
+\newlabel{chap:results}{{7.2.1}{41}{Qualitative Comparison}{table.caption.75}{}}
+\newlabel{chap:results@cref}{{[subsection][1][7,2]7.2.1}{[1][41][]41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Quantitative Comparison}{41}{subsection.7.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Similarity Metric:}{41}{section*.76}\protected@file@percent }
+\newlabel{fig:compare}{{\caption@xref {fig:compare}{ on input line 1453}}{42}{Similarity Metric:}{figure.caption.77}{}}
+\newlabel{fig:compare@cref}{{[subsection][2][7,2]7.2.2}{[1][41][]42}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7.1}{\ignorespaces A clear correlation between strava and segmentation engine results.}}{42}{figure.caption.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Final Thoughts}{42}{section.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Further Discussions and Research Gaps}{43}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:discussion}{{8}{42}{Further Discussions and Research Gaps}{chapter.8}{}}
-\newlabel{chap:discussion@cref}{{[chapter][8][]8}{[1][42][]42}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Deferred Code Implementations}{42}{section.8.1}\protected@file@percent }
-\newlabel{sec:unused-code}{{8.1}{42}{Deferred Code Implementations}{section.8.1}{}}
-\newlabel{sec:unused-code@cref}{{[section][1][8]8.1}{[1][42][]42}}
+\newlabel{chap:discussion}{{8}{43}{Further Discussions and Research Gaps}{chapter.8}{}}
+\newlabel{chap:discussion@cref}{{[chapter][8][]8}{[1][43][]43}}
 \bibdata{references}
 \bibcite{boeing2017osmnx}{{1}{2017}{{Boeing}}{{}}}
 \bibcite{Canny1986}{{2}{1986}{{Canny}}{{}}}
@@ -251,76 +271,80 @@
 \bibcite{NewsonKrumm2009}{{11}{2009}{{Newson and\ Krumm}}{{}}}
 \bibcite{Ogle2006}{{12}{2006}{{Ogle et~al.}}{{Ogle, Guensler and\ Elango}}}
 \bibcite{OverpassAPI}{{13}{2025}{{{OpenStreetMap} community}}{{}}}
-\bibcite{OSRMApiProfile}{{14}{2021{\em  a}}{{Project {OSRM}}}{{}}}
-\bibcite{OSRMMatchAPI}{{15}{2021{\em  b}}{{Project {OSRM}}}{{}}}
-\bibcite{OSRMDocker}{{16}{2025{\em  a}}{{Project {OSRM}}}{{}}}
-\bibcite{OSRMProfileLua}{{17}{2025{\em  b}}{{Project {OSRM}}}{{}}}
-\bibcite{Sage2019}{{18}{2019}{{Sage}}{{}}}
-\bibcite{Sharifzadeh2005}{{19}{2005}{{Sharifzadeh et~al.}}{{Sharifzadeh, Azmoodeh and\ Shahabi}}}
-\bibcite{Sinnott1984}{{20}{1984}{{Sinnott}}{{}}}
-\bibcite{Smith1997}{{21}{1997}{{Smith}}{{}}}
-\bibcite{folium}{{22}{2023}{{Story and\ contributors}}{{}}}
-\bibcite{ISO42010}{{23}{2011}{{\em  Systems and software engineering — Architecture description}}{{}}}
-\bibcite{TelenavOSRMMapMatching}{{24}{2018}{{Telenav}}{{}}}
-\bibcite{Osmium}{{25}{2023}{{Topf and\ Contributors}}{{}}}
-\bibcite{Wang2018Grades}{{26}{2018}{{Wang et~al.}}{{Wang, Cui, Shi and\ Wu}}}
-\newlabel{chap:appendix}{{8.1}{46}{Deferred Code Implementations}{chapter*.75}{}}
-\newlabel{chap:appendix@cref}{{[section][1][8]8.1}{[1][46][]46}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Extracted Code Listings}{47}{appendix.A}\protected@file@percent }
+\bibcite{OSRMMatchAPI}{{14}{2021}{{Project {OSRM}}}{{}}}
+\bibcite{OSRMDocker}{{15}{2025{\em  a}}{{Project {OSRM}}}{{}}}
+\bibcite{OSRMProfileLua}{{16}{2025{\em  b}}{{Project {OSRM}}}{{}}}
+\bibcite{Sage2019}{{17}{2019}{{Sage}}{{}}}
+\bibcite{Sharifzadeh2005}{{18}{2005}{{Sharifzadeh et~al.}}{{Sharifzadeh, Azmoodeh and\ Shahabi}}}
+\bibcite{Sinnott1984}{{19}{1984}{{Sinnott}}{{}}}
+\bibcite{Smith1997}{{20}{1997}{{Smith}}{{}}}
+\bibcite{folium}{{21}{2023}{{Story and\ contributors}}{{}}}
+\bibcite{ISO42010}{{22}{2011}{{\em  Systems and software engineering — Architecture description}}{{}}}
+\bibcite{TelenavOSRMMapMatching}{{23}{2018}{{Telenav}}{{}}}
+\bibcite{Osmium}{{24}{2023}{{Topf and\ Contributors}}{{}}}
+\bibcite{Wang2018Grades}{{25}{2018}{{Wang et~al.}}{{Wang, Cui, Shi and\ Wu}}}
+\newlabel{chap:appendix}{{8}{47}{Further Discussions and Research Gaps}{chapter*.78}{}}
+\newlabel{chap:appendix@cref}{{[chapter][8][]8}{[1][47][]47}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Extracted Code Listings}{48}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{apx:furtherreading}{{A}{47}{Extracted Code Listings}{appendix.A}{}}
-\newlabel{apx:furtherreading@cref}{{[appendix][1][2147483647]A}{[1][47][]47}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{48}{appendix.B}\protected@file@percent }
+\newlabel{apx:furtherreading}{{A}{48}{Extracted Code Listings}{appendix.A}{}}
+\newlabel{apx:furtherreading@cref}{{[appendix][1][2147483647]A}{[1][48][]48}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Code Listings and File Structures}{49}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{apx:extracted-code}{{B}{48}{Code Listings and File Structures}{appendix.B}{}}
-\newlabel{apx:extracted-code@cref}{{[appendix][2][2147483647]B}{[1][48][]48}}
-\newlabel{lst:directory}{{B.1}{48}{Code directory for Segmentation Engine}{lstlisting.B.1}{}}
-\newlabel{lst:directory@cref}{{[listing][1][2147483647,2]B.1}{[1][48][]48}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.1}{\ignorespaces Code directory for Segmentation Engine}}{48}{lstlisting.B.1}\protected@file@percent }
-\newlabel{lst:lua_profile}{{B.2}{48}{Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling}{lstlisting.B.2}{}}
-\newlabel{lst:lua_profile@cref}{{[listing][2][2147483647,2]B.2}{[1][48][]48}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.2}{\ignorespaces Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling}}{48}{lstlisting.B.2}\protected@file@percent }
-\newlabel{lst:attach-tracepoints}{{B.3}{49}{\texttt {attach\_to\_tracepoints}: attaches GPX metadata to matched tracepoints}{lstlisting.B.3}{}}
-\newlabel{lst:attach-tracepoints@cref}{{[listing][3][2147483647,2]B.3}{[1][49][]49}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.3}{\ignorespaces \texttt  {attach\_to\_tracepoints}: attaches GPX metadata to matched tracepoints}}{49}{lstlisting.B.3}\protected@file@percent }
-\newlabel{lst:gradvar}{{B.4}{49}{\texttt {calculateGradientVariation}: computes variance of gradients along a segment}{lstlisting.B.4}{}}
-\newlabel{lst:gradvar@cref}{{[listing][4][2147483647,2]B.4}{[1][49][]49}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.4}{\ignorespaces \texttt  {calculateGradientVariation}: computes variance of gradients along a segment}}{49}{lstlisting.B.4}\protected@file@percent }
-\newlabel{lst:CMakeLists}{{B.5}{50}{\texttt {CMakeLists.txt} CMake file for Segmentation Engine}{lstlisting.B.5}{}}
-\newlabel{lst:CMakeLists@cref}{{[listing][5][2147483647,2]B.5}{[1][50][]50}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.5}{\ignorespaces \texttt  {CMakeLists.txt} CMake file for Segmentation Engine}}{50}{lstlisting.B.5}\protected@file@percent }
-\newlabel{lst:Dockerfile}{{B.6}{50}{\texttt {Dockerfile}: builds and deploys the Dockerized Segmentation Engine}{lstlisting.B.6}{}}
-\newlabel{lst:Dockerfile@cref}{{[listing][6][2147483647,2]B.6}{[1][50][]50}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.6}{\ignorespaces \texttt  {Dockerfile}: builds and deploys the Dockerized Segmentation Engine}}{50}{lstlisting.B.6}\protected@file@percent }
-\newlabel{lst:buildanddeploy}{{B.7}{51}{\texttt {build\_and\_deploy.sh}: Runs the build process and launches the Engine}{lstlisting.B.7}{}}
-\newlabel{lst:buildanddeploy@cref}{{[listing][7][2147483647,2]B.7}{[1][51][]51}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.7}{\ignorespaces \texttt  {build\_and\_deploy.sh}: Runs the build process and launches the Engine}}{51}{lstlisting.B.7}\protected@file@percent }
-\newlabel{lst:maincpp}{{B.8}{51}{\texttt {main.cpp}: Main orchestrator of engine, sets up server and defines POST endpoints}{lstlisting.B.8}{}}
-\newlabel{lst:maincpp@cref}{{[listing][8][2147483647,2]B.8}{[1][51][]51}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.8}{\ignorespaces \texttt  {main.cpp}: Main orchestrator of engine, sets up server and defines POST endpoints}}{51}{lstlisting.B.8}\protected@file@percent }
-\newlabel{lst:jsonvalid}{{B.9}{51}{\texttt {http\_handler.cpp}: Checks for parsing error of JSON body}{lstlisting.B.9}{}}
-\newlabel{lst:jsonvalid@cref}{{[listing][9][2147483647,2]B.9}{[1][51][]51}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.9}{\ignorespaces \texttt  {http\_handler.cpp}: Checks for parsing error of JSON body}}{51}{lstlisting.B.9}\protected@file@percent }
-\newlabel{lst:structshpp}{{B.10}{51}{\texttt {osrm\_enriched.hpp}: In the header, defines all structs for holding route data}{lstlisting.B.10}{}}
-\newlabel{lst:structshpp@cref}{{[listing][10][2147483647,2]B.10}{[1][51][]51}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.10}{\ignorespaces \texttt  {osrm\_enriched.hpp}: In the header, defines all structs for holding route data}}{51}{lstlisting.B.10}\protected@file@percent }
-\newlabel{lst:fromjson}{{B.11}{52}{\texttt {osrm\_enriched.hpp} Also in header, define function overloads for from\_json(), which replaces same function in json.get()}{lstlisting.B.11}{}}
-\newlabel{lst:fromjson@cref}{{[listing][11][2147483647,2]B.11}{[1][52][]52}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.11}{\ignorespaces \texttt  {osrm\_enriched.hpp} Also in header, define function overloads for from\_json(), which replaces same function in json.get()}}{52}{lstlisting.B.11}\protected@file@percent }
-\newlabel{lst:gpx-example}{{B.12}{53}{\texttt {gpx\_example.gpx}: Example GPX file showing an example track point and extensions}{lstlisting.B.12}{}}
-\newlabel{lst:gpx-example@cref}{{[listing][12][2147483647,2]B.12}{[1][53][]53}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.12}{\ignorespaces \texttt  {gpx\_example.gpx}: Example GPX file showing an example track point and extensions}}{53}{lstlisting.B.12}\protected@file@percent }
-\newlabel{lst:mergealg}{{B.13}{53}{Two-pass segmentation: greedy recursive merge (pseudocode reflecting current implementation)}{lstlisting.B.13}{}}
-\newlabel{lst:mergealg@cref}{{[listing][13][2147483647,2]B.13}{[1][53][]53}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.13}{\ignorespaces Two-pass segmentation: greedy recursive merge (pseudocode reflecting current implementation)}}{53}{lstlisting.B.13}\protected@file@percent }
-\newlabel{lst:weights-example}{{B.14}{54}{Example merge-cost weighting rules (illustrative, not final)}{lstlisting.B.14}{}}
-\newlabel{lst:weights-example@cref}{{[listing][14][2147483647,2]B.14}{[1][54][]54}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.14}{\ignorespaces Example merge-cost weighting rules (illustrative, not final)}}{54}{lstlisting.B.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Application Documentation}{57}{appendix.C}\protected@file@percent }
+\newlabel{apx:extracted-code}{{B}{49}{Code Listings and File Structures}{appendix.B}{}}
+\newlabel{apx:extracted-code@cref}{{[appendix][2][2147483647]B}{[1][49][]49}}
+\newlabel{lst:directory}{{B.1}{49}{Code directory for Segmentation Engine}{lstlisting.B.1}{}}
+\newlabel{lst:directory@cref}{{[listing][1][2147483647,2]B.1}{[1][49][]49}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.1}{\ignorespaces Code directory for Segmentation Engine}}{49}{lstlisting.B.1}\protected@file@percent }
+\newlabel{lst:lua_profile}{{B.2}{49}{Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling}{lstlisting.B.2}{}}
+\newlabel{lst:lua_profile@cref}{{[listing][2][2147483647,2]B.2}{[1][49][]49}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.2}{\ignorespaces Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling}}{49}{lstlisting.B.2}\protected@file@percent }
+\newlabel{lst:attach-tracepoints}{{B.3}{50}{\texttt {attach\_to\_tracepoints}: attaches GPX metadata to matched tracepoints}{lstlisting.B.3}{}}
+\newlabel{lst:attach-tracepoints@cref}{{[listing][3][2147483647,2]B.3}{[1][50][]50}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.3}{\ignorespaces \texttt  {attach\_to\_tracepoints}: attaches GPX metadata to matched tracepoints}}{50}{lstlisting.B.3}\protected@file@percent }
+\newlabel{lst:gradvar}{{B.4}{50}{\texttt {calculateGradientVariation}: computes variance of gradients along a segment}{lstlisting.B.4}{}}
+\newlabel{lst:gradvar@cref}{{[listing][4][2147483647,2]B.4}{[1][50][]50}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.4}{\ignorespaces \texttt  {calculateGradientVariation}: computes variance of gradients along a segment}}{50}{lstlisting.B.4}\protected@file@percent }
+\newlabel{lst:CMakeLists}{{B.5}{51}{\texttt {CMakeLists.txt} CMake file for Segmentation Engine}{lstlisting.B.5}{}}
+\newlabel{lst:CMakeLists@cref}{{[listing][5][2147483647,2]B.5}{[1][51][]51}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.5}{\ignorespaces \texttt  {CMakeLists.txt} CMake file for Segmentation Engine}}{51}{lstlisting.B.5}\protected@file@percent }
+\newlabel{lst:Dockerfile}{{B.6}{51}{\texttt {Dockerfile}: builds and deploys the Dockerized Segmentation Engine}{lstlisting.B.6}{}}
+\newlabel{lst:Dockerfile@cref}{{[listing][6][2147483647,2]B.6}{[1][51][]51}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.6}{\ignorespaces \texttt  {Dockerfile}: builds and deploys the Dockerized Segmentation Engine}}{51}{lstlisting.B.6}\protected@file@percent }
+\newlabel{lst:buildanddeploy}{{B.7}{52}{\texttt {build\_and\_deploy.sh}: Runs the build process and launches the Engine}{lstlisting.B.7}{}}
+\newlabel{lst:buildanddeploy@cref}{{[listing][7][2147483647,2]B.7}{[1][52][]52}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.7}{\ignorespaces \texttt  {build\_and\_deploy.sh}: Runs the build process and launches the Engine}}{52}{lstlisting.B.7}\protected@file@percent }
+\newlabel{lst:maincpp}{{B.8}{52}{\texttt {main.cpp}: Main orchestrator of engine, sets up server and defines POST endpoints}{lstlisting.B.8}{}}
+\newlabel{lst:maincpp@cref}{{[listing][8][2147483647,2]B.8}{[1][52][]52}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.8}{\ignorespaces \texttt  {main.cpp}: Main orchestrator of engine, sets up server and defines POST endpoints}}{52}{lstlisting.B.8}\protected@file@percent }
+\newlabel{lst:jsonvalid}{{B.9}{52}{\texttt {http\_handler.cpp}: Checks for parsing error of JSON body}{lstlisting.B.9}{}}
+\newlabel{lst:jsonvalid@cref}{{[listing][9][2147483647,2]B.9}{[1][52][]52}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.9}{\ignorespaces \texttt  {http\_handler.cpp}: Checks for parsing error of JSON body}}{52}{lstlisting.B.9}\protected@file@percent }
+\newlabel{lst:structshpp}{{B.10}{52}{\texttt {osrm\_enriched.hpp}: In the header, defines all structs for holding route data}{lstlisting.B.10}{}}
+\newlabel{lst:structshpp@cref}{{[listing][10][2147483647,2]B.10}{[1][52][]52}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.10}{\ignorespaces \texttt  {osrm\_enriched.hpp}: In the header, defines all structs for holding route data}}{52}{lstlisting.B.10}\protected@file@percent }
+\newlabel{lst:fromjson}{{B.11}{53}{\texttt {osrm\_enriched.hpp} Also in header, define function overloads for from\_json(), which replaces same function in json.get()}{lstlisting.B.11}{}}
+\newlabel{lst:fromjson@cref}{{[listing][11][2147483647,2]B.11}{[1][53][]53}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.11}{\ignorespaces \texttt  {osrm\_enriched.hpp} Also in header, define function overloads for from\_json(), which replaces same function in json.get()}}{53}{lstlisting.B.11}\protected@file@percent }
+\newlabel{lst:gpx-example}{{B.12}{54}{\texttt {gpx\_example.gpx}: Example GPX file showing an example track point and extensions}{lstlisting.B.12}{}}
+\newlabel{lst:gpx-example@cref}{{[listing][12][2147483647,2]B.12}{[1][54][]54}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.12}{\ignorespaces \texttt  {gpx\_example.gpx}: Example GPX file showing an example track point and extensions}}{54}{lstlisting.B.12}\protected@file@percent }
+\newlabel{lst:mergealg}{{B.13}{54}{Two-pass segmentation: greedy recursive merge (pseudocode reflecting current implementation)}{lstlisting.B.13}{}}
+\newlabel{lst:mergealg@cref}{{[listing][13][2147483647,2]B.13}{[1][54][]54}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.13}{\ignorespaces Two-pass segmentation: greedy recursive merge (pseudocode reflecting current implementation)}}{54}{lstlisting.B.13}\protected@file@percent }
+\newlabel{lst:weights-example}{{B.14}{55}{Example merge-cost weighting rules (illustrative, not final)}{lstlisting.B.14}{}}
+\newlabel{lst:weights-example@cref}{{[listing][14][2147483647,2]B.14}{[1][55][]55}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.14}{\ignorespaces Example merge-cost weighting rules (illustrative, not final)}}{55}{lstlisting.B.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Application Documentation}{58}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{apx:documentation}{{C}{57}{Application Documentation}{appendix.C}{}}
-\newlabel{apx:documentation@cref}{{[appendix][3][2147483647]C}{[1][57][]57}}
-\gdef \@abspage@last{79}
+\newlabel{apx:documentation}{{C}{58}{Application Documentation}{appendix.C}{}}
+\newlabel{apx:documentation@cref}{{[appendix][3][2147483647]C}{[1][58][]58}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {D}Glossary}{75}{appendix.D}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{apx:glossary}{{D}{75}{Glossary}{appendix.D}{}}
+\newlabel{apx:glossary@cref}{{[appendix][4][2147483647]D}{[1][75][]75}}
+\gdef \@abspage@last{81}
