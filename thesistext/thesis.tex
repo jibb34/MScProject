@@ -813,13 +813,16 @@ The non-functional requirements of the system are as follows:
 
 \subsubsection{Logical Database Requirements}
 \begin{table}[h!]
-	\centering
-	\begin{tabular}{|l|p{5cm}|l|l|l|p{4cm}|}
-		\hline
-		\textbf{Requirement ID} & \textbf{Description} & \textbf{Type} & \textbf{Priority} & \textbf{Source} & \textbf{Notes} \\
-		\hline
-	\end{tabular}
-	\caption{Database Requirements}
+        \centering
+        \begin{tabular}{|l|p{5cm}|l|l|l|p{4cm}|}
+                \hline
+                \textbf{Requirement ID} & \textbf{Description} & \textbf{Type} & \textbf{Priority} & \textbf{Source} & \textbf{Notes} \\
+                \hline
+                DBR-01 & Store segment definitions with unique identifiers & Data & High & Design & Ensures each segment can be referenced. \\
+                DBR-02 & Record Training Stress Scores for each segment occurrence & Data & Medium & Analysis & Enables performance tracking. \\
+                \hline
+        \end{tabular}
+        \caption{Database Requirements}
 \end{table}
 
 \subsubsection{Software System Attributes}
@@ -939,26 +942,32 @@ The functional view includes key modules and their responsibilities.
 	\item \textbf{OSRM Matching Engine:} Another docker service that takes small GeoJson chunks, and matches them to a map network.
 \end{itemize}
 
-% Auto-generated table from adjacent paragraph for clarity
 \begin{table}[H]
-	\centering\small
-	\caption{Architectural Design > Architectural Views - structured summary}\label{tbl:auto_01452b57}
-	\begin{tabularx}{\textwidth}{l X l}
-		\toprule
-		\textbf{Name/Key} & \textbf{Description/Value}                                                                                                                                                                                               & \textbf{Notes} \\
-		\midrule
-		layers            & itemize Presentation Layer - This is the front end                                                                                                                                                                       &                \\
-		App               & Serves HTTP pages and gets information from the user. Front End Controller: Takes user information and routes it to correct API endpoint. Input Pipeline Orchestrator: Controller that handles input information routing &                \\
-		Orchestrator      & Takes routes                                                                                                                                                                                                             &                \\
-		Orchestrator      & Formats the resulting segments                                                                                                                                                                                           &                \\
-		Orchestrator      & Receives the Route data from the Input Pipeline Orchestrator                                                                                                                                                             &                \\
-		Engine            & Written in C++                                                                                                                                                                                                           &                \\
-		Engine            & Takes a list of segments and the input GPX data                                                                                                                                                                          &                \\
-		Database          & Stores all persistent segments                                                                                                                                                                                           &                \\
-		Engine            & A docker service that runs a .osm to .pbf conversion and merging process. Used in the input pipeline OSRM Matching Engine: Another docker service that takes small GeoJson chunks                                        &                \\
-		\bottomrule
-	\end{tabularx}
+        \centering\small
+        \caption{Architectural Design > Architectural Views - structured summary}
+        \label{tbl:architectural-views}
+        \begin{tabularx}{\textwidth}{l X}
+                \toprule
+                \textbf{Name/Key} & \textbf{Description/Value} \
+                \midrule
+                Presentation Layer & Front-end web application where users can upload GPX files or draw routes via an interactive map, communicating with the back end through HTTP APIs. \
+                Processing Layer & Back-end pipelines and engines coordinated by Python controllers to route information between components. \
+                Data Layer & SQL database and external APIs that provide persistent storage and map data. \
+                Front end Web App & Serves HTTP pages and collects information from the user. \
+                Front End Controller & Routes user information to the correct API endpoint. \
+                Input Pipeline Orchestrator & Handles input routing, sending GPX files to the pipeline and retrieving GeoJSON objects. \
+                Engine Orchestrator & Coordinates segments between the Segmentation and TSS engines in a two-pass system. \
+                DTO Orchestrator & Formats resulting segments into data objects and passes them to the SQL database. \
+                Output Pipeline Orchestrator & Receives route data from the input pipeline, validates it and sends it to the Segmentation Engine, returning segment lists in GeoJSON format. \
+                Segmentation Engine & C++ service performing route segmentation and matching logic. \
+                TSS Engine & Assigns training scores to segments based on the GPX data. \
+                SQL Database & Stores persistent segments, hit counts and associated TSS objects. \
+                Osmium Engine & Docker service converting and merging OSM data for the input pipeline. \
+                OSRM Matching Engine & Docker service matching GeoJSON chunks to the map network. \
+                \bottomrule
+        \end{tabularx}
 \end{table}
+
 
 
 \subsubsection{Physical View}
