@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 22:18
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 23:40
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -1716,29 +1716,25 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [4
 
 ] [5]
-<assets/hmm_transition.png, id=455, 386.44376pt x 226.8475pt>
+<assets/hmm_transition.png, id=458, 386.44376pt x 226.8475pt>
 File: assets/hmm_transition.png Graphic file (type png)
 <use assets/hmm_transition.png>
 Package luatex.def Info: assets/hmm_transition.png  used on input line 276.
 (luatex.def)             Requested size: 212.41261pt x 124.69035pt.
  [6<./assets/hmm_transition.png>] [7] [8]
-<assets/zones.png, id=510, 301.125pt x 228.855pt>
+<assets/zones.png, id=513, 301.125pt x 228.855pt>
 File: assets/zones.png Graphic file (type png)
 <use assets/zones.png>
 Package luatex.def Info: assets/zones.png  used on input line 386.
 (luatex.def)             Requested size: 283.22162pt x 215.26689pt.
  [9] [10<./assets/zones.png>]
-<assets/jibb_powercurve.png, id=533, 1012.78375pt x 443.6575pt>
+<assets/jibb_powercurve.png, id=536, 1012.78375pt x 443.6575pt>
 File: assets/jibb_powercurve.png Graphic file (type png)
 <use assets/jibb_powercurve.png>
 Package luatex.def Info: assets/jibb_powercurve.png  used on input line 436.
 (luatex.def)             Requested size: 377.62642pt x 165.41663pt.
 
-[11<./assets/jibb_powercurve.png>] [12]
-
-LaTeX Warning: Reference `lst:gradvar' on page 13 undefined on input line 494.
-
-[13] [14]
+[11<./assets/jibb_powercurve.png>] [12] [13] [14]
 Underfull \hbox (badness 1668) in paragraph at lines 571--572
 \T1/lmr/m/n/10.95 in long straight-aways,
  []
@@ -1857,7 +1853,7 @@ Chapter 4.
 
 ]
 Chapter 5.
-<assets/archdiagram.png, id=685, 994.71625pt x 479.7925pt>
+<assets/archdiagram.png, id=690, 994.71625pt x 479.7925pt>
 File: assets/archdiagram.png Graphic file (type png)
 <use assets/archdiagram.png>
 Package luatex.def Info: assets/archdiagram.png  used on input line 866.
@@ -1865,87 +1861,160 @@ Package luatex.def Info: assets/archdiagram.png  used on input line 866.
 [24
 
 ] [25<./assets/archdiagram.png>] [26]
+<assets/usecase.png, id=710, 1419.3025pt x 204.765pt>
+File: assets/usecase.png Graphic file (type png)
+<use assets/usecase.png>
+Package luatex.def Info: assets/usecase.png  used on input line 944.
+(luatex.def)             Requested size: 424.82523pt x 61.28937pt.
+<assets/sequence.png, id=711, 750.805pt x 437.635pt>
+File: assets/sequence.png Graphic file (type png)
+<use assets/sequence.png>
+Package luatex.def Info: assets/sequence.png  used on input line 950.
+(luatex.def)             Requested size: 472.03123pt x 275.14389pt.
+ [27<./assets/usecase.png><./assets/sequence.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 9
-50.
+85.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/lm/t1lmss.f
 d
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<assets/usecase.png, id=706, 1419.3025pt x 204.765pt>
-File: assets/usecase.png Graphic file (type png)
-<use assets/usecase.png>
-Package luatex.def Info: assets/usecase.png  used on input line 991.
-(luatex.def)             Requested size: 424.82523pt x 61.28937pt.
-<assets/sequence.png, id=707, 750.805pt x 437.635pt>
-File: assets/sequence.png Graphic file (type png)
-<use assets/sequence.png>
-Package luatex.def Info: assets/sequence.png  used on input line 997.
-(luatex.def)             Requested size: 472.03123pt x 275.14389pt.
- [27<./assets/usecase.png>] [28<./assets/sequence.png>] [29] [30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \hbox (badness 7777) in paragraph at lines 1016--1016
+[]|\T1/lmr/m/n/10.95 matched ge-om-e-
+ []
+
+
+Underfull \hbox (badness 7777) in paragraph at lines 1017--1017
+[]|\T1/lmr/m/n/10.95 matched ge-om-e-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1017
+[]|\T1/lmr/m/n/10.95 en-riched Geo-J-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
+[]|\T1/lmr/m/n/10.95 Aug-ments ge-om-e-try with
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 1017--1018
+\T1/lmr/m/n/10.95 OSM meta-data and sen-sor
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1018
+[]|\T1/lmr/m/n/10.95 en-riched Geo-J-
+ []
+
+
+Underfull \hbox (badness 2626) in paragraph at lines 1018--1019
+[]|\T1/lmr/m/n/10.95 De-tects ho-mo-ge-neous route
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1020
+[]|\T1/lmr/m/n/10.95 per-sis-tence
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 1020--1021
+[]|\T1/lmr/m/n/10.95 Per-sists seg-ment def-i-ni-tions
+ []
+
+[29]
+Overfull \hbox (19.21284pt too wide) in alignment at lines 1082--1097
+ [][][] 
+ []
+
+[30]
+Underfull \hbox (badness 1515) in paragraph at lines 1106--1106
+[]|\T1/lmr/m/n/10.95 en-coded poly-
+ []
+
+
+Underfull \hbox (badness 7451) in paragraph at lines 1106--1107
+[]|\T1/lmr/m/n/10.95 Com-pressed seg-ment ge-om-e-try us-ing
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 1107--1108
+[]|\T1/lmr/m/n/10.95 Open-StreetMap way iden-ti-fier form-ing
+ []
+
+[31]
 Chapter 6.
-[31
+[32
 
 ]
 
-LaTeX Warning: Reference `sec:wayindex' on page 32 undefined on input line 1110
+LaTeX Warning: Reference `sec:wayindex' on page 33 undefined on input line 1172
 .
 
-[32]
+[33]
 
-LaTeX Warning: Reference `lst:attach-tracepoints' on page 33 undefined on input
- line 1115.
-
-
-LaTeX Warning: Reference `sec:wayindex' on page 33 undefined on input line 1148
+LaTeX Warning: Reference `sec:wayindex' on page 34 undefined on input line 1210
 .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1170--1170
+Underfull \hbox (badness 10000) in paragraph at lines 1232--1232
 []|\T1/lmr/m/n/10.95 (101, {'high-way': 'res-i-den-tial',
  []
 
-[33]
-Overfull \hbox (14.33739pt too wide) in paragraph at lines 1201--1202
+[34]
+Overfull \hbox (14.33739pt too wide) in paragraph at lines 1263--1264
 []\T1/lmr/bx/n/10.95 What didn't: \T1/lmr/m/n/10.95 I ini-tially passed Docker 
 flags with bad spac-ing and got \TU/lmtt/m/n/10.95 invalid containerPort:
  []
 
-[34] [35] [36] [37]
-Overfull \hbox (6.78374pt too wide) in paragraph at lines 1306--1307
+[35] [36] [37] [38]
+Overfull \hbox (6.78374pt too wide) in paragraph at lines 1368--1369
 []\T1/lmr/bx/n/10.95 Changes made: \T1/lmr/m/n/10.95 nor-malised the schema with
  \TU/lmtt/m/n/10.95 segment_-defs\T1/lmr/m/n/10.95 , \TU/lmtt/m/n/10.95 route_-s
 egments\T1/lmr/m/n/10.95 , and \TU/lmtt/m/n/10.95 segment_-
  []
 
-[38]
-Underfull \hbox (badness 1902) in paragraph at lines 1375--1375
-[]|\T1/lmr/m/n/10 Time and speed lists; leader-
- []
-
-
-Overfull \hbox (48.80293pt too wide) in alignment at lines 1375--1375
-[][][]
- []
-
+[39]
+Chapter 7.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
-[40
-Missing character: There is no – (U+2013) in font ec-lmbx10!
-]
-Chapter 7.
-[41
+ [40
 
 ]
+
+Package caption Warning: \label without proper reference on input line 1457.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:compare' on page 41 undefined on input line 1449.
+
+
+<assets/graph_compare.png, id=850, 859.65166pt x 498.663pt>
+File: assets/graph_compare.png Graphic file (type png)
+<use assets/graph_compare.png>
+Package luatex.def Info: assets/graph_compare.png  used on input line 1452.
+(luatex.def)             Requested size: 283.22162pt x 164.29298pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41
+Missing character: There is no ’ (U+2019) in font ec-lmr10!
+] [42<./assets/graph_compare.png>]
 Chapter 8.
-[42
+
+Underfull \vbox (badness 1960) has occurred while \output is active []
+
+ [43
 
 
 Missing character: There is no — (U+2014) in font ec-lmr10!
 Missing character: There is no — (U+2014) in font ec-lmr10!
-] [43] (./thesis.bbl
+] [44] (./thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 18--21
 []\T1/lmr/m/n/10.95 Franco, A. (2012), `Cur-va-ture and twisti-ness of roads', 
 []$\TU/lmtt/m/n/10.95 https://adamfranco.com/
@@ -1963,34 +2032,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--33
 5 https://www.trainerroad.com/blog/
  []
 
-[44
+[45
 
 
 Missing character: There is no — (U+2014) in font ec-lmri10!
 Missing character: There is no — (U+2014) in font ec-lmri10!
 Missing character: There is no — (U+2014) in font ec-lmri10!
 ]
-Underfull \hbox (badness 1259) in paragraph at lines 111--116
+Underfull \hbox (badness 1259) in paragraph at lines 104--109
 \TU/lmtt/m/n/10.95 ask-[]the-[]expert-[]how-[]much-[]time-[]should-[]you-[]spend
 -[]in-[]the-[]red-[]zone/$[] \T1/lmr/m/n/10.95 [Ac-cessed 11-Aug-
  []
 
 
-Underfull \hbox (badness 3068) in paragraph at lines 135--138
+Underfull \hbox (badness 3068) in paragraph at lines 128--131
 []\T1/lmr/m/n/10.95 Story, R. and con-trib-u-tors (2023), `Folium: Python data. Leaflet.js maps', []$\TU/lmtt/m/n/10.95 https://
  []
 
-[45]
-Underfull \hbox (badness 1043) in paragraph at lines 147--151
+
+Underfull \hbox (badness 1043) in paragraph at lines 140--144
 \TU/lmtt/m/n/10.95 master/osrm/doc/osrm_mapmatching.md$[]\T1/lmr/m/n/10.95 .  Ov
 erview of OSRM map match-ing with HM-
  []
 
-) [46
+[46]) [47
 Missing character: There is no — (U+2014) in font ec-lmri10!
 ]
 Appendix A.
-(./appendix_extracted_listings.tex [47
+(./appendix_extracted_listings.tex [48
 
 ]
 Appendix B.
@@ -2029,7 +2098,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang2.sty
 File: lstlang2.sty 2024/02/21 1.10 listings language file
-) [48
+) [49
 
 
 
@@ -2063,7 +2132,7 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [49] [50] [51] [52]
+) [50] [51] [52] [53]
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
@@ -2071,372 +2140,376 @@ File: lstlang1.sty 2024/02/21 1.10 listings language file
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/listings/ls
 tmisc.sty
 File: lstmisc.sty 2024/02/21 1.10 (Carsten Heinz)
-) [53] [54]
+) [54] [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55])
-[56]
+ [56])
+[57]
 Appendix C.
-<../code/pipeline/docs/docs.pdf, id=1264, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1284, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf  used on input line 143
-9.
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf  used on input line 151
+6.
 (luatex.def)             Requested size: 597.50682pt x 845.04503pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf  used on input line 143
-9.
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf  used on input line 151
+6.
 (luatex.def)             Requested size: 597.50682pt x 845.04503pt.
-<../code/pipeline/docs/docs.pdf, id=1267, page=1, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1287, page=1, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 1>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 597.50682pt x 845.04503pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 1>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
-[57
+[58
 
 ]
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 1>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 1>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 1>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page1 used on input l
-ine 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
- [58
-
-<../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1352, page=2, 597.50829pt x 845.04709pt>
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 2>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
-ine 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 2>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
-ine 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 2>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
  [59
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1374, page=3, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1372, page=2, 597.50829pt x 845.04709pt>
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 2>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
+ine 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 2>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
+ine 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 2>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page2 used on input l
+ine 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [60
+
+<../code/pipeline/docs/docs.pdf>]
+<../code/pipeline/docs/docs.pdf, id=1394, page=3, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 3>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page3 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 3>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page3 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 3>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page3 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 
-[60
+[61
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1381, page=4, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1401, page=4, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 4>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
-ine 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 4>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 4>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
- [61
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 4>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page4 used on input l
+ine 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [62
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1395, page=5, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1415, page=5, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 5>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page5 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 5>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page5 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 5>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page5 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 
-[62
+[63
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1418, page=6, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1438, page=6, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 6>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
-ine 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 6>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 6>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
- [63
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 6>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page6 used on input l
+ine 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [64
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1425, page=7, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1445, page=7, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 7>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page7 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 7>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page7 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 7>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page7 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 
-[64
+[65
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1432, page=8, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1453, page=8, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 8>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
-ine 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 8>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 8>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
- [65
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 8>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page8 used on input l
+ine 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [66
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1440, page=9, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1461, page=9, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 9>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page9 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 9>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page9 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 9>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page9 used on input l
-ine 1439.
+ine 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 
-[66
+[67
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1449, page=10, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1470, page=10, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 10>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
-line 1439.
-(luatex.def)             Requested size: 562.12285pt x 795.002pt.
-File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
-<use ../code/pipeline/docs/docs.pdf, page 10>
-Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
-line 1439.
+line 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 10>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
-line 1439.
+line 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
- [67
+File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
+<use ../code/pipeline/docs/docs.pdf, page 10>
+Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page10 used on input 
+line 1516.
+(luatex.def)             Requested size: 562.12285pt x 795.002pt.
+ [68
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/pipeline/docs/docs.pdf, id=1456, page=11, 597.50829pt x 845.04709pt>
+<../code/pipeline/docs/docs.pdf, id=1477, page=11, 597.50829pt x 845.04709pt>
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 11>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
-line 1439.
+line 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 11>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
-line 1439.
+line 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 File: ../code/pipeline/docs/docs.pdf Graphic file (type pdf)
 <use ../code/pipeline/docs/docs.pdf, page 11>
 Package luatex.def Info: ../code/pipeline/docs/docs.pdf , page11 used on input 
-line 1439.
+line 1516.
 (luatex.def)             Requested size: 562.12285pt x 795.002pt.
 
-[68
+[69
 
 <../code/pipeline/docs/docs.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1464, 614.295pt x 794.97pt>
+<../code/segmentation/engine/docs/README.pdf, id=1484, 614.295pt x 794.97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf  used on i
-nput line 1444.
+nput line 1521.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf  used on i
-nput line 1444.
+nput line 1521.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../code/segmentation/engine/docs/README.pdf, id=1467, page=1, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1487, page=1, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 1>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 1>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 1>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 1>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 1>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page1 us
-ed on input line 1444.
-(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
- [69
-
-<../code/segmentation/engine/docs/README.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1516, page=2, 614.295pt x 794.
-97pt>
-File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 2>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
-ed on input line 1444.
-(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 2>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
-ed on input line 1444.
-(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 2>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
  [70
 
 <../code/segmentation/engine/docs/README.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1523, page=3, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1536, page=2, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 3>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
-ed on input line 1444.
+<use ../code/segmentation/engine/docs/README.pdf, page 2>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 3>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
-ed on input line 1444.
+<use ../code/segmentation/engine/docs/README.pdf, page 2>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 3>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
-ed on input line 1444.
+<use ../code/segmentation/engine/docs/README.pdf, page 2>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page2 us
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
  [71
 
 <../code/segmentation/engine/docs/README.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1537, page=4, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1543, page=3, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 4>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
-ed on input line 1444.
+<use ../code/segmentation/engine/docs/README.pdf, page 3>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 4>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
-ed on input line 1444.
+<use ../code/segmentation/engine/docs/README.pdf, page 3>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
-<use ../code/segmentation/engine/docs/README.pdf, page 4>
-Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
-ed on input line 1444.
+<use ../code/segmentation/engine/docs/README.pdf, page 3>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page3 us
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
  [72
 
 <../code/segmentation/engine/docs/README.pdf>]
-<../code/segmentation/engine/docs/README.pdf, id=1561, page=5, 614.295pt x 794.
+<../code/segmentation/engine/docs/README.pdf, id=1557, page=4, 614.295pt x 794.
+97pt>
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 4>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
+ed on input line 1521.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 4>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
+ed on input line 1521.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
+<use ../code/segmentation/engine/docs/README.pdf, page 4>
+Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page4 us
+ed on input line 1521.
+(luatex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [73
+
+<../code/segmentation/engine/docs/README.pdf>]
+<../code/segmentation/engine/docs/README.pdf, id=1581, page=5, 614.295pt x 794.
 97pt>
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 5>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page5 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 5>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page5 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: ../code/segmentation/engine/docs/README.pdf Graphic file (type pdf)
 <use ../code/segmentation/engine/docs/README.pdf, page 5>
 Package luatex.def Info: ../code/segmentation/engine/docs/README.pdf , page5 us
-ed on input line 1444.
+ed on input line 1521.
 (luatex.def)             Requested size: 614.58406pt x 795.3441pt.
 
-[73
+[74
 
-<../code/segmentation/engine/docs/README.pdf>] (./thesis.aux)
+<../code/segmentation/engine/docs/README.pdf>]
+Appendix D.
+[75
+
+] (./thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -2451,23 +2524,35 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 044379BB03FFF77E5B2ABF17D552C60F;11067.
+
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: 819FC81663DEF02DE586D9F48F93F1C6;11016
+(rerunfilecheck)             After:  C00B86ED9666D7E22C56426452A4F019;11230.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46527 strings out of 476447
- 381651,1977958 words of node,token memory allocated
- 957 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 13 glue, 4 kern, 1 glyph, 32 attribute, 99 glue_spe
+ 46603 strings out of 476447
+ 381650,1977958 words of node,token memory allocated
+ 950 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 12 glue, 4 kern, 1 glyph, 32 attribute, 99 glue_spe
 c, 32 attribute_list, 2 write, 9 pdf_action nodes
-   avail lists: 1:1,2:5683,3:4274,4:1168,5:10716,6:121,7:10807,8:106,9:19983,10:
-28,11:772
- 66591 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:5685,3:4276,4:1168,5:10713,6:129,7:10818,8:105,9:19983,10:
+29,11:775
+ 66654 multiletter control sequences out of 65536+600000
  94 fonts using 21766071 bytes
  99i,17n,120p,823b,2153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-warning  (pdf backend): unreferenced destination with name 'lstlisting.2.1'
+warning  (pdf backend): unreferenced destination with name 'subsection.6.4.2'
+
+warning  (pdf backend): unreferenced destination with name 'subsection.6.4.1'
+
+warning  (pdf backend): unreferenced destination with name 'section.6.4'
+
+warning  (pdf backend): unreferenced destination with name 'section.6.3'
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
 lm/lmmono9-regular.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist
 /fonts/opentype/public/lm/lmmono10-italic.otf>{/opt/homebrew/Cellar/texlive/2024
@@ -2496,10 +2581,10 @@ t/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/lm/lmri
 lic/lm/lmss10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/font
 s/type1/public/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texm
 f-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on thesis.pdf (79 pages, 16166941 bytes).
+Output written on thesis.pdf (81 pages, 16402908 bytes).
 
-PDF statistics: 1691 PDF objects out of 1728 (max. 8388607)
- 1438 compressed objects within 15 object streams
- 639 named destinations out of 1000 (max. 131072)
+PDF statistics: 1717 PDF objects out of 1728 (max. 8388607)
+ 1460 compressed objects within 15 object streams
+ 649 named destinations out of 1000 (max. 131072)
  512 words of extra memory for PDF output out of 10000 (max. 100000000)
 

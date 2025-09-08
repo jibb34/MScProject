@@ -974,7 +974,8 @@ and emits a well-defined intermediate representation for the next stage.  The se
 single responsibility, exposing REST endpoints via a lightweight HTTP server (cpp-httplib).  This adheres to the microservices style by isolating
 compute-intensive logic behind a stable API and deploying it independently in Docker.  Coding conventions follow PEP~8 for Python, with type hints and
 Docstrings for clarity, and the Google C++ style for the engine code.  Continuous integration scripts enforce linting and unit tests for reproducibility.
-\section{Module-Level Design}{Module-Level Design}
+\section{Module-Level Design}
+This section details the conceptual modules that comprise the Training Suitability System.
 \label{sec:moduledesign}
 \subsection{GPX-to-Enriched-JSON Pipeline Modules}
 The processing layer is decomposed into small, focused modules so that each step can be reasoned about and tested in isolation.
@@ -983,22 +984,32 @@ Figure~\ref{fig:moduledeps} gives the high level dependency chain.
 \subsubsection{Module Dependency Diagram}
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[node distance=2.8cm,>=Stealth]
+  \begin{tikzpicture}[node distance=2.5cm and 2.5cm, >=Stealth]
+    % Top row
     \node[entity] (reader) {GPX Reader};
     \node[entity, right=of reader] (matcher) {Map Matcher};
     \node[entity, right=of matcher] (enricher) {Enricher};
-    \node[entity, right=of enricher] (segmenter) {Segmentation Engine};
+
+    % Bottom row
+    \node[entity, below=of reader] (segmenter) {Segmentation Engine};
     \node[entity, right=of segmenter] (tss) {TSS Engine};
     \node[entity, right=of tss] (db) {DB Adapter};
+
+    % Arrows top row
     \draw[relation] (reader) -- (matcher);
     \draw[relation] (matcher) -- (enricher);
-    \draw[relation] (enricher) -- (segmenter);
+
+    % Wrap down
+    \draw[relation] (enricher.south) -- ++(0,-0.8) -- (segmenter.north);
+
+    % Bottom row arrows
     \draw[relation] (segmenter) -- (tss);
     \draw[relation] (tss) -- (db);
   \end{tikzpicture}
   \caption{Module dependency diagram for the processing pipeline}
   \label{fig:moduledeps}
 \end{figure}
+
 
 \subsubsection{Module Specifications}
 \begin{longtable}{p{3cm}p{3cm}p{3cm}p{5cm}}
@@ -1033,7 +1044,7 @@ The back-end will also respond with the same GeoJSON objects back to the front-e
 REST APIs are also used to interface with third party tools such as the OSRM \citeyearpar{Luxen2011} route matching engine, and the Overpass API  \citep{OverpassAPI}.
 
 \section{Data Design}
-\subsection{Entity--Relationship Model}
+\subsection{Entity-Relationship Model}
 The persistence layer is captured by the ERD in Figure~\ref{fig:db_erd}. It stores canonical segment definitions and their
 occurrences on uploaded activities.
 
@@ -1072,7 +1083,7 @@ occurrences on uploaded activities.
 \end{figure}
 
 \subsection{Database Schema}
-\begin{longtable}{p{3cm}p{3cm}p{7cm}}
+\begin{longtable}{p{5cm}p{5cm}p{6cm}}
 \toprule
 Table & Field & Description \\
 \midrule
@@ -1088,9 +1099,8 @@ segment\_way\_runs & seq (INTEGER) & order within segment \\
 segment\_way\_runs & way\_id (INTEGER) & OSM way identifier \\
 \bottomrule
 \end{longtable}
-
 \subsection{Data Dictionary}
-\begin{longtable}{p{3cm}p{3cm}p{7cm}}
+\begin{longtable}{p{5cm}p{2.5cm}p{7cm}}
 \toprule
 Element & Format & Description \\
 \midrule
@@ -1387,26 +1397,24 @@ Anaerobic/Neuromuscular.  The engine also outputs a confidence estimate based on
 database.  In future work these rules could be replaced with a learned ordinal regression model using coach feedback.
 
 % Additional evaluation metrics and detailed analyses can be added as the project evolves.
+
+
+\chapter{Results and Conclusions}
 \section{Testing and Results}
 Evaluation of the system consisted of both functional testing of the individual components and empirical assessment of the quality of the generated
 segments and scores.  For the pipeline, unit tests verified that GPX parsing, OSM fetching and enrichment functions handled edge cases such as missing
 extensions or malformed XML.  Integration tests exercised the entire pipeline on a set of twenty publicly available rides covering flat urban loops,
-rolling countryside routes and mountainous climbs.  Processing time was measured at approximately 12~s per hour of ride on a consumer laptop when
-parallelising OSRM queries.
+rolling countryside routes and mountainous climbs.  Processing time was measured at approximately 12~s per hour of ride on a consumer laptop (Lenovo Thinkpad
+L480) when parallelising OSRM queries, and appoximately 5 seconds per hour on a more powerful AMD Ryzen 7 processor.
 
-The segmentation engine was validated on the same dataset by comparing its proposed boundaries to manual annotations from three experienced cyclists.
-Agreement was quantified by the Jaccard index between sets of break points.  Across the test rides the average agreement was 0.71, indicating that the
-greedy merge-cost algorithm captures most of the intuitively meaningful transitions (junctions, surface changes and large bends).  Disagreements were
-analysed and led to refinements of the weighting heuristics, particularly increasing penalties for narrow bridges and off-road sections.
+Segmentation was determined by both qualitative and quantitive methods, relating to two popular segment-based alternatives: Strava and Komoot. This is discussed
+in the next section.
 
-Training Suitability Scores were evaluated by correlating the zone scores with observed power distributions.  For each segment the proportion of time the
-test riders spent within the target zone was computed from their power recordings.  The resulting Spearman correlations were 0.63 for Endurance,
-0.58 for Tempo, 0.56 for Threshold, 0.52 for VO$_2$max and 0.60 for Anaerobic/Neuromuscular, suggesting that the rule-based scores align moderately well
-with actual training intensity.  Riders were also asked to rate segments on a Likert scale from~1 (poor for the intended interval) to~5 (excellent).  The
-average absolute error between TSS ranks and rider preferences was 0.7 points.  While not perfect, this preliminary evaluation indicates that TSS can
-serve as a useful heuristic for route planning.
+While not fully implemented, Training Suitability Scoring can be tested in the field. By running the program with input from a cycling team in a training camp, 
+it should be possible to quickly gather enough data to see trends in the scoring. After enough data, it can be validated by having independent cyclists from people used
+to train the data perform a targeted training session on routes highlighted by the TSS algorithm, and then they will have their workout compliance measured by their coaches.
 
-\section{Comparison with Existing Segment Creation Tools}
+\section{Comparison of Segmentation with Existing Segment Creation Tools}
 \label{sec:comparison}
 This section contrasts the performance of the segmentation engine developed in this thesis with other public segment creation tools.
 
@@ -1425,22 +1433,44 @@ This section contrasts the performance of the segmentation engine developed in t
         What each piece shows & Time and speed lists; leaderboards & Extra ride data (slope, power, heart rate, effort) \\
         Clear or hidden & Rules hidden, start/end not always clear & Rules open, easy to set and repeat \\
         Main goal & Race and compare with others & Study ride load and training use \\
-        \midrule
-        \textbf{(Numbers – to be filled later)} & \multicolumn{2}{l}{Segment counts, length spread, overlap with Strava, slope match, training scores} \\
         \bottomrule
     \end{tabularx}
 \end{table}
-
-
+\label{chap:results}
 \subsection{Quantitative Comparison}
+By running 20 separate GPX files through the segmentation engine, and getting the start and end positions of their segments (as well as the total
+segment length), we were able to calculate a simliarity score via the following formula:
+\[
+\mathrm{Sim}(S,E) = \exp\!\left(-\frac{d(s_{\mathrm{start}}, e_{\mathrm{start}}) + d(s_{\mathrm{end}}, e_{\mathrm{end}})}{2 \, \tau}\right),
+\]
+\paragraph{Similarity Metric:}
+We define similarity between a Strava segment $S$ and an engine segment $E$ by comparing their start and end coordinates. Let $d(p,q)$ denote the haversine distance (in meters) between points $p$ and $q$ on the Earth’s surface. If $S = (s_{\mathrm{start}}, s_{\mathrm{end}})$ and $E = (e_{\mathrm{start}}, e_{\mathrm{end}})$, then the similarity score is
+where $\tau$ is a scaling constant (e.g., $100$ m) that determines how quickly similarity decays with distance. The score lies in the range $[0,10]$, with values close to $10$ indicating near-identical terminuses.
+We use terminal points rather than overall route matching here to save time mostly, and due to the nature of segments existing on a road network, more often than not if two teriminuses are the same, then the route in between will be the same as well.
+
+
+By using the Strava API to get the segments that ran along the routes that I took the GPX files from, we are able to get a significant amount of data to compare, and putting the results on a logarithmic scale
+we get some interesting results, as seen in \ref{fig:compare}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{graph_compare.png}
+  \label{fig:compare}
+  \caption{A clear correlation between strava and segmentation engine results.}
+\end{figure}
+There is a clear correlation, especially between the 400m and 1.2km range (where segment popularity is the highest), and it forms a normal-ish distribution. It does seem skewed right a bit, as well
+as there being a distinct drop at 400m. This is to be expected though, as the minimum segment length I set for the test was 400m. Anything less than this was merged into another segment.
+However, it seems that the ideal segment length is around the 800 metre range. So optimising my algorithm around that length makes the most sense.
+
+\section{Final Thoughts}
 
 \chapter{Results and Conclusions}
 \label{chap:results}
 This project set out to determine whether road suitability for structured cycling training could be quantified using only ride data and open mapping sources.
 The implemented system successfully ingests GPX tracks, performs map matching against OpenStreetMap via OSRM, enriches tracks with contextual metadata and segments routes using a reproducible algorithm.
 Evaluation on a diverse set of twenty rides cross-referenced with Strava segments showed that the segmentation engine agrees with human judgement on most meaningful transitions.
-In preprocessing trials, a Kalman smoother reduced positional jitter by roughly 12% compared to a simple hysteresis filter, yielding more stable boundaries.
+In preprocessing trials, a Kalman smoother reduced positional jitter by roughly 12\% compared to a simple hysteresis filter, yielding more stable boundaries.
 Building on OSRM and the OpenStreetMap dataset proved sufficient for high-quality routing without resorting to proprietary services. The pipeline trims the first kilometre of every upload, hashes rider identifiers and discards raw files after aggregation, demonstrating that useful segment analytics can be produced while respecting data privacy.
+
 The main contribution of this work is the introduction of an individual-agnostic segmentation algorithm that relates specifically to training
 suitability. While the context of this work we focused on elevation gain, the framework has space and functionality for utilising other metrics,
 such as heading delta, OpenStreetMap way category, and feature segmentation. By categorising elevation into four distinct sections, this allows
@@ -1473,6 +1503,9 @@ that technology remains a tool for empowerment rather than a source of inequity.
 A key design decision was to keep the wavelet-based change detection and resampling routines agnostic to the type and number of input signals. This opens the 
 door to refining segmentation by fusing heterogeneous variables—angular measures such as heading or gradient changes, categorical descriptors 
 like surface type or junction class, and continuous metrics—within a unified multi-signal framework.
+
+Some other future research could maybe be done into the reason why 800m seems like the most common segment length, and if this has anything to do with
+training suitability, or if it is just a product of normal distribution of road lengths.
 
 \newpage
 \bibliography{references}

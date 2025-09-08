@@ -80,16 +80,9 @@ Ogle, J., Guensler, R. \harvardand\ Elango, V.  \harvardyearleft
   Available: \url{ https://wiki.openstreetmap.org/wiki/Overpass_API} [Accessed
   11-Aug-2025].
 
-\harvarditem{{Project {OSRM}}}{2021{\em a}}{OSRMApiProfile}
-{Project {OSRM}}  \harvardyearleft 2021{\em a}\harvardyearright , `Osrm api
-  v5.24.0 --- general service parameters (\texttt{profile})'.
-\newblock Documents that the transport \texttt{profile} is determined by the
-  Lua profile used at \texttt{osrm-extract}.
-\newline\harvardurl{https://project-osrm.org/docs/v5.24.0/api/}
-
-\harvarditem{{Project {OSRM}}}{2021{\em b}}{OSRMMatchAPI}
-{Project {OSRM}}  \harvardyearleft 2021{\em b}\harvardyearright , `Osrm api
-  v5.24.0 --- match service'.
+\harvarditem{{Project {OSRM}}}{2021}{OSRMMatchAPI}
+{Project {OSRM}}  \harvardyearleft 2021\harvardyearright , `Osrm api v5.24.0
+  --- match service'.
 \newblock Describes the \texttt{/match} service, sub-trace splitting, and
   options.
 \newline\harvardurl{\url{https://project-osrm.org/docs/v5.24.0/api/\#match-service}}
