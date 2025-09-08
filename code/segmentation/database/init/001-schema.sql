@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS segment_defs (
   bbox_max_lat  DOUBLE NOT NULL,
   bbox_max_lon  DOUBLE NOT NULL,
   length_m      DOUBLE NOT NULL,
+  kind          TINYINT UNSIGNED NOT NULL DEFAULT 0,
   created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   KEY k_bbox_lat (bbox_min_lat, bbox_max_lat),
   KEY k_bbox_lon (bbox_min_lon, bbox_max_lon)
