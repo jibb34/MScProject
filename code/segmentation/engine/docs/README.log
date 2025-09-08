@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 00:54
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Homebrew)  (format=lualatex 2024.3.10)  8 SEP 2025 01:42
  restricted system commands enabled.
 **README.tex
 (./README.tex
@@ -321,10 +321,9 @@ File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count288
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box60
-)
-No file README.aux.
-
+) (./README.aux)
 \openout1 = README.aux
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
@@ -388,6 +387,7 @@ LaTeX Font Info:    ... okay on input line 7.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 7.
+(./README.out) (./README.out)
 \@outlinefile=\write3
 
 \openout3 = README.out
@@ -398,50 +398,52 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 12.
-[1
+ [1
 
 {/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updma
 p/pdftex.map}]
+Overfull \hbox (9.06587pt too wide) in paragraph at lines 79--81
+[]\TU/lmr/m/n/10 To con-sol-i-date end-points and avoid Cross-Origin Re-source 
+Shar-ing (CORS) is-sues, the par-ent \TU/lmtt/m/n/10 segmentation
+ []
 
-LaTeX Warning: Reference `tab:api' on page 2 undefined on input line 53.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--61
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
 []|\TU/lmr/bx/n/10 GET
  []
 
 
-Overfull \hbox (0.69176pt too wide) in paragraph at lines 61--61
+Overfull \hbox (0.69176pt too wide) in paragraph at lines 98--98
 \TU/lmr/bx/n/10 /view?map=\TU/lmr/bx/it/10 path| 
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 61--62
+Underfull \hbox (badness 1577) in paragraph at lines 98--99
 []|\TU/lmr/m/n/10 Ren-ders an in-ter-ac-tive HTML viewer com-par-ing raw
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
+Underfull \hbox (badness 10000) in paragraph at lines 99--99
 []|\TU/lmr/bx/n/10 GET
  []
 
 
-Overfull \hbox (19.59175pt too wide) in paragraph at lines 62--62
+Overfull \hbox (19.59175pt too wide) in paragraph at lines 99--99
 \TU/lmr/bx/n/10 /viewLab?map=\TU/lmr/bx/it/10 path| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
 []|\TU/lmr/bx/n/10 GET
  []
 
 
-Overfull \hbox (23.68175pt too wide) in paragraph at lines 63--63
+Overfull \hbox (23.68175pt too wide) in paragraph at lines 100--100
 \TU/lmr/bx/n/10 /lab/meta?map=\TU/lmr/bx/it/10 path| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
 []|\TU/lmr/bx/n/10 POST /lab/re-
  []
 
@@ -452,9 +454,6 @@ L3 programming layer <2024-02-20>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
@@ -463,20 +462,20 @@ Package rerunfilecheck Warning: File `README.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `README.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  1F0E5B6A48C65EFC298BED3579D16664;1682.
+(rerunfilecheck)             Before: 1F0E5B6A48C65EFC298BED3579D16664;1682
+(rerunfilecheck)             After:  A648986769E83E8548636564232F59C7;1763.
 )
 
 Here is how much of LuaTeX's memory you used:
- 9858 strings out of 476447
+ 9895 strings out of 476447
  125027,1977958 words of node,token memory allocated
  446 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 4 attribute, 56 glue_spec,
  4 attribute_list, 1 write nodes
-   avail lists: 2:419,3:263,4:4,5:287,6:67,7:5667,8:1,9:390,10:3,11:471
- 31839 multiletter control sequences out of 65536+600000
+   avail lists: 2:556,3:333,4:5,5:328,6:77,7:5822,8:1,9:380,10:3,11:475
+ 31858 multiletter control sequences out of 65536+600000
  33 fonts using 2393343 bytes
- 72i,6n,75p,458b,443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,6n,75p,458b,425s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/
 lm/lmroman10-bolditalic.otf></opt/homebrew/Cellar/texlive/20240312_3/share/texmf
 -dist/fonts/opentype/public/lm/lmmono10-regular.otf></opt/homebrew/Cellar/texliv
@@ -487,10 +486,10 @@ ts/opentype/public/lm/lmroman12-bold.otf></opt/homebrew/Cellar/texlive/20240312_
 3/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></opt/homebrew
 /Cellar/texlive/20240312_3/share/texmf-dist/fonts/opentype/public/lm/lmroman17-r
 egular.otf>
-Output written on README.pdf (3 pages, 38201 bytes).
+Output written on README.pdf (3 pages, 43034 bytes).
 
-PDF statistics: 85 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 134 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 131072)
+ 113 words of extra memory for PDF output out of 10000 (max. 100000000)
 
