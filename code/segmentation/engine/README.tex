@@ -51,6 +51,18 @@ It performs three steps:
   \item Launch a new container on port~5005 with MySQL parameters (\texttt{DB\_HOST}, \texttt{DB\_PORT}, \texttt{DB\_USER}, \texttt{DB\_PASS}, \texttt{DB\_NAME}) supplied via the environment.
 \end{enumerate}
 
+Internally, the script issues the following Docker commands:
+\begin{verbatim}
+docker build -t segmentation_engine:latest .
+docker rm -f segmentation_container >/dev/null 2>&1 || true
+docker run -d --name segmentation_container --network host \
+  -e DB_HOST=127.0.0.1 -e DB_PORT=3306 -e DB_USER=routeseg_user \
+  -e DB_PASS=changeme-user -e DB_NAME=routeseg -p 5005:5005 \
+  segmentation_engine:latest
+\end{verbatim}
+Container logs can be monitored via:\newline
+\texttt{docker logs -f segmentation\_container}
+
 For a manual build without Docker:
 \begin{verbatim}
 cmake -S . -B build
