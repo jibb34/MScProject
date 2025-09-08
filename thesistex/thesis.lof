@@ -6,8 +6,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces High level system architecture for the Route Segmentation and Analysis System}}{25}{figure.caption.46}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces ERD snippet}}{27}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces High level system architecture for the Route Segmentation and Analysis System}}{26}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces ERD snippet}}{28}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Use Case diagram for the Route Segmentation System}}{28}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Sequence diagram of upload, segmentation, and visualization flow}}{29}{figure.caption.55}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1016,8 +1016,17 @@ inside the segment.\footnote{See schema comments for keys, indices and referenti
 
 \subsubsection{Behavioral View}
 Use case and sequence diagrams for the system
-% High-level use case and sequence diagrams have been created as part of the project documentation.  They depict typical interactions such as GPX
-% upload, segment matching and route querying.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{usecase.png}
+  \caption{Use Case diagram for the Route Segmentation System}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{sequence.png}
+  \caption{Sequence diagram of upload, segmentation, and visualization flow}
+\end{figure}
 
 \subsection{Design Rationale}
 The choice to go with a \textbf{Pipeline Architecture} for processing data is motivated by the main use case. Users who are looking to find a route to
@@ -1077,7 +1086,14 @@ List all applicable ISO/IEC, IEEE, and domain-specific standards adhered to (e.g
 % Implementation details.
 %----------------------------------------
 \section{Critical Reflection on Methodology}
-In developing this methodology, several compromises were made. Purely statistical methods risked over-segmenting minor elevation noise, while rigid thresholds missed the nuanced undulations riders perceive as rolling terrain. I therefore adopted a hybrid of central-difference slope and moving-average deviation metrics, then cross-validated our "expected" algorithmic labels against "observed" rider feedback on a set of test routes. Discrepancies-such as segments tagged as \emph{flat} that riders described as \emph{challenging}-fed back into an iterative calibration loop, ensuring our computational definitions stay grounded in real-world cycling experience rather than abstract mathematical constructs.
+In developing this methodology, several compromises were made. Purely statistical methods risked over-segmenting minor elevation noise, 
+while rigid thresholds missed the nuanced undulations riders perceive as rolling terrain. I therefore adopted a hybrid of central-difference 
+slope and moving-average deviation metrics, then cross-validated "expected" algorithmic labels against "observed" rider feedback on a set of test 
+routes. The routes I considered were a series of activities I rode earlier last year, while I was training for a race. I used both Strava and
+VeloViewer to verify my beliefs. Discrepancies-such as segments tagged as \emph{flat} that I rode and believed to be \emph{challenging}-fed back 
+into an iterative calibration loop, constantly adjusting until I was satisfied with the segmentation. I recognize that this is a purely subjective
+method, and it is not ideal, but for the proof of concept, it will do. I believe I got fairly close, as we can see with the data shown in the next section. However,
+in future, it may be beneficial to implement some kind of Machine Learning to optimise these data comparisons even more.
 %----------------------------------------
 
 \section{Component Implementation}
@@ -1217,7 +1233,7 @@ I then containerised the build with Ubuntu base and non-interactive \texttt{apt}
 \end{itemize}
 
 \subsubsection*{Step 2 - HTTP server and dispatcher}
-Next I wrote a minimal server entrypoint that listens on \texttt{0.0.0.0:5005} and added a tiny dispatcher so routes call a single
+Next I wrote a minimal server entrypoint that listens on \texttt{localhost:5005} and added a tiny dispatcher so routes call a single
 \texttt{callHandler(req,res, action)}. See Listing~\ref{lst:maincpp}. I also created \texttt{/segment} and \texttt{/debug} endpoints.
 
 I briefly broke routing by registering endpoints in a loop with a lambda that captured the \emph{action} string by reference. Every route then
@@ -1265,44 +1281,43 @@ I implemented non-intrusive \texttt{from\_json(\dots)} converters (found by ADL)
 \texttt{contains()}+\texttt{is\_*()} before access. For \texttt{tracepoints}, a null entry becomes a placeholder that preserves indices. The model is shown in
 Listing~\ref{lst:structshpp}, with examples of deserializers in Listing~\ref{lst:fromjson}.
 
-During this pass I hit two runtime errors and fixed both:
-\begin{enumerate}
-	\item \emph{type\_error.302} ('type must be string, but is number') whenever a field named \texttt{"type"} wasn't actually a string in some add-on. I replaced
-	      naive \texttt{value("type","")} uses with guarded string reads.
-	\item \emph{type\_error.306} ('cannot use value() with null') whenever I called \texttt{value()} on an object that was actually \texttt{null}. I stopped using \texttt{value()}
-	      on uncertain nodes and switched to \texttt{contains()}+\texttt{is\_*()} with safe defaults.
-\end{enumerate}
-
 \begin{itemize}
 	\item \textbf{What worked:} non-intrusive converters, null-safe tracepoints, epoch timestamps.
 	\item \textbf{What didn't:} assuming types with \texttt{value()} caused 302/306 errors on real data.
 	\item \textbf{Changes made:} defensive guards around every field with placeholder tracepoints to keep index alignment, 'use first matching' for consistency.
 \end{itemize}
 
-At this point the service (1) runs in Docker, (2) exposes \texttt{/segment} and \texttt{/debug}, and (3) reliably ingests large, enriched OSRM inputs into strong
-C++ structures with defensive parsing. This is the foundation I use for the segmentation rules in the next section.
+
+\subsubsection*{Step 6 - Front End and Enriched JSON upload implementation}
+
+By this point, I had the basics up and running, and needed to start implementing the actual segmentation algorithm.
+I started by creating a rough front end, which ended up morphing into the dashboard, which was my visual debugger, and front end for testing.
+I implemented /upload, and /lab/resample, and /lab/view that would then get patched into a signal\_lab.js front end layer. The front end would constantly be 
+updated to include new features, and it ended up getting quite bloated.
+\begin{itemize}
+	\item \textbf{What worked:} A useful Front-end dashboard that could visualise data, and provide an interface for the code beyond an API.
+	\item \textbf{What didn't:} I never created a proper javascript structure, so the signal\_lab.js file ended up getting over-complicated.
+	\item \textbf{Changes made:} Implemented handlers for the view\_lab handle, which redirects to as static html page that runs the javascript content.
+\end{itemize}
+
+\subsubsection*{Step 7 - Wiring up the Segmentation Engine} 
+I implemented some graphs and some statistic features to the front end, and implemented /view, and /wavelets. The latter was the main handle
+for performing the segmentation via Wavelet transform. I created a directory called core, which housed all of the segmentation logic.
+I started by writing code that would transform the time-series data into distance-series, since we want the signal to be completely ride-agnostic. The
+only way to do this is to base it purely of geography, and not time (which is related to rider speed). The specifics of the algorithms are available in
+the code documentation, under \ref{apx:documentation}.
+
+\begin{itemize}
+	\item \textbf{What worked:} Segmentation Engine was implemented using Wavelets and resampling of data to distance.
+	\item \textbf{What didn't:} After attempting Fourier transform to detect specific whole-route frequencies, I abandoned this since it was getting
+    too complicated for the purpose. I only wished to display a transitional graph.
+	\item \textbf{Changes made:} Implemented the segmentation functionality, along with a series of parameters to adjust it.
+\end{itemize}
+
+\subsubsection*{Step 8 - Tuning Parameters, and implementing basics of TSS score framework}
 
 
-\subsection{Segmentation Engine: Two-Pass Weighting and Recursive Merging}
-\label{subsec:two-pass-merge}
-After enriching each matched trace with OSM context (e.g., \texttt{highway}, \texttt{surface}, \texttt{cycleway}) and GPX-derived cues, the engine applies a two-pass
-procedure to produce contextually coherent segments:
-\paragraph{Pass 1 -- Propose boundaries.} Candidate split points are placed where (1) topological changes occur (e.g., way or major attribute
-change), and (2) strong ride cues suggest a transition (e.g., large heading change or a stop). A small minimum-length guard prevents trivial
-fragments.
 
-\paragraph{Pass 2 -- Weight boundaries.} Each proposed boundary receives a \emph{merge cost} in $[0,1]$ summarizing dissimilarity between the two
-adjacent sections. Heuristics based on OSM tags set the cost: for example, large differences in \texttt{highway} class, a \texttt{junction=yes}
-node, or an access barrier yield high costs (near~1), while minor attribute changes yield low costs (near~0). An illustrative ruleset is shown in
-Listing~\ref{lst:weights-example}. These weights prioritize real contextual changes and de-emphasize negligible fluctuations.
-
-\paragraph{Recursive merging.} Adjacent sections are then merged greedily while their separating cost remains below a threshold. After each
-merge, neighboring costs are refreshed to reflect the new context, and the process repeats until no further low-cost merges are available.
-Boundaries with cost~$=1$ (e.g., barriers or hard junctions) are never merged. The high-level routine is shown in Listing~\ref{lst:mergealg}.
-
-\paragraph{Outcome.} Homogeneous stretches (same road type, similar environment) form longer segments, while genuine interruptions (e.g., sharp
-intersection, barrier, paved$\rightarrow$unpaved) remain as boundaries. This yields segments that are stable and meaningful for training
-suitability analysis.
 
 \subsection{TSS Engine}
 The Training Suitability Score engine is responsible for converting enriched segments into multi-zone difficulty scores.  It consumes the output of the
