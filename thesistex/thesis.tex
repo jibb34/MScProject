@@ -162,7 +162,7 @@ OpenStreetMap with OSRM's match engine, enrich the resulting paths with road met
 and then apply a segmentation procedure. Segments are identified using a multi-pass algorithm, that takes each "leg" of the route (a leg being
 the smallest unit of a route, returned by OSRM's match engine) and attempts to merge every consecutive leg recursively until either there is one leg,
 or the merge cost of each segment/leg exceeds a threshold. This is known as a merge-cost algorithm, classed as a greedy algorithm, since it
-always chooses the best option at each step, without considering future consequences. Each segment then has a set of scores generated from
+always chooses the best option at each step, without considering future consequences. The core routine is outlined in Listing~\ref{lst:mergealg} with sample weighting rules in Listing~\ref{lst:weights-example}. Each segment then has a set of scores generated from
 the road and GPX metadata, one for each accepted training zone below 1 hour, defined by Sage \citeyearpar{Sage2019}. This set of scores is collectively
 known as the Training Suitability Score (TSS). To support this goal, I aim to implement (1) batch processing for large GPX collections,
 (2) segment de-duplication and matching so new routes can be expressed as sequences of known segments if available, and (3) a minimal web application
@@ -278,34 +278,7 @@ and (3) tune profiles to reflect training-use contexts (e.g., prefer longer, ope
 	\label{fig:hmm_illustration}
 \end{figure}
 
-\paragraph{Customising behaviour via Lua (before (re)extract).}
-\begin{lstlisting}[captionpos=b,language={[5.2]Lua},caption={Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling},label={lst:lua_profile}]
-- Inside a custom profile (simplified example)
-local function way_processing(way, result)
-  local highway = way:get_value_by_key('highway') or '
-  local surface = way:get_value_by_key('surface') or '
-  local smooth  = way:get_value_by_key('smoothness') or '
-
-  - Base speeds (km/h) - tune to your use case
-  local base = { residential = 22, tertiary = 20, secondary = 18, primary = 16 }
-  result.speed = base[highway] or 15
-
-  - Discourage trunk and trunk_link for training rides
-  if highway == 'trunk' or highway == 'trunk_link' then
-    result.speed = result.speed * 0.30
-    result.weight = (result.weight or 1.0) * 3.0
-  end
-
-  - Prefer paved+smooth; discourage unpaved
-  if surface == 'unpaved' or surface == 'gravel' then
-    result.speed = result.speed * 0.75
-    result.weight = (result.weight or 1.0) * 1.4
-  end
-  if smooth == 'excellent' or smooth == 'good' then
-    result.speed = result.speed * 1.10
-  end
-end
-\end{lstlisting}
+\paragraph{Customising behaviour via Lua (before (re)extract).} A simplified OSRM Lua profile (Listing~\ref{lst:lua_profile}) discourages trunk links and prefers smooth, paved surfaces for training rides.
 
 \paragraph{Boeing, G: "Modeling and Analyzing Urban Networks and Amenities with OSMnx"}
 Boeing \citeyearpar{boeing2017osmnx} details a novel Python package, \texttt{osmnx}, that downloads and analyses street networks from OpenStreetMap, which implements simple query langauge
@@ -518,12 +491,7 @@ to outliers.  For segment scoring, RMS acceleration or lateral acceleration can 
 feels\footnote{RMS metrics compute the square root of the mean of squared values, giving an effective magnitude that smoothes over individual
 	spikes and represents the overall energy of a signal \citep{Smith1997}.}.
 
-\paragraph{Gradient variation.}
-power to maintain speed, while frequent oscillations between uphill and downhill force repeated gear shifts and accelerations.  In transportation
-engineering studies, variation in road grade has been shown to limit acceleration and deceleration, particularly for heavy vehicles.  Monitoring
-the variance of the gradient signal across a segment can therefore highlight sections with highly variable
-efforts\footnote{Transportation studies note that fluctuating road gradients constrain acceleration and deceleration, making sections with
-	frequent grade changes distinct from steady climbs or flats \citep{Wang2018Grades}.}.
+\paragraph{Gradient variation.} Fluctuating grades increase the power needed to maintain speed, while frequent oscillations between uphill and downhill force repeated gear shifts and accelerations. We compute the variance of gradient samples using the helper in Listing~\ref{lst:gradvar}. In transportation engineering studies, variation in road grade has been shown to limit acceleration and deceleration, particularly for heavy vehicles. Monitoring the variance of the gradient signal across a segment can therefore highlight sections with highly variable efforts\footnote{Transportation studies note that fluctuating road gradients constrain acceleration and deceleration, making sections with frequent grade changes distinct from steady climbs or flats \citep{Wang2018Grades}.}.
 
 \paragraph{Curvature and twistiness.}
 routes, curvature at a point can be estimated by fitting a circle through three consecutive coordinates, its inverse radius is the
@@ -1144,7 +1112,7 @@ normalise all of the fields using a configuration file, \texttt{config/extension
 	      of field objects (each with \texttt{name}, \texttt{value} and \texttt{unit}), the \texttt{way\_id}, and any associated metadata.
 	      This normalised structure became the foundation for my segmentation and training suitability scoring.
 \end{enumerate}
-This process gave me a clean, uniform representation of each ride, ready to be fed into the segmentation engine. Table~\ref{tab:extensionsmap} summarises some of the keys and their common synonyms defined in \texttt{extensions\_map.json}. Only short phrases or keywords are included in the table to avoid overly long entries.
+Listing~\ref{lst:attach-tracepoints} shows the Python routine that attaches GPX-derived metadata to each OSRM tracepoint. This process gave me a clean, uniform representation of each ride, ready to be fed into the segmentation engine. Table~\ref{tab:extensionsmap} summarises some of the keys and their common synonyms defined in \texttt{extensions\_map.json}. Only short phrases or keywords are included in the table to avoid overly long entries.
 \begin{table}[htbp!]
 	\centering
 	\caption{Canonical extension keys and example synonyms}

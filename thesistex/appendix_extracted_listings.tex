@@ -17,6 +17,106 @@ segmentation-engine/
 
 \end{lstlisting}
 
+% New listing: Lua profile for OSRM
+\begin{lstlisting}[language={[5.2]Lua}, caption={Lua profile example snippet: discourage trunk links, prefer residential/smooth paved for cycling}, label={lst:lua_profile}]
+-- Inside a custom profile (simplified example)
+local function way_processing(way, result)
+  local highway = way:get_value_by_key('highway') or ''
+  local surface = way:get_value_by_key('surface') or ''
+  local smooth  = way:get_value_by_key('smoothness') or ''
+
+  -- Base speeds (km/h) - tune to your use case
+  local base = { residential = 22, tertiary = 20, secondary = 18, primary = 16 }
+  result.speed = base[highway] or 15
+
+  -- Discourage trunk and trunk_link for training rides
+  if highway == 'trunk' or highway == 'trunk_link' then
+    result.speed = result.speed * 0.30
+    result.weight = (result.weight or 1.0) * 3.0
+  end
+
+  -- Prefer paved+smooth; discourage unpaved
+  if surface == 'unpaved' or surface == 'gravel' then
+    result.speed = result.speed * 0.75
+    result.weight = (result.weight or 1.0) * 1.4
+  end
+  if smooth == 'excellent' or smooth == 'good' then
+    result.speed = result.speed * 1.10
+  end
+end
+\end{lstlisting}
+
+% New listing: attach GPX metadata to tracepoints
+\begin{lstlisting}[language=Python, caption={\texttt{attach\_to\_tracepoints}: attaches GPX metadata to matched tracepoints}, label={lst:attach-tracepoints}]
+def attach_to_tracepoints(
+    osrm,
+    gpx_points,
+    tol_m=15.0,
+    precision=5,
+    add_leg_time_windows=True,
+    interpolate_node_times=False,
+):
+    """
+    Mutates OSRM JSON in place:
+      - adds tracepoints[i]["gpx"] with matched GPX metadata
+      - (optional) per-leg time_window, gpx_indices, node_times
+    """
+    tps = osrm.get("tracepoints") or []
+    if not tps:
+        return osrm
+
+    # 1) Index based mapping:
+
+    # 2) write compact GPX dicts on tracepoints
+    _write_gpx_list_to_tracepoints(tps, gpx_points)
+    osrm["tracepoints"] = tps
+
+    # 3) per-leg windows (early exit keeps branching low)
+    # if not add_leg_time_windows:
+    #     return osrm
+    #
+    # matchings = osrm.get("matchings") or []
+    # if not matchings:
+    #     return osrm
+    # legs = (matchings[0].get("legs") or [])
+
+    # 4) figure out which leg each adjacent matched waypoint pair belongs to
+    # pairs = _adjacent_waypoint_pairs(tps)   # [(leg_idx, gpx_i, gpx_j), ...]
+
+    # 5) enrich legs
+    # _add_leg_times(legs, pairs, gpx_points,
+    #                interpolate_nodes=interpolate_node_times)
+
+    return osrm
+\end{lstlisting}
+
+% New listing: gradient variation computation
+\begin{lstlisting}[language=C++, caption={\texttt{calculateGradientVariation}: computes variance of gradients along a segment}, label={lst:gradvar}]
+double SegmentUtils::calculateGradientVariation(const std::vector<DataPoint> &points) {
+  std::vector<double> grades;
+  // push first value so we only need to keep pushing 2nd value
+  // loop until penultimate value
+  for (int i = 0; i + 1 < points.size(); i++) {
+    DataPoint point1 = points.at(i);
+    DataPoint point2 = points.at(i + 1);
+    double gradient = (point2.coord.elv - point1.coord.elv) /
+                      haversine(point1.coord, point2.coord);
+    grades.push_back(gradient);
+  }
+  // if no gradients found
+  if (grades.empty()) {
+    return 0.0;
+  }
+  // Calculate mean through (sum all values / size)
+  double mean = std::reduce(grades.begin(), grades.end(), 0.0) / grades.size();
+  int size = grades.size();
+  auto variance_func = [&mean, &size](double accumulator, const double &val) {
+    return accumulator + ((val - mean) * (val - mean) / (size - 1));
+  };
+  return std::accumulate(grades.begin(), grades.end(), 0.0, variance_func);
+}
+\end{lstlisting}
+
 % from listing #2
 \begin{lstlisting}[caption={{\texttt{CMakeLists.txt} CMake file for Segmentation Engine}}, label={lst:CMakeLists}]
 cmake_minimum_required(VERSION 3.10)
