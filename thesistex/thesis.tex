@@ -254,7 +254,7 @@ OSRM's \texttt{/match} service implements the aformentioned HMM paradigm, return
 Telenav's \citeyearpar{TelenavOSRMMapMatching} OSRM notes explicitly discuss HMM+Viterbi for map matching.
 Practically, OSRM's design makes this workflow reproducible and customizable: it can run locally in a Docker container for
 experiments and routing behaviour can be adjusted with Lua profiles to better reflect cycling over driving.
-Surface penalties, or junction costs can be adjusted before (re)extracting the graph used by the matcher \citeyearpar{OSRMDocker,OSRMApiProfile,OSRMProfileLua}.
+Surface penalties, or junction costs can be adjusted before (re)extracting the graph used by the matcher \citeyearpar{OSRMDocker,OSRMMatchAPI,OSRMProfileLua}.
 Taken together, this allows for: (1) map-match noisy rides, (2) export rich annotations (nodes/way/gpx) for downstream segmentation,
 and (3) tune profiles to reflect training-use contexts (e.g., prefer longer, open roads, but avoid major highway links).
 
@@ -1381,43 +1381,38 @@ This section contrasts the performance of the segmentation engine developed in t
 \chapter{Results and Conclusions}
 \label{chap:results}
 This project set out to determine whether road suitability for structured cycling training could be quantified using only ride data and open mapping
-sources.  The implemented system successfully ingests GPX tracks, performs reliable map matching against OpenStreetMap, enriches tracks with contextual
-metadata and segments routes using a reproducible two-pass algorithm.  Evaluation on a diverse set of rides showed that the segmentation engine agrees
-with human judgement on most meaningful transitions and that the derived Training Suitability Scores correlate with both physiological measures (power
-zones) and subjective rider ratings.  Processing throughput met the non-functional requirement of at least 1\,000 rides per hour when deployed in
-parallel on a modest server, confirming the scalability of the pipeline.
-
-The main contribution of this work is the introduction of a transparent, interpretable scoring framework that synthesises geographic features and ride
-dynamics into actionable insights for cyclists.  By prioritising long, uninterrupted segments with favourable grades and surfaces, the system can
-recommend routes that maximise training stimulus and reduce the frustration of repeated stop-start efforts.  Through open-source release of the
-codebase and data structures, I enable others to reproduce and extend the work.  Nevertheless, the results also highlight limitations: the rule-based
-scoring model cannot capture the nuances of individual training plans, and some segments remain misclassified due to unmodelled factors such as weather,
-traffic or group dynamics.  The conclusion is therefore cautiously optimistic: quantifying training suitability is feasible and valuable, but further
+sources.  The implemented system successfully ingests GPX tracks, performs map matching against OpenStreetMap, enriches tracks with contextual
+metadata and segments routes using a reproducible algorithm.  Evaluation on a diverse set of rides showed that the segmentation engine agrees
+with human judgement on most meaningful transitions, via similarity scores with Strava. 
+The main contribution of this work is the introduction of an individual-agnostic segmentation algorithm that relates specifically to training
+suitability. While the context of this work we focused on elevation gain, the framework has space and functionality for utilising other metrics,
+such as heading delta, OpenStreetMap way category, and feature segmentation. By categorising elevation into four distinct sections, this allows
+a start for implmenting Training Suitability scoring, since gradient variation of a road is a huge factor in cyclists not achieving their
+power targets for a given workout. This framework hopefully will also allow others to build upon it, and with collective knowledge, implement
+a robust method for creating a score system for the training segments. 
+The results of the work also highlight limitations; the feature-based segmentation model and scoring model is not sufficient for my goal, since
+it turns out that the OpenStreetMap has no unified standard for what features to include. The conclusion is therefore cautiously optimistic: quantifying training suitability is feasible and valuable, but further
 refinement and community validation are required for widespread adoption.
 
 \chapter{Further Discussions and Research Gaps}
 \label{chap:discussion}
-Several avenues exist for future improvement.  First, the segmentation algorithm currently operates greedily with fixed thresholds while experimenting with
+Several avenues exist for future improvement.  First, the segmentation algorithm currently operates with fixed thresholds. Experimenting with
 dynamic programming approaches or machine learning models could yield more robust boundaries, particularly in complex urban environments.  Second, the
-Training Suitability Score could be enhanced by incorporating additional data sources such as live traffic volumes, air quality indices and weather
+Training Suitability Score could be improved upon by incorporating additional data sources such as live traffic volumes, air quality indices and weather
 forecasts, all of which influence the quality of a ride but were outside the scope of this study.  Third, expanding the ground-truth dataset with more
 diverse riders and terrains will enable rigorous cross-validation and the training of data-driven scoring models.  Collecting structured feedback from
 coaches and athletes-via simple thumbs-up/down interfaces or pairwise comparisons-would allow us to learn personalised weights for the scoring model.
+Any other time-series or distance-series data from routes could be taken and implemented into the algorithm, as the main functionality of this project is
+discrete signal analysis at the end of it all.
 
 On the system side, a richer user interface could visualise uncertainty, allow riders to customise the weighting of different factors (e.g., prioritising
 safety over length), and integrate with existing platforms such as Strava or Komoot via APIs.  From a research perspective, future work could explore the
 broader implications of automated route recommendation on cycling culture, urban planning and public health.  Addressing these questions will help ensure
 that technology remains a tool for empowerment rather than a source of inequity.
 
-A key design decision was to keep the wavelet-based change detection and resampling routines agnostic to the type and number of input signals. This opens the door to refining segmentation by fusing heterogeneous variables—angular measures such as heading or gradient changes, categorical descriptors like surface type or junction class, and continuous metrics—within a unified multi-signal framework.
-
-\section{Deferred Code Implementations}
-\label{sec:unused-code}
-Several modules were built during development but have not yet been integrated into the main pipeline. This section documents these dormant
-features and outlines how future versions could incorporate them.
-
-The wavelet and resampling utilities were intentionally implemented to accept multiple concurrent signals. Although the current pipeline feeds them single streams, they can operate over angular inputs, categorical road attributes and other derived variables in parallel. Wiring these capabilities into the segmentation engine would enable more nuanced segment boundaries and facilitate experiments with alternative segmentation strategies.
-% TODO: Enumerate and describe the unused code segments, explaining their intended roles and integration plans.
+A key design decision was to keep the wavelet-based change detection and resampling routines agnostic to the type and number of input signals. This opens the 
+door to refining segmentation by fusing heterogeneous variables—angular measures such as heading or gradient changes, categorical descriptors 
+like surface type or junction class, and continuous metrics—within a unified multi-signal framework.
 
 \newpage
 \bibliography{references}
