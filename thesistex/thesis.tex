@@ -697,14 +697,13 @@ be considered less important over functionality.
 
 \subsection{Specific Requirements}
 \label{sec:specific}
-\subsubsection{External Interface Requirements}
-\paragraph{User Interfaces} Description of UI requirements.\\
+\paragraph{User Interface Requirements:} Description of UI requirements.\\
 The user interface only requires two features:
 \begin{enumerate}
 	\item The ability to upload GPX files to the server
-	\item The ability to map a route via any interactive map service (Mapbox, Leaflet.js or Folium \citeyearpar{folium}.py).
+	\item The ability to map a route via any interactive map service (Mapbox, leaflet.js or folium.py).
 \end{enumerate}
-\paragraph{Software Interfaces} APIs and protocols.\\
+\paragraph{Software Interface Requirements:} APIs and protocols.\\
 The system will link the front and back ends with a RESTful API. Also it is important to choose a front end framework
 that supports uploading multiple relatively large files (between 5-10MB each). Since a lot of the application is written in Python,
 Flask is a good option for this.
@@ -776,12 +775,12 @@ The non-functional requirements of the system are as follows:
 \subsubsection{Logical Database Requirements}
 \begin{table}[h!]
         \centering
-        \begin{tabular}{|l|p{5cm}|l|l|l|p{4cm}|}
+        \begin{tabular}{|l|p{5cm}|l|l|p{4cm}|}
                 \hline
-                \textbf{Requirement ID} & \textbf{Description} & \textbf{Type} & \textbf{Priority} & \textbf{Source} & \textbf{Notes} \\
+                \textbf{Requirement ID} & \textbf{Description} & \textbf{Type} & \textbf{Priority} & \textbf{Source} \\
                 \hline
-                DBR-01 & Store segment definitions with unique identifiers & Data & High & Design & Ensures each segment can be referenced. \\
-                DBR-02 & Record Training Stress Scores for each segment occurrence & Data & Medium & Analysis & Enables performance tracking. \\
+                DBR-01 & Store segment definitions with unique identifiers & Data & High & Design \\
+                DBR-02 & Record Training Stress Scores for each segment occurrence & Data & Medium & Analysis \\
                 \hline
         \end{tabular}
         \caption{Database Requirements}
@@ -797,9 +796,9 @@ it can just be ignored.
 As a proof-of-concept system, the availability of the system is only when required for testing and presenting.
 
 \paragraph{Security}
-Security isn't as important for the proof of concept, but a lot of standard considerations can be made that relate to LAMP stack web applications:
+Security isn't as important for this proof of concept, but a lot of standard considerations can be made that relate to LAMP stack web applications:
 \begin{itemize}
-	\item All HTTP endpoints \emph{must} require HTTPS/TLS.
+	\item All external HTTP endpoints \emph{must} require HTTPS/TLS.
 	\item Uploaded GPX files \emph{shall} be scanned for XML schema compliance to prevent malicious payloads.
 	\item System is interconnected on a private, secure network. Only accessable by the web host.
 	\item Enforce TLS 1.2+, HSTS, OCSP Stapling, and complex ciphers.
@@ -815,20 +814,22 @@ Security isn't as important for the proof of concept, but a lot of standard cons
 
 \paragraph{Maintainability}
 Every component of the system will be independent, and input and output formats are documented in the documentation in \ref{chap:appendix}.
+Each piece of software used (detailed in Operating Environment) should be kept up to date for security features, but should be versioned so that
+if an update breaks the software, it can be rolled back.
 
 \paragraph{Portability}
-The whole project will be made available via GitHub, and possibly a dockerized version of the system will be developed in the future for portability.
+The whole project will be made available via GitHub, and possibly a fully dockerized version of the system will be developed in the future for portability.
+Since the program runs on a specific flavour of Linux (arch), the environment must be fully replicated at the moment in order to work. Dockerising
+should solve this (although since we use Docker already, we would need to create a Docker network to communicate between components).
 
-\section{Standards and Compliance}
-\label{sec:standards}
-% List standards adhered to.
+
 
 \chapter{Implementation}
 \label{chap:implement}
 % % Chronological methodology
 
 % === Project Timeline ===
-\subsection*{Project Timeline}
+\section{Project Timeline}
 Below is the high-level timeline for the project, showing completed milestones in grey and remaining tasks in bold.
 \begin{itemize}
 	\item Week 1-2: Finalise research questions \& write proposal
@@ -842,6 +843,11 @@ Below is the high-level timeline for the project, showing completed milestones i
 	\item **Week 10 (now): Add critical reflection, finalize lessons learned**
 	\item **Final days: Produce timeline figure/Gantt and polish usability discussion**
 \end{itemize}
+
+%TODO: Insert rest of implementation here
+
+
+
 
 \chapter{Design}
 \label{chap:design}
@@ -858,8 +864,7 @@ Users can also query the system by drawing a prospective route, and will get in 
 with their score. The main architectural challenge in this system is to detect and match route segments directionally (direction matters),
 while also considering reliability.
 \section{Architectural Design}
-The overview of the system is presented in Figure \ref{fig:archdiagram}.
-Present a high-level system architecture diagram using UML or SysML.
+The overview of the system is presented in Figure \ref{fig:archdiagram}. It shows the major components of the system and how they will interact.
 
 \begin{figure}[htbp!]
 	\centering
@@ -883,26 +888,7 @@ The architectural concept of the system can be broken down into 3 layers:
 	      but are mostly abstracted away, in the processing layer.
 \end{itemize}
 \subsubsection{Functional View}
-The functional view includes key modules and their responsibilities.
-\begin{itemize}
-	\item \textbf{Front end Web App:} Serves HTTP pages and gets information from the user.
-	\item \textbf{Front End Controller:} Takes user information and routes it to correct API endpoint.
-	\item \textbf{Input Pipeline Orchestrator:} Controller that handles input information routing, sending the GPX files to the pipeline,
-	      and pulling the resulting GeoJSON objects out.
-	\item \textbf{Engine Orchestrator:} Takes routes, passes them to Segmentation algorithm, and handles the "two pass" system between
-	      Segmentation and TSS Engines.
-	\item \textbf{DTO Orchestrator:} Formats the resulting segments, into the correct Data Object and passes it to SQL Database
-	\item \textbf{Output Pipeline Orchestrator:} Receives the Route data from the Input Pipeline Orchestrator, validates it and sends it to
-	      Segmentation Engine. Gets segment list, and routes it back to front end in GeoJson format.
-	\item \textbf{Segmentation Engine:} Written in C++, the engine is a specialized service that performs route segmentation and matching logic.
-	\item \textbf{TSS Engine:} Takes a list of segments and the input GPX data, and assigns scores based on the training data that
-	      happens during each segment
-	\item \textbf{SQL Database:} Stores all persistent segments, along with a hit count, and a list of TSS objects that have been
-	      calculated on matching segments.
-	\item \textbf{Osmium Engine:} A docker service that runs a .osm to .pbf conversion and merging process. Used in the input pipeline
-	\item \textbf{OSRM Matching Engine:} Another docker service that takes small GeoJson chunks, and matches them to a map network.
-\end{itemize}
-
+The function of the system is enabled by the following sub-components:
 \begin{table}[H]
         \centering\small
         \caption{Architectural Views - structured summary}
@@ -940,16 +926,17 @@ container topology and resource requirements, but are omitted here for brevity.
 Use case and sequence diagrams for the system
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{usecase.png}
+  \includegraphics[width=0.9\textwidth]{usecase.png}
   \caption{Use Case diagram for the Route Segmentation System}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\linewidth]{sequence.png}
+  \includegraphics[width=0.6\textwidth]{sequence.png}
   \caption{Sequence diagram of upload, segmentation, and visualization flow}
 \end{figure}
 
+\section{Design Philosophy}
 \subsection{Design Rationale}
 The choice to go with a \textbf{Pipeline Architecture} for processing data is motivated by the main use case. Users who are looking to find a route to
 ride are not interested in uploading GPX, but conversely, users who are done with their ride aren't looking to find a route. So cyclists can
@@ -968,14 +955,39 @@ GeoJSON, mirroring the "pipes and filters" pattern: each Python module performs 
 and emits a well-defined intermediate representation for the next stage.  The segmentation engine itself is implemented in C++ as a microservice with a
 single responsibility, exposing REST endpoints via a lightweight HTTP server (cpp-httplib).  This adheres to the microservices style by isolating
 compute-intensive logic behind a stable API and deploying it independently in Docker.  Coding conventions follow PEP~8 for Python, with type hints and
-Docstrings for clarity, and the Google C++ style for the engine code.  Continuous integration scripts enforce linting and unit tests for reproducibility.
+Docstrings for clarity, and the Google C++ style for the engine code.  Continuous integration scripts enforce linting and testing was done after each module implementation.
+
 \section{Module-Level Design}
-This section details the conceptual modules that comprise the Training Suitability System.
+This section details the conceptual modules that comprise the Training Suitability System. This is different to components; the components
+enable the functionality of the modules.
 \label{sec:moduledesign}
 \subsection{GPX-to-Enriched-JSON Pipeline Modules}
 The processing layer is decomposed into small, focused modules so that each step can be reasoned about and tested in isolation.
 Figure~\ref{fig:moduledeps} gives the high level dependency chain.
 
+\subsubsection{Module Specifications}
+\begin{longtable}{p{3cm}p{3cm}p{3cm}p{5cm}}
+\toprule
+Module & Inputs & Outputs & Responsibility \\
+\midrule
+GPX Reader & GPX file & waypoint list & Parse GPX XML and normalise track points \\
+Map Matcher & waypoint list & matched geometry & Aligns GPS track to OSM network via OSRM \\
+Enricher & matched geometry & enriched GeoJSON & Augments geometry with OSM metadata and sensor readings \\
+Segmentation Engine & enriched GeoJSON & segment list & Detects homogeneous route segments \\
+TSS Engine & segment list, activity data & scored segments & Computes Training Suitability Score per segment \\
+DB Adapter & scored segments & persistence records & Persists segment definitions and statistics \\
+\bottomrule
+\end{longtable}
+
+\paragraph{Module Summaries}
+\begin{itemize}
+  \item \textbf{GPX Reader} normalises timestamps and coordinates into an internal list of points.
+  \item \textbf{Map Matcher} uses OSRM to snap the points to the OpenStreetMap network and returns a cleaned geometry.
+  \item \textbf{Enricher} fetches contextual attributes for each way (class, speed limit, junction density).
+  \item \textbf{Segmentation Engine} implements the two-pass algorithm that groups points into contiguous segments.
+  \item \textbf{TSS Engine} analyses rider power and route context to derive per-zone suitability scores.
+  \item \textbf{DB Adapter} converts segments into Data Transfer Objects and writes them to the SQL schema.
+\end{itemize}
 \subsubsection{Module Dependency Diagram}
 \begin{figure}[H]
   \centering
@@ -1004,31 +1016,6 @@ Figure~\ref{fig:moduledeps} gives the high level dependency chain.
   \caption{Module dependency diagram for the processing pipeline}
   \label{fig:moduledeps}
 \end{figure}
-
-
-\subsubsection{Module Specifications}
-\begin{longtable}{p{3cm}p{3cm}p{3cm}p{5cm}}
-\toprule
-Module & Inputs & Outputs & Responsibility \\
-\midrule
-GPX Reader & GPX file & waypoint list & Parse GPX XML and normalise track points \\
-Map Matcher & waypoint list & matched geometry & Aligns GPS track to OSM network via OSRM \\
-Enricher & matched geometry & enriched GeoJSON & Augments geometry with OSM metadata and sensor readings \\
-Segmentation Engine & enriched GeoJSON & segment list & Detects homogeneous route segments \\
-TSS Engine & segment list, activity data & scored segments & Computes Training Suitability Score per segment \\
-DB Adapter & scored segments & persistence records & Persists segment definitions and statistics \\
-\bottomrule
-\end{longtable}
-
-\paragraph{Module Summaries}
-\begin{itemize}
-  \item \textbf{GPX Reader} normalises timestamps and coordinates into an internal list of points.
-  \item \textbf{Map Matcher} uses OSRM to snap the points to the OpenStreetMap network and returns a cleaned geometry.
-  \item \textbf{Enricher} fetches contextual attributes for each way (class, speed limit, junction density).
-  \item \textbf{Segmentation Engine} implements the two-pass algorithm that groups points into contiguous segments.
-  \item \textbf{TSS Engine} analyses rider power and route context to derive per-zone suitability scores.
-  \item \textbf{DB Adapter} converts segments into Data Transfer Objects and writes them to the SQL schema.
-\end{itemize}
 
 \section{Interface Design}
 \subsection{User Interface}
@@ -1396,8 +1383,8 @@ database.  In future work these rules could be replaced with a learned ordinal r
 \chapter{Results and Conclusions}
 \section{Testing and Results}
 Evaluation of the system consisted of both functional testing of the individual components and empirical assessment of the quality of the generated
-segments and scores.  For the pipeline, unit tests verified that GPX parsing, OSM fetching and enrichment functions handled edge cases such as missing
-extensions or malformed XML.  Integration tests exercised the entire pipeline on a set of twenty publicly available rides covering flat urban loops,
+segments and scores.  For the pipeline, a large GPX library verified that GPX parsing, OSM fetching and enrichment functions handled edge cases such as missing
+extensions or malformed XML.  Integration tests exercised the entire pipeline on a set of twenty rides covering flat urban loops,
 rolling countryside routes and mountainous climbs.  Processing time was measured at approximately 12~s per hour of ride on a consumer laptop (Lenovo Thinkpad
 L480) when parallelising OSRM queries, and appoximately 5 seconds per hour on a more powerful AMD Ryzen 7 processor.
 
